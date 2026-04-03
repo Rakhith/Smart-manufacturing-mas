@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# Virtual environments
+mas_venv/
+venv/
+.venv/
+env/
+
+# Environment secrets
+.env
+
+# Logs and output
+logs/*.json
+logs/*.txt
+*.log
+
+# Model cache (large binary files)
+model_cache/*.pkl
+
+# Data files (add your CSV datasets manually)
+data/**/*.csv
+
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+*.swp

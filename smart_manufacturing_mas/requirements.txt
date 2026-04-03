@@ -1,0 +1,23 @@
+# Core ML & data
+pandas>=1.5.0
+numpy>=1.23.0
+scikit-learn>=1.2.0
+scipy>=1.10.0
+
+# Google Gemini (Cloud LLM - Tier 1)
+google-generativeai>=0.3.0
+
+# Local LLM support (Tier 2 - pick what you need)
+ollama>=0.1.0           # Ollama Python client (recommended for edge)
+# transformers>=4.30.0  # HuggingFace transformers (R&D use)
+# torch>=2.0.0          # Required by transformers
+# llama-cpp-python>=0.2.0  # GGUF CPU inference (resource-constrained edge)
+
+# Utilities
+python-dotenv>=1.0.0
+joblib>=1.2.0           # Model serialization for cache
+
+# Optional: for web HITL interface
+# fastapi>=0.100.0
+# uvicorn>=0.22.0
+# websockets>=11.0
