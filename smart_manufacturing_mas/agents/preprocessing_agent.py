@@ -138,6 +138,19 @@ class PreprocessingAgent:
         X = self.data.drop(columns=[self.target_column])
         y = self.data[self.target_column]
 
+        # Drop non-numeric columns before feature analysis:
+        # - Identifier columns (ID, Machine_ID, etc.)
+        # - Timestamp columns (Timestamp, DateTime, etc.)
+        # - Categorical object/string columns (Operation_Mode, Status, etc.)
+        id_cols = [col for col in X.columns if 'ID' in col.upper() and col not in self.protected_columns]
+        timestamp_cols = [col for col in X.columns if col.lower() in ('timestamp', 'datetime', 'date', 'time')]
+        categorical_cols = [col for col in X.columns if X[col].dtype in ('object', 'str', 'string', 'category')]
+        cols_to_drop = list(set(id_cols + timestamp_cols + categorical_cols))
+        
+        if cols_to_drop:
+            logging.info(f"Dropping non-numeric columns for feature analysis: {sorted(cols_to_drop)}")
+            X = X.drop(columns=cols_to_drop)
+
         self.feature_analyzer = IntelligentFeatureAnalyzer(self.target_column, self.problem_type)
         self.feature_insights = self.feature_analyzer.analyze_features(X, y)
 
@@ -214,7 +227,9 @@ class PreprocessingAgent:
         if categorical_pipeline and low_cardinality_features:
             transformers.append(('cat', categorical_pipeline, low_cardinality_features))
 
-        preprocessor = ColumnTransformer(transformers=transformers, remainder='passthrough')
+        # Use remainder='drop' to exclude high-cardinality and other non-selected columns
+        # (e.g., timestamp, high-cardinality categorical features)
+        preprocessor = ColumnTransformer(transformers=transformers, remainder='drop')
         logging.info(f"Preprocessing pipeline created with {len(transformers)} transformer(s).")
         return preprocessor
 
@@ -234,6 +249,12 @@ class PreprocessingAgent:
                 col for col in self.data.columns
                 if 'ID' in col.upper() and col not in self.protected_columns
             ]
+
+            # Drop timestamp columns (they're not useful for ML models)
+            for col in self.data.columns:
+                if col.lower() in ('timestamp', 'datetime', 'date', 'time') and col not in self.protected_columns:
+                    cols_to_drop.append(col)
+                    logging.info(f"Dropping timestamp column '{col}'.")
 
             for feature in categorical_features:
                 if feature not in self.protected_columns:

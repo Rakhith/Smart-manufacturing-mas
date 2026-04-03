@@ -2,6 +2,25 @@
 
 Hybrid Agentic AI and Multi-Agent System for Prescriptive Maintenance in Smart Manufacturing.
 
+An intelligent Multi-Agent System for predictive maintenance and optimization in smart manufacturing. Uses LLM-powered orchestration to automatically load, preprocess, analyze, and generate prescriptive recommendations from manufacturing data.
+
+## 🚀 Features
+
+- **LLM-Powered Orchestration**: Intelligent workflow planning using Google Gemini or local LLMs (Ollama/LlamaCpp)
+- **Rules-First Pipeline**: Deterministic preprocessing + Reflexion-based LLM interpretation
+- **Adaptive Intelligence**: Automatic model selection and performance optimization
+- **Multi-Model Analysis**: Supports classification, regression, and anomaly detection
+- **Prescriptive Recommendations**: Actionable maintenance suggestions with priority ranking
+- **Human-in-the-Loop**: Interactive approval workflow for critical decisions
+- **Model Persistence**: Hash-keyed caching of trained models
+- **Comprehensive Logging**: Detailed audit trails and performance metrics
+
+## 📋 Prerequisites
+
+- **Python**: 3.8 or higher
+- **API Key**: Google Gemini API key (optional if using local LLMs)
+- **Ollama** or **LlamaCpp**: Optional, for local LLM support
+
 ## Architecture
 
 **Three-Tier Intelligence Hierarchy:**
@@ -19,7 +38,62 @@ Hybrid Agentic AI and Multi-Agent System for Prescriptive Maintenance in Smart M
 - SLM 3b (Anomaly Params): ✅ **RETAINED** — only remaining SLM call
 - SLM 4 (Summary): **ELIMINATED** — Cloud LLM Reflexion loop
 
-## Quick Start
+## 🛠️ Installation
+
+### 1. Clone the Repository
+
+```bash
+git clone <repository-url>
+cd smart_manufacturing_mas
+```
+
+### 2. Create Virtual Environment
+
+```bash
+# Create virtual environment
+python3 -m venv mas_venv
+
+# Activate virtual environment
+# On macOS/Linux:
+source mas_venv/bin/activate
+# On Windows:
+mas_venv\Scripts\activate
+```
+
+### 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Set Up Environment Variables (Optional)
+
+If using Google Gemini, create a `.env` file:
+
+```bash
+cp .env.example .env
+# Edit .env and add GEMINI_API_KEY=your_key
+```
+
+### 5. Install Ollama or LlamaCpp (Optional - for Local LLMs)
+
+**Ollama:**
+```bash
+# Install Ollama
+curl -fsSL https://ollama.ai/install.sh | sh
+
+# Pull a model (example with Qwen3)
+ollama pull qwen3:4b
+```
+
+**LlamaCpp:**
+```bash
+# Download pre-quantized models from huggingface.co
+# Place .gguf files in a models/ directory
+# Reference with --decision-model /path/to/model.Q4_K_M.gguf
+```
+
+## 🎯 Quick Start
 
 ```bash
 # 1. Clone and set up
@@ -114,6 +188,54 @@ python main_llm.py --mode rules-first \
   --target Maintenance_Priority --invalidate-cache
 ```
 
+## 🐛 Troubleshooting
+
+### Common Issues
+
+**1. Import Errors**
+```bash
+# Make sure virtual environment is activated
+source mas_venv/bin/activate
+
+# Verify installation
+pip list | grep scikit-learn
+```
+
+**2. API Key Issues**
+```bash
+# Check .env file exists
+cat .env
+
+# Verify API key is valid
+python -c "import google.generativeai as genai; genai.configure(api_key='your_key')"
+```
+
+**3. Ollama Connection Issues**
+```bash
+# Start Ollama service
+ollama serve
+
+# Test model availability
+ollama list
+```
+
+**4. Dataset Issues**
+```bash
+# Verify dataset path
+ls -la data/
+
+# Check CSV format
+head -5 data/Smart_Manufacturing_Maintenance_Dataset/smart_maintenance_dataset.csv
+```
+
+### Debug Mode
+
+Enable detailed logging:
+```bash
+export LOG_LEVEL=DEBUG
+python main_llm.py --mode rules-first --auto-detect --auto
+```
+
 ## Project Structure
 
 ```
@@ -161,3 +283,21 @@ smart_manufacturing_mas/
 | Optional PCA | `agents/preprocessing_agent.py` | `--use-pca` |
 | Finish-sentinel fix | `agents/llm_planner_agent.py` | (always active) |
 | Machine_ID pass-through fix | `agents/llm_planner_agent.py` | (always active) |
+
+## 📖 Learn More
+
+- [Detailed Usage Guide](documentation/usage_guide.md)
+- [Architecture and Workflow](documentation/architecture_and_workflow.md)
+- [Adaptive Intelligence System](documentation/adaptive_intelligence_system.md)
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these guidelines:
+1. Create a feature branch
+2. Add tests for new functionality
+3. Update documentation
+4. Submit a pull request
+
+---
+
+**Ready to get started?** Run `python main_llm.py` to begin your first analysis!

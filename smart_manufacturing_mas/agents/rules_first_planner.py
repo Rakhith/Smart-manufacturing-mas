@@ -268,14 +268,16 @@ class RulesFirstPlannerAgent:
             return False
 
         protected = list(self.feature_columns or [])
-        # Include any ID columns as protected (pass-through)
-        id_passthrough = [
-            c for c in self.raw_data.columns
-            if ('ID' in c.upper() or c.lower() in ('machine', 'asset', 'unit'))
-            and c not in protected
-            and c != self.target_column
-        ]
-        protected = protected + id_passthrough
+        # For anomaly detection, include ID columns as protected (pass-through).
+        # For other problem types, ID columns should be dropped (not protected).
+        if self.problem_type == "anomaly_detection":
+            id_passthrough = [
+                c for c in self.raw_data.columns
+                if ('ID' in c.upper() or c.lower() in ('machine', 'asset', 'unit'))
+                and c not in protected
+                and c != self.target_column
+            ]
+            protected = protected + id_passthrough
 
         agent = PreprocessingAgent(
             data=self.raw_data,
