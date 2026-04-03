@@ -36,6 +36,7 @@ from sklearn.preprocessing import (
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from utils.tool_decider import ToolDecider, create_data_summary, get_tool_decider
 from utils.intelligent_feature_analysis import IntelligentFeatureAnalyzer
+from utils.column_utils import is_identifier_column
 
 logging.basicConfig(level=logging.INFO, format='[%(asctime)s] [%(levelname)s] - %(message)s')
 
@@ -102,8 +103,7 @@ class PreprocessingAgent:
             kept_identifiers: List[str] = []
             protected_set = set(self.protected_columns)
             for feature in list(numerical_features):
-                upper = feature.upper()
-                if ('ID' in upper or upper.endswith('_ID') or upper == 'ID') and feature in protected_set:
+                if is_identifier_column(feature) and feature in protected_set:
                     kept_identifiers.append(feature)
                     numerical_features.remove(feature)
 
@@ -142,7 +142,7 @@ class PreprocessingAgent:
         # - Identifier columns (ID, Machine_ID, etc.)
         # - Timestamp columns (Timestamp, DateTime, etc.)
         # - Categorical object/string columns (Operation_Mode, Status, etc.)
-        id_cols = [col for col in X.columns if 'ID' in col.upper() and col not in self.protected_columns]
+        id_cols = [col for col in X.columns if is_identifier_column(col) and col not in self.protected_columns]
         timestamp_cols = [col for col in X.columns if col.lower() in ('timestamp', 'datetime', 'date', 'time')]
         categorical_cols = [col for col in X.columns if X[col].dtype in ('object', 'str', 'string', 'category')]
         cols_to_drop = list(set(id_cols + timestamp_cols + categorical_cols))
@@ -247,7 +247,7 @@ class PreprocessingAgent:
             # ── Determine columns to drop ─────────────────────────────────
             cols_to_drop = [
                 col for col in self.data.columns
-                if 'ID' in col.upper() and col not in self.protected_columns
+                if is_identifier_column(col) and col not in self.protected_columns
             ]
 
             # Drop timestamp columns (they're not useful for ML models)
@@ -284,7 +284,7 @@ class PreprocessingAgent:
             # Keep identifier columns as pass-through (no encoding)
             passthrough_ids: List[str] = []
             for col in self.protected_columns:
-                if col in categorical_features and 'ID' in col.upper():
+                if col in categorical_features and is_identifier_column(col):
                     passthrough_ids.append(col)
                     logging.info(f"Keeping identifier '{col}' as pass-through.")
             if passthrough_ids:

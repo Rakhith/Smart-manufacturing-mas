@@ -54,6 +54,7 @@ from utils.auto_detect import (
     needs_hitl_confirmation,
     suggest_target_column,
 )
+from utils.column_utils import is_identifier_column
 from utils.model_cache import ModelCache
 from utils.hitl_interface import HitlInterface, get_hitl_interface
 
@@ -180,7 +181,7 @@ class RulesFirstPlannerAgent:
         logging.info("── Step 0: Resolving problem type & target column")
 
         try:
-            sample = pd.read_csv(self.dataset_path, nrows=200)
+            sample = pd.read_csv(self.dataset_path, nrows=5000)
         except Exception as exc:
             logging.error(f"Cannot read dataset for auto-detection: {exc}")
             return False
@@ -207,9 +208,47 @@ class RulesFirstPlannerAgent:
 
         if self.problem_type == "anomaly_detection":
             self.target_column = None
+        else:
+            self._log_target_signal_diagnostics(sample)
 
         self._timings["step0_resolve"] = round(time.time() - t0, 3)
         return True
+
+    def _log_target_signal_diagnostics(self, sample_df: pd.DataFrame) -> None:
+        """Emit a quick warning when the selected supervised target appears weakly predictable."""
+        if not self.target_column or self.target_column not in sample_df.columns:
+            return
+
+        target = self.target_column
+        y = sample_df[target]
+        if not pd.api.types.is_numeric_dtype(y):
+            return
+
+        feature_candidates = [
+            c for c in sample_df.columns
+            if c != target
+            and pd.api.types.is_numeric_dtype(sample_df[c])
+            and not is_identifier_column(c)
+            and c.lower() not in ("timestamp", "datetime", "date", "time")
+        ]
+        if not feature_candidates:
+            return
+
+        corr = sample_df[feature_candidates + [target]].corr(numeric_only=True)[target].drop(target)
+        if corr.empty:
+            return
+
+        max_abs_corr = float(corr.abs().max())
+        if max_abs_corr < 0.05:
+            suggested = suggest_target_column(sample_df)
+            suggestion_note = (
+                f" Suggested target candidate: '{suggested}'."
+                if suggested and suggested != target else ""
+            )
+            logging.warning(
+                f"Selected target '{target}' has very weak linear signal in sampled numeric features "
+                f"(max |corr|={max_abs_corr:.3f}). Low R² may be expected.{suggestion_note}"
+            )
 
     def _step1_load_data(self) -> bool:
         """Load dataset and select feature + target columns."""
@@ -227,7 +266,7 @@ class RulesFirstPlannerAgent:
             exclude = {self.target_column} if self.target_column else set()
             id_cols = {
                 c for c in full_df.columns
-                if any(kw in c.upper() for kw in ("_ID", "ID_")) or c.upper() == "ID"
+                if is_identifier_column(c)
             }
             self.feature_columns = [
                 c for c in full_df.columns if c not in exclude and c not in id_cols
@@ -243,7 +282,7 @@ class RulesFirstPlannerAgent:
         # Also keep ID columns for Machine_ID pass-through fix
         id_passthrough = [
             c for c in full_df.columns
-            if ('ID' in c.upper() or c.lower() in ('machine', 'asset', 'unit'))
+            if is_identifier_column(c)
             and c not in cols
         ]
         cols = cols + id_passthrough
@@ -273,7 +312,7 @@ class RulesFirstPlannerAgent:
         if self.problem_type == "anomaly_detection":
             id_passthrough = [
                 c for c in self.raw_data.columns
-                if ('ID' in c.upper() or c.lower() in ('machine', 'asset', 'unit'))
+                if is_identifier_column(c)
                 and c not in protected
                 and c != self.target_column
             ]

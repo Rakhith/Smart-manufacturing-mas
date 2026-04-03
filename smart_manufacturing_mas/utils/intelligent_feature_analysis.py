@@ -106,12 +106,23 @@ class IntelligentFeatureAnalyzer:
                     corr_val = X[feature].corr(y)
                 target_correlations[feature] = corr_val
         
+        corr_abs = correlation_matrix.abs()
+        corr_vals = corr_abs.to_numpy(copy=True)
+        np.fill_diagonal(corr_vals, np.nan)
+
+        if corr_vals.size > 0 and not np.isnan(corr_vals).all():
+            max_correlation = float(np.nanmax(corr_vals))
+            avg_correlation = float(np.nanmean(corr_vals))
+        else:
+            max_correlation = 0.0
+            avg_correlation = 0.0
+
         return {
             'correlation_matrix': correlation_matrix,
             'high_correlation_pairs': high_corr_pairs,
             'target_correlations': target_correlations,
-            'max_correlation': correlation_matrix.abs().max().max(),
-            'avg_correlation': correlation_matrix.abs().mean().mean()
+            'max_correlation': max_correlation,
+            'avg_correlation': avg_correlation,
         }
     
     def _analyze_feature_importance(self, X: pd.DataFrame, y: pd.Series) -> Dict[str, Any]:
@@ -200,14 +211,30 @@ class IntelligentFeatureAnalyzer:
         redundant_features = []
         low_variance_features = []
         
-        # Check for low variance features
+        # Check for near-constant features.
+        # Use a strict threshold to avoid dropping bounded but informative features
+        # (for example probabilities in [0, 1] can have variance < 0.01 and still be useful).
         for feature in numeric_features:
-            variance = X[feature].var()
-            if variance < 0.01:  # Low variance threshold
+            series = X[feature].dropna()
+            if series.empty:
+                continue
+
+            variance = float(series.var())
+            std = float(series.std())
+            value_range = float(series.max() - series.min())
+            unique_count = int(series.nunique())
+
+            is_near_constant = (
+                unique_count <= 1
+                or variance < 1e-8
+                or (std < 1e-5 and value_range < 1e-4)
+            )
+
+            if is_near_constant:
                 low_variance_features.append({
                     'feature': feature,
                     'variance': variance,
-                    'reason': 'Very low variance - likely constant'
+                    'reason': 'Feature is near-constant and likely uninformative'
                 })
         
         # Check for highly correlated features

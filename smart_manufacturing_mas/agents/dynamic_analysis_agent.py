@@ -25,7 +25,12 @@ from typing import Any, Dict, List, Optional
 
 import numpy as np
 import pandas as pd
-from sklearn.ensemble import IsolationForest, RandomForestClassifier, RandomForestRegressor
+from sklearn.ensemble import (
+    HistGradientBoostingRegressor,
+    IsolationForest,
+    RandomForestClassifier,
+    RandomForestRegressor,
+)
 from sklearn.linear_model import Lasso, LinearRegression, LogisticRegression, Ridge
 from sklearn.metrics import accuracy_score, classification_report, mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
@@ -33,6 +38,7 @@ from sklearn.svm import SVC, SVR
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from utils.tool_decider import ToolDecider, create_data_summary, get_tool_decider
+from utils.column_utils import is_identifier_column
 
 logging.basicConfig(level=logging.INFO, format='[%(asctime)s] [%(levelname)s] - %(message)s')
 
@@ -100,7 +106,14 @@ class DynamicAnalysisAgent:
             if self.task == "classification":
                 candidates = ["LogisticRegression", "RandomForestClassifier", "SVC"]
             elif self.task == "regression":
-                candidates = ["LinearRegression", "Ridge", "Lasso", "RandomForestRegressor", "SVR"]
+                candidates = [
+                    "LinearRegression",
+                    "Ridge",
+                    "Lasso",
+                    "HistGradientBoostingRegressor",
+                    "RandomForestRegressor",
+                    "SVR",
+                ]
             else:
                 candidates = ["RandomForestClassifier", "LogisticRegression", "SVC"]
 
@@ -167,6 +180,8 @@ class DynamicAnalysisAgent:
         """Sweep all model families and return the best-performing results."""
         logging.info("🧠 ADAPTIVE INTELLIGENCE: Trying multiple models for better performance...")
 
+        n_rows = len(self.data)
+
         if self.task == "classification":
             candidates = [
                 ("RandomForestClassifier", self._run_random_forest),
@@ -178,9 +193,13 @@ class DynamicAnalysisAgent:
                 ("LinearRegression",       self._run_linear_regression),
                 ("Ridge",                  self._run_ridge),
                 ("Lasso",                  self._run_lasso),
+                ("HistGradientBoostingRegressor", self._run_hist_gradient_boosting_regressor),
                 ("RandomForestRegressor",  self._run_random_forest_regressor),
                 ("SVR",                    self._run_svr),
             ]
+            if n_rows > 30_000:
+                candidates = [c for c in candidates if c[0] != "SVR"]
+                logging.info("Large dataset detected — skipping SVR during adaptive retry.")
         else:
             return None
 
@@ -226,6 +245,7 @@ class DynamicAnalysisAgent:
             "LogisticRegression":     self._run_logistic_regression,
             "SVC":                    self._run_svc,
             "RandomForestRegressor":  self._run_random_forest_regressor,
+            "HistGradientBoostingRegressor": self._run_hist_gradient_boosting_regressor,
             "LinearRegression":       self._run_linear_regression,
             "Ridge":                  self._run_ridge,
             "Lasso":                  self._run_lasso,
@@ -241,7 +261,7 @@ class DynamicAnalysisAgent:
     def _get_X_y(self):
         """Return (X, y) with target and ID columns removed from X."""
         X = self.data.drop(columns=[self.target_column])
-        id_cols = [c for c in X.columns if 'ID' in c.upper()]
+        id_cols = [c for c in X.columns if is_identifier_column(c)]
         if id_cols:
             logging.info(f"Dropping ID columns from model training: {id_cols}")
             X = X.drop(columns=id_cols)
@@ -311,6 +331,7 @@ class DynamicAnalysisAgent:
             n_estimators=hp.get("n_estimators", 100),
             max_depth=hp.get("max_depth", None),
             random_state=hp.get("random_state", 42),
+            n_jobs=-1,
         )
         self.model_name = "RandomForestRegressor"
         self.model.fit(X_train, y_train)
@@ -323,6 +344,21 @@ class DynamicAnalysisAgent:
             "X_test": X_test, "y_test": y_test,
             "feature_importances": self.model.feature_importances_,
             "feature_names": X.columns.tolist(),
+        }
+
+    def _run_hist_gradient_boosting_regressor(self) -> Dict[str, Any]:
+        X, y = self._get_X_y()
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+        self.model = HistGradientBoostingRegressor(random_state=42)
+        self.model_name = "HistGradientBoostingRegressor"
+        self.model.fit(X_train, y_train)
+        preds = self.model.predict(X_test)
+        mse, r2 = mean_squared_error(y_test, preds), r2_score(y_test, preds)
+        logging.info(f"HistGradientBoostingRegressor — R²={r2:.4f}, MSE={mse:.4f}")
+        return {
+            "model": "HistGradientBoostingRegressor", "mse": mse, "r2": r2,
+            "predictions": preds, "train_predictions": self.model.predict(X_train),
+            "X_test": X_test, "y_test": y_test, "feature_names": X.columns.tolist(),
         }
 
     def _run_linear_regression(self) -> Dict[str, Any]:
@@ -395,7 +431,7 @@ class DynamicAnalysisAgent:
         logging.info(f"IsolationForest — contamination={contamination}, n_estimators={n_estimators}")
 
         X = self.data.copy()
-        id_cols = [c for c in X.columns if 'ID' in c.upper()]
+        id_cols = [c for c in X.columns if is_identifier_column(c)]
         if id_cols:
             logging.info(f"Excluding ID columns from anomaly model: {id_cols}")
             X = X.drop(columns=id_cols)

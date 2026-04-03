@@ -11,6 +11,7 @@ from agents.optimization_agent import OptimizationAgent
 from utils.hitl_interface import get_hitl_interface, HitlInterface
 from utils.reporting import create_reporter, WorkflowReporter
 from utils.intelligent_summarization import create_summarizer, IntelligentSummarizer
+from utils.column_utils import is_identifier_column
 import pandas as pd
 import numpy as np
 import json
@@ -523,7 +524,7 @@ class LLMPlannerAgent:
         # Keep only selected columns (features + target for supervised, just features for anomaly detection)
         if self.problem_type == 'anomaly_detection':
             # For anomaly detection, auto-include ID columns if they exist and weren't selected
-            id_columns = [col for col in self.raw_data.columns if 'ID' in col.upper() or col.lower().endswith('_id') or col.lower() == 'id']
+            id_columns = [col for col in self.raw_data.columns if is_identifier_column(col)]
             id_columns_to_add = [col for col in id_columns if col not in self.feature_columns]
             if id_columns_to_add:
                 logging.info(f"Auto-including ID columns for anomaly detection: {id_columns_to_add}")
@@ -576,7 +577,7 @@ class LLMPlannerAgent:
             # Fixes unique_machines=1 / Machine Unknown bug (live run slide D/E).
             id_passthrough = [
                 col for col in self.raw_data.columns
-                if ("ID" in col.upper() or col.lower() in ("machine", "asset", "unit"))
+                if is_identifier_column(col)
                 and col not in self.feature_columns
                 and col != self.target_column
             ]

@@ -162,17 +162,39 @@ def suggest_target_column(df: pd.DataFrame) -> Optional[str]:
     if df.empty or len(df.columns) == 0:
         return None
 
-    keywords = [
-        "target", "label", "class", "priority", "status",
-        "outcome", "fault", "failure", "anomaly", "efficiency",
-        "maintenance", "y",
-    ]
-    for col in df.columns:
-        if any(kw in col.lower() for kw in keywords):
-            logger.info(f"[AutoDetect] Suggested target column by keyword match: '{col}'")
-            return col
+    def score_column(name: str) -> int:
+        n = name.lower()
+        score = 0
 
-    last = df.columns[-1]
+        # Strong target markers (highest priority)
+        strong = ("target", "label", "class", "status", "outcome")
+        if any(tok in n for tok in strong):
+            score += 100
+
+        # Common predictive-task markers
+        medium = ("priority", "failure", "fault", "anomaly", "efficiency")
+        if any(tok in n for tok in medium):
+            score += 45
+
+        # Score-like columns can be targets, but are often intermediate features
+        if "score" in n:
+            score += 15
+
+        # Penalize very feature-like names when no stronger marker exists
+        feature_like = ("latency", "loss", "rate", "temp", "temperature", "pressure", "vibration")
+        if any(tok in n for tok in feature_like):
+            score -= 20
+
+        # Slight preference for right-most columns (common dataset convention)
+        return score
+
+    ranked = sorted(df.columns, key=lambda c: score_column(c), reverse=True)
+    if ranked and score_column(ranked[0]) > 0:
+        best = ranked[0]
+        logger.info(f"[AutoDetect] Suggested target column by ranked keyword score: '{best}'")
+        return best
+
+    last = str(df.columns[-1])
     logger.info(f"[AutoDetect] No keyword match — suggesting last column: '{last}'")
     return last
 
