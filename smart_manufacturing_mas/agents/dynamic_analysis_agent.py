@@ -33,7 +33,7 @@ from sklearn.ensemble import (
 )
 from sklearn.linear_model import Lasso, LinearRegression, LogisticRegression, Ridge
 from sklearn.metrics import accuracy_score, classification_report, mean_squared_error, r2_score
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.svm import SVC, SVR
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -274,19 +274,44 @@ class DynamicAnalysisAgent:
         X, y = self._get_X_y()
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
         n = min(100, max(10, len(X_train) // 10))
-        self.model = RandomForestClassifier(n_estimators=n, random_state=42)
+        self.model = RandomForestClassifier(
+            n_estimators=n, 
+            max_depth=15,  # NEW: Add regularization to prevent overfitting
+            min_samples_leaf=5,  # NEW: Require minimum samples per leaf
+            min_samples_split=10,  # NEW: Require minimum samples to split
+            random_state=42
+        )
         self.model_name = "RandomForestClassifier"
         self.model.fit(X_train, y_train)
         preds = self.model.predict(X_test)
         acc = accuracy_score(y_test, preds)
-        logging.info(f"RandomForestClassifier — accuracy={acc:.4f}")
-        return {
+        
+        # NEW: Add cross-validation for more reliable performance estimate
+        try:
+            cv_scores = cross_val_score(self.model, X, y, cv=5, scoring='accuracy')
+            logging.info(
+                f"RandomForestClassifier — test_accuracy={acc:.4f}, "
+                f"cv_accuracy={cv_scores.mean():.4f}±{cv_scores.std():.4f}"
+            )
+        except Exception as e:
+            logging.warning(f"Cross-validation failed: {e}")
+            cv_scores = None
+        
+        results = {
             "model": "RandomForestClassifier", "accuracy": acc,
             "classification_report": classification_report(y_test, preds),
             "predictions": preds, "X_test": X_test, "y_test": y_test,
             "feature_importances": self.model.feature_importances_,
             "feature_names": X.columns.tolist(),
         }
+        
+        # Add cross-validation results if available
+        if cv_scores is not None:
+            results["cv_accuracy"] = cv_scores.mean()
+            results["cv_std"] = cv_scores.std()
+            results["cv_scores"] = cv_scores
+        
+        return results
 
     def _run_logistic_regression(self) -> Dict[str, Any]:
         X, y = self._get_X_y()
@@ -329,7 +354,9 @@ class DynamicAnalysisAgent:
         hp = self.tool_decider.decide_hyperparameters("RandomForestRegressor", "regression", data_summary)
         self.model = RandomForestRegressor(
             n_estimators=hp.get("n_estimators", 100),
-            max_depth=hp.get("max_depth", None),
+            max_depth=min(hp.get("max_depth", 15), 15),  # IMPROVED: Cap depth to prevent overfitting
+            min_samples_leaf=max(hp.get("min_samples_leaf", 5), 5),  # IMPROVED: Enforce minimum leaf size
+            min_samples_split=max(hp.get("min_samples_split", 10), 10),  # IMPROVED: Enforce minimum split size
             random_state=hp.get("random_state", 42),
             n_jobs=-1,
         )
@@ -337,14 +364,33 @@ class DynamicAnalysisAgent:
         self.model.fit(X_train, y_train)
         preds = self.model.predict(X_test)
         mse, r2 = mean_squared_error(y_test, preds), r2_score(y_test, preds)
-        logging.info(f"RandomForestRegressor — R²={r2:.4f}, MSE={mse:.4f}")
-        return {
+        
+        # NEW: Add cross-validation for more reliable performance estimate
+        try:
+            cv_scores = cross_val_score(self.model, X, y, cv=5, scoring='r2')
+            logging.info(
+                f"RandomForestRegressor — test_R²={r2:.4f}, "
+                f"cv_R²={cv_scores.mean():.4f}±{cv_scores.std():.4f}"
+            )
+        except Exception as e:
+            logging.warning(f"Cross-validation failed: {e}")
+            cv_scores = None
+        
+        results = {
             "model": "RandomForestRegressor", "mse": mse, "r2": r2,
             "predictions": preds, "train_predictions": self.model.predict(X_train),
             "X_test": X_test, "y_test": y_test,
             "feature_importances": self.model.feature_importances_,
             "feature_names": X.columns.tolist(),
         }
+        
+        # Add cross-validation results if available
+        if cv_scores is not None:
+            results["cv_r2"] = cv_scores.mean()
+            results["cv_std"] = cv_scores.std()
+            results["cv_scores"] = cv_scores
+        
+        return results
 
     def _run_hist_gradient_boosting_regressor(self) -> Dict[str, Any]:
         X, y = self._get_X_y()
@@ -369,12 +415,31 @@ class DynamicAnalysisAgent:
         self.model.fit(X_train, y_train)
         preds = self.model.predict(X_test)
         mse, r2 = mean_squared_error(y_test, preds), r2_score(y_test, preds)
-        logging.info(f"LinearRegression — R²={r2:.4f}, MSE={mse:.4f}")
-        return {
+        
+        # NEW: Add cross-validation for more reliable performance estimate
+        try:
+            cv_scores = cross_val_score(self.model, X, y, cv=5, scoring='r2')
+            logging.info(
+                f"LinearRegression — test_R²={r2:.4f}, "
+                f"cv_R²={cv_scores.mean():.4f}±{cv_scores.std():.4f}"
+            )
+        except Exception as e:
+            logging.warning(f"Cross-validation failed: {e}")
+            cv_scores = None
+        
+        results = {
             "model": "LinearRegression", "mse": mse, "r2": r2,
             "predictions": preds, "train_predictions": self.model.predict(X_train),
             "X_test": X_test, "y_test": y_test, "feature_names": X.columns.tolist(),
         }
+        
+        # Add cross-validation results if available
+        if cv_scores is not None:
+            results["cv_r2"] = cv_scores.mean()
+            results["cv_std"] = cv_scores.std()
+            results["cv_scores"] = cv_scores
+        
+        return results
 
     def _run_ridge(self) -> Dict[str, Any]:
         X, y = self._get_X_y()
@@ -384,12 +449,31 @@ class DynamicAnalysisAgent:
         self.model.fit(X_train, y_train)
         preds = self.model.predict(X_test)
         mse, r2 = mean_squared_error(y_test, preds), r2_score(y_test, preds)
-        logging.info(f"Ridge — R²={r2:.4f}, MSE={mse:.4f}")
-        return {
+        
+        # NEW: Add cross-validation for more reliable performance estimate
+        try:
+            cv_scores = cross_val_score(self.model, X, y, cv=5, scoring='r2')
+            logging.info(
+                f"Ridge — test_R²={r2:.4f}, "
+                f"cv_R²={cv_scores.mean():.4f}±{cv_scores.std():.4f}"
+            )
+        except Exception as e:
+            logging.warning(f"Cross-validation failed: {e}")
+            cv_scores = None
+        
+        results = {
             "model": "Ridge", "mse": mse, "r2": r2,
             "predictions": preds, "train_predictions": self.model.predict(X_train),
             "X_test": X_test, "y_test": y_test, "feature_names": X.columns.tolist(),
         }
+        
+        # Add cross-validation results if available
+        if cv_scores is not None:
+            results["cv_r2"] = cv_scores.mean()
+            results["cv_std"] = cv_scores.std()
+            results["cv_scores"] = cv_scores
+        
+        return results
 
     def _run_lasso(self) -> Dict[str, Any]:
         X, y = self._get_X_y()
