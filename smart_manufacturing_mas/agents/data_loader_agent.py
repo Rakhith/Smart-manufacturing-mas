@@ -5,6 +5,7 @@ This agent is responsible for loading and inspecting the dataset, providing deta
 """
 
 
+import numpy as np
 import pandas as pd
 import os
 from typing import Optional, Dict, Any
@@ -30,6 +31,64 @@ class DataLoaderAgent:
         self.data: Optional[pd.DataFrame] = None
         logging.info(f"Dataset path set to: {self.dataset_path}")
 
+    @staticmethod
+    def load_dataframe(dataset_path: str, nrows: Optional[int] = None) -> pd.DataFrame:
+        """Load a dataset from CSV or NPZ into a pandas DataFrame."""
+        ext = os.path.splitext(dataset_path)[1].lower()
+        if ext == ".csv":
+            return pd.read_csv(dataset_path, nrows=nrows)
+        if ext == ".npz":
+            return DataLoaderAgent._load_npz_as_dataframe(dataset_path, nrows=nrows)
+        raise ValueError(f"Unsupported dataset format '{ext}'. Supported: .csv, .npz")
+
+    @staticmethod
+    def _load_npz_as_dataframe(dataset_path: str, nrows: Optional[int] = None) -> pd.DataFrame:
+        """Convert NPZ content into a tabular DataFrame when possible."""
+        with np.load(dataset_path, allow_pickle=True) as npz_data:
+            keys = list(npz_data.files)
+            if not keys:
+                raise ValueError("NPZ file has no arrays.")
+
+            # Common ML bundle convention: X (2D features), y (1D target)
+            if "X" in npz_data and "y" in npz_data:
+                X = np.asarray(npz_data["X"])
+                y = np.asarray(npz_data["y"])
+
+                if X.ndim != 2 or y.ndim != 1:
+                    raise ValueError("Expected X as 2D and y as 1D in NPZ file.")
+                if X.shape[0] != y.shape[0]:
+                    raise ValueError("X and y row counts do not match in NPZ file.")
+
+                if nrows is not None:
+                    X = X[:nrows]
+                    y = y[:nrows]
+
+                df = pd.DataFrame(X, columns=[f"X_{i}" for i in range(X.shape[1])])
+                df["y"] = y
+                return df
+
+            arrays = {k: np.asarray(npz_data[k]) for k in keys}
+            candidate_lengths = [arr.shape[0] for arr in arrays.values() if arr.ndim >= 1]
+            if not candidate_lengths:
+                raise ValueError("NPZ file does not contain tabular arrays.")
+
+            n_samples = max(candidate_lengths)
+            if nrows is not None:
+                n_samples = min(n_samples, nrows)
+
+            columns: Dict[str, Any] = {}
+            for key, arr in arrays.items():
+                if arr.ndim == 1 and arr.shape[0] >= n_samples:
+                    columns[key] = arr[:n_samples]
+                elif arr.ndim == 2 and arr.shape[0] >= n_samples:
+                    width = arr.shape[1]
+                    for idx in range(width):
+                        columns[f"{key}_{idx}"] = arr[:n_samples, idx]
+
+            if not columns:
+                raise ValueError("Could not derive a tabular DataFrame from NPZ arrays.")
+            return pd.DataFrame(columns)
+
     def load_data(self) -> Optional[pd.DataFrame]:
         """
         Loads the dataset from the specified path.
@@ -41,7 +100,7 @@ class DataLoaderAgent:
             logging.error(f"Dataset file not found at: {self.dataset_path}")
             return None
         try:
-            self.data = pd.read_csv(self.dataset_path)
+            self.data = self.load_dataframe(self.dataset_path)
             logging.info(f"Dataset loaded successfully! Shape: {self.data.shape}")
         except Exception as e:
             logging.error(f"Failed to load dataset: {e}", exc_info=True)
@@ -88,7 +147,7 @@ class DataLoaderAgent:
 if __name__ == "__main__":
     import sys
     logging.info("This script can be run directly to load and inspect a dataset.")
-    logging.info("Usage: python data_loader_agent.py <path_to_dataset.csv>")
+    logging.info("Usage: python data_loader_agent.py <path_to_dataset.csv|path_to_dataset.npz>")
     
     if len(sys.argv) < 2:
         logging.error("No dataset path provided. Please provide the path as a command-line argument.")

@@ -8,6 +8,7 @@ from agents.data_loader_agent import DataLoaderAgent
 from agents.preprocessing_agent import PreprocessingAgent
 from agents.dynamic_analysis_agent import DynamicAnalysisAgent
 from agents.optimization_agent import OptimizationAgent
+from agents.data_loader_agent import DataLoaderAgent
 from utils.hitl_interface import get_hitl_interface, HitlInterface
 from utils.reporting import create_reporter, WorkflowReporter
 from utils.intelligent_summarization import create_summarizer, IntelligentSummarizer
@@ -54,7 +55,7 @@ class LLMPlannerAgent:
             folder_path = os.path.join(data_dir, folder)
             if os.path.isdir(folder_path):
                 for file in os.listdir(folder_path):
-                    if file.endswith('.csv'):
+                    if file.lower().endswith(('.csv', '.npz')):
                         datasets.append(os.path.join(folder_path, file))
         return datasets
 
@@ -67,8 +68,6 @@ class LLMPlannerAgent:
         Returns:
             tuple: (dataset_path, feature_cols, target_col, problem_type)
         """
-        import pandas as pd
-        
         if hitl_interface is None:
             hitl_interface = get_hitl_interface("cli")
         
@@ -81,7 +80,7 @@ class LLMPlannerAgent:
         )
 
         # Read sample data and show columns
-        df = pd.read_csv(dataset_path, nrows=100)  # Read sample for column selection
+        df = DataLoaderAgent.load_dataframe(dataset_path, nrows=100)  # Read sample for column selection
         columns = list(df.columns)
         
         hitl_interface.show_info_with_audit(

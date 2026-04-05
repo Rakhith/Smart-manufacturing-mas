@@ -181,7 +181,7 @@ class RulesFirstPlannerAgent:
         logging.info("── Step 0: Resolving problem type & target column")
 
         try:
-            sample = pd.read_csv(self.dataset_path, nrows=5000)
+            sample = DataLoaderAgent.load_dataframe(self.dataset_path, nrows=5000)
         except Exception as exc:
             logging.error(f"Cannot read dataset for auto-detection: {exc}")
             return False

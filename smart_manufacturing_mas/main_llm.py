@@ -73,7 +73,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--decision-model", default=None, help="Model tag / path for decision SLM (e.g. 'qwen3:4b').")
 
     # Dataset
-    p.add_argument("--dataset", default=None, help="Path to CSV dataset.")
+    p.add_argument("--dataset", default=None, help="Path to dataset (.csv or .npz).")
     p.add_argument("--auto", action="store_true", help="Non-interactive — auto-approve all HITL gates.")
     p.add_argument("--batch", action="store_true", help="Process all datasets under ./data/ (implies --auto).")
 
@@ -148,7 +148,8 @@ def _get_anomaly_params(args, csv_path: str, feature_cols, hitl_interface) -> di
         return {}
 
     try:
-        sample = pd.read_csv(csv_path, nrows=1000)
+        from agents.data_loader_agent import DataLoaderAgent
+        sample = DataLoaderAgent.load_dataframe(csv_path, nrows=1000)
         if feature_cols:
             sample = sample[[c for c in feature_cols if c in sample.columns]]
         desc = sample.describe().to_string()
@@ -263,7 +264,8 @@ def _run_llm_mode(args, hitl_interface):
 
     def _auto_select(csv_path: str):
         """Select target/features/problem automatically from schema discovery."""
-        df = pd.read_csv(csv_path)
+        from agents.data_loader_agent import DataLoaderAgent
+        df = DataLoaderAgent.load_dataframe(csv_path)
 
         # --auto-detect uses the new auto_detect utility
         if args.auto_detect:
@@ -330,7 +332,7 @@ def _run_llm_mode(args, hitl_interface):
         all_csvs = [
             os.path.join(root, f)
             for root, _, files in os.walk(data_dir)
-            for f in files if f.lower().endswith(".csv")
+            for f in files if f.lower().endswith((".csv", ".npz"))
         ]
         logging.info(f"Batch mode: {len(all_csvs)} datasets found.")
         for csv in all_csvs:
