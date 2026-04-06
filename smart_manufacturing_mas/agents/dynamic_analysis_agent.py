@@ -531,6 +531,11 @@ class DynamicAnalysisAgent:
         logging.info(f"IsolationForest — {n_anomalies}/{len(X)} anomalies ({n_anomalies / len(X):.2%})")
 
         results_df = self.data.copy()
+        # Canonical anomaly columns used by downstream OptimizationAgent.
+        results_df['Is_Anomaly'] = (labels == -1)
+        results_df['Anomaly_Score'] = scores
+
+        # Backward-compatible aliases for older reporting paths.
         results_df['anomaly_label'] = labels
         results_df['anomaly_score'] = scores
 
@@ -538,6 +543,9 @@ class DynamicAnalysisAgent:
         numeric_cols = X.select_dtypes(include=[np.number]).columns
         if len(numeric_cols) > 0:
             z_scores = (X[numeric_cols] - X[numeric_cols].mean()) / X[numeric_cols].std(ddof=0).replace(0, np.nan)
+            # Canonical naming: <feature>_zscore
+            results_df[[f"{c}_zscore" for c in numeric_cols]] = z_scores
+            # Backward-compatible naming: z_<feature>
             results_df[[f"z_{c}" for c in numeric_cols]] = z_scores
 
         return {

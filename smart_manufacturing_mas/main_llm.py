@@ -37,12 +37,14 @@ SLM Reduction (4 → 1):
 """
 
 import argparse
+import json
 import logging
 import os
 import sys
 
 import pandas as pd
 from dotenv import load_dotenv
+from utils.llm_output_logger import log_llm_output
 
 load_dotenv()
 
@@ -164,9 +166,37 @@ def _get_anomaly_params(args, csv_path: str, feature_cols, hitl_interface) -> di
     )
 
     import numpy as np
+
+    def _extract_json_from_text(text: str):
+        if not text or not isinstance(text, str):
+            return None
+        decoder = json.JSONDecoder()
+        for i, ch in enumerate(text):
+            if ch != "{":
+                continue
+            try:
+                obj, _ = decoder.raw_decode(text[i:])
+                if isinstance(obj, dict):
+                    return obj
+            except json.JSONDecodeError:
+                continue
+        return None
+
+    def _build_reason(reason_value, contamination_value, n_est_value, source: str) -> str:
+        candidate = str(reason_value).strip() if reason_value is not None else ""
+        if candidate:
+            return f"{candidate} (by {source})"
+        return (
+            f"Fallback reason: contamination={contamination_value}, n_estimators={n_est_value} "
+            f"derived from dataset summary and bounded safety defaults (by {source})"
+        )
+
     try:
         resp = decision_agent.generate(prompt)
-        parsed = resp.get("parsed") or {}
+        raw_output = resp.get("raw")
+        parsed = resp.get("parsed")
+        if not isinstance(parsed, dict) or not parsed:
+            parsed = _extract_json_from_text(raw_output or "") or {}
         raw_cont = parsed.get("contamination", "auto")
         try:
             contamination = (
@@ -178,10 +208,43 @@ def _get_anomaly_params(args, csv_path: str, feature_cols, hitl_interface) -> di
         except (ValueError, TypeError):
             contamination = "auto"
         n_est = max(50, int(float(parsed.get("n_estimators", 200))))
-        params = {"contamination": contamination, "n_estimators": n_est, "reason": parsed.get("reason", "")}
+        reason = _build_reason(parsed.get("reason"), contamination, n_est, "decision LLM")
+        params = {"contamination": contamination, "n_estimators": n_est, "reason": reason}
+
+        log_llm_output(
+            {
+                "stage": "anomaly_param_suggestion",
+                "source": "main_llm._get_anomaly_params",
+                "backend": args.decision_llm,
+                "model": args.decision_model,
+                "prompt": prompt,
+                "raw_output": raw_output,
+                "parsed_output": parsed,
+                "effective_params": params,
+                "parse_status": "parsed" if parsed else "fallback",
+            }
+        )
     except Exception as exc:
         logging.warning(f"SLM anomaly param suggestion failed ({exc}); using defaults.")
-        params = {"contamination": "auto", "n_estimators": 200, "reason": "sklearn default"}
+        params = {
+            "contamination": "auto",
+            "n_estimators": 200,
+            "reason": "Fallback reason: decision LLM unavailable or unparsable output, using sklearn-safe defaults.",
+        }
+        log_llm_output(
+            {
+                "stage": "anomaly_param_suggestion",
+                "source": "main_llm._get_anomaly_params",
+                "backend": args.decision_llm,
+                "model": args.decision_model,
+                "prompt": prompt,
+                "raw_output": None,
+                "parsed_output": None,
+                "effective_params": params,
+                "parse_status": "exception",
+                "error": str(exc),
+            }
+        )
 
     # HITL gate for SLM 3b
     if not (args.auto or args.batch):

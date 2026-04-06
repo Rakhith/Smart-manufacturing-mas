@@ -157,20 +157,13 @@ python main_llm.py --mode rules-first --dataset data/.../smmd.csv --auto-detect
 
 ```bash
 # Classification, auto-detect, with cache
-python main_llm.py --mode rules-first \
-  --dataset data/Smart_Manufacturing_Maintenance_Dataset/smmd.csv \
-  --auto-detect --use-cache
+python main_llm.py --mode rules-first --dataset "data\Smart Manufacturing Maintenance Dataset\smart_maintenance_dataset.csv" --auto-detect --use-cache
 
 # Anomaly detection with local SLM for params
-python main_llm.py --mode rules-first \
-  --dataset data/Intelligent_Manufacturing_Dataset/6gmr.csv \
-  --problem-type anomaly_detection \
-  --decision-llm ollama --decision-model qwen3:4b
+python main_llm.py --mode rules-first --dataset "smart_manufacturing_mas/data/Intelligent Manufacturing Dataset/manufacturing_6G_dataset.csv" --problem-type anomaly_detection --decision-llm ollama --decision-model qwen3:4b
 
 # PCA + cache (high-dimensional sensor data, interpretability not required)
-python main_llm.py --mode rules-first \
-  --dataset data/.../sensors.csv \
-  --auto-detect --use-pca --pca-threshold 0.90 --use-cache
+python main_llm.py --mode rules-first --dataset "data\Smart Manufacturing Maintenance Dataset\smart_maintenance_dataset.csv" --auto-detect --use-pca --pca-threshold 0.90 --use-cache
 
 # Use LlamaCpp SLM (CPU-only edge node)
 python main_llm.py --mode rules-first \

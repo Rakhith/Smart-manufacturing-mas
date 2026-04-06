@@ -296,11 +296,34 @@ class OptimizationAgent:
             # Handle anomaly detection results
             results_df = self.results['results_df'].copy()
 
+            # Normalize anomaly column names across schema versions.
+            if 'Is_Anomaly' not in results_df.columns and 'anomaly_label' in results_df.columns:
+                results_df['Is_Anomaly'] = results_df['anomaly_label'] == -1
+            if 'Anomaly_Score' not in results_df.columns and 'anomaly_score' in results_df.columns:
+                results_df['Anomaly_Score'] = results_df['anomaly_score']
+
             if not results_df.empty:
                 identifier_cols = [col for col in results_df.columns if col.startswith("identifier__")]
                 if identifier_cols:
                     for id_col in identifier_cols:
                         results_df[id_col.replace("identifier__", "")] = results_df[id_col]
+
+            if 'Machine_ID' not in results_df.columns:
+                fallback_id_col = None
+                for candidate in ('MachineId', 'machine_id', 'machine', 'Asset_ID', 'asset_id'):
+                    if candidate in results_df.columns:
+                        fallback_id_col = candidate
+                        break
+                if fallback_id_col is None:
+                    identifier_cols = [c for c in results_df.columns if c.startswith('identifier__')]
+                    if identifier_cols:
+                        fallback_id_col = identifier_cols[0]
+
+                if fallback_id_col is not None:
+                    results_df['Machine_ID'] = results_df[fallback_id_col]
+                else:
+                    # Final fallback: keep analysis usable even without explicit machine identifiers.
+                    results_df['Machine_ID'] = results_df.index.astype(str)
 
             anomalous = results_df[results_df['Is_Anomaly']]
             

@@ -247,7 +247,11 @@ class PreprocessingAgent:
             # ── Determine columns to drop ─────────────────────────────────
             cols_to_drop = [
                 col for col in self.data.columns
-                if is_identifier_column(col) and col not in self.protected_columns
+                if (
+                    is_identifier_column(col)
+                    and not str(col).startswith("identifier__")
+                    and col not in self.protected_columns
+                )
             ]
 
             # Drop timestamp columns (they're not useful for ML models)
@@ -302,6 +306,13 @@ class PreprocessingAgent:
                 )
             else:
                 processed_df = pd.DataFrame(processed_data, columns=feature_names, index=self.data.index)
+
+            # For anomaly detection, carry identifier passthrough columns forward so
+            # downstream recommendation logic can map anomalies to entity IDs.
+            if self.problem_type == 'anomaly_detection' and self.identifier_columns:
+                for id_col in self.identifier_columns:
+                    if id_col in self.data.columns and id_col not in processed_df.columns:
+                        processed_df[id_col] = self.data[id_col]
 
             logging.info(f"Pipeline complete — shape after main pipeline: {processed_df.shape}")
 

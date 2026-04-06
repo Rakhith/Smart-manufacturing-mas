@@ -1,0 +1,37 @@
+{
+  "53bef5129b32f489": {
+    "path": "C:\\Users\\Darsh Veer Singh\\OneDrive - iiit-b\\Sem 6\\AIM801 - Project Elective\\Smart-manufacturing-mas\\smart_manufacturing_mas\\model_cache\\53bef5129b32f489.pkl",
+    "config": {
+      "dataset": "smart_maintenance_dataset.csv",
+      "features": [
+        "Acoustic_dB",
+        "Downtime_Cost_USD",
+        "Inspection_Duration_min",
+        "Maintenance_Priority",
+        "Pressure_Bar",
+        "Technician_Availability_pct",
+        "Temp_C",
+        "Vibration_mm_s"
+      ],
+      "target": "Failure_Prob",
+      "problem_type": "regression"
+    },
+    "metadata": {
+      "mse": 5.814299466165621e-05,
+      "r2": 0.979890704846052,
+      "feature_names": [
+        "PC_0",
+        "PC_1",
+        "PC_2",
+        "PC_3",
+        "PC_4",
+        "PC_5",
+        "PC_6"
+      ],
+      "cv_r2": 0.9809408245218189,
+      "cv_std": 0.0018161049175304926,
+      "cv_scores": "[0.98250026 0.9786098  0.98320454 0.98128748 0.97910205]",
+      "model_name": "LinearRegression"
+    }
+  }
+}

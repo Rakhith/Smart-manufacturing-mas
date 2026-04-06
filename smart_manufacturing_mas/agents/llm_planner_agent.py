@@ -16,6 +16,7 @@ from utils.column_utils import is_identifier_column
 import pandas as pd
 import numpy as np
 import json
+from utils.llm_output_logger import log_llm_output
 
 # Load environment variables and configure logging
 load_dotenv()
@@ -1100,10 +1101,11 @@ class LLMPlannerAgent:
         logging.info(f"Querying {which} for anomaly hyperparameters...")
         if llm is not None:
             resp = llm.generate(prompt)
+            raw_output = resp.get('raw')
             parsed = resp.get('parsed')
             if not parsed:
                 try:
-                    parsed = json.loads(resp.get('raw') or '{}')
+                    parsed = json.loads(raw_output or '{}')
                 except Exception:
                     parsed = None
             if parsed:
@@ -1127,11 +1129,45 @@ class LLMPlannerAgent:
                 except (TypeError, ValueError):
                     n_estimators = 200
 
-                return {
+                # Always provide a fallback reason if missing or empty
+                slm_reason = str(parsed.get('reason') or '').strip()
+                if not slm_reason:
+                    slm_reason = (
+                        f"Defaulted reason: contamination={contamination}, n_estimators={max(50, n_estimators)} "
+                        f"chosen based on dataset summary."
+                    )
+                params = {
                     'contamination': contamination,
                     'n_estimators': max(50, n_estimators),
-                    'reason': parsed.get('reason', '') + f" (by {which})"
+                    'reason': slm_reason + f" (by {which})"
                 }
+                log_llm_output(
+                    {
+                        "stage": "anomaly_param_suggestion",
+                        "source": "LLMPlannerAgent._ask_llm_for_anomaly_params",
+                        "backend": "decision_llm" if use_decision_llm else "planner_llm",
+                        "model": getattr(llm, "model_name", None),
+                        "prompt": prompt,
+                        "raw_output": raw_output,
+                        "parsed_output": parsed,
+                        "effective_params": params,
+                        "parse_status": "parsed",
+                    }
+                )
+                return params
+            log_llm_output(
+                {
+                    "stage": "anomaly_param_suggestion",
+                    "source": "LLMPlannerAgent._ask_llm_for_anomaly_params",
+                    "backend": "decision_llm" if use_decision_llm else "planner_llm",
+                    "model": getattr(llm, "model_name", None),
+                    "prompt": prompt,
+                    "raw_output": raw_output,
+                    "parsed_output": None,
+                    "effective_params": None,
+                    "parse_status": "unparsed",
+                }
+            )
         # Fallback defaults
         return {'contamination': 'auto', 'n_estimators': 200, 'reason': f'default (by {which})'}
 

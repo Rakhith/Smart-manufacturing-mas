@@ -25,6 +25,7 @@ Architecture note (SLM Reduction 4 → 1):
 
 import json
 import logging
+import re
 from typing import Any, Dict, Optional
 
 logging.basicConfig(level=logging.INFO, format='[%(asctime)s] [%(levelname)s] - %(message)s')
@@ -192,14 +193,31 @@ class LocalLLMAgent:
         return {"raw": text, "tool": text.strip(), "reason": "", "parsed": None}
 
     def _extract_json(self, text: str) -> Optional[Dict[str, Any]]:
-        """Extract the first balanced JSON object from text."""
-        start = text.find("{")
-        end = text.rfind("}")
-        if start != -1 and end != -1 and end > start:
+        """Extract the first JSON object from free-form model output."""
+        if not text:
+            return None
+
+        # Prefer fenced JSON blocks if present.
+        fenced = re.search(r"```(?:json)?\s*(\{[\s\S]*?\})\s*```", text, flags=re.IGNORECASE)
+        if fenced:
             try:
-                return json.loads(text[start:end + 1])
+                obj = json.loads(fenced.group(1))
+                if isinstance(obj, dict):
+                    return obj
             except json.JSONDecodeError:
                 pass
+
+        # Fallback: scan from every '{' and decode the first valid JSON object.
+        decoder = json.JSONDecoder()
+        for i, ch in enumerate(text):
+            if ch != "{":
+                continue
+            try:
+                obj, _ = decoder.raw_decode(text[i:])
+                if isinstance(obj, dict):
+                    return obj
+            except json.JSONDecodeError:
+                continue
         return None
 
 
