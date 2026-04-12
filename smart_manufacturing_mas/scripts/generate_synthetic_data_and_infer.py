@@ -13,12 +13,11 @@ Usage:
 import argparse
 import json
 from pathlib import Path
-from typing import Dict, Tuple
+from typing import Dict, Optional
 
 import joblib
 import numpy as np
 import pandas as pd
-from scipy import stats
 
 # Configure paths
 PROJECT_DIR = Path.cwd()
@@ -29,12 +28,33 @@ if not (PROJECT_DIR / 'data').exists():
 
 DATA_DIR = PROJECT_DIR / 'data'
 ARTIFACT_DIR = PROJECT_DIR / 'artifacts' / 'pretrained_models'
-REGRESSION_DATA_PATH = DATA_DIR / 'smart_manufacturing_dataset.csv'
-CLASSIFICATION_DATA_PATH = DATA_DIR / 'Smart Manufacturing Maintenance Dataset' / 'smart_maintenance_dataset.csv'
+REGRESSION_DATA_PATH = DATA_DIR / 'Smart_Manufacturing_Maintenance_Dataset' / 'smart_maintenance_dataset.csv'
+CLASSIFICATION_DATA_PATH = DATA_DIR / 'Smart_Manufacturing_Maintenance_Dataset' / 'smart_maintenance_dataset.csv'
+ALTERNATE_CLASSIFICATION_DATA_PATH = DATA_DIR / 'Intelligent_Manufacturing_Dataset' / 'manufacturing_6G_dataset.csv'
 
 print(f"Project dir: {PROJECT_DIR}")
 print(f"Data dir: {DATA_DIR}")
 print(f"Artifacts dir: {ARTIFACT_DIR}")
+
+
+def load_registry() -> Dict:
+    registry_path = ARTIFACT_DIR / 'registry.json'
+    if not registry_path.exists():
+        return {'regression': [], 'classification': []}
+    with registry_path.open('r', encoding='utf-8') as f:
+        return json.load(f)
+
+
+def select_best_bundle(problem_type: str, target_column: Optional[str] = None) -> Optional[Path]:
+    entries = load_registry().get(problem_type, [])
+    if target_column:
+        entries = [entry for entry in entries if entry.get('target_column') == target_column]
+    if not entries:
+        return None
+
+    score_key = 'r2' if problem_type == 'regression' else 'accuracy'
+    best = max(entries, key=lambda entry: float((entry.get('metrics') or {}).get(score_key, float('-inf'))))
+    return ARTIFACT_DIR / best['bundle_file']
 
 
 class SyntheticDataGenerator:
@@ -148,11 +168,18 @@ class SyntheticDataGenerator:
         
         # Add target column with synthetic values if provided
         if target_column and target_column in real_df.columns:
-            target_stats = self.analyze_numeric_column(real_df[target_column])
-            synthetic_df[target_column] = [
-                self.generate_numeric_value(target_stats)
-                for _ in range(n_rows)
-            ]
+            if pd.api.types.is_numeric_dtype(real_df[target_column]):
+                target_stats = self.analyze_numeric_column(real_df[target_column])
+                synthetic_df[target_column] = [
+                    self.generate_numeric_value(target_stats)
+                    for _ in range(n_rows)
+                ]
+            else:
+                target_stats = self.analyze_categorical_column(real_df[target_column])
+                synthetic_df[target_column] = [
+                    self.generate_categorical_value(target_stats)
+                    for _ in range(n_rows)
+                ]
 
         return synthetic_df
 
@@ -274,7 +301,7 @@ def main():
 
     # ========== REGRESSION (Smart Manufacturing Dataset) ==========
     print(f"\n" + "-" * 70)
-    print(f"REGRESSION: Smart Manufacturing Dataset")
+    print(f"REGRESSION: Smart Manufacturing Maintenance Dataset")
     print(f"-" * 70)
 
     print(f"Loading real regression data...")
@@ -285,8 +312,8 @@ def main():
     synthetic_reg_df = generator.generate_synthetic_data(
         real_df=reg_df,
         n_rows=n_rows,
-        target_column='Production_Efficiency',
-        exclude_columns=['Agent_ID'],  # Exclude ID columns
+        target_column='Failure_Prob',
+        exclude_columns=['Machine_ID', 'Maintenance_Priority'],
     )
     print(f"  Generated shape: {synthetic_reg_df.shape}")
 
@@ -299,8 +326,8 @@ def main():
     print(f"\nRunning regression inference...")
     regression_inferences = []
 
-    reg_bundle_file = ARTIFACT_DIR / 'regression__Production_Efficiency__RandomForestRegressor.joblib'
-    if reg_bundle_file.exists():
+    reg_bundle_file = select_best_bundle('regression', 'Failure_Prob')
+    if reg_bundle_file and reg_bundle_file.exists():
         try:
             bundle = load_pretrained_bundle(reg_bundle_file)
             result = run_inference_on_synthetic_data(
@@ -318,7 +345,7 @@ def main():
         except Exception as e:
             print(f"✗ Error during inference: {str(e)[:100]}")
     else:
-        print(f"✗ Bundle not found: {reg_bundle_file}")
+        print("✗ No regression bundle found in pretrained registry for target Failure_Prob")
 
     # ========== CLASSIFICATION (Smart Maintenance Dataset) ==========
     print(f"\n" + "-" * 70)
@@ -334,7 +361,7 @@ def main():
         real_df=cls_df,
         n_rows=n_rows,
         target_column='Maintenance_Priority',
-        exclude_columns=['Machine_ID'],  # Exclude ID columns
+        exclude_columns=['Machine_ID', 'Failure_Prob'],
     )
     print(f"  Generated shape: {synthetic_cls_df.shape}")
 
@@ -347,8 +374,8 @@ def main():
     print(f"\nRunning classification inference...")
     classification_inferences = []
 
-    cls_bundle_file = ARTIFACT_DIR / 'classification__Maintenance_Priority__RandomForestClassifier.joblib'
-    if cls_bundle_file.exists():
+    cls_bundle_file = select_best_bundle('classification', 'Maintenance_Priority')
+    if cls_bundle_file and cls_bundle_file.exists():
         try:
             bundle = load_pretrained_bundle(cls_bundle_file)
             result = run_inference_on_synthetic_data(
@@ -366,7 +393,53 @@ def main():
         except Exception as e:
             print(f"✗ Error during inference: {str(e)[:100]}")
     else:
-        print(f"✗ Bundle not found: {cls_bundle_file}")
+        print("✗ No classification bundle found in pretrained registry for target Maintenance_Priority")
+
+    # ========== CLASSIFICATION (Intelligent Manufacturing Dataset) ==========
+    print(f"\n" + "-" * 70)
+    print("CLASSIFICATION: Intelligent Manufacturing Dataset")
+    print(f"-" * 70)
+
+    print("Loading real intelligent manufacturing data...")
+    alt_cls_df = pd.read_csv(ALTERNATE_CLASSIFICATION_DATA_PATH)
+    print(f"  Shape: {alt_cls_df.shape}")
+
+    print(f"Generating synthetic intelligent manufacturing data with {n_rows} rows...")
+    synthetic_alt_cls_df = generator.generate_synthetic_data(
+        real_df=alt_cls_df,
+        n_rows=n_rows,
+        target_column='Efficiency_Status',
+        exclude_columns=['Timestamp', 'Machine_ID'],
+    )
+    print(f"  Generated shape: {synthetic_alt_cls_df.shape}")
+
+    synthetic_alt_cls_path = output_dir / f'synthetic_intelligent_classification_{n_rows}_rows.csv'
+    synthetic_alt_cls_df.to_csv(synthetic_alt_cls_path, index=False)
+    print(f"✓ Saved synthetic intelligent classification data to {synthetic_alt_cls_path}")
+
+    print("\nRunning intelligent manufacturing classification inference...")
+    alternate_classification_inferences = []
+
+    alt_cls_bundle_file = select_best_bundle('classification', 'Efficiency_Status')
+    if alt_cls_bundle_file and alt_cls_bundle_file.exists():
+        try:
+            bundle = load_pretrained_bundle(alt_cls_bundle_file)
+            result = run_inference_on_synthetic_data(
+                synthetic_alt_cls_df,
+                bundle,
+                bundle_name=alt_cls_bundle_file.name,
+                problem_type='classification'
+            )
+            if result:
+                alternate_classification_inferences.append(result)
+                print(f"✓ {result['model_name']} inference complete")
+                print(f"  Predictions sample: {result['predictions_sample']}")
+                if 'prediction_distribution' in result:
+                    print(f"  Prediction distribution: {result['prediction_distribution']}")
+        except Exception as e:
+            print(f"✗ Error during inference: {str(e)[:100]}")
+    else:
+        print("✗ No classification bundle found in pretrained registry for target Efficiency_Status")
 
     # ========== SAVE RESULTS ==========
     print(f"\n" + "-" * 70)
@@ -387,6 +460,10 @@ def main():
             'synthetic_data_file': str(synthetic_cls_path.relative_to(PROJECT_DIR)),
             'inferences': classification_inferences,
         },
+        'classification_intelligent_manufacturing': {
+            'synthetic_data_file': str(synthetic_alt_cls_path.relative_to(PROJECT_DIR)),
+            'inferences': alternate_classification_inferences,
+        },
     }
 
     results_path = output_dir / f'inference_results_{n_rows}_rows.json'
@@ -400,8 +477,10 @@ def main():
     print(f"=" * 70)
     print(f"Synthetic regression data: {synthetic_reg_df.shape[0]} rows")
     print(f"Synthetic classification data: {synthetic_cls_df.shape[0]} rows")
+    print(f"Synthetic intelligent manufacturing classification data: {synthetic_alt_cls_df.shape[0]} rows")
     print(f"Regression models tested: {len(regression_inferences)}")
     print(f"Classification models tested: {len(classification_inferences)}")
+    print(f"Intelligent manufacturing classification models tested: {len(alternate_classification_inferences)}")
     print(f"\nAll artifacts saved to: {output_dir}")
     print(f"=" * 70)
 

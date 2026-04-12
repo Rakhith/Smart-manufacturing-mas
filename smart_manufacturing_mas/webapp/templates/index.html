@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Manufacturing MAS</title>
+    <link rel="stylesheet" href="/static/app.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Local Pipeline Workbench</p>
+          <h1>Smart Manufacturing MAS</h1>
+          <p class="hero-text">
+            Upload a CSV or choose a built-in dataset, launch the pipeline, and follow each stage from raw data to
+            recommendations.
+          </p>
+          <div class="hero-actions">
+            <a class="hero-link" href="/docs" target="_blank" rel="noreferrer">API Docs</a>
+            <span class="hero-link muted-link">Rules-first pipeline visualization</span>
+          </div>
+        </div>
+        <div class="hero-panel">
+          <div class="hero-stat">
+            <span>Modes</span>
+            <strong>Pretrained + Live Training</strong>
+          </div>
+          <div class="hero-stat">
+            <span>Views</span>
+            <strong>Runner, Pipeline Explorer, Artifacts</strong>
+          </div>
+        </div>
+      </header>
+
+      <section class="top-ribbon">
+        <div class="panel ribbon-panel">
+          <div class="panel-head compact-head">
+            <h3>Presentation Highlights</h3>
+            <p>Use this view to explain what the system does, how it decides, and what it produces.</p>
+          </div>
+          <div class="highlight-grid">
+            <div class="highlight-card">
+              <span>1</span>
+              <strong>Guided pipeline runner</strong>
+              <p>Start from an uploaded CSV or built-in dataset with a minimal but useful set of controls.</p>
+            </div>
+            <div class="highlight-card">
+              <span>2</span>
+              <strong>Stage-by-stage trace</strong>
+              <p>Each step shows inputs, outputs, metrics, and previews so the workflow is easy to explain.</p>
+            </div>
+            <div class="highlight-card">
+              <span>3</span>
+              <strong>Actionable outputs</strong>
+              <p>Model results, recommendations, synthetic-data artifacts, and saved summaries are all downloadable.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <main class="layout">
+        <section class="panel runner-panel">
+          <div class="panel-head">
+            <h2>Run Pipeline</h2>
+            <p>Keep the first run simple, then tune options as needed.</p>
+          </div>
+
+          <form id="run-form" class="run-form">
+            <label class="field">
+              <span>Built-in dataset</span>
+              <select id="dataset-select" name="dataset_path">
+                <option value="">Choose a dataset from /data</option>
+                {% for dataset in datasets %}
+                <option value="{{ dataset.path }}">{{ dataset.directory }} / {{ dataset.label }}</option>
+                {% endfor %}
+              </select>
+            </label>
+
+            <label class="field">
+              <span>Or upload CSV</span>
+              <input id="upload-input" type="file" name="upload" accept=".csv" />
+            </label>
+
+            <div id="dataset-preview" class="dataset-preview empty">
+              <p>Select or upload a dataset to inspect the first few columns.</p>
+            </div>
+
+            <div class="field-grid">
+              <label class="field">
+                <span>Problem type</span>
+                <select name="problem_type">
+                  <option value="">Auto-detect</option>
+                  <option value="classification">Classification</option>
+                  <option value="regression">Regression</option>
+                  <option value="anomaly_detection">Anomaly detection</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>Target column</span>
+                <input type="text" name="target_column" placeholder="Leave blank for auto" />
+              </label>
+
+              <label class="field">
+                <span>Feature columns</span>
+                <input type="text" name="feature_columns" placeholder="Optional comma-separated list" />
+              </label>
+
+              <label class="field">
+                <span>Preferred model</span>
+                <input type="text" name="preferred_model" placeholder="Optional model name" />
+              </label>
+            </div>
+
+            <div class="field-grid compact">
+              <label class="field">
+                <span>Run mode</span>
+                <select name="train_mode">
+                  <option value="pretrained">Pretrained inference</option>
+                  <option value="live">Live training</option>
+                </select>
+              </label>
+
+              <label class="field inline">
+                <input type="checkbox" name="use_cache" checked />
+                <span>Use cache</span>
+              </label>
+
+              <label class="field inline">
+                <input type="checkbox" name="use_pca" />
+                <span>Use PCA</span>
+              </label>
+
+              <label class="field inline">
+                <input type="checkbox" name="generate_synthetic" />
+                <span>Generate synthetic data</span>
+              </label>
+
+              <label class="field">
+                <span>Synthetic rows</span>
+                <input type="number" name="synthetic_rows" value="300" min="50" max="5000" />
+              </label>
+            </div>
+
+            <button class="primary-button" type="submit">Launch Run</button>
+          </form>
+        </section>
+
+        <section class="panel status-panel">
+          <div class="panel-head">
+            <h2>Run Status</h2>
+            <p id="run-status-copy">No run started yet.</p>
+          </div>
+
+          <div id="run-summary" class="summary-grid"></div>
+          <div id="run-metrics" class="metrics-grid"></div>
+
+          <div class="panel-head compact-head">
+            <h3>Pipeline Journey</h3>
+            <p>Watch the workflow move from problem resolution to recommendations and artifacts.</p>
+          </div>
+          <div id="stage-progress" class="stage-progress"></div>
+
+          <div class="panel-head compact-head">
+            <h3>Pipeline Explorer</h3>
+            <p>Each stage shows its own inputs, outputs, and previews.</p>
+          </div>
+          <div id="pipeline-stages" class="stages"></div>
+        </section>
+      </main>
+
+      <section class="bottom-grid">
+        <section class="panel history-panel">
+          <div class="panel-head compact-head">
+            <h3>Recent Runs</h3>
+            <p>Click a previous run to revisit its trace and outputs.</p>
+          </div>
+          <div id="run-history" class="run-history"></div>
+        </section>
+
+        <section class="panel logs-panel">
+          <div class="panel-head compact-head">
+            <h3>Execution Log</h3>
+            <p>Live backend messages from the current run.</p>
+          </div>
+          <div id="log-feed" class="log-feed"></div>
+        </section>
+
+        <section class="panel artifacts-panel">
+          <div class="panel-head compact-head">
+            <h3>Results & Artifacts</h3>
+            <p>Metrics, summary, downloads, and generated files.</p>
+          </div>
+          <div id="result-overview" class="result-overview empty">
+            <p>Run the pipeline to see model metrics, recommendations, and downloadable outputs.</p>
+          </div>
+          <div id="recommendation-preview" class="recommendation-preview empty">
+            <p>Recommendation rows will appear here after a successful run.</p>
+          </div>
+          <ul id="artifact-list" class="artifact-list"></ul>
+        </section>
+      </section>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

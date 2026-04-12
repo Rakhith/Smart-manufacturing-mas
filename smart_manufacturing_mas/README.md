@@ -116,6 +116,38 @@ python main_llm.py
 python main_llm.py --mode rules-first --dataset data/.../your_file.csv --auto-detect
 ```
 
+## Local Frontend
+
+The project now includes a lightweight local web app for running the pipeline and visualizing each stage.
+
+Features in the first version:
+- Upload a CSV file or choose a built-in dataset from `data/`
+- Choose pretrained inference or live training
+- Optional cache, PCA, and synthetic-data generation
+- Follow the pipeline step by step:
+  data loading
+  preprocessing
+  model analysis
+  recommendation generation
+  workflow summary
+- Download generated artifacts from the browser
+
+Run it locally:
+
+```bash
+cd smart_manufacturing_mas
+python -m venv mas_venv
+source mas_venv/bin/activate
+pip install -r requirements.txt
+python scripts/run_local_app.py
+```
+
+Then open:
+
+```text
+http://127.0.0.1:8000
+```
+
 ## Orchestration Modes
 
 ### `--mode llm` (default — original)

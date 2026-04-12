@@ -18,6 +18,9 @@ python-dotenv>=1.0.0
 joblib>=1.2.0           # Model serialization for cache
 
 # Optional: for web HITL interface
-# fastapi>=0.100.0
-# uvicorn>=0.22.0
+fastapi>=0.100.0
+uvicorn>=0.22.0
+python-multipart>=0.0.9
+# jinja2 is required by the local frontend templates
+jinja2>=3.1.0
 # websockets>=11.0

@@ -18,12 +18,12 @@ BASE_DIR = Path(__file__).resolve().parents[1]
 ARTIFACT_DIR = BASE_DIR / "artifacts" / "pretrained_models"
 ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
 
-REGRESSION_TRAIN_PATH = BASE_DIR / "data" / "smart_manufacturing_dataset.csv"
-REGRESSION_VALID_PATH = BASE_DIR / "data" / "digital_manufacturing_dataset.csv"
-CLASSIFICATION_PATH = BASE_DIR / "data" / "Smart Manufacturing Maintenance Dataset" / "smart_maintenance_dataset.csv"
+SMART_MAINTENANCE_PATH = BASE_DIR / "data" / "Smart_Manufacturing_Maintenance_Dataset" / "smart_maintenance_dataset.csv"
+INTELLIGENT_MANUFACTURING_PATH = BASE_DIR / "data" / "Intelligent_Manufacturing_Dataset" / "manufacturing_6G_dataset.csv"
 
-REGRESSION_TARGET = "Production_Efficiency"
+REGRESSION_TARGET = "Failure_Prob"
 CLASSIFICATION_TARGET = "Maintenance_Priority"
+ALTERNATE_CLASSIFICATION_TARGET = "Efficiency_Status"
 
 
 def build_preprocessor(x_df: pd.DataFrame) -> ColumnTransformer:
@@ -54,16 +54,20 @@ def save_bundle(bundle: dict, bundle_file: str) -> None:
 
 
 def run_regression_exports() -> list[dict]:
-    reg_df = pd.read_csv(REGRESSION_TRAIN_PATH)
-    reg_val_df = pd.read_csv(REGRESSION_VALID_PATH)
+    reg_df = pd.read_csv(SMART_MAINTENANCE_PATH)
 
     if REGRESSION_TARGET not in reg_df.columns:
         raise ValueError(f"Regression target '{REGRESSION_TARGET}' not found.")
 
     x_reg = reg_df.drop(columns=[REGRESSION_TARGET])
-    if "Agent_ID" in x_reg.columns:
-        x_reg = x_reg.drop(columns=["Agent_ID"])
+    for drop_col in ("Machine_ID", CLASSIFICATION_TARGET):
+        if drop_col in x_reg.columns:
+            x_reg = x_reg.drop(columns=[drop_col])
     y_reg = reg_df[REGRESSION_TARGET]
+
+    x_train, x_val, y_train, y_val = train_test_split(
+        x_reg, y_reg, test_size=0.2, random_state=42
+    )
 
     models = {
         "LinearRegression": LinearRegression(),
@@ -74,44 +78,30 @@ def run_regression_exports() -> list[dict]:
         "SVR": SVR(kernel="rbf", C=1.0),
     }
 
-    common_reg_features = [c for c in x_reg.columns if c in reg_val_df.columns]
     entries = []
 
     for model_name, estimator in models.items():
         pipe = Pipeline([
-            ("preprocessor", build_preprocessor(x_reg)),
+            ("preprocessor", build_preprocessor(x_train)),
             ("model", estimator),
         ])
-        pipe.fit(x_reg, y_reg)
-        train_preds = pipe.predict(x_reg)
+        pipe.fit(x_train, y_train)
+        train_preds = pipe.predict(x_train)
+        val_preds = pipe.predict(x_val)
 
         metrics = {
-            "train_r2": float(r2_score(y_reg, train_preds)),
-            "train_mse": float(mean_squared_error(y_reg, train_preds)),
+            "train_r2": float(r2_score(y_train, train_preds)),
+            "train_mse": float(mean_squared_error(y_train, train_preds)),
+            "r2": float(r2_score(y_val, val_preds)),
+            "mse": float(mean_squared_error(y_val, val_preds)),
         }
-
-        if common_reg_features and REGRESSION_TARGET in reg_val_df.columns:
-            x_val = reg_val_df[common_reg_features].copy()
-            for col in x_reg.columns:
-                if col not in x_val.columns:
-                    x_val[col] = np.nan
-            x_val = x_val[x_reg.columns]
-            y_val = reg_val_df[REGRESSION_TARGET]
-            val_preds = pipe.predict(x_val)
-            metrics["val_r2"] = float(r2_score(y_val, val_preds))
-            metrics["val_mse"] = float(mean_squared_error(y_val, val_preds))
-        else:
-            metrics["val_r2"] = None
-            metrics["val_mse"] = None
-            metrics["val_note"] = "Validation skipped: no common feature schema or missing target in validation dataset."
-
-        bundle_file = f"regression_{model_name}.joblib"
+        bundle_file = f"regression__{REGRESSION_TARGET}__{model_name}.joblib"
         save_bundle(
             {
                 "model_name": model_name,
                 "problem_type": "regression",
                 "target_column": REGRESSION_TARGET,
-                "feature_columns": x_reg.columns.tolist(),
+                "feature_columns": x_train.columns.tolist(),
                 "pipeline": pipe,
                 "metrics": metrics,
                 "train_prediction_stats": {
@@ -127,7 +117,7 @@ def run_regression_exports() -> list[dict]:
                 "model_name": model_name,
                 "bundle_file": bundle_file,
                 "target_column": REGRESSION_TARGET,
-                "feature_columns": x_reg.columns.tolist(),
+                "feature_columns": x_train.columns.tolist(),
                 "metrics": metrics,
             }
         )
@@ -135,13 +125,16 @@ def run_regression_exports() -> list[dict]:
     return entries
 
 
-def run_classification_exports() -> list[dict]:
-    cls_df = pd.read_csv(CLASSIFICATION_PATH)
-    if CLASSIFICATION_TARGET not in cls_df.columns:
-        raise ValueError(f"Classification target '{CLASSIFICATION_TARGET}' not found.")
+def run_classification_exports(dataset_path: Path, target_column: str, drop_columns: tuple[str, ...]) -> list[dict]:
+    cls_df = pd.read_csv(dataset_path)
+    if target_column not in cls_df.columns:
+        raise ValueError(f"Classification target '{target_column}' not found.")
 
-    x_cls = cls_df.drop(columns=[CLASSIFICATION_TARGET])
-    y_cls = cls_df[CLASSIFICATION_TARGET]
+    x_cls = cls_df.drop(columns=[target_column])
+    for drop_col in drop_columns:
+        if drop_col in x_cls.columns:
+            x_cls = x_cls.drop(columns=[drop_col])
+    y_cls = cls_df[target_column]
 
     x_train, x_val, y_train, y_val = train_test_split(
         x_cls, y_cls, test_size=0.2, random_state=42, stratify=y_cls
@@ -167,12 +160,12 @@ def run_classification_exports() -> list[dict]:
             "classification_report": classification_report(y_val, val_preds),
         }
 
-        bundle_file = f"classification_{model_name}.joblib"
+        bundle_file = f"classification__{target_column}__{model_name}.joblib"
         save_bundle(
             {
                 "model_name": model_name,
                 "problem_type": "classification",
-                "target_column": CLASSIFICATION_TARGET,
+                "target_column": target_column,
                 "feature_columns": x_train.columns.tolist(),
                 "pipeline": pipe,
                 "metrics": metrics,
@@ -184,7 +177,7 @@ def run_classification_exports() -> list[dict]:
             {
                 "model_name": model_name,
                 "bundle_file": bundle_file,
-                "target_column": CLASSIFICATION_TARGET,
+                "target_column": target_column,
                 "feature_columns": x_train.columns.tolist(),
                 "metrics": {"accuracy": metrics["accuracy"]},
             }
@@ -195,11 +188,20 @@ def run_classification_exports() -> list[dict]:
 
 def main() -> None:
     regression_entries = run_regression_exports()
-    classification_entries = run_classification_exports()
+    classification_entries = run_classification_exports(
+        SMART_MAINTENANCE_PATH,
+        CLASSIFICATION_TARGET,
+        ("Machine_ID", REGRESSION_TARGET),
+    )
+    alternate_classification_entries = run_classification_exports(
+        INTELLIGENT_MANUFACTURING_PATH,
+        ALTERNATE_CLASSIFICATION_TARGET,
+        ("Timestamp", "Machine_ID"),
+    )
 
     registry = {
         "regression": regression_entries,
-        "classification": classification_entries,
+        "classification": classification_entries + alternate_classification_entries,
     }
 
     registry_path = ARTIFACT_DIR / "registry.json"
@@ -208,7 +210,7 @@ def main() -> None:
 
     print(f"Saved registry: {registry_path}")
     print("Regression models:", [e["model_name"] for e in regression_entries])
-    print("Classification models:", [e["model_name"] for e in classification_entries])
+    print("Classification models:", [e["model_name"] for e in registry["classification"]])
 
 
 if __name__ == "__main__":
