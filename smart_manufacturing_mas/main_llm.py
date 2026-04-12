@@ -65,7 +65,7 @@ def build_parser() -> argparse.ArgumentParser:
     # Mode
     p.add_argument(
         "--mode", choices=["llm", "rules-first"], default="llm",
-        help="'llm' = LLM decides each step (original). 'rules-first' = NEW: deterministic pipeline, LLM interprets at end.",
+        help="'llm' = LLM decides each step (original). 'rules-first' = deterministic pipeline, LLM interprets at end.",
     )
 
     # LLM backends
@@ -94,19 +94,37 @@ def build_parser() -> argparse.ArgumentParser:
     # PCA (NEW)
     p.add_argument(
         "--use-pca", action="store_true",
-        help="NEW: enable PCA after preprocessing. WARNING: loses named feature interpretability.",
+        help="Enable PCA after preprocessing. WARNING: loses named feature interpretability.",
     )
     p.add_argument("--pca-threshold", type=float, default=0.95, help="Variance to retain when --use-pca is set.")
 
     # Model cache (NEW)
     p.add_argument(
         "--use-cache", action="store_true",
-        help="NEW: cache trained models keyed by hash(dataset+features+target+task).",
+        help="Cache trained models keyed by hash(dataset+features+target+task).",
     )
     p.add_argument("--cache-dir", default=None, help="Model cache directory (default: ./model_cache).")
     p.add_argument(
         "--invalidate-cache", action="store_true",
         help="Delete cache for the current config, then exit.",
+    )
+
+    # Pretrained inference (NEW)
+    p.add_argument(
+        "--inference-only", action="store_true",
+        help="Use pre-trained model bundles for supervised tasks instead of live training.",
+    )
+    p.add_argument(
+        "--train-live", action="store_true",
+        help="Force live training for supervised tasks (overrides pretrained inference default).",
+    )
+    p.add_argument(
+        "--pretrained-dir", default="artifacts/pretrained_models",
+        help="Directory containing pretrained model bundles and registry.json.",
+    )
+    p.add_argument(
+        "--preferred-model", default=None,
+        help="Optional model name to force during pretrained inference (e.g., 'Ridge').",
     )
 
     # Interface
@@ -307,6 +325,9 @@ def _run_rules_first(args, hitl_interface):
         cache_dir=args.cache_dir,
         anomaly_params=anomaly_params,
         auto_hitl=args.auto or args.batch,
+        inference_only=(not args.train_live) or args.inference_only,
+        pretrained_dir=args.pretrained_dir,
+        preferred_model=args.preferred_model,
     )
 
     result = planner.run_workflow()

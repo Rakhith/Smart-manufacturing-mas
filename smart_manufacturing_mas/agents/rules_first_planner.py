@@ -57,6 +57,7 @@ from utils.auto_detect import (
 from utils.column_utils import is_identifier_column
 from utils.model_cache import ModelCache
 from utils.hitl_interface import HitlInterface, get_hitl_interface
+from utils.pretrained_model_store import select_bundle_metadata
 
 logging.basicConfig(level=logging.INFO, format='[%(asctime)s] [%(levelname)s] - %(message)s')
 
@@ -102,10 +103,14 @@ class RulesFirstPlannerAgent:
         cache_dir: Optional[str] = None,
         anomaly_params: Optional[Dict[str, Any]] = None,
         auto_hitl: bool = False,
+        inference_only: bool = True,
+        pretrained_dir: Optional[str] = None,
+        preferred_model: Optional[str] = None,
     ):
         self.dataset_path = dataset_path
         self.feature_columns = feature_columns
         self.target_column = target_column
+        self._target_explicit = target_column is not None
         self.problem_type = problem_type
         self.llm_model = llm_model
         self.hitl_interface = hitl_interface or get_hitl_interface("cli")
@@ -113,6 +118,9 @@ class RulesFirstPlannerAgent:
         self.pca_variance_threshold = pca_variance_threshold
         self.anomaly_params = anomaly_params or {}
         self.auto_hitl = auto_hitl or bool(os.environ.get("HITL_AUTO"))
+        self.inference_only = inference_only
+        self.pretrained_dir = pretrained_dir
+        self.preferred_model = preferred_model
 
         self.model_cache: Optional[ModelCache] = (
             ModelCache(cache_dir=cache_dir) if use_cache else None
@@ -127,7 +135,8 @@ class RulesFirstPlannerAgent:
 
         logging.info(
             f"RulesFirstPlannerAgent initialised — "
-            f"use_pca={use_pca}, use_cache={use_cache}, auto_hitl={self.auto_hitl}"
+            f"use_pca={use_pca}, use_cache={use_cache}, auto_hitl={self.auto_hitl}, "
+            f"inference_only={self.inference_only}"
         )
 
     # ── Public entry point ────────────────────────────────────────────────────
@@ -188,8 +197,30 @@ class RulesFirstPlannerAgent:
 
         # Suggest target column if not provided
         if self.target_column is None and self.problem_type != "anomaly_detection":
-            self.target_column = suggest_target_column(sample)
+            if self.problem_type in ("classification", "regression"):
+                self.target_column = self._suggest_target_for_problem_type(sample, self.problem_type)
+            else:
+                self.target_column = suggest_target_column(sample)
             logging.info(f"Auto-suggested target column: '{self.target_column}'")
+        # If inference-only mode, try to load target from pretrained bundle
+        if self.inference_only and self.target_column is None and self.problem_type in ("classification", "regression"):
+            try:
+                bundle_meta = select_bundle_metadata(
+                    problem_type=self.problem_type,
+                    target_column=None,  # No filter on target yet
+                    preferred_model=self.preferred_model,
+                    path=self.pretrained_dir,
+                )
+                if bundle_meta:
+                    self.target_column = bundle_meta.get('target_column')
+                    logging.info(
+                        f"Loaded target '{self.target_column}' from pretrained bundle "
+                        f"({bundle_meta.get('bundle_file')})"
+                    )
+            except Exception as e:
+                logging.warning(f"Could not load pretrained bundle target: {e}. Falling back to auto-detect.")
+                if self.problem_type in ("classification", "regression"):
+                    self.target_column = self._suggest_target_for_problem_type(sample, self.problem_type)
 
         # Auto-detect problem type if not provided
         if self.problem_type is None:
@@ -206,6 +237,43 @@ class RulesFirstPlannerAgent:
         else:
             logging.info(f"Using provided problem type: '{self.problem_type}'")
 
+        # Validate target compatibility for supervised modes before preprocessing.
+        if self.problem_type in ("classification", "regression"):
+            if not self.target_column or self.target_column not in sample.columns:
+                logging.error(
+                    f"Target column '{self.target_column}' is invalid for problem type '{self.problem_type}'."
+                )
+                return False
+
+            if self.problem_type == "regression" and not pd.api.types.is_numeric_dtype(sample[self.target_column]):
+                if not self._target_explicit:
+                    replacement = self._suggest_target_for_problem_type(sample, "regression")
+                    if replacement:
+                        self.target_column = replacement
+                        logging.warning(
+                            f"Replaced non-numeric regression target with numeric target '{self.target_column}'."
+                        )
+                    else:
+                        logging.error(
+                            "Regression requires a numeric target column, but none could be inferred. "
+                            "Please pass --target with a numeric column."
+                        )
+                        return False
+                else:
+                    logging.error(
+                        f"Incompatible target/problem combination: regression target '{self.target_column}' "
+                        "is non-numeric. Use --problem-type classification or choose a numeric --target."
+                    )
+                    return False
+
+            if self.problem_type == "classification" and pd.api.types.is_numeric_dtype(sample[self.target_column]):
+                n_unique = int(sample[self.target_column].nunique(dropna=True))
+                if n_unique > 50:
+                    logging.warning(
+                        f"Classification target '{self.target_column}' is numeric with {n_unique} unique values; "
+                        "this may behave like regression."
+                    )
+
         if self.problem_type == "anomaly_detection":
             self.target_column = None
         else:
@@ -213,6 +281,63 @@ class RulesFirstPlannerAgent:
 
         self._timings["step0_resolve"] = round(time.time() - t0, 3)
         return True
+
+    def _suggest_target_for_problem_type(self, sample_df: pd.DataFrame, problem_type: str) -> Optional[str]:
+        """Suggest a target column constrained by the requested problem type."""
+        if problem_type == "regression":
+            numeric_candidates = [
+                c for c in sample_df.columns
+                if pd.api.types.is_numeric_dtype(sample_df[c])
+                and not is_identifier_column(c)
+                and c.lower() not in ("timestamp", "datetime", "date", "time")
+            ]
+            if not numeric_candidates:
+                return None
+
+            preferred_tokens = (
+                "target", "label", "score", "value", "rate", "remaining", "lifetime", "rul", "output"
+            )
+
+            def score(col: str) -> int:
+                name = col.lower()
+                s = 0
+                if any(tok in name for tok in preferred_tokens):
+                    s += 100
+                if name.endswith("_id") or "id" == name:
+                    s -= 100
+                return s
+
+            return sorted(numeric_candidates, key=score, reverse=True)[0]
+            
+            # Add more preferred tokens for manufacturing datasets
+            preferred_tokens = (
+                "target", "label", "score", "value", "rate", "remaining", "lifetime", "rul", "output",
+                "efficiency", "priority", "performance", "demand", "consumption", "usage", "production"
+            )
+            
+            def score(col: str) -> tuple:
+                name = col.lower()
+                s = 0
+                if any(tok in name for tok in preferred_tokens):
+                    s += 100
+                if name.endswith("_id") or "id" == name:
+                    s -= 100
+                # Secondary sort: prefer columns later in DataFrame (more likely to be target)
+                col_index = numeric_candidates.index(col)
+                return (s, col_index)
+            
+            return sorted(numeric_candidates, key=score, reverse=True)[0]
+
+        if problem_type == "classification":
+            categorical_candidates = [
+                c for c in sample_df.columns
+                if str(sample_df[c].dtype) in ("object", "category", "bool")
+            ]
+            if categorical_candidates:
+                ranked = sorted(categorical_candidates, key=lambda c: c.lower().count("status"), reverse=True)
+                return ranked[0]
+
+        return suggest_target_column(sample_df)
 
     def _log_target_signal_diagnostics(self, sample_df: pd.DataFrame) -> None:
         """Emit a quick warning when the selected supervised target appears weakly predictable."""
@@ -240,7 +365,7 @@ class RulesFirstPlannerAgent:
 
         max_abs_corr = float(corr.abs().max())
         if max_abs_corr < 0.05:
-            suggested = suggest_target_column(sample_df)
+            suggested = self._suggest_target_for_problem_type(sample_df, self.problem_type or "classification")
             suggestion_note = (
                 f" Suggested target candidate: '{suggested}'."
                 if suggested and suggested != target else ""
@@ -366,6 +491,9 @@ class RulesFirstPlannerAgent:
             model_cache=self.model_cache,
             dataset_path=self.dataset_path,
             feature_columns=self.feature_columns or [],
+            inference_only=self.inference_only,
+            pretrained_dir=self.pretrained_dir,
+            preferred_model=self.preferred_model,
         )
         results = agent.run(force_retry=False)
 
@@ -436,6 +564,7 @@ class RulesFirstPlannerAgent:
                 "test_data":          original_ctx,
                 "test_predictions":   self.analysis_results["predictions"],
                 "train_predictions":  self.analysis_results.get("train_predictions"),
+                "regression_baseline": self.analysis_results.get("regression_baseline"),
                 "feature_importances": fi_df,
             }
             for k in ("accuracy", "r2", "mse"):

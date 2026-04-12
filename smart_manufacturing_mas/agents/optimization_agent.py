@@ -7,12 +7,31 @@ import numpy as np
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='[%(asctime)s] [%(levelname)s] - %(message)s')
 
+
 class OptimizationAgent:
     """
     The OptimizationAgent takes insights from the AnalysisAgent and generates
     a prescriptive maintenance action plan. It represents the final step in
     closing the loop from prediction to action.
     """
+
+    UNIFIED_OUTPUT_COLUMNS = [
+        'Problem_Type',
+        'Machine_ID',
+        'Predicted_Label',
+        'Predicted_Value',
+        'Anomaly_Count',
+        'Priority_Level',
+        'Priority_Score',
+        'Reason_for_Action',
+        'Recommended_Action',
+        'Contributing_Factors',
+        'Estimated_Cost',
+        'Timeframe',
+        'Model_Confidence',
+        'Model_Warning'
+    ]
+
     def __init__(self, analysis_results: Dict[str, Any]):
         """
         Initialize the OptimizationAgent.
@@ -22,17 +41,142 @@ class OptimizationAgent:
                                      for context, and feature importances.
         """
         logging.info("Initializing Optimization Agent...")
-        self.results = analysis_results
-        # Check for required keys based on analysis type
-        if 'results_df' in analysis_results:
+        self.results = self._normalize_analysis_results(analysis_results)
+        self.problem_type = self._infer_problem_type(self.results)
+
+        # Check for required keys based on normalized analysis type
+        if self.problem_type == 'anomaly_detection':
             # Anomaly detection results
-            if 'results_df' not in analysis_results or 'anomaly_labels' not in analysis_results:
+            if 'results_df' not in self.results or 'anomaly_labels' not in self.results:
                 raise ValueError("Anomaly detection results missing required keys: 'results_df' and 'anomaly_labels'")
         else:
             # Supervised learning results - train_predictions only needed for regression
             required_keys = ['test_data', 'test_predictions', 'feature_importances']
             if not all(k in self.results for k in required_keys):
                 raise ValueError("Analysis results are missing required keys for optimization.")
+
+    @staticmethod
+    def _infer_problem_type(results: Dict[str, Any]) -> str:
+        explicit_type = str(results.get('problem_type', '')).strip().lower()
+        if explicit_type in {'classification', 'regression', 'anomaly_detection'}:
+            return explicit_type
+
+        if 'results_df' in results and 'anomaly_labels' in results:
+            return 'anomaly_detection'
+
+        train_predictions = results.get('train_predictions')
+        if (
+            results.get('r2') is not None and
+            train_predictions is not None and
+            np.issubdtype(np.asarray(train_predictions).dtype, np.number)
+        ):
+            return 'regression'
+
+        return 'classification'
+
+    @staticmethod
+    def _to_feature_importance_df(feature_importances: Any) -> pd.DataFrame:
+        if isinstance(feature_importances, pd.DataFrame):
+            return feature_importances
+        if isinstance(feature_importances, list) and feature_importances:
+            try:
+                return pd.DataFrame(feature_importances)
+            except Exception:
+                return pd.DataFrame()
+        return pd.DataFrame()
+
+    def _normalize_analysis_results(self, analysis_results: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Normalize input into a common internal shape while remaining backward compatible.
+
+        Supported unified input schema (single call path):
+        {
+            'problem_type': 'classification'|'regression'|'anomaly_detection',
+            'data': <pd.DataFrame>,
+            'predictions': <array-like>,
+            'train_predictions': <array-like, optional for regression>,
+            'feature_importances': <pd.DataFrame|list, optional>,
+            'metrics': {'accuracy': float, 'r2': float, ...},
+            'anomaly_scores': <array-like, optional for anomaly_detection>
+        }
+        """
+        normalized = dict(analysis_results)
+
+        if 'problem_type' in normalized and 'data' in normalized:
+            problem_type = str(normalized.get('problem_type', '')).strip().lower()
+            data = normalized.get('data')
+            predictions = normalized.get('predictions')
+            feature_importances = self._to_feature_importance_df(normalized.get('feature_importances'))
+            metrics = normalized.get('metrics', {})
+
+            normalized = {
+                'problem_type': problem_type,
+                'feature_importances': feature_importances
+            }
+
+            if isinstance(metrics, dict):
+                normalized.update(metrics)
+
+            if problem_type == 'anomaly_detection':
+                results_df = data.copy() if isinstance(data, pd.DataFrame) else pd.DataFrame(data)
+                if predictions is not None and 'anomaly_label' not in results_df.columns and 'Is_Anomaly' not in results_df.columns:
+                    results_df['anomaly_label'] = predictions
+
+                anomaly_scores = analysis_results.get('anomaly_scores')
+                if anomaly_scores is not None and 'anomaly_score' not in results_df.columns and 'Anomaly_Score' not in results_df.columns:
+                    results_df['anomaly_score'] = anomaly_scores
+
+                if 'anomaly_label' in results_df.columns:
+                    anomaly_labels = results_df['anomaly_label'].tolist()
+                elif 'Is_Anomaly' in results_df.columns:
+                    anomaly_labels = [(-1 if bool(v) else 1) for v in results_df['Is_Anomaly']]
+                elif predictions is not None:
+                    anomaly_labels = list(predictions)
+                else:
+                    anomaly_labels = []
+
+                normalized['results_df'] = results_df
+                normalized['anomaly_labels'] = anomaly_labels
+            else:
+                test_data = data.copy() if isinstance(data, pd.DataFrame) else pd.DataFrame(data)
+                normalized['test_data'] = test_data
+                normalized['test_predictions'] = predictions if predictions is not None else []
+                if normalized['feature_importances'].empty:
+                    normalized['feature_importances'] = pd.DataFrame()
+
+                if problem_type == 'regression':
+                    normalized['train_predictions'] = analysis_results.get('train_predictions')
+
+            return normalized
+
+        # Backward-compatible path for existing callers
+        normalized['feature_importances'] = self._to_feature_importance_df(normalized.get('feature_importances'))
+        return normalized
+
+    def _standardize_recommendations(
+        self,
+        recommendations_df: pd.DataFrame,
+        problem_type: str,
+        model_performance: Dict[str, Any]
+    ) -> pd.DataFrame:
+        if recommendations_df is None or recommendations_df.empty:
+            return pd.DataFrame(columns=self.UNIFIED_OUTPUT_COLUMNS)
+
+        standardized = recommendations_df.copy()
+
+        standardized['Problem_Type'] = problem_type
+        if 'Model_Confidence' not in standardized.columns:
+            standardized['Model_Confidence'] = model_performance.get('recommendation_confidence', 'High')
+
+        warning = model_performance.get('reliability_warning')
+        if warning and 'Model_Warning' not in standardized.columns:
+            standardized['Model_Warning'] = warning
+
+        for col in self.UNIFIED_OUTPUT_COLUMNS:
+            if col not in standardized.columns:
+                standardized[col] = None
+
+        return standardized[self.UNIFIED_OUTPUT_COLUMNS]
 
     def _assess_model_performance(self) -> Dict[str, Any]:
         """Assess model performance and provide context for recommendations."""
@@ -235,22 +379,27 @@ class OptimizationAgent:
         # Add model performance context to recommendations
         model_performance = self._assess_model_performance()
         logging.info(f"Model performance assessment: {model_performance}")
-        
-        train_predictions = self.results.get('train_predictions')
-        is_regression = (
-            self.results.get('r2') is not None and
-            train_predictions is not None and
-            np.issubdtype(np.asarray(train_predictions).dtype, np.number)
-        )
 
-        if is_regression:
+        train_predictions = self.results.get('train_predictions')
+        regression_baseline = self.results.get('regression_baseline')
+
+        if self.problem_type == 'regression':
             # Handle regression results
             results_df = self.results['test_data'].copy()
             results_df['Predicted_Value'] = self.results['test_predictions']
             
             # Calculate prediction thresholds based on training data distribution
-            train_mean = np.asarray(train_predictions).mean()
-            train_std = np.asarray(train_predictions).std()
+            if train_predictions is not None:
+                train_mean = np.asarray(train_predictions).mean()
+                train_std = np.asarray(train_predictions).std()
+            elif isinstance(regression_baseline, dict):
+                train_mean = float(regression_baseline.get('mean', results_df['Predicted_Value'].mean()))
+                train_std = float(regression_baseline.get('std', results_df['Predicted_Value'].std()))
+            else:
+                train_mean = float(results_df['Predicted_Value'].mean())
+                train_std = float(results_df['Predicted_Value'].std())
+            if train_std == 0:
+                train_std = 1.0
             high_threshold = train_mean + 2 * train_std
             critical_threshold = train_mean + 3 * train_std
             
@@ -287,12 +436,13 @@ class OptimizationAgent:
             
             if recommendations:
                 recommendations_df = pd.DataFrame(recommendations)
-                return recommendations_df.sort_values('Priority_Score', ascending=False)
+                recommendations_df = recommendations_df.sort_values('Priority_Score', ascending=False)
+                return self._standardize_recommendations(recommendations_df, 'regression', model_performance)
             else:
                 logging.info("No concerning predictions identified. All values within normal range.")
-                return pd.DataFrame()
+                return self._standardize_recommendations(pd.DataFrame(), 'regression', model_performance)
                 
-        elif 'anomaly_labels' in self.results:
+        elif self.problem_type == 'anomaly_detection':
             # Handle anomaly detection results
             results_df = self.results['results_df'].copy()
 
@@ -329,7 +479,7 @@ class OptimizationAgent:
             
             if anomalous.empty:
                 logging.info("No anomalies detected. All machines operating within normal parameters.")
-                return pd.DataFrame()
+                return self._standardize_recommendations(pd.DataFrame(), 'anomaly_detection', model_performance)
             
             # Group anomalies by Machine_ID
             agg_spec = {
@@ -407,14 +557,7 @@ class OptimizationAgent:
                 })
             
             recommendations_df = pd.DataFrame(recommendations)
-            
-            # Add timestamp information
-            if 'Timestamp' in results_df.columns:
-                first_anomaly = results_df.groupby('Machine_ID')['Timestamp'].min().reset_index()
-                first_anomaly.columns = ['Machine_ID', 'First_Anomaly_Time']
-                recommendations_df = recommendations_df.merge(first_anomaly, on='Machine_ID')
-            
-            return recommendations_df
+            return self._standardize_recommendations(recommendations_df, 'anomaly_detection', model_performance)
             
         else:
             # Handle classification results with enhanced, label-aware insights
@@ -485,10 +628,10 @@ class OptimizationAgent:
                     logging.warning(f"⚠️ {model_performance['reliability_warning']}")
                     recommendations_df['Model_Warning'] = model_performance['reliability_warning']
 
-                return recommendations_df
+                return self._standardize_recommendations(recommendations_df, 'classification', model_performance)
 
             logging.info("No maintenance recommendations generated.")
-            return pd.DataFrame()
+            return self._standardize_recommendations(pd.DataFrame(), 'classification', model_performance)
 
     def generate_summary_report(self, recommendations_df: pd.DataFrame) -> str:
         """Generate a human-readable summary report of recommendations."""
@@ -526,6 +669,18 @@ class OptimizationAgent:
                     report_lines.append(f"  • {warning}")
         
         return "\n".join(report_lines)
+
+    def run(self) -> Dict[str, Any]:
+        """
+        Single-call entry point with a uniform output payload for all problem types.
+        """
+        recommendations_df = self.generate_recommendations()
+        return {
+            'problem_type': self.problem_type,
+            'recommendations': recommendations_df,
+            'summary_report': self.generate_summary_report(recommendations_df),
+            'output_schema': list(self.UNIFIED_OUTPUT_COLUMNS)
+        }
 
 if __name__ == '__main__':
     logging.info("--- Running Optimization Agent in Standalone Mode ---")

@@ -39,6 +39,7 @@ from sklearn.svm import SVC, SVR
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from utils.tool_decider import ToolDecider, create_data_summary, get_tool_decider
 from utils.column_utils import is_identifier_column
+from utils.pretrained_model_store import select_bundle_metadata, load_bundle, predict_with_bundle
 
 logging.basicConfig(level=logging.INFO, format='[%(asctime)s] [%(levelname)s] - %(message)s')
 
@@ -68,6 +69,9 @@ class DynamicAnalysisAgent:
         model_cache: Optional[Any] = None,
         dataset_path: Optional[str] = None,
         feature_columns: Optional[List[str]] = None,
+        inference_only: bool = False,
+        pretrained_dir: Optional[str] = None,
+        preferred_model: Optional[str] = None,
     ):
         self.data = data
         self.target_column = target_column
@@ -80,6 +84,9 @@ class DynamicAnalysisAgent:
         self.feature_columns = feature_columns or (
             [c for c in data.columns if c != target_column] if target_column else list(data.columns)
         )
+        self.inference_only = inference_only
+        self.pretrained_dir = pretrained_dir
+        self.preferred_model = preferred_model
 
         self.model = None
         self.model_name: Optional[str] = None
@@ -91,7 +98,8 @@ class DynamicAnalysisAgent:
 
         logging.info(
             f"DynamicAnalysisAgent init — task={task}, "
-            f"cache={'enabled' if model_cache else 'disabled'}, params={self.params}"
+            f"cache={'enabled' if model_cache else 'disabled'}, "
+            f"inference_only={self.inference_only}, params={self.params}"
         )
 
     # ── Tool selection ────────────────────────────────────────────────────────
@@ -131,6 +139,9 @@ class DynamicAnalysisAgent:
         Train (or load from cache) and return results.
         force_retry=True triggers Adaptive Intelligence (sweeps all model families).
         """
+        if self.inference_only and self.task in ("classification", "regression"):
+            return self._run_pretrained_inference()
+
         # ── Cache check ───────────────────────────────────────────────────
         if self.model_cache is not None:
             entry = self.model_cache.load(
@@ -173,6 +184,47 @@ class DynamicAnalysisAgent:
             logging.info(f"[ModelCache] Saved trained '{self.model_name}'.")
 
         return results
+
+    def _run_pretrained_inference(self) -> Optional[Dict[str, Any]]:
+        """Load a pre-trained bundle for the current task and run inference on provided data."""
+        meta = select_bundle_metadata(
+            problem_type=self.task,
+            target_column=self.target_column,
+            preferred_model=self.preferred_model,
+            path=self.pretrained_dir,
+        )
+        if not meta:
+            logging.error(
+                f"No pretrained bundles found for task '{self.task}'. "
+                "Train and save bundles first via the offline training notebook."
+            )
+            return None
+
+        bundle_file = meta.get("bundle_file")
+        if not bundle_file:
+            logging.error("Pretrained registry entry is missing 'bundle_file'.")
+            return None
+
+        try:
+            bundle = load_bundle(bundle_file, path=self.pretrained_dir)
+            results = predict_with_bundle(bundle, self.data, target_column=self.target_column)
+            results["from_cache"] = False
+            results["from_pretrained"] = True
+            self.model_name = results.get("model")
+            self.model = bundle.get("pipeline")
+            logging.info(
+                f"Loaded pretrained model '{self.model_name}' from '{bundle_file}' for inference."
+            )
+            if results.get("target_mismatch_warning"):
+                logging.warning(results["target_mismatch_warning"])
+            if "r2" in results:
+                logging.info(f"Pretrained inference R²={results['r2']:.4f}, MSE={results.get('mse', float('nan')):.4f}")
+            if "accuracy" in results:
+                logging.info(f"Pretrained inference accuracy={results['accuracy']:.4f}")
+            return results
+        except Exception as exc:
+            logging.error(f"Failed to run pretrained inference: {exc}", exc_info=True)
+            return None
 
     # ── Adaptive Intelligence ─────────────────────────────────────────────────
 

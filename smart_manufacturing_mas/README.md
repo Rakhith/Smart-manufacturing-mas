@@ -156,6 +156,9 @@ python main_llm.py --mode rules-first --dataset data/.../smmd.csv --auto-detect
 ## Usage Examples
 
 ```bash
+# Train and export offline model bundles (run notebook once)
+# Open: training/offline_model_training.ipynb
+
 # Classification, auto-detect, with cache
 python main_llm.py --mode rules-first --dataset "data\Smart Manufacturing Maintenance Dataset\smart_maintenance_dataset.csv" --auto-detect --use-cache
 
@@ -179,6 +182,34 @@ python main_llm.py --mode rules-first --batch --auto
 python main_llm.py --mode rules-first \
   --dataset data/.../smmd.csv \
   --target Maintenance_Priority --invalidate-cache
+```
+
+## Pretrained Inference Mode
+
+Rules-first mode now supports loading pre-trained supervised models and running inference without live re-training.
+
+- Default behavior in rules-first supervised runs is pretrained inference.
+- Export bundles and registry first using `training/offline_model_training.ipynb`.
+- Bundles are read from `artifacts/pretrained_models/registry.json`.
+
+```bash
+# Inference-only (default for supervised tasks in rules-first)
+python main_llm.py --mode rules-first \
+  --dataset "data/smart_manufacturing_dataset.csv" \
+  --problem-type regression \
+  --pretrained-dir "artifacts/pretrained_models"
+
+# Force a specific pretrained model
+python main_llm.py --mode rules-first \
+  --dataset "data/Smart Manufacturing Maintenance Dataset/smart_maintenance_dataset.csv" \
+  --problem-type classification \
+  --preferred-model RandomForestClassifier
+
+# Opt out and train live
+python main_llm.py --mode rules-first \
+  --dataset "data/smart_manufacturing_dataset.csv" \
+  --problem-type regression \
+  --train-live
 ```
 
 ## 🐛 Troubleshooting
