@@ -77,12 +77,15 @@ def select_bundle_metadata(
             return None
 
     if target_column:
+        requested = str(target_column).strip().lower()
         target_matches = [
             e for e in entries
-            if str(e.get("target_column", "")).strip() == str(target_column).strip()
+            if str(e.get("target_column", "")).strip().lower() == requested
         ]
-        if target_matches:
-            entries = target_matches
+        if not target_matches:
+            # Do not silently fall back to an unrelated target when caller requested one.
+            return None
+        entries = target_matches
 
     if preferred_model:
         for entry in entries:

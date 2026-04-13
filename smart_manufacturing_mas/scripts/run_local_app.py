@@ -1,6 +1,5 @@
 import os
 from pathlib import Path
-import subprocess
 import sys
 
 
@@ -12,27 +11,33 @@ def _env_flag(name: str, default: bool = False) -> bool:
 
 
 def main() -> int:
+    import uvicorn
+    
     project_dir = Path(__file__).resolve().parents[1]
     host = os.environ.get("APP_HOST", "127.0.0.1")
-    port = os.environ.get("APP_PORT", "8000")
+    port = int(os.environ.get("APP_PORT", "8000"))
     reload_enabled = _env_flag("APP_RELOAD", default=False)
-    cmd = [
-        str(project_dir / "mas_venv" / "bin" / "python"),
-        "-m",
-        "uvicorn",
+    
+    # Add project directory to sys.path for module imports
+    if str(project_dir) not in sys.path:
+        sys.path.insert(0, str(project_dir))
+    
+    # Change to project directory
+    os.chdir(str(project_dir))
+    
+    # Run uvicorn directly in the current process
+    uvicorn.run(
         "webapp.app:app",
-        "--host",
-        host,
-        "--port",
-        port,
-    ]
-    if reload_enabled:
-        cmd.append("--reload")
-    try:
-        return subprocess.call(cmd, cwd=str(project_dir))
-    except KeyboardInterrupt:
-        return 0
+        host=host,
+        port=port,
+        reload=reload_enabled,
+    )
+    return 0
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("\nServer stopped.")
+        sys.exit(0)

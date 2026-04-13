@@ -428,11 +428,52 @@ def _run_llm_mode(args, hitl_interface):
         run_single(None)
 
 
+# ── Argument validation ──────────────────────────────────────────────────────
+
+def _validate_args(args):
+    """Validate that mutually exclusive flags are not used together."""
+    errors = []
+    
+    # Cache + Pretrained (mutually exclusive for supervised tasks)
+    if args.use_cache and (args.inference_only or (not args.train_live and args.mode == "rules-first")):
+        errors.append(
+            "ERROR: --use-cache and --inference-only are mutually exclusive.\n"
+            "  Use --use-cache for fast re-training of the same config.\n"
+            "  Use --inference-only (or omit --train-live) to load pre-trained bundles.\n"
+            "  Choose one strategy, not both."
+        )
+    
+    # Train-live + Inference-only (mutually exclusive)
+    if args.train_live and args.inference_only:
+        errors.append(
+            "ERROR: --train-live and --inference-only are mutually exclusive.\n"
+            "  --train-live: force live training (ignore pretrained bundles).\n"
+            "  --inference-only: use pretrained bundles only.\n"
+            "  Remove one of these flags."
+        )
+    
+    # Invalidate cache + other options
+    if args.invalidate_cache and (args.inference_only or args.train_live):
+        errors.append(
+            "ERROR: --invalidate-cache should not be used with --inference-only or --train-live.\n"
+            "  --invalidate-cache removes a cache entry and exits.\n"
+            "  Remove --inference-only or --train-live."
+        )
+    
+    if errors:
+        for error in errors:
+            logging.error(error)
+        sys.exit(1)
+
+
 # ── Entry point ───────────────────────────────────────────────────────────────
 
 def main():
     parser = build_parser()
     args = parser.parse_args()
+    
+    # Validate conflicting flags
+    _validate_args(args)
 
     if args.auto or args.batch:
         os.environ["HITL_AUTO"] = "1"
@@ -442,7 +483,8 @@ def main():
 
     logging.info(f"Mode: {args.mode}")
     logging.info(
-        f"Flags: auto_detect={args.auto_detect}, use_pca={args.use_pca}, use_cache={args.use_cache}"
+        f"Flags: auto_detect={args.auto_detect}, use_pca={args.use_pca}, use_cache={args.use_cache}, "
+        f"inference_only={args.inference_only}, train_live={args.train_live}"
     )
 
     if args.mode == "rules-first":

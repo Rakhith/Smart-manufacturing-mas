@@ -307,8 +307,17 @@ class PreprocessingAgent:
             else:
                 processed_df = pd.DataFrame(processed_data, columns=feature_names, index=self.data.index)
 
-            # For anomaly detection, carry identifier passthrough columns forward so
-            # downstream recommendation logic can map anomalies to entity IDs.
+            # Restore passthrough identifier columns (no encoding) so downstream recommendation
+            # logic can map predictions back to entity IDs (e.g., Agent_ID, Machine_ID).
+            # Applies to both supervised learning AND anomaly detection.
+            if passthrough_ids:
+                for id_col in passthrough_ids:
+                    if id_col in self.data.columns and id_col not in processed_df.columns:
+                        processed_df[id_col] = self.data[id_col]
+                        logging.info(f"Restored passthrough identifier column '{id_col}' to output.")
+
+            # For anomaly detection, carry identifier passthrough columns forward (prefixed names)
+            # so downstream recommendation logic can map anomalies to entity IDs.
             if self.problem_type == 'anomaly_detection' and self.identifier_columns:
                 for id_col in self.identifier_columns:
                     if id_col in self.data.columns and id_col not in processed_df.columns:

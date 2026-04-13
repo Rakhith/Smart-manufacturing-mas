@@ -631,3 +631,46 @@ select {
     grid-template-columns: 1fr;
   }
 }
+
+/* Text wrapping and overflow fixes */
+.log-feed p,
+.result-overview p,
+.recommendation-preview p,
+.stage-card p,
+.summary-item p,
+button,
+label,
+.field span,
+.highlight-card p,
+.meta-value {
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  max-width: 100%;
+}
+
+.log-feed,
+.result-overview,
+.recommendation-preview,
+.stage-card,
+.summary-item,
+.highlight-card,
+.meta-row {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.preview-table td,
+.preview-table th {
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 150px;
+}
+
+button {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

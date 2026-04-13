@@ -343,6 +343,36 @@ class OptimizationAgent:
                 factors.append(f"{feature}={value}")
         return ", ".join(factors)
 
+    @staticmethod
+    def _ensure_machine_id_column(df: pd.DataFrame) -> pd.DataFrame:
+        """Ensure a unified Machine_ID column exists using common identifier aliases."""
+        if df is None or df.empty:
+            return df
+
+        normalized = df.copy()
+        if 'Machine_ID' in normalized.columns:
+            return normalized
+
+        id_candidates = [
+            'Agent_ID', 'AgentId', 'agent_id',
+            'MachineId', 'machine_id', 'machine',
+            'Asset_ID', 'asset_id',
+            'Device_ID', 'device_id',
+        ]
+
+        for candidate in id_candidates:
+            if candidate in normalized.columns:
+                normalized['Machine_ID'] = normalized[candidate]
+                return normalized
+
+        prefixed_ids = [c for c in normalized.columns if str(c).startswith('identifier__')]
+        if prefixed_ids:
+            normalized['Machine_ID'] = normalized[prefixed_ids[0]]
+            return normalized
+
+        normalized['Machine_ID'] = normalized.index.astype(str)
+        return normalized
+
     def _action_plan_from_score(self, score: float) -> Dict[str, str]:
         if score >= 2.5:
             return {
@@ -386,6 +416,7 @@ class OptimizationAgent:
         if self.problem_type == 'regression':
             # Handle regression results
             results_df = self.results['test_data'].copy()
+            results_df = self._ensure_machine_id_column(results_df)
             results_df['Predicted_Value'] = self.results['test_predictions']
             
             # Calculate prediction thresholds based on training data distribution
@@ -458,22 +489,7 @@ class OptimizationAgent:
                     for id_col in identifier_cols:
                         results_df[id_col.replace("identifier__", "")] = results_df[id_col]
 
-            if 'Machine_ID' not in results_df.columns:
-                fallback_id_col = None
-                for candidate in ('MachineId', 'machine_id', 'machine', 'Asset_ID', 'asset_id'):
-                    if candidate in results_df.columns:
-                        fallback_id_col = candidate
-                        break
-                if fallback_id_col is None:
-                    identifier_cols = [c for c in results_df.columns if c.startswith('identifier__')]
-                    if identifier_cols:
-                        fallback_id_col = identifier_cols[0]
-
-                if fallback_id_col is not None:
-                    results_df['Machine_ID'] = results_df[fallback_id_col]
-                else:
-                    # Final fallback: keep analysis usable even without explicit machine identifiers.
-                    results_df['Machine_ID'] = results_df.index.astype(str)
+            results_df = self._ensure_machine_id_column(results_df)
 
             anomalous = results_df[results_df['Is_Anomaly']]
             
@@ -562,6 +578,7 @@ class OptimizationAgent:
         else:
             # Handle classification results with enhanced, label-aware insights
             results_df = self.results['test_data'].copy()
+            results_df = self._ensure_machine_id_column(results_df)
             predictions = pd.Series(self.results['test_predictions'], index=results_df.index, name="Predicted_Label")
             results_df['Predicted_Label'] = predictions
 
@@ -585,7 +602,7 @@ class OptimizationAgent:
             elif 'test_data' in self.results:
                 feature_names = [
                     col for col in self.results['test_data'].columns
-                    if col not in {'Machine_ID', 'Timestamp'}
+                    if col not in {'Machine_ID', 'MachineId', 'machine_id', 'Agent_ID', 'AgentId', 'agent_id', 'Timestamp'}
                 ][:3]
 
             prioritized = results_df.sort_values('Priority_Score', ascending=False)

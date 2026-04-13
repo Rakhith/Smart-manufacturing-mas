@@ -195,32 +195,26 @@ class RulesFirstPlannerAgent:
             logging.error(f"Cannot read dataset for auto-detection: {exc}")
             return False
 
-        # Suggest target column if not provided
+        # In inference-only mode, prefer targets that have a pretrained bundle compatible
+        # with this dataset before generic keyword-based auto-suggestion.
+        if self.inference_only and self.target_column is None and self.problem_type != "anomaly_detection":
+            inferred_target, inferred_problem = self._infer_target_from_pretrained(sample, self.problem_type)
+            if inferred_target:
+                self.target_column = inferred_target
+                if self.problem_type is None and inferred_problem:
+                    self.problem_type = inferred_problem
+                logging.info(
+                    f"Auto-selected target '{self.target_column}' from pretrained bundle compatibility"
+                    f" (problem_type={self.problem_type or inferred_problem})."
+                )
+
+        # Suggest target column if still not provided
         if self.target_column is None and self.problem_type != "anomaly_detection":
             if self.problem_type in ("classification", "regression"):
                 self.target_column = self._suggest_target_for_problem_type(sample, self.problem_type)
             else:
                 self.target_column = suggest_target_column(sample)
             logging.info(f"Auto-suggested target column: '{self.target_column}'")
-        # If inference-only mode, try to load target from pretrained bundle
-        if self.inference_only and self.target_column is None and self.problem_type in ("classification", "regression"):
-            try:
-                bundle_meta = select_bundle_metadata(
-                    problem_type=self.problem_type,
-                    target_column=None,  # No filter on target yet
-                    preferred_model=self.preferred_model,
-                    path=self.pretrained_dir,
-                )
-                if bundle_meta:
-                    self.target_column = bundle_meta.get('target_column')
-                    logging.info(
-                        f"Loaded target '{self.target_column}' from pretrained bundle "
-                        f"({bundle_meta.get('bundle_file')})"
-                    )
-            except Exception as e:
-                logging.warning(f"Could not load pretrained bundle target: {e}. Falling back to auto-detect.")
-                if self.problem_type in ("classification", "regression"):
-                    self.target_column = self._suggest_target_for_problem_type(sample, self.problem_type)
 
         # Auto-detect problem type if not provided
         if self.problem_type is None:
@@ -295,37 +289,20 @@ class RulesFirstPlannerAgent:
                 return None
 
             preferred_tokens = (
-                "target", "label", "score", "value", "rate", "remaining", "lifetime", "rul", "output"
-            )
-
-            def score(col: str) -> int:
-                name = col.lower()
-                s = 0
-                if any(tok in name for tok in preferred_tokens):
-                    s += 100
-                if name.endswith("_id") or "id" == name:
-                    s -= 100
-                return s
-
-            return sorted(numeric_candidates, key=score, reverse=True)[0]
-            
-            # Add more preferred tokens for manufacturing datasets
-            preferred_tokens = (
                 "target", "label", "score", "value", "rate", "remaining", "lifetime", "rul", "output",
                 "efficiency", "priority", "performance", "demand", "consumption", "usage", "production"
             )
-            
-            def score(col: str) -> tuple:
+
+            def score(col: str) -> tuple[int, int]:
                 name = col.lower()
                 s = 0
                 if any(tok in name for tok in preferred_tokens):
                     s += 100
                 if name.endswith("_id") or "id" == name:
                     s -= 100
-                # Secondary sort: prefer columns later in DataFrame (more likely to be target)
-                col_index = numeric_candidates.index(col)
-                return (s, col_index)
-            
+                # Tie-breaker: prefer right-most columns (common target convention).
+                return (s, numeric_candidates.index(col))
+
             return sorted(numeric_candidates, key=score, reverse=True)[0]
 
         if problem_type == "classification":
@@ -338,6 +315,52 @@ class RulesFirstPlannerAgent:
                 return ranked[0]
 
         return suggest_target_column(sample_df)
+
+    def _infer_target_from_pretrained(
+        self,
+        sample_df: pd.DataFrame,
+        problem_type_hint: Optional[str],
+    ) -> tuple[Optional[str], Optional[str]]:
+        """Pick the best target from pretrained registry using dataset compatibility."""
+        try:
+            from utils.pretrained_model_store import load_registry
+
+            registry = load_registry(self.pretrained_dir)
+            task_types = [problem_type_hint] if problem_type_hint in ("classification", "regression") else ["regression", "classification"]
+
+            best_row: Optional[tuple[str, str, float]] = None
+            sample_columns = set(sample_df.columns)
+
+            for task in task_types:
+                for entry in registry.get(task, []) or []:
+                    target = str(entry.get("target_column") or "").strip()
+                    if not target or target not in sample_columns:
+                        continue
+
+                    expected_features = set(entry.get("feature_columns") or [])
+                    if expected_features:
+                        overlap = len(expected_features & sample_columns)
+                        overlap_ratio = overlap / max(len(expected_features), 1)
+                    else:
+                        overlap_ratio = 0.0
+
+                    if task == "regression":
+                        metric_score = float((entry.get("metrics") or {}).get("r2", -1e9))
+                    else:
+                        metric_score = float((entry.get("metrics") or {}).get("accuracy", -1e9))
+
+                    # Compatibility dominates; metric score breaks ties.
+                    score = overlap_ratio * 1000.0 + metric_score
+                    row = (target, task, score)
+                    if best_row is None or row[2] > best_row[2]:
+                        best_row = row
+
+            if best_row:
+                return best_row[0], best_row[1]
+            return None, None
+        except Exception as exc:
+            logging.warning(f"Pretrained target inference failed: {exc}")
+            return None, None
 
     def _log_target_signal_diagnostics(self, sample_df: pd.DataFrame) -> None:
         """Emit a quick warning when the selected supervised target appears weakly predictable."""
@@ -485,6 +508,7 @@ class RulesFirstPlannerAgent:
 
         agent = DynamicAnalysisAgent(
             data=self.preprocessed_data,
+            raw_data=self.raw_data,
             target_column=self.target_column,
             task=self.problem_type,
             params=params,

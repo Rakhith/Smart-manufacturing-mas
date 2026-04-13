@@ -1,41 +1,6 @@
 {
-  "53bef5129b32f489": {
-    "path": "C:\\Users\\Darsh Veer Singh\\OneDrive - iiit-b\\Sem 6\\AIM801 - Project Elective\\Smart-manufacturing-mas\\smart_manufacturing_mas\\model_cache\\53bef5129b32f489.pkl",
-    "config": {
-      "dataset": "smart_maintenance_dataset.csv",
-      "features": [
-        "Acoustic_dB",
-        "Downtime_Cost_USD",
-        "Inspection_Duration_min",
-        "Maintenance_Priority",
-        "Pressure_Bar",
-        "Technician_Availability_pct",
-        "Temp_C",
-        "Vibration_mm_s"
-      ],
-      "target": "Failure_Prob",
-      "problem_type": "regression"
-    },
-    "metadata": {
-      "mse": 5.814299466165621e-05,
-      "r2": 0.979890704846052,
-      "feature_names": [
-        "PC_0",
-        "PC_1",
-        "PC_2",
-        "PC_3",
-        "PC_4",
-        "PC_5",
-        "PC_6"
-      ],
-      "cv_r2": 0.9809408245218189,
-      "cv_std": 0.0018161049175304926,
-      "cv_scores": "[0.98250026 0.9786098  0.98320454 0.98128748 0.97910205]",
-      "model_name": "LinearRegression"
-    }
-  },
   "60288d818071e57a": {
-    "path": "/Users/rakshith/Desktop/Smart-manufacturing-mas/smart_manufacturing_mas/model_cache/60288d818071e57a.pkl",
+    "path": "C:\\Users\\Darsh Veer Singh\\OneDrive - iiit-b\\Sem 6\\AIM801 - Project Elective\\Smart-manufacturing-mas\\smart_manufacturing_mas\\model_cache\\60288d818071e57a.pkl",
     "config": {
       "dataset": "manufacturing_6G_dataset.csv",
       "features": [
@@ -55,89 +20,68 @@
       "problem_type": "classification"
     },
     "metadata": {
-      "accuracy": 0.99995,
-      "classification_report": "              precision    recall  f1-score   support\n\n        High       1.00      1.00      1.00       597\n         Low       1.00      1.00      1.00     15565\n      Medium       1.00      1.00      1.00      3838\n\n    accuracy                           1.00     20000\n   macro avg       1.00      1.00      1.00     20000\nweighted avg       1.00      1.00      1.00     20000\n",
-      "feature_importances": "[1.34062471e-03 1.24893905e-03 1.22445518e-03 1.18409191e-03\n 1.31251063e-03 1.22166526e-03 3.20070360e-01 1.26840177e-03\n 6.70926070e-01 8.38742567e-05 8.11188517e-05 3.78880110e-05]",
+      "accuracy": 0.92995,
+      "classification_report": "              precision    recall  f1-score   support\n\n        High       0.91      0.35      0.50       597\n         Low       0.96      0.98      0.97     15565\n      Medium       0.82      0.82      0.82      3838\n\n    accuracy                           0.93     20000\n   macro avg       0.90      0.72      0.76     20000\nweighted avg       0.93      0.93      0.93     20000\n",
+      "feature_importances": "[0.11180264 0.02358472 0.04764636 0.09530996 0.06037326 0.33192978\n 0.07207743 0.22835132 0.02892452]",
       "feature_names": [
-        "num__Temperature_C",
-        "num__Vibration_Hz",
-        "num__Power_Consumption_kW",
-        "num__Network_Latency_ms",
-        "num__Packet_Loss_%",
-        "num__Quality_Control_Defect_Rate_%",
-        "num__Production_Speed_units_per_hr",
-        "num__Predictive_Maintenance_Score",
-        "num__Error_Rate_%",
-        "cat__Operation_Mode_Active",
-        "cat__Operation_Mode_Idle",
-        "cat__Operation_Mode_Maintenance"
+        "PC_0",
+        "PC_1",
+        "PC_2",
+        "PC_3",
+        "PC_4",
+        "PC_5",
+        "PC_6",
+        "PC_7",
+        "PC_8"
       ],
-      "cv_accuracy": 0.99997,
-      "cv_std": 3.99999999999956e-05,
-      "cv_scores": "[0.99995 1.      0.9999  1.      1.     ]",
+      "cv_accuracy": 0.9277199999999999,
+      "cv_std": 0.0019356135978030177,
+      "cv_scores": "[0.9265  0.92455 0.9288  0.9299  0.92885]",
       "model_name": "RandomForestClassifier"
     }
   },
-  "947842fb66d3d26c": {
-    "path": "/Users/rakshith/Desktop/Smart-manufacturing-mas/smart_manufacturing_mas/model_cache/947842fb66d3d26c.pkl",
+  "b38ec62e6152cd86": {
+    "path": "C:\\Users\\Darsh Veer Singh\\OneDrive - iiit-b\\Sem 6\\AIM801 - Project Elective\\Smart-manufacturing-mas\\smart_manufacturing_mas\\model_cache\\b38ec62e6152cd86.pkl",
     "config": {
-      "dataset": "metal_etch_data.csv",
+      "dataset": "smart_manufacturing_data.csv",
       "features": [
-        "Feature_1",
-        "Feature_10",
-        "Feature_11",
-        "Feature_12",
-        "Feature_13",
-        "Feature_14",
-        "Feature_15",
-        "Feature_16",
-        "Feature_17",
-        "Feature_18",
-        "Feature_19",
-        "Feature_2",
-        "Feature_20",
-        "Feature_21",
-        "Feature_3",
-        "Feature_4",
-        "Feature_5",
-        "Feature_6",
-        "Feature_7",
-        "Feature_8",
-        "Feature_9"
+        "anomaly_flag",
+        "downtime_risk",
+        "energy_consumption",
+        "failure_type",
+        "humidity",
+        "machine_status",
+        "predicted_remaining_life",
+        "pressure",
+        "temperature",
+        "timestamp",
+        "vibration"
       ],
-      "target": "Target",
+      "target": "maintenance_required",
       "problem_type": "classification"
     },
     "metadata": {
-      "accuracy": 0.9433611884865367,
-      "classification_report": "              precision    recall  f1-score   support\n\n           0       0.94      1.00      0.97      1939\n           1       0.92      0.47      0.63       215\n\n    accuracy                           0.94      2154\n   macro avg       0.93      0.73      0.80      2154\nweighted avg       0.94      0.94      0.94      2154\n",
-      "feature_importances": "[0.14013562 0.00511925 0.02306559 0.0288839  0.01449747 0.08194462\n 0.04302732 0.01133009 0.05249376 0.03043917 0.03949059 0.04625918\n 0.02233421 0.04640429 0.07404508 0.07259725 0.07305347 0.04043426\n 0.09468379 0.03909268 0.02066842]",
+      "accuracy": 1.0,
+      "classification_report": "              precision    recall  f1-score   support\n\n           0       1.00      1.00      1.00     16061\n           1       1.00      1.00      1.00      3939\n\n    accuracy                           1.00     20000\n   macro avg       1.00      1.00      1.00     20000\nweighted avg       1.00      1.00      1.00     20000\n",
+      "feature_importances": "[8.27683225e-02 2.68759534e-02 3.09791902e-04 2.42948011e-04\n 2.89647676e-04 2.84983553e-01 2.24436539e-01 1.86199801e-01\n 4.59189133e-03 1.41284232e-01 1.49108134e-02 8.52806409e-03\n 2.45784423e-02]",
       "feature_names": [
-        "num__Feature_1",
-        "num__Feature_2",
-        "num__Feature_3",
-        "num__Feature_4",
-        "num__Feature_5",
-        "num__Feature_6",
-        "num__Feature_7",
-        "num__Feature_8",
-        "num__Feature_9",
-        "num__Feature_10",
-        "num__Feature_11",
-        "num__Feature_12",
-        "num__Feature_13",
-        "num__Feature_14",
-        "num__Feature_15",
-        "num__Feature_16",
-        "num__Feature_17",
-        "num__Feature_18",
-        "num__Feature_19",
-        "num__Feature_20",
-        "num__Feature_21"
+        "num__temperature",
+        "num__vibration",
+        "num__humidity",
+        "num__pressure",
+        "num__energy_consumption",
+        "num__machine_status",
+        "num__anomaly_flag",
+        "num__predicted_remaining_life",
+        "cat__failure_type_Electrical Fault",
+        "cat__failure_type_Normal",
+        "cat__failure_type_Overheating",
+        "cat__failure_type_Pressure Drop",
+        "cat__failure_type_Vibration Issue"
       ],
-      "cv_accuracy": 0.935004642525534,
-      "cv_std": 0.0031073724290959074,
-      "cv_scores": "[0.93221913 0.93686165 0.93779016 0.93779016 0.93036212]",
+      "cv_accuracy": 1.0,
+      "cv_std": 0.0,
+      "cv_scores": "[1. 1. 1. 1. 1.]",
       "model_name": "RandomForestClassifier"
     }
   }
