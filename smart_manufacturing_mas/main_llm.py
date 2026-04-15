@@ -65,7 +65,7 @@ def build_parser() -> argparse.ArgumentParser:
     # Mode
     p.add_argument(
         "--mode", choices=["llm", "rules-first"], default="llm",
-        help="'llm' = LLM decides each step (original). 'rules-first' = NEW: deterministic pipeline, LLM interprets at end.",
+        help="'llm' = LLM decides each step (original). 'rules-first' = deterministic pipeline, LLM interprets at end.",
     )
 
     # LLM backends
@@ -94,19 +94,37 @@ def build_parser() -> argparse.ArgumentParser:
     # PCA (NEW)
     p.add_argument(
         "--use-pca", action="store_true",
-        help="NEW: enable PCA after preprocessing. WARNING: loses named feature interpretability.",
+        help="Enable PCA after preprocessing. WARNING: loses named feature interpretability.",
     )
     p.add_argument("--pca-threshold", type=float, default=0.95, help="Variance to retain when --use-pca is set.")
 
     # Model cache (NEW)
     p.add_argument(
         "--use-cache", action="store_true",
-        help="NEW: cache trained models keyed by hash(dataset+features+target+task).",
+        help="Cache trained models keyed by hash(dataset+features+target+task).",
     )
     p.add_argument("--cache-dir", default=None, help="Model cache directory (default: ./model_cache).")
     p.add_argument(
         "--invalidate-cache", action="store_true",
         help="Delete cache for the current config, then exit.",
+    )
+
+    # Pretrained inference (NEW)
+    p.add_argument(
+        "--inference-only", action="store_true",
+        help="Use pre-trained model bundles for supervised tasks instead of live training.",
+    )
+    p.add_argument(
+        "--train-live", action="store_true",
+        help="Force live training for supervised tasks (overrides pretrained inference default).",
+    )
+    p.add_argument(
+        "--pretrained-dir", default="artifacts/pretrained_models",
+        help="Directory containing pretrained model bundles and registry.json.",
+    )
+    p.add_argument(
+        "--preferred-model", default=None,
+        help="Optional model name to force during pretrained inference (e.g., 'Ridge').",
     )
 
     # Interface
@@ -307,6 +325,9 @@ def _run_rules_first(args, hitl_interface):
         cache_dir=args.cache_dir,
         anomaly_params=anomaly_params,
         auto_hitl=args.auto or args.batch,
+        inference_only=(not args.train_live) or args.inference_only,
+        pretrained_dir=args.pretrained_dir,
+        preferred_model=args.preferred_model,
     )
 
     result = planner.run_workflow()
@@ -407,11 +428,52 @@ def _run_llm_mode(args, hitl_interface):
         run_single(None)
 
 
+# ── Argument validation ──────────────────────────────────────────────────────
+
+def _validate_args(args):
+    """Validate that mutually exclusive flags are not used together."""
+    errors = []
+    
+    # Cache + Pretrained (mutually exclusive for supervised tasks)
+    if args.use_cache and (args.inference_only or (not args.train_live and args.mode == "rules-first")):
+        errors.append(
+            "ERROR: --use-cache and --inference-only are mutually exclusive.\n"
+            "  Use --use-cache for fast re-training of the same config.\n"
+            "  Use --inference-only (or omit --train-live) to load pre-trained bundles.\n"
+            "  Choose one strategy, not both."
+        )
+    
+    # Train-live + Inference-only (mutually exclusive)
+    if args.train_live and args.inference_only:
+        errors.append(
+            "ERROR: --train-live and --inference-only are mutually exclusive.\n"
+            "  --train-live: force live training (ignore pretrained bundles).\n"
+            "  --inference-only: use pretrained bundles only.\n"
+            "  Remove one of these flags."
+        )
+    
+    # Invalidate cache + other options
+    if args.invalidate_cache and (args.inference_only or args.train_live):
+        errors.append(
+            "ERROR: --invalidate-cache should not be used with --inference-only or --train-live.\n"
+            "  --invalidate-cache removes a cache entry and exits.\n"
+            "  Remove --inference-only or --train-live."
+        )
+    
+    if errors:
+        for error in errors:
+            logging.error(error)
+        sys.exit(1)
+
+
 # ── Entry point ───────────────────────────────────────────────────────────────
 
 def main():
     parser = build_parser()
     args = parser.parse_args()
+    
+    # Validate conflicting flags
+    _validate_args(args)
 
     if args.auto or args.batch:
         os.environ["HITL_AUTO"] = "1"
@@ -421,7 +483,8 @@ def main():
 
     logging.info(f"Mode: {args.mode}")
     logging.info(
-        f"Flags: auto_detect={args.auto_detect}, use_pca={args.use_pca}, use_cache={args.use_cache}"
+        f"Flags: auto_detect={args.auto_detect}, use_pca={args.use_pca}, use_cache={args.use_cache}, "
+        f"inference_only={args.inference_only}, train_live={args.train_live}"
     )
 
     if args.mode == "rules-first":

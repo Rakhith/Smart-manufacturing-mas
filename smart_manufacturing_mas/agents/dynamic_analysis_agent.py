@@ -39,6 +39,7 @@ from sklearn.svm import SVC, SVR
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from utils.tool_decider import ToolDecider, create_data_summary, get_tool_decider
 from utils.column_utils import is_identifier_column
+from utils.pretrained_model_store import select_bundle_metadata, load_bundle, predict_with_bundle
 
 logging.basicConfig(level=logging.INFO, format='[%(asctime)s] [%(levelname)s] - %(message)s')
 
@@ -61,6 +62,7 @@ class DynamicAnalysisAgent:
     def __init__(
         self,
         data: pd.DataFrame,
+        raw_data: Optional[pd.DataFrame] = None,
         target_column: Optional[str] = None,
         task: str = "classification",
         params: Optional[Dict[str, Any]] = None,
@@ -68,8 +70,12 @@ class DynamicAnalysisAgent:
         model_cache: Optional[Any] = None,
         dataset_path: Optional[str] = None,
         feature_columns: Optional[List[str]] = None,
+        inference_only: bool = False,
+        pretrained_dir: Optional[str] = None,
+        preferred_model: Optional[str] = None,
     ):
         self.data = data
+        self.raw_data = raw_data if raw_data is not None else data
         self.target_column = target_column
         self.task = task
         self.params = params or {}
@@ -80,6 +86,9 @@ class DynamicAnalysisAgent:
         self.feature_columns = feature_columns or (
             [c for c in data.columns if c != target_column] if target_column else list(data.columns)
         )
+        self.inference_only = inference_only
+        self.pretrained_dir = pretrained_dir
+        self.preferred_model = preferred_model
 
         self.model = None
         self.model_name: Optional[str] = None
@@ -91,7 +100,8 @@ class DynamicAnalysisAgent:
 
         logging.info(
             f"DynamicAnalysisAgent init — task={task}, "
-            f"cache={'enabled' if model_cache else 'disabled'}, params={self.params}"
+            f"cache={'enabled' if model_cache else 'disabled'}, "
+            f"inference_only={self.inference_only}, params={self.params}"
         )
 
     # ── Tool selection ────────────────────────────────────────────────────────
@@ -131,6 +141,68 @@ class DynamicAnalysisAgent:
         Train (or load from cache) and return results.
         force_retry=True triggers Adaptive Intelligence (sweeps all model families).
         """
+        if self.inference_only and self.task in ("classification", "regression"):
+            pretrained_results = self._run_pretrained_inference()
+            if pretrained_results is not None:
+                return pretrained_results
+
+            logging.warning(
+                "No compatible pretrained bundle found. Falling back to live learning for this run."
+            )
+
+            cache_backend = self.model_cache
+            if cache_backend is None:
+                from utils.model_cache import ModelCache
+                cache_backend = ModelCache()
+
+            cache_dataset_path = self.dataset_path or "__in_memory__.csv"
+
+            cache_entry = cache_backend.load(
+                cache_dataset_path, self.feature_columns, self.target_column, self.task
+            )
+            if cache_entry:
+                logging.info("[FallbackCache] HIT — using cached live model from previous fallback run.")
+                self.model = cache_entry.get("model")
+                metadata = cache_entry.get("metadata", {})
+                self.model_name = metadata.get("model_name", "cached_model")
+                results = self._build_results_from_cached_model(self.model, metadata)
+                results["from_cache"] = True
+                results["from_pretrained"] = False
+                results["fallback_live_learning"] = True
+                results["fallback_reason"] = "missing_pretrained_bundle"
+                results["model"] = self.model
+                return results
+
+            if self.target_column is None:
+                logging.error("Target column required for fallback live learning.")
+                return None
+
+            results = self._try_multiple_models() if force_retry else self._dispatch_single_model()
+            if not results:
+                return None
+
+            if self.model is not None:
+                metadata = {
+                    k: v for k, v in results.items()
+                    if k not in ("model", "X_test", "y_test", "predictions", "train_predictions")
+                }
+                metadata["model_name"] = self.model_name
+                cache_backend.save(
+                    model=self.model,
+                    dataset_path=cache_dataset_path,
+                    feature_columns=self.feature_columns,
+                    target_column=self.target_column,
+                    problem_type=self.task,
+                    metadata=metadata,
+                )
+                logging.info("[FallbackCache] SAVED live-trained fallback model for reuse.")
+
+            results["from_cache"] = False
+            results["from_pretrained"] = False
+            results["fallback_live_learning"] = True
+            results["fallback_reason"] = "missing_pretrained_bundle"
+            return results
+
         # ── Cache check ───────────────────────────────────────────────────
         if self.model_cache is not None:
             entry = self.model_cache.load(
@@ -141,7 +213,7 @@ class DynamicAnalysisAgent:
                 self.model = entry.get("model")
                 metadata = entry.get("metadata", {})
                 self.model_name = metadata.get("model_name", "cached_model")
-                results = dict(metadata)
+                results = self._build_results_from_cached_model(self.model, metadata)
                 results["from_cache"] = True
                 results["model"] = self.model
                 return results
@@ -173,6 +245,85 @@ class DynamicAnalysisAgent:
             logging.info(f"[ModelCache] Saved trained '{self.model_name}'.")
 
         return results
+
+    def _run_pretrained_inference(self) -> Optional[Dict[str, Any]]:
+        """Load a pre-trained bundle for the current task and run inference on provided data."""
+        meta = select_bundle_metadata(
+            problem_type=self.task,
+            target_column=self.target_column,
+            preferred_model=self.preferred_model,
+            path=self.pretrained_dir,
+        )
+        if not meta:
+            logging.warning(
+                f"No pretrained bundles found for task '{self.task}'. "
+                "Train and save bundles first via the offline training notebook."
+            )
+            return None
+
+    def _build_results_from_cached_model(self, cached_model: Any, metadata: Dict[str, Any]) -> Dict[str, Any]:
+        """Recompute predictions/metrics from a cached supervised model for downstream steps."""
+        results = dict(metadata or {})
+        if cached_model is None:
+            return results
+
+        if self.task not in ("classification", "regression") or self.target_column is None:
+            return results
+
+        try:
+            X, y = self._get_X_y()
+            stratify = y if self.task == "classification" else None
+            X_train, X_test, y_train, y_test = train_test_split(
+                X, y, test_size=0.2, random_state=42, stratify=stratify
+            )
+
+            preds = cached_model.predict(X_test)
+            results["predictions"] = preds
+            results["X_test"] = X_test
+            results["y_test"] = y_test
+            results["feature_names"] = X.columns.tolist()
+
+            if self.task == "classification":
+                results["accuracy"] = float(accuracy_score(y_test, preds))
+                results["classification_report"] = classification_report(y_test, preds)
+            else:
+                results["mse"] = float(mean_squared_error(y_test, preds))
+                results["r2"] = float(r2_score(y_test, preds))
+                results["train_predictions"] = cached_model.predict(X_train)
+
+            if hasattr(cached_model, "feature_importances_"):
+                results["feature_importances"] = cached_model.feature_importances_
+
+            return results
+        except Exception as exc:
+            logging.warning(f"Could not rebuild full outputs from cached model: {exc}")
+            return results
+
+        bundle_file = meta.get("bundle_file")
+        if not bundle_file:
+            logging.error("Pretrained registry entry is missing 'bundle_file'.")
+            return None
+
+        try:
+            bundle = load_bundle(bundle_file, path=self.pretrained_dir)
+            results = predict_with_bundle(bundle, self.raw_data, target_column=self.target_column)
+            results["from_cache"] = False
+            results["from_pretrained"] = True
+            self.model_name = results.get("model")
+            self.model = bundle.get("pipeline")
+            logging.info(
+                f"Loaded pretrained model '{self.model_name}' from '{bundle_file}' for inference."
+            )
+            if results.get("target_mismatch_warning"):
+                logging.warning(results["target_mismatch_warning"])
+            if "r2" in results:
+                logging.info(f"Pretrained inference R²={results['r2']:.4f}, MSE={results.get('mse', float('nan')):.4f}")
+            if "accuracy" in results:
+                logging.info(f"Pretrained inference accuracy={results['accuracy']:.4f}")
+            return results
+        except Exception as exc:
+            logging.error(f"Failed to run pretrained inference: {exc}", exc_info=True)
+            return None
 
     # ── Adaptive Intelligence ─────────────────────────────────────────────────
 

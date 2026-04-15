@@ -116,6 +116,38 @@ python main_llm.py
 python main_llm.py --mode rules-first --dataset data/.../your_file.csv --auto-detect
 ```
 
+## Local Frontend
+
+The project now includes a lightweight local web app for running the pipeline and visualizing each stage.
+
+Features in the first version:
+- Upload a CSV file or choose a built-in dataset from `data/`
+- Choose pretrained inference or live training
+- Optional cache, PCA, and synthetic-data generation
+- Follow the pipeline step by step:
+  data loading
+  preprocessing
+  model analysis
+  recommendation generation
+  workflow summary
+- Download generated artifacts from the browser
+
+Run it locally:
+
+```bash
+cd smart_manufacturing_mas
+python -m venv mas_venv
+source mas_venv/bin/activate
+pip install -r requirements.txt
+python scripts/run_local_app.py
+```
+
+Then open:
+
+```text
+http://127.0.0.1:8000
+```
+
 ## Orchestration Modes
 
 ### `--mode llm` (default — original)
@@ -156,6 +188,9 @@ python main_llm.py --mode rules-first --dataset data/.../smmd.csv --auto-detect
 ## Usage Examples
 
 ```bash
+# Train and export offline model bundles (run notebook once)
+# Open: training/offline_model_training.ipynb
+
 # Classification, auto-detect, with cache
 python main_llm.py --mode rules-first --dataset "data\Smart Manufacturing Maintenance Dataset\smart_maintenance_dataset.csv" --auto-detect --use-cache
 
@@ -179,6 +214,34 @@ python main_llm.py --mode rules-first --batch --auto
 python main_llm.py --mode rules-first \
   --dataset data/.../smmd.csv \
   --target Maintenance_Priority --invalidate-cache
+```
+
+## Pretrained Inference Mode
+
+Rules-first mode now supports loading pre-trained supervised models and running inference without live re-training.
+
+- Default behavior in rules-first supervised runs is pretrained inference.
+- Export bundles and registry first using `training/offline_model_training.ipynb`.
+- Bundles are read from `artifacts/pretrained_models/registry.json`.
+
+```bash
+# Inference-only (default for supervised tasks in rules-first)
+python main_llm.py --mode rules-first \
+  --dataset "data/smart_manufacturing_dataset.csv" \
+  --problem-type regression \
+  --pretrained-dir "artifacts/pretrained_models"
+
+# Force a specific pretrained model
+python main_llm.py --mode rules-first \
+  --dataset "data/Smart Manufacturing Maintenance Dataset/smart_maintenance_dataset.csv" \
+  --problem-type classification \
+  --preferred-model RandomForestClassifier
+
+# Opt out and train live
+python main_llm.py --mode rules-first \
+  --dataset "data/smart_manufacturing_dataset.csv" \
+  --problem-type regression \
+  --train-live
 ```
 
 ## 🐛 Troubleshooting

@@ -26,6 +26,8 @@ logs/*.txt
 
 # Model cache (large binary files)
 model_cache/*.pkl
+artifacts/*
+training/artifacts/*
 
 # Data files (add your CSV datasets manually)
 data/**/*.csv
