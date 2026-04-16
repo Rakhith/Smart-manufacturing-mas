@@ -261,6 +261,32 @@ class DynamicAnalysisAgent:
             )
             return None
 
+        bundle_file = meta.get("bundle_file")
+        if not bundle_file:
+            logging.error("Pretrained registry entry is missing 'bundle_file'.")
+            return None
+
+        try:
+            bundle = load_bundle(bundle_file, path=self.pretrained_dir)
+            results = predict_with_bundle(bundle, self.raw_data, target_column=self.target_column)
+            results["from_cache"] = False
+            results["from_pretrained"] = True
+            self.model_name = results.get("model")
+            self.model = bundle.get("pipeline")
+            logging.info(
+                f"Loaded pretrained model '{self.model_name}' from '{bundle_file}' for inference."
+            )
+            if results.get("target_mismatch_warning"):
+                logging.warning(results["target_mismatch_warning"])
+            if "r2" in results:
+                logging.info(f"Pretrained inference R²={results['r2']:.4f}, MSE={results.get('mse', float('nan')):.4f}")
+            if "accuracy" in results:
+                logging.info(f"Pretrained inference accuracy={results['accuracy']:.4f}")
+            return results
+        except Exception as exc:
+            logging.error(f"Failed to run pretrained inference: {exc}", exc_info=True)
+            return None
+
     def _build_results_from_cached_model(self, cached_model: Any, metadata: Dict[str, Any]) -> Dict[str, Any]:
         """Recompute predictions/metrics from a cached supervised model for downstream steps."""
         results = dict(metadata or {})
@@ -298,32 +324,6 @@ class DynamicAnalysisAgent:
         except Exception as exc:
             logging.warning(f"Could not rebuild full outputs from cached model: {exc}")
             return results
-
-        bundle_file = meta.get("bundle_file")
-        if not bundle_file:
-            logging.error("Pretrained registry entry is missing 'bundle_file'.")
-            return None
-
-        try:
-            bundle = load_bundle(bundle_file, path=self.pretrained_dir)
-            results = predict_with_bundle(bundle, self.raw_data, target_column=self.target_column)
-            results["from_cache"] = False
-            results["from_pretrained"] = True
-            self.model_name = results.get("model")
-            self.model = bundle.get("pipeline")
-            logging.info(
-                f"Loaded pretrained model '{self.model_name}' from '{bundle_file}' for inference."
-            )
-            if results.get("target_mismatch_warning"):
-                logging.warning(results["target_mismatch_warning"])
-            if "r2" in results:
-                logging.info(f"Pretrained inference R²={results['r2']:.4f}, MSE={results.get('mse', float('nan')):.4f}")
-            if "accuracy" in results:
-                logging.info(f"Pretrained inference accuracy={results['accuracy']:.4f}")
-            return results
-        except Exception as exc:
-            logging.error(f"Failed to run pretrained inference: {exc}", exc_info=True)
-            return None
 
     # ── Adaptive Intelligence ─────────────────────────────────────────────────
 
