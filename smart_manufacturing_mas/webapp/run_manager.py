@@ -15,6 +15,8 @@ import pandas as pd
 
 from agents.rules_first_planner import RulesFirstPlannerAgent
 from utils.pretrained_model_store import load_bundle, predict_with_bundle, select_bundle_metadata
+from utils.synthetic_quality_analyzer import SyntheticQualityAnalyzer
+from utils.prediction_analyzer import PredictionAnalyzer
 
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
@@ -625,6 +627,17 @@ class PipelineRunManager:
             "csv_path": str(csv_path.relative_to(ROOT_DIR)),
         }
 
+        # Analyze data quality (original vs synthetic comparison)
+        try:
+            quality_analyzer = SyntheticQualityAnalyzer(raw_df, synthetic_df)
+            quality_summary = quality_analyzer.get_summary_for_display()
+            artifact_summary["data_quality"] = quality_summary
+            preview["data_quality"] = quality_summary
+            output_summary["quality_score"] = quality_summary.get("quality_score")
+            output_summary["quality_level"] = quality_summary.get("quality_level")
+        except Exception as qa_exc:
+            self.append_log(run_id, f"Data quality analysis warning: {qa_exc}")
+
         if problem_type in {"classification", "regression"} and target_column:
             meta = select_bundle_metadata(
                 problem_type=problem_type,
@@ -633,16 +646,39 @@ class PipelineRunManager:
                 path=str(PRETRAINED_DIR),
             )
             if meta and meta.get("bundle_file"):
-                bundle = load_bundle(meta["bundle_file"], path=str(PRETRAINED_DIR))
-                prediction_results = predict_with_bundle(bundle, synthetic_df, target_column=target_column)
-                json_path = WEB_SYNTHETIC_DIR / f"{run_id}_synthetic_inference.json"
-                with json_path.open("w", encoding="utf-8") as f:
-                    json.dump(_json_safe(prediction_results), f, indent=2, default=_json_safe)
-                self._add_artifact(run_id, "Synthetic inference summary", json_path, "json")
-                output_summary["bundle_used"] = meta["bundle_file"]
-                output_summary["prediction_count"] = len(prediction_results.get("predictions", []))
-                preview["prediction_preview"] = _json_safe(list(np.asarray(prediction_results.get("predictions", []))[:10]))
-                artifact_summary["inference_json"] = str(json_path.relative_to(ROOT_DIR))
+                try:
+                    bundle = load_bundle(meta["bundle_file"], path=str(PRETRAINED_DIR))
+                    prediction_results = predict_with_bundle(bundle, synthetic_df, target_column=target_column)
+                    
+                    # Analyze predictions
+                    predictions = prediction_results.get("predictions", [])
+                    pred_analyzer = PredictionAnalyzer(
+                        predictions=predictions,
+                        problem_type=problem_type,
+                    )
+                    pred_summary = pred_analyzer.get_summary()
+                    
+                    # Save enhanced inference results
+                    inference_output = {
+                        "predictions": _json_safe(predictions),
+                        "prediction_analysis": pred_summary,
+                    }
+                    json_path = WEB_SYNTHETIC_DIR / f"{run_id}_synthetic_inference.json"
+                    with json_path.open("w", encoding="utf-8") as f:
+                        json.dump(_json_safe(inference_output), f, indent=2, default=_json_safe)
+                    self._add_artifact(run_id, "Synthetic inference summary", json_path, "json")
+                    
+                    output_summary["bundle_used"] = meta["bundle_file"]
+                    output_summary["prediction_count"] = len(predictions)
+                    output_summary["predictions_analysis"] = pred_summary
+                    
+                    preview["prediction_preview"] = _json_safe(list(np.asarray(predictions)[:10]))
+                    preview["predictions_analysis"] = pred_summary
+                    artifact_summary["inference_json"] = str(json_path.relative_to(ROOT_DIR))
+                    artifact_summary["predictions_analysis"] = pred_summary
+                    
+                except Exception as pred_exc:
+                    self.append_log(run_id, f"Prediction analysis warning: {pred_exc}")
 
         self._set_stage(
             run_id,
