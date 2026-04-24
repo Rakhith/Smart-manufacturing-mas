@@ -9,7 +9,8 @@ from fastapi.responses import FileResponse, HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
-from webapp.run_manager import ROOT_DIR, RunConfig, WEB_UPLOAD_DIR, run_manager
+from utils.pretrained_model_store import load_registry
+from webapp.run_manager import PRETRAINED_DIR, ROOT_DIR, RunConfig, WEB_UPLOAD_DIR, run_manager
 
 
 APP_DIR = Path(__file__).resolve().parent
@@ -69,6 +70,37 @@ def _dataset_profile(path: Path) -> dict:
     }
 
 
+def _discover_models() -> dict:
+    live_models = {
+        "classification": ["RandomForestClassifier", "LogisticRegression", "SVC"],
+        "regression": [
+            "RandomForestRegressor",
+            "HistGradientBoostingRegressor",
+            "LinearRegression",
+            "Ridge",
+            "Lasso",
+            "SVR",
+        ],
+        "anomaly_detection": ["IsolationForest"],
+    }
+
+    registry = load_registry(str(PRETRAINED_DIR))
+    pretrained_models = {"classification": [], "regression": [], "anomaly_detection": []}
+    for key in ("classification", "regression"):
+        names = sorted(
+            {
+                str(entry.get("model_name", "")).strip()
+                for entry in registry.get(key, [])
+                if str(entry.get("model_name", "")).strip()
+            }
+        )
+        pretrained_models[key] = names
+    return {
+        "pretrained": pretrained_models,
+        "live": live_models,
+    }
+
+
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request) -> HTMLResponse:
     return templates.TemplateResponse(
@@ -83,6 +115,11 @@ async def index(request: Request) -> HTMLResponse:
 @app.get("/api/datasets")
 async def list_datasets() -> list[dict]:
     return _discover_datasets()
+
+
+@app.get("/api/models")
+async def list_models() -> dict:
+    return _discover_models()
 
 
 @app.get("/api/datasets/preview")

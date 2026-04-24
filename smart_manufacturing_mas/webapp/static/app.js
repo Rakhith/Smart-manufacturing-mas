@@ -1,7 +1,14 @@
 const runForm = document.getElementById("run-form");
 const datasetSelect = document.getElementById("dataset-select");
 const uploadInput = document.getElementById("upload-input");
+const datasetPreviewToggle = document.getElementById("dataset-preview-toggle");
 const datasetPreview = document.getElementById("dataset-preview");
+const runProblemTypeSelect = document.getElementById("run-problem-type");
+const runTrainModeSelect = document.getElementById("run-train-mode");
+const runTargetColumnSelect = document.getElementById("run-target-column");
+const runFeatureColumnsSelect = document.getElementById("run-feature-columns");
+const runFeatureColumnsHidden = document.getElementById("run-feature-columns-hidden");
+const runPreferredModelSelect = document.getElementById("run-preferred-model");
 const runSummary = document.getElementById("run-summary");
 const runMetrics = document.getElementById("run-metrics");
 const stageProgress = document.getElementById("stage-progress");
@@ -12,9 +19,26 @@ const resultOverview = document.getElementById("result-overview");
 const recommendationPreview = document.getElementById("recommendation-preview");
 const artifactList = document.getElementById("artifact-list");
 const runHistory = document.getElementById("run-history");
+const syntheticModal = document.getElementById("synthetic-modal");
+const openSyntheticModalButton = document.getElementById("open-synthetic-modal");
+const openSyntheticModalInlineButton = document.getElementById("open-synthetic-modal-inline");
+const closeSyntheticModalButton = document.getElementById("close-synthetic-modal");
+const syntheticProblemTypeSelect = document.getElementById("synthetic-problem-type");
+const syntheticPreferredModelSelect = document.getElementById("synthetic-preferred-model");
+const tabButtons = [...document.querySelectorAll(".tab-button")];
+const tabPanels = [...document.querySelectorAll(".tab-content")];
 
 let activeRunId = null;
 let pollHandle = null;
+let isDatasetPreviewVisible = false;
+let modelCatalog = {
+  pretrained: { classification: [], regression: [], anomaly_detection: [] },
+  live: {
+    classification: ["RandomForestClassifier", "LogisticRegression", "SVC"],
+    regression: ["RandomForestRegressor", "HistGradientBoostingRegressor", "LinearRegression", "Ridge", "Lasso", "SVR"],
+    anomaly_detection: ["IsolationForest"],
+  },
+};
 
 const STAGE_LABELS = [
   ["resolve", "Resolve"],
@@ -23,7 +47,6 @@ const STAGE_LABELS = [
   ["analyze", "Analyze"],
   ["optimize", "Recommend"],
   ["summary", "Summarize"],
-  ["synthetic", "Synthetic"],
 ];
 
 function escapeHtml(value) {
@@ -78,13 +101,208 @@ function createTable(columns, rows, maxColumns = 6) {
   `;
 }
 
+function uniqueStrings(items) {
+  return [...new Set((items || []).map((item) => String(item)).filter((item) => item.length > 0))];
+}
+
+function setSingleSelectOptions(selectEl, values, emptyLabel, emptyValue = "") {
+  if (!selectEl) return;
+  const previousValue = selectEl.value;
+  const options = uniqueStrings(values);
+
+  selectEl.innerHTML = "";
+  const placeholder = document.createElement("option");
+  placeholder.value = emptyValue;
+  placeholder.textContent = emptyLabel;
+  selectEl.appendChild(placeholder);
+
+  options.forEach((value) => {
+    const option = document.createElement("option");
+    option.value = value;
+    option.textContent = value;
+    selectEl.appendChild(option);
+  });
+
+  if ([...selectEl.options].some((option) => option.value === previousValue)) {
+    selectEl.value = previousValue;
+  } else {
+    selectEl.value = emptyValue;
+  }
+}
+
+function setMultiSelectOptions(selectEl, values, emptyLabel) {
+  if (!selectEl) return;
+  const previous = new Set([...selectEl.selectedOptions].map((option) => option.value));
+  const options = uniqueStrings(values);
+
+  selectEl.innerHTML = "";
+  if (!options.length) {
+    const placeholder = document.createElement("option");
+    placeholder.value = "";
+    placeholder.textContent = emptyLabel;
+    placeholder.disabled = true;
+    selectEl.appendChild(placeholder);
+    return;
+  }
+
+  options.forEach((value) => {
+    const option = document.createElement("option");
+    option.value = value;
+    option.textContent = value;
+    option.selected = previous.has(value);
+    selectEl.appendChild(option);
+  });
+}
+
+function syncFeatureColumnsHiddenField() {
+  if (!runFeatureColumnsSelect || !runFeatureColumnsHidden) return;
+  const values = [...runFeatureColumnsSelect.selectedOptions]
+    .map((option) => option.value)
+    .filter((value) => value);
+  runFeatureColumnsHidden.value = values.join(",");
+}
+
+function reconcileFeatureSelectionWithTarget() {
+  if (!runFeatureColumnsSelect || !runTargetColumnSelect) return;
+  const target = runTargetColumnSelect.value;
+  [...runFeatureColumnsSelect.options].forEach((option) => {
+    if (!option.value) return;
+    const shouldDisable = Boolean(target) && option.value === target;
+    option.disabled = shouldDisable;
+    if (shouldDisable) {
+      option.selected = false;
+    }
+  });
+  syncFeatureColumnsHiddenField();
+}
+
+function populateRunColumnSelectors(columns) {
+  const safeColumns = uniqueStrings(columns);
+  setSingleSelectOptions(runTargetColumnSelect, safeColumns, "Auto-detect from dataset");
+  setMultiSelectOptions(runFeatureColumnsSelect, safeColumns, "Select dataset in Review CSV tab");
+  reconcileFeatureSelectionWithTarget();
+}
+
+function getModelOptions(mode, problemType) {
+  const catalogForMode = modelCatalog?.[mode] || {};
+  if (problemType && catalogForMode[problemType]) {
+    return uniqueStrings(catalogForMode[problemType]).sort((a, b) => a.localeCompare(b));
+  }
+
+  return uniqueStrings(Object.values(catalogForMode).flat()).sort((a, b) => a.localeCompare(b));
+}
+
+function populateModelDropdown(selectEl, options, emptyLabel) {
+  if (!selectEl) return;
+  setSingleSelectOptions(selectEl, options, emptyLabel);
+}
+
+function populateRunModelOptions() {
+  const mode = runTrainModeSelect?.value || "pretrained";
+  const problemType = runProblemTypeSelect?.value || "";
+  const options = getModelOptions(mode, problemType);
+  const label = mode === "pretrained" ? "Auto-select best pretrained model" : "Auto-select model";
+  populateModelDropdown(runPreferredModelSelect, options, label);
+}
+
+function populateSyntheticModelOptions() {
+  const problemType = syntheticProblemTypeSelect?.value || syntheticForm?.problem_type?.value || "classification";
+  const options = getModelOptions("pretrained", problemType);
+  populateModelDropdown(syntheticPreferredModelSelect, options, "Auto-select best model");
+}
+
+async function loadModelCatalog() {
+  try {
+    const response = await fetch("/api/models");
+    if (!response.ok) return;
+    const payload = await response.json();
+    if (payload && typeof payload === "object") {
+      modelCatalog = {
+        ...modelCatalog,
+        pretrained: payload.pretrained || modelCatalog.pretrained,
+        live: payload.live || modelCatalog.live,
+      };
+    }
+  } catch (error) {
+    console.warn("Could not load model catalog from backend.", error);
+  } finally {
+    populateRunModelOptions();
+    populateSyntheticModelOptions();
+  }
+}
+
+function openSyntheticModal() {
+  if (!syntheticModal) return;
+  syntheticModal.classList.remove("hidden");
+  document.body.classList.add("modal-open");
+  startSyntheticPolling();
+}
+
+function closeSyntheticModal() {
+  if (!syntheticModal) return;
+  syntheticModal.classList.add("hidden");
+  document.body.classList.remove("modal-open");
+  stopSyntheticPolling();
+}
+
+function setupModalEventListeners() {
+  if (openSyntheticModalButton) {
+    openSyntheticModalButton.addEventListener("click", openSyntheticModal);
+  }
+
+  if (openSyntheticModalInlineButton) {
+    openSyntheticModalInlineButton.addEventListener("click", openSyntheticModal);
+  }
+
+  if (closeSyntheticModalButton) {
+    closeSyntheticModalButton.addEventListener("click", closeSyntheticModal);
+  }
+
+  if (syntheticModal) {
+    syntheticModal.addEventListener("click", (event) => {
+      if (event.target === syntheticModal) {
+        closeSyntheticModal();
+      }
+    });
+  }
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && syntheticModal && !syntheticModal.classList.contains("hidden")) {
+      closeSyntheticModal();
+    }
+  });
+}
+
+function activateControlTab(targetId) {
+  tabButtons.forEach((button) => {
+    const isActive = button.dataset.tabTarget === targetId;
+    button.classList.toggle("active", isActive);
+    button.setAttribute("aria-selected", isActive ? "true" : "false");
+  });
+
+  tabPanels.forEach((panel) => {
+    panel.classList.toggle("active", panel.id === targetId);
+  });
+}
+
+function setupControlTabListeners() {
+  if (!tabButtons.length || !tabPanels.length) return;
+  tabButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      activateControlTab(button.dataset.tabTarget);
+    });
+  });
+}
+
 function renderDatasetPreview(payload) {
   if (!payload || !payload.columns || payload.columns.length === 0) {
+    populateRunColumnSelectors([]);
     datasetPreview.classList.add("empty");
     datasetPreview.innerHTML = "<p>Preview unavailable for this dataset.</p>";
     return;
   }
 
+  populateRunColumnSelectors(payload.columns || []);
   datasetPreview.classList.remove("empty");
   datasetPreview.innerHTML = `
     <div class="kv-list">
@@ -96,8 +314,30 @@ function renderDatasetPreview(payload) {
   `;
 }
 
+function setDatasetPreviewVisibility(visible) {
+  isDatasetPreviewVisible = visible;
+  if (datasetPreview) {
+    datasetPreview.classList.toggle("hidden", !visible);
+  }
+  if (datasetPreviewToggle) {
+    datasetPreviewToggle.textContent = visible ? "Hide Dataset Preview" : "Show Dataset Preview";
+  }
+}
+
+function refreshDatasetPreviewForCurrentSelection() {
+  if (uploadInput?.files?.length > 0) {
+    previewUploadedCsv(uploadInput.files[0]);
+    return;
+  }
+  loadDatasetPreview(datasetSelect?.value || "");
+}
+
+setDatasetPreviewVisibility(false);
+populateRunColumnSelectors([]);
+
 async function loadDatasetPreview(path) {
   if (!path) {
+    populateRunColumnSelectors([]);
     datasetPreview.classList.add("empty");
     datasetPreview.innerHTML = "<p>Select or upload a dataset to inspect the first few columns.</p>";
     return;
@@ -105,6 +345,7 @@ async function loadDatasetPreview(path) {
 
   const res = await fetch(`/api/datasets/preview?path=${encodeURIComponent(path)}`);
   if (!res.ok) {
+    populateRunColumnSelectors([]);
     datasetPreview.classList.add("empty");
     datasetPreview.innerHTML = "<p>Could not load dataset preview.</p>";
     return;
@@ -121,6 +362,7 @@ function previewUploadedCsv(file) {
     const text = String(reader.result || "");
     const lines = text.split(/\r?\n/).filter((line) => line.trim().length > 0).slice(0, 6);
     if (!lines.length) {
+      populateRunColumnSelectors([]);
       datasetPreview.classList.add("empty");
       datasetPreview.innerHTML = `<p>Upload selected: <strong>${escapeHtml(file.name)}</strong>.</p>`;
       return;
@@ -136,6 +378,7 @@ function previewUploadedCsv(file) {
       return row;
     });
 
+    populateRunColumnSelectors(headers);
     datasetPreview.classList.remove("empty");
     datasetPreview.innerHTML = `
       <div class="kv-list">
@@ -274,13 +517,13 @@ function renderPreview(preview) {
 }
 
 function renderStages(run) {
-  const stages = run.stages || [];
+  const stages = (run.stages || []).filter((stage) => stage.key !== "synthetic");
   if (stages.length === 0) {
     pipelineStages.innerHTML = '<div class="stage-card"><p>The pipeline trace will appear here once the run starts.</p></div>';
     return;
   }
 
-  let html = stages
+  pipelineStages.innerHTML = stages
     .map(
       (stage) => `
         <article class="stage-card">
@@ -320,17 +563,6 @@ function renderStages(run) {
       `,
     )
     .join("");
-
-  // Add synthetic data dashboard if synthetic stage exists and has completed
-  const syntheticStage = stages.find(s => s.key === "synthetic");
-  if (syntheticStage && syntheticStage.status === "completed") {
-    const syntheticDashboard = renderSyntheticDashboard(syntheticStage);
-    if (syntheticDashboard) {
-      html += syntheticDashboard;
-    }
-  }
-
-  pipelineStages.innerHTML = html;
 }
 
 function renderLogs(run) {
@@ -461,11 +693,48 @@ uploadInput.addEventListener("change", () => {
   if (uploadInput.files.length > 0) {
     datasetSelect.value = "";
     previewUploadedCsv(uploadInput.files[0]);
+  } else {
+    loadDatasetPreview(datasetSelect.value);
   }
 });
 
+if (runTargetColumnSelect) {
+  runTargetColumnSelect.addEventListener("change", () => {
+    reconcileFeatureSelectionWithTarget();
+  });
+}
+
+if (runFeatureColumnsSelect) {
+  runFeatureColumnsSelect.addEventListener("change", () => {
+    syncFeatureColumnsHiddenField();
+  });
+}
+
+if (runProblemTypeSelect) {
+  runProblemTypeSelect.addEventListener("change", () => {
+    populateRunModelOptions();
+  });
+}
+
+if (runTrainModeSelect) {
+  runTrainModeSelect.addEventListener("change", () => {
+    populateRunModelOptions();
+  });
+}
+
+if (datasetPreviewToggle) {
+  datasetPreviewToggle.addEventListener("click", () => {
+    const nextVisible = !isDatasetPreviewVisible;
+    setDatasetPreviewVisibility(nextVisible);
+    if (nextVisible) {
+      refreshDatasetPreviewForCurrentSelection();
+    }
+  });
+}
+
 runForm.addEventListener("submit", async (event) => {
   event.preventDefault();
+  syncFeatureColumnsHiddenField();
   const submitButton = runForm.querySelector("button[type='submit']");
   submitButton.disabled = true;
   submitButton.textContent = "Starting...";
@@ -794,6 +1063,19 @@ let syntheticList = null;
 let syntheticDatasetSelect = null;
 let syntheticTargetColumnSelect = null;
 let synthRefreshHandle = null;
+let syntheticListenersBound = false;
+
+function startSyntheticPolling() {
+  refreshSyntheticList();
+  if (synthRefreshHandle) return;
+  synthRefreshHandle = setInterval(refreshSyntheticList, 5000);
+}
+
+function stopSyntheticPolling() {
+  if (!synthRefreshHandle) return;
+  clearInterval(synthRefreshHandle);
+  synthRefreshHandle = null;
+}
 
 function initSyntheticElements() {
   syntheticForm = document.getElementById("synthetic-form");
@@ -860,6 +1142,7 @@ async function populateSyntheticTargetColumns(datasetPath) {
 
 function setupSyntheticEventListeners() {
   if (!initSyntheticElements()) return;
+  if (syntheticListenersBound) return;
 
   if (syntheticDatasetSelect) {
     const onSyntheticDatasetSelection = (e) => {
@@ -868,6 +1151,12 @@ function setupSyntheticEventListeners() {
     };
     
     syntheticDatasetSelect.addEventListener("change", onSyntheticDatasetSelection);
+  }
+
+  if (syntheticProblemTypeSelect) {
+    syntheticProblemTypeSelect.addEventListener("change", () => {
+      populateSyntheticModelOptions();
+    });
   }
 
   if (syntheticForm) {
@@ -927,15 +1216,21 @@ function setupSyntheticEventListeners() {
       }
     });
   }
+
+  syntheticListenersBound = true;
 }
 
 // Initialize synthetic workflow when DOM is ready
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", () => {
+    setupModalEventListeners();
+    setupControlTabListeners();
     initSyntheticElements();
     setupSyntheticEventListeners();
   });
 } else {
+  setupModalEventListeners();
+  setupControlTabListeners();
   initSyntheticElements();
   setupSyntheticEventListeners();
 }
@@ -963,45 +1258,46 @@ async function refreshSyntheticList() {
         const config = ds.config || {};
         const syntheticLabel = ds.name || ds.id;
         const quality = genResult.data_quality || null;
+        const safeId = String(ds.id || "").replaceAll("'", "\\'");
 
-        let controls = `<button onclick="deleteDataset('${ds.id}')">Delete</button>`;
+        let controls = `<button class="small-button danger" onclick="deleteDataset('${safeId}')">Delete</button>`;
         if (status === "ready_for_inference") {
-          controls += ` <button onclick="runInference('${ds.id}')">Run Inference</button>`;
+          controls += ` <button class="small-button primary" onclick="runInference('${safeId}')">Run Inference</button>`;
         }
         if (status === "running_inference" || status === "inference_failed") {
-          controls += ` <button onclick="getInferenceResult('${ds.id}')">Check Result</button>`;
+          controls += ` <button class="small-button" onclick="getInferenceResult('${safeId}')">Check Result</button>`;
         }
 
         return `
-          <div style="border: 1px solid #ccc; padding: 12px; margin: 8px 0; border-radius: 4px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-              <strong>${escapeHtml(syntheticLabel)}</strong>
-              <span style="background: ${statusColor}; color: white; padding: 4px 8px; border-radius: 3px; font-size: 12px;">${status}</span>
+          <article class="synthetic-item">
+            <div class="synthetic-item-top">
+              <strong class="synthetic-item-title">${escapeHtml(syntheticLabel)}</strong>
+              <span class="synthetic-status" style="background: ${statusColor};">${escapeHtml(status)}</span>
             </div>
-            <div style="font-size: 12px; color: #666; margin-bottom: 8px;">
+            <div class="synthetic-meta">
               ID: ${escapeHtml(ds.id)}<br />
               Created: ${new Date(ds.created_at).toLocaleString()}<br />
               Signature: ${escapeHtml(ds.signature || "pending")}
             </div>
-            <div style="font-size: 12px; color: #444; margin-bottom: 8px;">
+            <div class="synthetic-source">
               Source: ${escapeHtml(config.source_dataset || "unknown")}<br />
               Problem type: ${escapeHtml(config.problem_type || "unknown")}<br />
               Target column: ${escapeHtml(config.target_column || "all columns")}
             </div>
             ${genResult.n_rows ? `<div><strong>Generated rows:</strong> ${genResult.n_rows} | <strong>Columns:</strong> ${genResult.n_columns}</div>` : ""}
             ${quality ? `
-              <div style="margin-top: 8px; padding: 8px; background: #f7f7f7; border-radius: 4px; font-size: 12px;">
+              <div class="synthetic-inference">
                 <strong>Original vs Synthetic Quality</strong><br />
                 Score: ${formatValue(quality.quality_score)}<br />
                 Numeric similarity: ${formatValue(quality.summary_metrics?.numeric_similarity)}<br />
                 Categorical similarity: ${formatValue(quality.summary_metrics?.categorical_similarity)}
               </div>
             ` : ""}
-            ${genResult.preview ? `<div style="margin: 8px 0; max-height: 200px; overflow-y: auto;">${createTable(genResult.columns || [], genResult.preview, 5)}</div>` : ""}
-            ${infResult.model_name ? `<div style="background: #f5f5f5; padding: 8px; border-radius: 3px; margin: 8px 0;"><strong>Inference:</strong> ${infResult.model_name} | Predictions: ${infResult.n_predictions}</div>` : ""}
-            ${ds.error ? `<div style="color: #F44336; font-size: 12px; margin: 8px 0;"><strong>Error:</strong> ${ds.error}</div>` : ""}
-            <div style="margin-top: 8px;">${controls}</div>
-          </div>
+            ${genResult.preview ? `<div class="synthetic-preview">${createTable(genResult.columns || [], genResult.preview, 5)}</div>` : ""}
+            ${infResult.model_name ? `<div class="synthetic-inference"><strong>Inference:</strong> ${infResult.model_name} | Predictions: ${infResult.n_predictions}</div>` : ""}
+            ${ds.error ? `<div class="synthetic-error"><strong>Error:</strong> ${escapeHtml(ds.error)}</div>` : ""}
+            <div class="synthetic-controls">${controls}</div>
+          </article>
         `;
       })
       .join("");
@@ -1039,10 +1335,14 @@ async function refreshDatasetDropdowns() {
       }
     });
 
-    // Re-setup event listeners and populate target columns if a dataset is already selected
-    setupSyntheticEventListeners();
+    // Populate target columns if a dataset is already selected
     if (syntheticDatasetSelect?.value) {
       await populateSyntheticTargetColumns(syntheticDatasetSelect.value);
+    }
+    if (datasetSelect?.value) {
+      await loadDatasetPreview(datasetSelect.value);
+    } else if (!uploadInput?.files?.length) {
+      populateRunColumnSelectors([]);
     }
   } catch (err) {
     console.warn("Failed to refresh dataset dropdowns", err);
@@ -1146,7 +1446,6 @@ async function deleteDataset(syntheticId) {
 
 // Refresh synthetic list on page load and periodically
 refreshDatasetDropdowns();
-refreshSyntheticList();
-synthRefreshHandle = setInterval(refreshSyntheticList, 5000);
+loadModelCatalog();
 
 refreshHistory();

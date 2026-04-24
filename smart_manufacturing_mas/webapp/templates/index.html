@@ -17,8 +17,8 @@
             recommendations.
           </p>
           <div class="hero-actions">
-            <a class="hero-link" href="/docs" target="_blank" rel="noreferrer">API Docs</a>
-            <span class="hero-link muted-link">Rules-first pipeline visualization</span>
+            <button class="hero-link secondary-link" id="open-synthetic-modal" type="button">Synthetic Data Workspace</button>
+            <span class="hero-link muted-link">Pipeline-first presentation for clean demos</span>
           </div>
         </div>
         <div class="hero-panel">
@@ -33,173 +33,108 @@
         </div>
       </header>
 
-      <section class="top-ribbon">
-        <div class="panel ribbon-panel">
-          <div class="panel-head compact-head">
-            <h3>Presentation Highlights</h3>
-            <p>Use this view to explain what the system does, how it decides, and what it produces.</p>
-          </div>
-          <div class="highlight-grid">
-            <div class="highlight-card">
-              <span>1</span>
-              <strong>Guided pipeline runner</strong>
-              <p>Start from an uploaded CSV or built-in dataset with a minimal but useful set of controls.</p>
-            </div>
-            <div class="highlight-card">
-              <span>2</span>
-              <strong>Stage-by-stage trace</strong>
-              <p>Each step shows inputs, outputs, metrics, and previews so the workflow is easy to explain.</p>
-            </div>
-            <div class="highlight-card">
-              <span>3</span>
-              <strong>Actionable outputs</strong>
-              <p>Model results, recommendations, synthetic-data artifacts, and saved summaries are all downloadable.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <main class="layout">
         <section class="panel runner-panel">
           <div class="panel-head">
-            <h2>Run Pipeline</h2>
-            <p>Keep the first run simple, then tune options as needed.</p>
+            <h2>Pipeline Workspace</h2>
+            <p>Use tabs to switch between configuration and CSV review.</p>
           </div>
 
           <form id="run-form" class="run-form">
-            <label class="field">
-              <span>Built-in dataset</span>
-              <select id="dataset-select" name="dataset_path">
-                <option value="">Choose a dataset from /data</option>
-                {% for dataset in datasets %}
-                <option value="{{ dataset.path }}">{{ dataset.directory }} / {{ dataset.label }}</option>
-                {% endfor %}
-              </select>
-            </label>
-
-            <label class="field">
-              <span>Or upload CSV</span>
-              <input id="upload-input" type="file" name="upload" accept=".csv" />
-            </label>
-
-            <div id="dataset-preview" class="dataset-preview empty">
-              <p>Select or upload a dataset to inspect the first few columns.</p>
+            <div class="control-tabs" role="tablist" aria-label="Pipeline controls">
+              <button class="tab-button active" id="tab-button-run" data-tab-target="tab-run" type="button" role="tab" aria-selected="true">
+                Run Pipeline
+              </button>
+              <button class="tab-button" id="tab-button-review" data-tab-target="tab-review" type="button" role="tab" aria-selected="false">
+                Review CSV
+              </button>
             </div>
 
-            <div class="field-grid">
+            <section class="tab-content active" id="tab-run" role="tabpanel" aria-labelledby="tab-button-run">
+              <div class="field-grid">
+                <label class="field">
+                  <span>Problem type</span>
+                  <select id="run-problem-type" name="problem_type">
+                    <option value="">Auto-detect</option>
+                    <option value="classification">Classification</option>
+                    <option value="regression">Regression</option>
+                    <option value="anomaly_detection">Anomaly detection</option>
+                  </select>
+                </label>
+
+                <label class="field">
+                  <span>Target column</span>
+                  <select id="run-target-column" name="target_column">
+                    <option value="">Auto-detect (select dataset in Review CSV tab)</option>
+                  </select>
+                </label>
+
+                <label class="field">
+                  <span>Feature columns</span>
+                  <select id="run-feature-columns" multiple>
+                    <option value="" disabled>Select dataset in Review CSV tab</option>
+                  </select>
+                  <small class="field-note">Optional: hold Cmd/Ctrl to select multiple features.</small>
+                  <input id="run-feature-columns-hidden" type="hidden" name="feature_columns" />
+                </label>
+
+                <label class="field">
+                  <span>Preferred model</span>
+                  <select id="run-preferred-model" name="preferred_model">
+                    <option value="">Auto-select best model</option>
+                  </select>
+                </label>
+              </div>
+
+              <div class="field-grid compact">
+                <label class="field">
+                  <span>Run mode</span>
+                  <select id="run-train-mode" name="train_mode">
+                    <option value="pretrained">Pretrained inference</option>
+                    <option value="live">Live training</option>
+                  </select>
+                </label>
+
+                <label class="field inline">
+                  <input type="checkbox" name="use_cache" checked />
+                  <span>Use cache</span>
+                </label>
+
+                <label class="field inline">
+                  <input type="checkbox" name="use_pca" />
+                  <span>Use PCA</span>
+                </label>
+              </div>
+
+              <button class="primary-button" type="submit">Launch Run</button>
+              <button class="secondary-button" id="open-synthetic-modal-inline" type="button">Open Synthetic Data Workspace</button>
+            </section>
+
+            <section class="tab-content" id="tab-review" role="tabpanel" aria-labelledby="tab-button-review">
               <label class="field">
-                <span>Problem type</span>
-                <select name="problem_type">
-                  <option value="">Auto-detect</option>
-                  <option value="classification">Classification</option>
-                  <option value="regression">Regression</option>
-                  <option value="anomaly_detection">Anomaly detection</option>
+                <span>Built-in dataset</span>
+                <select id="dataset-select" name="dataset_path">
+                  <option value="">Choose a dataset from /data</option>
+                  {% for dataset in datasets %}
+                  <option value="{{ dataset.path }}">{{ dataset.directory }} / {{ dataset.label }}</option>
+                  {% endfor %}
                 </select>
               </label>
 
               <label class="field">
-                <span>Target column</span>
-                <input type="text" name="target_column" placeholder="Leave blank for auto" />
+                <span>Or upload CSV</span>
+                <input id="upload-input" type="file" name="upload" accept=".csv" />
               </label>
 
-              <label class="field">
-                <span>Feature columns</span>
-                <input type="text" name="feature_columns" placeholder="Optional comma-separated list" />
-              </label>
+              <button class="secondary-button preview-toggle" id="dataset-preview-toggle" type="button">
+                Show Dataset Preview
+              </button>
 
-              <label class="field">
-                <span>Preferred model</span>
-                <input type="text" name="preferred_model" placeholder="Optional model name" />
-              </label>
-            </div>
-
-            <div class="field-grid compact">
-              <label class="field">
-                <span>Run mode</span>
-                <select name="train_mode">
-                  <option value="pretrained">Pretrained inference</option>
-                  <option value="live">Live training</option>
-                </select>
-              </label>
-
-              <label class="field inline">
-                <input type="checkbox" name="use_cache" checked />
-                <span>Use cache</span>
-              </label>
-
-              <label class="field inline">
-                <input type="checkbox" name="use_pca" />
-                <span>Use PCA</span>
-              </label>
-            </div>
-
-            <button class="primary-button" type="submit">Launch Run</button>
+              <div id="dataset-preview" class="dataset-preview empty hidden">
+                <p>Select or upload a dataset to inspect the first few columns.</p>
+              </div>
+            </section>
           </form>
-        </section>
-
-        <section class="panel synthetic-panel">
-          <div class="panel-head">
-            <h2>Generate Synthetic Data</h2>
-            <p>Create synthetic datasets from real data, then run inference on them.</p>
-          </div>
-
-          <form id="synthetic-form" class="synthetic-form">
-            <label class="field">
-              <span>Source dataset</span>
-              <select id="synthetic-dataset-select" name="dataset_path" required>
-                <option value="">Choose a dataset to generate synthetic data from</option>
-                {% for dataset in datasets %}
-                <option value="{{ dataset.path }}">{{ dataset.directory }} / {{ dataset.label }}</option>
-                {% endfor %}
-              </select>
-            </label>
-
-            <div class="field-grid">
-              <label class="field">
-                <span>Problem type</span>
-                <select name="problem_type" required>
-                  <option value="classification">Classification</option>
-                  <option value="regression">Regression</option>
-                </select>
-              </label>
-
-              <label class="field">
-                <span>Preferred model (optional)</span>
-                <input type="text" name="preferred_model" placeholder="Leave blank for auto-selection" />
-              </label>
-            </div>
-
-            <label class="field">
-              <span>Target column</span>
-              <select id="synthetic-target-column" name="target_column" required>
-                <option value="">Select a source dataset first</option>
-              </select>
-            </label>
-
-            <label class="field">
-              <span>Number of synthetic rows to generate</span>
-              <input type="number" name="n_rows" value="500" min="10" max="10000" required />
-            </label>
-
-            <label class="field">
-              <span>Random seed (for reproducibility)</span>
-              <input type="number" name="seed" value="42" min="0" />
-            </label>
-
-            <button class="primary-button" type="submit">Generate Synthetic Data</button>
-          </form>
-
-          <div id="synthetic-progress" class="synthetic-progress empty">
-            <p>Generated datasets will appear below.</p>
-          </div>
-
-          <div class="panel-head compact-head">
-            <h3>Available Synthetic Datasets</h3>
-            <p>Choose one to run inference on the synthetic data.</p>
-          </div>
-          <div id="synthetic-list" class="synthetic-list empty">
-            <p>No synthetic datasets generated yet.</p>
-          </div>
         </section>
 
         <section class="panel status-panel">
@@ -256,6 +191,89 @@
           <ul id="artifact-list" class="artifact-list"></ul>
         </section>
       </section>
+
+      <div id="synthetic-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="synthetic-modal-title">
+        <div class="modal-dialog">
+          <div class="modal-head">
+            <div>
+              <h2 id="synthetic-modal-title">Synthetic Data Workspace</h2>
+              <p>Create synthetic data and run inference without cluttering the main pipeline dashboard.</p>
+            </div>
+            <button class="icon-button" id="close-synthetic-modal" type="button" aria-label="Close synthetic workspace">
+              ×
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <section class="panel synthetic-panel modal-panel">
+              <div class="panel-head">
+                <h3>Generate Synthetic Data</h3>
+                <p>Create synthetic datasets from real data, then run inference on them.</p>
+              </div>
+
+              <form id="synthetic-form" class="synthetic-form">
+                <label class="field">
+                  <span>Source dataset</span>
+                  <select id="synthetic-dataset-select" name="dataset_path" required>
+                    <option value="">Choose a dataset to generate synthetic data from</option>
+                    {% for dataset in datasets %}
+                    <option value="{{ dataset.path }}">{{ dataset.directory }} / {{ dataset.label }}</option>
+                    {% endfor %}
+                  </select>
+                </label>
+
+                <div class="field-grid">
+                  <label class="field">
+                    <span>Problem type</span>
+                    <select id="synthetic-problem-type" name="problem_type" required>
+                      <option value="classification">Classification</option>
+                      <option value="regression">Regression</option>
+                    </select>
+                  </label>
+
+                  <label class="field">
+                    <span>Preferred model (optional)</span>
+                    <select id="synthetic-preferred-model" name="preferred_model">
+                      <option value="">Auto-select best model</option>
+                    </select>
+                  </label>
+                </div>
+
+                <label class="field">
+                  <span>Target column</span>
+                  <select id="synthetic-target-column" name="target_column" required>
+                    <option value="">Select a source dataset first</option>
+                  </select>
+                </label>
+
+                <label class="field">
+                  <span>Number of synthetic rows to generate</span>
+                  <input type="number" name="n_rows" value="500" min="10" max="10000" required />
+                </label>
+
+                <label class="field">
+                  <span>Random seed (for reproducibility)</span>
+                  <input type="number" name="seed" value="42" min="0" />
+                </label>
+
+                <button class="primary-button" type="submit">Generate Synthetic Data</button>
+              </form>
+
+              <div id="synthetic-progress" class="synthetic-progress empty">
+                <p>Generated datasets will appear below.</p>
+              </div>
+
+              <div class="panel-head compact-head">
+                <h3>Available Synthetic Datasets</h3>
+                <p>Choose one to run inference on the synthetic data.</p>
+              </div>
+              <div id="synthetic-list" class="synthetic-list empty">
+                <p>No synthetic datasets generated yet.</p>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="/static/app.js"></script>
