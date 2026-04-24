@@ -141,6 +141,7 @@ class LocalLLMAgent:
                 response = self._ollama_client.generate(
                     model=self.model_name,
                     prompt=prompt,
+                    think=False,
                     options={"num_predict": max_tokens, "temperature": temperature},
                 )
                 if isinstance(response, dict):
@@ -153,14 +154,28 @@ class LocalLLMAgent:
                 else:
                     text = getattr(response, "response", str(response))
             else:
-                import subprocess
-                proc = subprocess.run(
-                    ["ollama", "run", self.model_name, prompt],
-                    capture_output=True, text=True, timeout=120,
+                import json as _json
+                from urllib import request as _request
+
+                payload = _json.dumps(
+                    {
+                        "model": self.model_name,
+                        "prompt": prompt,
+                        "think": False,
+                        "stream": False,
+                        "options": {"num_predict": max_tokens, "temperature": temperature},
+                    }
+                ).encode("utf-8")
+                req = _request.Request(
+                    "http://localhost:11434/api/generate",
+                    data=payload,
+                    headers={"Content-Type": "application/json"},
+                    method="POST",
                 )
-                if proc.returncode != 0:
-                    raise RuntimeError(f"Ollama CLI error: {proc.stderr.strip()}")
-                text = proc.stdout.strip()
+                with _request.urlopen(req, timeout=120) as response:
+                    body = response.read().decode("utf-8")
+                response_json = _json.loads(body)
+                text = str(response_json.get("response", ""))
             return self._wrap(text)
         except Exception as exc:
             raise RuntimeError(f"Ollama generation failed: {exc}") from exc
@@ -187,10 +202,37 @@ class LocalLLMAgent:
 
     def _wrap(self, text: str) -> Dict[str, Any]:
         """Parse JSON from raw output and return standardised result dict."""
-        parsed = self._extract_json(text)
+        clean_text = self._strip_thinking(text)
+        parsed = self._extract_json(clean_text)
         if parsed:
-            return {"raw": text, "tool": parsed.get("tool"), "reason": parsed.get("reason", ""), "parsed": parsed}
-        return {"raw": text, "tool": text.strip(), "reason": "", "parsed": None}
+            return {
+                "raw": json.dumps(parsed, ensure_ascii=False),
+                "tool": parsed.get("tool"),
+                "reason": parsed.get("reason", ""),
+                "parsed": parsed,
+            }
+        return {"raw": clean_text, "tool": clean_text.strip(), "reason": "", "parsed": None}
+
+    def _strip_thinking(self, text: str) -> str:
+        if not text:
+            return ""
+
+        # qwen-style thinking output: keep only user-visible text after the last
+        # closing tag so internal reasoning is never exposed downstream.
+        if re.search(r"</think>", text, flags=re.IGNORECASE):
+            text = re.split(r"</think>", text, flags=re.IGNORECASE)[-1]
+
+        while True:
+            new_text = re.sub(r"<think>[\s\S]*?</think>", "", text, flags=re.IGNORECASE)
+            if new_text == text:
+                break
+            text = new_text
+
+        # remove trailing open tags
+        text = re.sub(r"<think>[\s\S]*$", "", text, flags=re.IGNORECASE)
+        text = re.sub(r"</?think>", "", text, flags=re.IGNORECASE)
+
+        return text.strip()
 
     def _extract_json(self, text: str) -> Optional[Dict[str, Any]]:
         """Extract the first JSON object from free-form model output."""

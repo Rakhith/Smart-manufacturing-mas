@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 
 
-DEFAULT_PRETRAINED_DIR = Path("artifacts") / "pretrained_models"
+DEFAULT_PRETRAINED_DIR = Path(__file__).resolve().parent.parent / "artifacts" / "pretrained_models"
 
 
 def _to_float(value: Any, default: float = 0.0) -> float:
@@ -19,7 +19,10 @@ def _to_float(value: Any, default: float = 0.0) -> float:
 
 def get_pretrained_dir(path: Optional[str] = None) -> Path:
     if path:
-        return Path(path)
+        candidate = Path(path)
+        if candidate.is_absolute():
+            return candidate
+        return Path(__file__).resolve().parent.parent / candidate
     return DEFAULT_PRETRAINED_DIR
 
 

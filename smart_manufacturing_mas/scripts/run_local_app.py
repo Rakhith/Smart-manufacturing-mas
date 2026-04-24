@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+import subprocess
 import sys
 
 
@@ -14,6 +15,18 @@ def main() -> int:
     import uvicorn
     
     project_dir = Path(__file__).resolve().parents[1]
+    venv_python = project_dir.parent / "mas_venv" / "Scripts" / "python.exe"
+
+    if (
+        venv_python.exists()
+        and Path(sys.executable).resolve() != venv_python.resolve()
+        and os.environ.get("SMMA_VENV_BOOTSTRAPPED") != "1"
+    ):
+        env = os.environ.copy()
+        env["SMMA_VENV_BOOTSTRAPPED"] = "1"
+        subprocess.Popen([str(venv_python), str(Path(__file__).resolve()), *sys.argv[1:]], cwd=str(project_dir), env=env)
+        return 0
+
     host = os.environ.get("APP_HOST", "127.0.0.1")
     port = int(os.environ.get("APP_PORT", "8000"))
     reload_enabled = _env_flag("APP_RELOAD", default=False)

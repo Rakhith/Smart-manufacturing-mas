@@ -9,7 +9,8 @@ from fastapi.responses import FileResponse, HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
-from webapp.run_manager import ROOT_DIR, RunConfig, WEB_UPLOAD_DIR, run_manager
+from utils.pretrained_model_store import load_registry
+from webapp.run_manager import PRETRAINED_DIR, ROOT_DIR, RunConfig, WEB_UPLOAD_DIR, run_manager
 
 
 APP_DIR = Path(__file__).resolve().parent
@@ -17,6 +18,7 @@ TEMPLATES_DIR = APP_DIR / "templates"
 STATIC_DIR = APP_DIR / "static"
 DATA_DIR = ROOT_DIR / "data"
 ARTIFACTS_DIR = ROOT_DIR / "artifacts"
+WEB_SYNTHETIC_DIR = ARTIFACTS_DIR / "web_synthetic"
 
 app = FastAPI(title="Smart Manufacturing MAS Local App", version="0.1.0")
 app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
@@ -39,17 +41,21 @@ def _allowed_file_path(path_str: str) -> Path:
 
 def _discover_datasets() -> list[dict]:
     datasets = []
-    for path in sorted(DATA_DIR.rglob("*")):
-        if path.suffix.lower() not in {".csv", ".npz"}:
+    for base_dir, category in ((DATA_DIR, "built-in"), (WEB_SYNTHETIC_DIR, "synthetic")):
+        if not base_dir.exists():
             continue
-        rel = path.relative_to(ROOT_DIR)
-        datasets.append(
-            {
-                "label": path.name,
-                "path": str(rel),
-                "directory": str(path.parent.relative_to(ROOT_DIR)),
-            }
-        )
+        for path in sorted(base_dir.rglob("*")):
+            if path.suffix.lower() not in {".csv", ".npz"}:
+                continue
+            rel = path.relative_to(ROOT_DIR)
+            datasets.append(
+                {
+                    "label": path.name,
+                    "path": str(rel),
+                    "directory": str(path.parent.relative_to(ROOT_DIR)),
+                    "category": category,
+                }
+            )
     return datasets
 
 
@@ -61,6 +67,37 @@ def _dataset_profile(path: Path) -> dict:
         "columns": df.columns.tolist(),
         "preview_rows": df.head(5).replace({pd.NA: None}).to_dict(orient="records"),
         "shape_estimate": [int(df.shape[0]), int(df.shape[1])],
+    }
+
+
+def _discover_models() -> dict:
+    live_models = {
+        "classification": ["RandomForestClassifier", "LogisticRegression", "SVC"],
+        "regression": [
+            "RandomForestRegressor",
+            "HistGradientBoostingRegressor",
+            "LinearRegression",
+            "Ridge",
+            "Lasso",
+            "SVR",
+        ],
+        "anomaly_detection": ["IsolationForest"],
+    }
+
+    registry = load_registry(str(PRETRAINED_DIR))
+    pretrained_models = {"classification": [], "regression": [], "anomaly_detection": []}
+    for key in ("classification", "regression"):
+        names = sorted(
+            {
+                str(entry.get("model_name", "")).strip()
+                for entry in registry.get(key, [])
+                if str(entry.get("model_name", "")).strip()
+            }
+        )
+        pretrained_models[key] = names
+    return {
+        "pretrained": pretrained_models,
+        "live": live_models,
     }
 
 
@@ -78,6 +115,11 @@ async def index(request: Request) -> HTMLResponse:
 @app.get("/api/datasets")
 async def list_datasets() -> list[dict]:
     return _discover_datasets()
+
+
+@app.get("/api/models")
+async def list_models() -> dict:
+    return _discover_models()
 
 
 @app.get("/api/datasets/preview")
@@ -112,16 +154,12 @@ async def create_run(
     use_pca: bool = Form(default=False),
     use_cache: bool = Form(default=True),
     train_mode: str = Form(default="pretrained"),
-    generate_synthetic: bool = Form(default=False),
-    synthetic_rows: int = Form(default=300),
     preferred_model: Optional[str] = Form(default=None),
     upload: Optional[UploadFile] = File(default=None),
 ) -> dict:
     selected_path: Optional[Path] = None
     selected_label = dataset_label
 
-    if synthetic_rows < 10 or synthetic_rows > 10000:
-        raise HTTPException(status_code=400, detail="Synthetic rows must be between 10 and 10000.")
     if train_mode not in {"pretrained", "live"}:
         raise HTTPException(status_code=400, detail="Unsupported train mode.")
 
@@ -150,15 +188,87 @@ async def create_run(
         use_pca=use_pca,
         use_cache=use_cache,
         train_mode=train_mode,
-        generate_synthetic=generate_synthetic,
-        synthetic_rows=synthetic_rows,
         preferred_model=preferred_model or None,
     )
     run_id = run_manager.create_run(config)
     return {"run_id": run_id}
 
 
-@app.get("/api/files")
+@app.post("/api/synthetic/generate")
+async def generate_synthetic_data(
+    dataset_path: str = Form(...),
+    n_rows: int = Form(default=500),
+    target_column: Optional[str] = Form(default=None),
+    seed: int = Form(default=42),
+    problem_type: Optional[str] = Form(default=None),
+    preferred_model: Optional[str] = Form(default=None),
+) -> dict:
+    """Generate synthetic data from a real dataset."""
+    if n_rows < 10 or n_rows > 10000:
+        raise HTTPException(status_code=400, detail="Synthetic rows must be between 10 and 10000.")
+    if not target_column or not target_column.strip():
+        raise HTTPException(status_code=400, detail="Target column is required for synthetic generation.")
+    
+    selected_path = _allowed_file_path(dataset_path)
+    synthetic_id = run_manager.generate_synthetic_data(
+        dataset_path=str(selected_path),
+        n_rows=n_rows,
+        target_column=target_column,
+        seed=seed,
+        problem_type=problem_type,
+        preferred_model=preferred_model,
+    )
+    return {"synthetic_id": synthetic_id}
+
+
+@app.get("/api/synthetic/list")
+async def list_synthetic_data() -> list:
+    """List all generated synthetic datasets."""
+    return run_manager.list_synthetic_datasets()
+
+
+@app.get("/api/synthetic/{synthetic_id}")
+async def get_synthetic_data_status(synthetic_id: str) -> dict:
+    """Get the status and details of a synthetic data generation run."""
+    result = run_manager.get_synthetic_dataset(synthetic_id)
+    if result is None:
+        raise HTTPException(status_code=404, detail="Synthetic dataset not found.")
+    return result
+
+
+@app.post("/api/synthetic/{synthetic_id}/infer")
+async def run_inference_on_synthetic(
+    synthetic_id: str,
+    problem_type: Optional[str] = Form(default=None),
+    target_column: Optional[str] = Form(default=None),
+    preferred_model: Optional[str] = Form(default=None),
+) -> dict:
+    """Run inference on a generated synthetic dataset using pretrained models."""
+    synthetic_dataset = run_manager.get_synthetic_dataset(synthetic_id)
+    if synthetic_dataset is None:
+        raise HTTPException(status_code=404, detail="Synthetic dataset not found.")
+
+    config = synthetic_dataset.get("config", {})
+    problem_type = problem_type or config.get("problem_type") or None
+    target_column = target_column or config.get("target_column") or None
+    preferred_model = preferred_model or config.get("preferred_model") or None
+
+    inference_id = run_manager.run_inference_on_synthetic(
+        synthetic_id=synthetic_id,
+        problem_type=problem_type,
+        target_column=target_column,
+        preferred_model=preferred_model,
+    )
+    return {"inference_id": inference_id}
+
+
+@app.get("/api/synthetic/{synthetic_id}/infer-status")
+async def get_inference_status(synthetic_id: str) -> dict:
+    """Get the inference results for a synthetic dataset."""
+    result = run_manager.get_synthetic_inference_result(synthetic_id)
+    if result is None:
+        raise HTTPException(status_code=404, detail="Inference result not found.")
+    return result
 async def fetch_file(path: str) -> FileResponse:
     file_path = _allowed_file_path(path)
     return FileResponse(file_path)

@@ -64,12 +64,11 @@ class OptimizationAgent:
         if 'results_df' in results and 'anomaly_labels' in results:
             return 'anomaly_detection'
 
+        if results.get('r2') is not None:
+            return 'regression'
+
         train_predictions = results.get('train_predictions')
-        if (
-            results.get('r2') is not None and
-            train_predictions is not None and
-            np.issubdtype(np.asarray(train_predictions).dtype, np.number)
-        ):
+        if train_predictions is not None and np.issubdtype(np.asarray(train_predictions).dtype, np.number):
             return 'regression'
 
         return 'classification'
@@ -163,6 +162,14 @@ class OptimizationAgent:
             return pd.DataFrame(columns=self.UNIFIED_OUTPUT_COLUMNS)
 
         standardized = recommendations_df.copy()
+
+        # Normalize schema aliases emitted by different problem-type branches.
+        if 'Predicted_Value' not in standardized.columns and 'Current_Value' in standardized.columns:
+            standardized['Predicted_Value'] = standardized['Current_Value']
+        if 'Priority_Level' not in standardized.columns and 'Severity' in standardized.columns:
+            standardized['Priority_Level'] = standardized['Severity']
+        if 'Contributing_Factors' not in standardized.columns and 'Top_Indicators' in standardized.columns:
+            standardized['Contributing_Factors'] = standardized['Top_Indicators']
 
         standardized['Problem_Type'] = problem_type
         if 'Model_Confidence' not in standardized.columns:
