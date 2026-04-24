@@ -25,7 +25,7 @@ logs/*.txt
 *.log
 
 # Model cache (large binary files)
-model_cache/*.pkl
+model_cache/*
 artifacts/*
 training/artifacts/*
 

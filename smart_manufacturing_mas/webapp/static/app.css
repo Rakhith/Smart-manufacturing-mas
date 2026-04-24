@@ -170,17 +170,23 @@ select {
 .hero-stat {
   border-radius: 20px;
   padding: 18px;
-  background: linear-gradient(135deg, rgba(16, 32, 40, 0.96), rgba(33, 74, 87, 0.92));
-  color: white;
+  background: linear-gradient(180deg, rgba(255, 250, 243, 0.98), rgba(244, 236, 224, 0.96));
+  color: var(--ink);
+  border: 1px solid rgba(16, 32, 40, 0.08);
 }
 
 .hero-stat span {
   display: block;
   margin-bottom: 10px;
-  opacity: 0.75;
+  opacity: 1;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-size: 0.76rem;
+  color: var(--accent-deep);
+}
+
+.hero-stat strong {
+  color: var(--steel);
 }
 
 .layout,
@@ -367,6 +373,7 @@ select {
 .dataset-preview {
   min-height: 96px;
   padding: 14px;
+  overflow-x: auto;
 }
 
 .dataset-preview.empty,
@@ -375,10 +382,10 @@ select {
 }
 
 .preview-table {
-  width: 100%;
-  min-width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
+  min-width: 100%;
+  width: 100%;
 }
 
 .preview-table th,

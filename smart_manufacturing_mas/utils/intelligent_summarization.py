@@ -261,6 +261,17 @@ class IntelligentSummarizer:
 
             response = self.local_summary_agent.generate(prompt, max_tokens=1200, temperature=0.2)
             raw_text = (response.get('raw') or '').strip()
+
+            # Strip any thinking tags that may have survived inside the raw string
+            # (e.g. when they are embedded in a JSON string value by the model).
+            raw_text = self.local_summary_agent._strip_thinking(raw_text)
+
+            json_start = raw_text.find('{')
+            json_end = raw_text.rfind('}')
+
+            if json_start != -1 and json_end != -1:
+                raw_text = raw_text[json_start:json_end+1]
+
             payload = self._parse_json_response(raw_text)
             payload = self._coerce_reflexion_payload(payload)
             logging.info(f"[Reflexion-Local] {stage.capitalize()} output generated and validated successfully")
@@ -282,6 +293,13 @@ class IntelligentSummarizer:
                 'If previous_output is present, critique it against workflow_data and return a better final summary.',
                 'Base all claims on the provided workflow JSON.',
                 'If evidence is insufficient, say so explicitly instead of guessing.'
+            ],
+            "STRICT OUTPUT RULES": [
+                "Return ONLY valid JSON.",
+                "Do NOT include any reasoning, thinking, or explanations.",
+                "Do NOT include phrases like 'Hmm', 'The user wants', or internal thoughts.",
+                "Do NOT include <tool_call    > or any hidden reasoning.",
+                "If you include anything outside JSON, the output is INVALID."
             ],
             'output_schema': {
                 'analysis': {
@@ -329,18 +347,43 @@ class IntelligentSummarizer:
         if response_text is None:
             raise ValueError('Empty response from model')
 
-        raw_text = response_text.strip()
+        raw_text = self._strip_think_content(response_text.strip())
         if not raw_text:
             raise ValueError('Empty response from model')
 
         try:
             return json.loads(raw_text)
         except json.JSONDecodeError:
-            start_index = raw_text.find('{')
-            end_index = raw_text.rfind('}')
-            if start_index == -1 or end_index == -1 or end_index <= start_index:
-                raise
-            return json.loads(raw_text[start_index:end_index + 1])
+            decoder = json.JSONDecoder()
+            for i, ch in enumerate(raw_text):
+                if ch != '{':
+                    continue
+                try:
+                    obj, _ = decoder.raw_decode(raw_text[i:])
+                    if isinstance(obj, dict):
+                        return obj
+                except json.JSONDecodeError:
+                    continue
+            raise
+
+    def _strip_think_content(self, text: str) -> str:
+        """
+        Remove model reasoning tags and keep only user-visible content.
+
+        For qwen-style outputs, if one or more </think> tags are present,
+        preserve only text after the final closing tag.
+        """
+        if not text:
+            return ""
+
+        if re.search(r"</think>", text, flags=re.IGNORECASE):
+            text = re.split(r"</think>", text, flags=re.IGNORECASE)[-1]
+
+        text = re.sub(r"<think>[\s\S]*?</think>", "", text, flags=re.IGNORECASE)
+        text = re.sub(r"<think>[\s\S]*$", "", text, flags=re.IGNORECASE)
+        text = re.sub(r"</?think>", "", text, flags=re.IGNORECASE)
+
+        return text.strip()
 
     def _coerce_reflexion_payload(self, payload: Dict[str, Any]) -> Dict[str, Any]:
         """Validate and normalize the single-prompt reflexion output."""
@@ -400,33 +443,31 @@ class IntelligentSummarizer:
         return max(0, min(10, score))
 
     def _sanitize_summary_text(self, text: str) -> str:
-        """Remove unwanted sections from LLM output (reasoning tags, critique, meta, etc.)."""
-        clean = (text or "").strip()
-        if not clean:
+        if not text:
             return ""
 
-        # Strip reasoning/thinking wrapper tags first
-        clean = re.sub(r"<think>.*?</think>", "", clean, flags=re.DOTALL).strip()
-        
-        # Remove code blocks
-        clean = re.sub(r"```[\s\S]*?```", "", clean).strip()
+        text = self._strip_think_content(text)
 
-        blocked_prefixes = (
-            "critique", "revision", "revised", "analysis", "draft",
-            "strength", "issue", "severity", "workflow context"
-        )
-        kept_lines = []
-        for line in clean.splitlines():
-            stripped = line.strip()
-            if not stripped:
-                continue
-            lower = stripped.lower()
-            if any(lower.startswith(prefix) for prefix in blocked_prefixes):
-                continue
-            kept_lines.append(stripped)
+        # Remove any remaining stray tags.
+        text = re.sub(r"<.*?>", "", text)
 
-        collapsed = " ".join(kept_lines).strip()
-        return re.sub(r"\s+", " ", collapsed)
+        # Remove ALL reasoning patterns
+        text = re.sub(r"(?i)hmm,.*?(?=\.)\.", "", text, flags=re.DOTALL)
+        text = re.sub(r"(?i)the user wants.*?(?=\.)\.", "", text, flags=re.DOTALL)
+
+        # Remove multi-sentence reasoning blocks at start
+        lines = text.strip().splitlines()
+        clean_lines = []
+
+        for line in lines:
+            l = line.strip().lower()
+            if any(l.startswith(x) for x in [
+                "hmm", "the user", "i think", "let me", "this means"
+            ]):
+                continue
+            clean_lines.append(line.strip())
+
+        return " ".join(clean_lines).strip()
 
     def _extract_severity_score(self, critique_payload: Dict[str, Any]) -> int:
         """Read severity from normalized critique payload."""
@@ -544,11 +585,11 @@ class IntelligentSummarizer:
         
         summary_lines = [
             "=" * 60,
-            "🎯 INTELLIGENT WORKFLOW SUMMARY",
+            "INTELLIGENT WORKFLOW SUMMARY",
             "=" * 60,
-            f"📊 Dataset: {os.path.basename(workflow_data['dataset_info'].get('dataset_path', 'Unknown'))}",
-            f"🎯 Problem Type: {workflow_data['dataset_info'].get('problem_type', 'Unknown')}",
-            f"📈 Features: {len(workflow_data['dataset_info'].get('feature_columns', []))} columns",
+            f"Dataset: {os.path.basename(workflow_data['dataset_info'].get('dataset_path', 'Unknown'))}",
+            f"Problem Type: {workflow_data['dataset_info'].get('problem_type', 'Unknown')}",
+            f"Features: {len(workflow_data['dataset_info'].get('feature_columns', []))} columns",
             ""
         ]
         

@@ -180,7 +180,8 @@ def _get_anomaly_params(args, csv_path: str, feature_cols, hitl_interface) -> di
         "You are configuring an IsolationForest for anomaly detection.\n"
         f"Dataset profile:\n{desc}\n\n"
         "Suggest hyperparameters as JSON: "
-        "{\"contamination\": <float 0.001-0.2 or 'auto'>, \"n_estimators\": <int 100-400>, \"reason\": \"...\"}"
+        "{\"contamination\": <float 0.001-0.2 or 'auto'>, \"n_estimators\": <int 100-400>, \"reason\": \"...\"}. "
+        "Return only the final JSON object and do not include chain-of-thought, analysis, or <think> tags."
     )
 
     import numpy as np

@@ -100,6 +100,11 @@ class SyntheticQualityAnalyzer:
 
             # Wasserstein distance (optimal transport distance)
             wasserstein = float(stats.wasserstein_distance(orig_series, synth_series))
+            mean_scale = abs(orig_stats["mean"]) + orig_stats["std"] + 1e-10
+            std_scale = orig_stats["std"] + 1e-10
+            mean_similarity = float(np.exp(-diff["mean_diff"] / mean_scale))
+            std_similarity = float(np.exp(-diff["std_diff"] / std_scale))
+            ks_similarity = float(max(0, 1 - ks_statistic))
 
             comparison[col] = {
                 "original": orig_stats,
@@ -108,7 +113,10 @@ class SyntheticQualityAnalyzer:
                 "ks_statistic": float(ks_statistic),  # 0 = same dist, 1 = different
                 "ks_pvalue": float(ks_pvalue),
                 "wasserstein_distance": wasserstein,
-                "similarity_score": float(max(0, 1 - ks_statistic)),  # Higher is better (0-1)
+                "ks_similarity": ks_similarity,
+                "mean_similarity": mean_similarity,
+                "std_similarity": std_similarity,
+                "similarity_score": float(0.5 * ks_similarity + 0.25 * mean_similarity + 0.25 * std_similarity),
             }
 
         return comparison

@@ -1094,7 +1094,8 @@ class LLMPlannerAgent:
             "- Provide 'contamination' as a float between 0.001 and 0.2 whenever the summary offers enough signal (e.g., via approx_outlier_fraction). Use 'auto' only if a numeric estimate is unsafe.\n"
             "- Provide 'n_estimators' as an integer (typical range 100-400) balancing accuracy vs. runtime.\n"
             "- Add a concise 'reason' referencing the dataset characteristics.\n"
-            "Respond strictly with JSON, e.g. {\"contamination\": 0.04, \"n_estimators\": 256, \"reason\": \"...\"}."
+            "Respond strictly with JSON only. Do not include chain-of-thought, analysis, or <think> tags.\n"
+            "Example: {\"contamination\": 0.04, \"n_estimators\": 256, \"reason\": \"...\"}."
         )
         llm = self.decision_llm_agent if (use_decision_llm and self.decision_llm_agent is not None) else self.llm_agent
         which = 'decision LLM' if (use_decision_llm and self.decision_llm_agent is not None) else 'planner LLM'

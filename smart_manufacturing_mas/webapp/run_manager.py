@@ -207,6 +207,7 @@ class _SyntheticDataGenerator:
             "std": float(clean.std() or 1.0),
             "min": float(clean.min()),
             "max": float(clean.max()),
+            "range": float((clean.max() - clean.min()) or 1.0),
             "dtype": str(series.dtype),
         }
 
@@ -217,15 +218,26 @@ class _SyntheticDataGenerator:
             "probabilities": counts.values.tolist(),
         }
 
-    def _generate_numeric(self, stats: Dict[str, Any]) -> Any:
-        value = np.random.normal(stats["mean"], stats["std"])
+    def _generate_numeric(self, stats: Dict[str, Any], signal_value: Optional[float] = None) -> Any:
+        noise_scale = max(stats["std"] * 0.35, stats["range"] * 0.03, 1e-6)
+        if signal_value is None:
+            base_value = stats["mean"]
+        else:
+            base_value = stats["mean"] + (float(signal_value) - stats["mean"]) * 0.65
+
+        value = base_value + np.random.normal(0.0, noise_scale)
         value = np.clip(value, stats["min"], stats["max"])
         if "int" in stats["dtype"]:
             return int(round(float(value)))
         return float(value)
 
     def _generate_categorical(self, stats: Dict[str, Any]) -> Any:
-        return np.random.choice(stats["categories"], p=stats["probabilities"])
+        probabilities = np.asarray(stats["probabilities"], dtype=float)
+        if probabilities.size == 0:
+            return None
+        probabilities = np.power(probabilities, 0.9)
+        probabilities = probabilities / probabilities.sum()
+        return np.random.choice(stats["categories"], p=probabilities)
 
     def generate(
         self,
@@ -269,16 +281,30 @@ class _SyntheticDataGenerator:
                 categorical_cols.append(col)
                 column_stats[col] = self._analyze_categorical(df[col])
 
-        rows: List[Dict[str, Any]] = []
-        for _ in range(n_rows):
-            row: Dict[str, Any] = {}
-            for col in numeric_cols:
-                row[col] = self._generate_numeric(column_stats[col])
-            for col in categorical_cols:
-                row[col] = self._generate_categorical(column_stats[col])
-            rows.append(row)
+        if target_column and target_column in df.columns:
+            sampled = df.sample(n=n_rows, replace=True, random_state=self.seed).reset_index(drop=True).copy()
 
-        synthetic_df = pd.DataFrame(rows)
+            for col in numeric_cols:
+                sampled[col] = [
+                    self._generate_numeric(column_stats[col], signal_value=value)
+                    for value in sampled[col].astype(float).fillna(column_stats[col]["mean"]).tolist()
+                ]
+
+            for col in categorical_cols:
+                sampled[col] = [self._generate_categorical(column_stats[col]) for _ in range(n_rows)]
+
+            synthetic_df = sampled
+        else:
+            rows: List[Dict[str, Any]] = []
+            for _ in range(n_rows):
+                row: Dict[str, Any] = {}
+                for col in numeric_cols:
+                    row[col] = self._generate_numeric(column_stats[col])
+                for col in categorical_cols:
+                    row[col] = self._generate_categorical(column_stats[col])
+                rows.append(row)
+
+            synthetic_df = pd.DataFrame(rows)
         if target_column and target_column in df.columns:
             if pd.api.types.is_numeric_dtype(df[target_column]):
                 stats = self._analyze_numeric(df[target_column])
@@ -766,7 +792,7 @@ class PipelineRunManager:
     ) -> str:
         """Generate synthetic data from a real dataset and return synthetic_id."""
         config = {
-            "generator_version": "v2_bootstrap_target_preserving",
+            "generator_version": "v3_awgn_blended",
             "source_dataset": str(Path(dataset_path).resolve()),
             "n_rows": int(n_rows),
             "target_column": target_column or "",
@@ -962,9 +988,17 @@ class PipelineRunManager:
                 raise ValueError("Pretrained bundle did not return predictions.")
 
             # Analyze results
-            analyzer = PredictionAnalyzer(problem_type=problem_type or "regression")
-            actual_target = synthetic_df.get(target_column) if target_column and target_column in synthetic_df.columns else prediction_bundle.get("y_test")
-            analysis = analyzer.analyze(predictions, actual_target)
+            actual_target = (
+                synthetic_df.get(target_column)
+                if target_column and target_column in synthetic_df.columns
+                else prediction_bundle.get("y_test")
+            )
+            analyzer = PredictionAnalyzer(
+                predictions=predictions,
+                actual_values=actual_target,
+                problem_type=problem_type or "regression",
+            )
+            analysis_summary = analyzer.get_summary()
 
             inference_result = {
                 "model_name": meta.get("model_name"),
@@ -975,7 +1009,8 @@ class PipelineRunManager:
                 "prediction_warning": prediction_bundle.get("target_mismatch_warning"),
                 "n_predictions": len(predictions),
                 "predictions_preview": predictions[:10].tolist() if hasattr(predictions, "tolist") else list(predictions[:10]),
-                "analysis": analysis,
+                "analysis": analysis_summary.get("analysis", {}),
+                "recommendations": analysis_summary.get("recommendations", []),
             }
 
             with self._lock:

@@ -310,7 +310,7 @@ function renderDatasetPreview(payload) {
       <div><dt>Columns</dt><dd>${payload.columns.length}</dd></div>
       <div><dt>Preview rows</dt><dd>${(payload.preview_rows || []).length}</dd></div>
     </div>
-    ${createTable(payload.columns, payload.preview_rows || [], 8)}
+    ${createTable(payload.columns, payload.preview_rows || [], payload.columns.length)}
   `;
 }
 

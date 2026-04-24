@@ -92,6 +92,7 @@ class SyntheticDataGenerator:
             'std': float(series_clean.std()),
             'min': float(series_clean.min()),
             'max': float(series_clean.max()),
+            'range': float(series_clean.max() - series_clean.min() or 1.0),
             'q25': float(series_clean.quantile(0.25)),
             'q75': float(series_clean.quantile(0.75)),
             'dtype': str(series.dtype),
@@ -106,13 +107,15 @@ class SyntheticDataGenerator:
             'dtype': str(series.dtype),
         }
 
-    def generate_numeric_value(self, stats_dict: Dict) -> float:
+    def generate_numeric_value(self, stats_dict: Dict, signal_value: Optional[float] = None) -> float:
         """Generate synthetic numeric value based on statistics."""
-        # Use normal distribution clipped to observed min/max
-        value = np.random.normal(
-            loc=stats_dict['mean'],
-            scale=stats_dict['std']
-        )
+        noise_scale = max(stats_dict['std'] * 0.35, stats_dict['range'] * 0.03, 1e-6)
+        if signal_value is None:
+            base_value = stats_dict['mean']
+        else:
+            base_value = stats_dict['mean'] + (float(signal_value) - stats_dict['mean']) * 0.65
+
+        value = base_value + np.random.normal(0.0, noise_scale)
         # Clip to observed range
         value = np.clip(value, stats_dict['min'], stats_dict['max'])
         
@@ -124,10 +127,12 @@ class SyntheticDataGenerator:
 
     def generate_categorical_value(self, stats_dict: Dict) -> str:
         """Generate synthetic categorical value based on observed proportions."""
-        return np.random.choice(
-            stats_dict['categories'],
-            p=stats_dict['probabilities']
-        )
+        probabilities = np.asarray(stats_dict['probabilities'], dtype=float)
+        if probabilities.size == 0:
+            return None
+        probabilities = np.power(probabilities, 0.9)
+        probabilities = probabilities / probabilities.sum()
+        return np.random.choice(stats_dict['categories'], p=probabilities)
 
     def generate_synthetic_data(
         self,
@@ -174,17 +179,28 @@ class SyntheticDataGenerator:
         print(f"  Numeric columns: {numeric_columns}")
         print(f"  Categorical columns: {categorical_columns}")
 
-        # Generate synthetic data
-        synthetic_rows = []
-        for _ in range(n_rows):
-            row = {}
-            for col in numeric_columns:
-                row[col] = self.generate_numeric_value(column_stats[col])
-            for col in categorical_columns:
-                row[col] = self.generate_categorical_value(column_stats[col])
-            synthetic_rows.append(row)
+        if target_column and target_column in real_df.columns:
+            synthetic_df = real_df.sample(n=n_rows, replace=True, random_state=self.seed).reset_index(drop=True).copy()
 
-        synthetic_df = pd.DataFrame(synthetic_rows)
+            for col in numeric_columns:
+                synthetic_df[col] = [
+                    self.generate_numeric_value(column_stats[col], signal_value=value)
+                    for value in synthetic_df[col].astype(float).fillna(column_stats[col]['mean']).tolist()
+                ]
+
+            for col in categorical_columns:
+                synthetic_df[col] = [self.generate_categorical_value(column_stats[col]) for _ in range(n_rows)]
+        else:
+            synthetic_rows = []
+            for _ in range(n_rows):
+                row = {}
+                for col in numeric_columns:
+                    row[col] = self.generate_numeric_value(column_stats[col])
+                for col in categorical_columns:
+                    row[col] = self.generate_categorical_value(column_stats[col])
+                synthetic_rows.append(row)
+
+            synthetic_df = pd.DataFrame(synthetic_rows)
         
         # Add target column with synthetic values if provided
         if target_column and target_column in real_df.columns:

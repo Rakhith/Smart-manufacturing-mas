@@ -42,15 +42,40 @@
 
           <form id="run-form" class="run-form">
             <div class="control-tabs" role="tablist" aria-label="Pipeline controls">
-              <button class="tab-button active" id="tab-button-run" data-tab-target="tab-run" type="button" role="tab" aria-selected="true">
-                Run Pipeline
-              </button>
-              <button class="tab-button" id="tab-button-review" data-tab-target="tab-review" type="button" role="tab" aria-selected="false">
+              <button class="tab-button active" id="tab-button-review" data-tab-target="tab-review" type="button" role="tab" aria-selected="true">
                 Review CSV
+              </button>
+              <button class="tab-button" id="tab-button-run" data-tab-target="tab-run" type="button" role="tab" aria-selected="false">
+                Run Pipeline
               </button>
             </div>
 
-            <section class="tab-content active" id="tab-run" role="tabpanel" aria-labelledby="tab-button-run">
+            <section class="tab-content active" id="tab-review" role="tabpanel" aria-labelledby="tab-button-review">
+              <label class="field">
+                <span>Built-in dataset</span>
+                <select id="dataset-select" name="dataset_path">
+                  <option value="">Choose a dataset from /data</option>
+                  {% for dataset in datasets %}
+                  <option value="{{ dataset.path }}">{{ dataset.directory }} / {{ dataset.label }}</option>
+                  {% endfor %}
+                </select>
+              </label>
+
+              <label class="field">
+                <span>Or upload CSV</span>
+                <input id="upload-input" type="file" name="upload" accept=".csv" />
+              </label>
+
+              <button class="secondary-button preview-toggle" id="dataset-preview-toggle" type="button">
+                Show Dataset Preview
+              </button>
+
+              <div id="dataset-preview" class="dataset-preview empty hidden">
+                <p>Select or upload a dataset to inspect the first few columns.</p>
+              </div>
+            </section>
+
+            <section class="tab-content" id="tab-run" role="tabpanel" aria-labelledby="tab-button-run">
               <div class="field-grid">
                 <label class="field">
                   <span>Problem type</span>
@@ -108,31 +133,6 @@
 
               <button class="primary-button" type="submit">Launch Run</button>
               <button class="secondary-button" id="open-synthetic-modal-inline" type="button">Open Synthetic Data Workspace</button>
-            </section>
-
-            <section class="tab-content" id="tab-review" role="tabpanel" aria-labelledby="tab-button-review">
-              <label class="field">
-                <span>Built-in dataset</span>
-                <select id="dataset-select" name="dataset_path">
-                  <option value="">Choose a dataset from /data</option>
-                  {% for dataset in datasets %}
-                  <option value="{{ dataset.path }}">{{ dataset.directory }} / {{ dataset.label }}</option>
-                  {% endfor %}
-                </select>
-              </label>
-
-              <label class="field">
-                <span>Or upload CSV</span>
-                <input id="upload-input" type="file" name="upload" accept=".csv" />
-              </label>
-
-              <button class="secondary-button preview-toggle" id="dataset-preview-toggle" type="button">
-                Show Dataset Preview
-              </button>
-
-              <div id="dataset-preview" class="dataset-preview empty hidden">
-                <p>Select or upload a dataset to inspect the first few columns.</p>
-              </div>
             </section>
           </form>
         </section>
