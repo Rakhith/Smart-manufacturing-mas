@@ -488,6 +488,14 @@ runForm.addEventListener("submit", async (event) => {
     if (pollHandle) clearInterval(pollHandle);
     runStatusCopy.textContent = `Run ${activeRunId} is starting...`;
     pollHandle = setInterval(pollRun, 1200);
+  } catch (error) {
+    window.alert(error?.message || "Could not start the run.");
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = "Launch Run";
+  }
+});
+
 function renderQualityScoreBadge(score) {
   let color, label;
   if (score >= 85) {
@@ -747,7 +755,8 @@ function renderPredictionAnalysisSection(predictionData) {
                     ${escapeHtml(rec.message)}
                   </div>
                 </li>
-              `,
+              `;
+              }
             )
             .join("")}
         </ul>
@@ -777,5 +786,367 @@ function renderSyntheticDashboard(stage) {
   return dashboard;
 }
 
+
+// ===== SYNTHETIC DATA WORKFLOW =====
+
+let syntheticForm = null;
+let syntheticList = null;
+let syntheticDatasetSelect = null;
+let syntheticTargetColumnSelect = null;
+let synthRefreshHandle = null;
+
+function initSyntheticElements() {
+  syntheticForm = document.getElementById("synthetic-form");
+  syntheticList = document.getElementById("synthetic-list");
+  syntheticDatasetSelect = document.getElementById("synthetic-dataset-select");
+  syntheticTargetColumnSelect = document.getElementById("synthetic-target-column");
+  
+  if (!syntheticDatasetSelect || !syntheticTargetColumnSelect) {
+    return false;
+  }
+  
+  return true;
+}
+
+async function populateSyntheticTargetColumns(datasetPath) {
+  if (!syntheticTargetColumnSelect) {
+    if (!initSyntheticElements()) return;
+  }
+
+  if (!datasetPath) {
+    syntheticTargetColumnSelect.innerHTML = '<option value="">Select a source dataset first</option>';
+    return;
+  }
+
+  try {
+    const encodedPath = encodeURIComponent(datasetPath);
+    const url = `/api/datasets/preview?path=${encodedPath}`;
+    const res = await fetch(url);
+    
+    if (!res.ok) {
+      throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+    }
+    
+    const payload = await res.json();
+    const columns = Array.isArray(payload.columns) ? payload.columns : [];
+    const selectedValue = syntheticTargetColumnSelect.value;
+
+    if (!columns.length) {
+      syntheticTargetColumnSelect.innerHTML = '<option value="">No columns found in dataset</option>';
+      return;
+    }
+
+    syntheticTargetColumnSelect.innerHTML = "";
+    const placeholder = document.createElement("option");
+    placeholder.value = "";
+    placeholder.textContent = "Select target column";
+    syntheticTargetColumnSelect.appendChild(placeholder);
+
+    columns.forEach((col) => {
+      const opt = document.createElement("option");
+      opt.value = String(col);
+      opt.textContent = String(col);
+      syntheticTargetColumnSelect.appendChild(opt);
+    });
+
+    if ([...syntheticTargetColumnSelect.options].some((opt) => opt.value === selectedValue)) {
+      syntheticTargetColumnSelect.value = selectedValue;
+    }
+  } catch (err) {
+    console.error("[Synthetic] Error loading columns:", err);
+    syntheticTargetColumnSelect.innerHTML = '<option value="">Error: ' + err.message + '</option>';
+  }
+}
+
+function setupSyntheticEventListeners() {
+  if (!initSyntheticElements()) return;
+
+  if (syntheticDatasetSelect) {
+    const onSyntheticDatasetSelection = (e) => {
+      const selectedPath = syntheticDatasetSelect.value || "";
+      populateSyntheticTargetColumns(selectedPath);
+    };
+    
+    syntheticDatasetSelect.addEventListener("change", onSyntheticDatasetSelection);
+  }
+
+  if (syntheticForm) {
+    syntheticForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const datasetPath = syntheticDatasetSelect?.value?.trim();
+      const problemType = syntheticForm.problem_type?.value?.trim() || "classification";
+      const preferredModel = syntheticForm.preferred_model?.value?.trim() || "";
+      const nRows = parseInt(syntheticForm.n_rows.value, 10);
+      const targetColumn = syntheticTargetColumnSelect?.value?.trim() || "";
+      const seed = parseInt(syntheticForm.seed.value, 10);
+
+      if (!datasetPath) {
+        alert("Please select a dataset.");
+        return;
+      }
+      
+      if (!targetColumn) {
+        alert("Please select a target column.");
+        return;
+      }
+
+      if (!nRows || nRows < 10 || nRows > 10000) {
+        alert("Invalid row count (10-10000).");
+        return;
+      }
+
+      syntheticForm.querySelectorAll("button").forEach((btn) => (btn.disabled = true));
+
+      try {
+        const formData = new FormData();
+        formData.append("dataset_path", datasetPath);
+        formData.append("n_rows", String(nRows));
+        formData.append("problem_type", problemType);
+        formData.append("target_column", targetColumn);
+        if (preferredModel) formData.append("preferred_model", preferredModel);
+        formData.append("seed", String(Number.isFinite(seed) ? seed : 42));
+
+        const resp = await fetch("/api/synthetic/generate", {
+          method: "POST",
+          body: formData,
+        });
+
+        if (!resp.ok) {
+          throw new Error(`Generate failed: ${resp.statusText}`);
+        }
+
+        const data = await resp.json();
+        alert(`✓ Synthetic generation started (ID: ${data.synthetic_id})`);
+        await refreshDatasetDropdowns();
+        refreshSyntheticList();
+      } catch (err) {
+        alert(`Error: ${err.message}`);
+      } finally {
+        syntheticForm.querySelectorAll("button").forEach((btn) => (btn.disabled = false));
+      }
+    });
+  }
+}
+
+// Initialize synthetic workflow when DOM is ready
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", () => {
+    initSyntheticElements();
+    setupSyntheticEventListeners();
+  });
+} else {
+  initSyntheticElements();
+  setupSyntheticEventListeners();
+}
+
+async function refreshSyntheticList() {
+  if (!syntheticList) return;
+
+  try {
+    const resp = await fetch("/api/synthetic/list");
+    if (!resp.ok) throw new Error(resp.statusText);
+    const datasets = await resp.json();
+
+    if (!datasets || datasets.length === 0) {
+      syntheticList.innerHTML = "<p>No synthetic datasets generated yet.</p>";
+      return;
+    }
+
+    syntheticList.innerHTML = datasets
+      .map((ds) => {
+        const status = ds.status || "unknown";
+        const statusColor =
+          status === "complete" ? "#4CAF50" : status === "ready_for_inference" ? "#FFC107" : status === "failed" ? "#F44336" : "#2196F3";
+        const genResult = ds.generation_result || {};
+        const infResult = ds.inference_result || {};
+        const config = ds.config || {};
+        const syntheticLabel = ds.name || ds.id;
+        const quality = genResult.data_quality || null;
+
+        let controls = `<button onclick="deleteDataset('${ds.id}')">Delete</button>`;
+        if (status === "ready_for_inference") {
+          controls += ` <button onclick="runInference('${ds.id}')">Run Inference</button>`;
+        }
+        if (status === "running_inference" || status === "inference_failed") {
+          controls += ` <button onclick="getInferenceResult('${ds.id}')">Check Result</button>`;
+        }
+
+        return `
+          <div style="border: 1px solid #ccc; padding: 12px; margin: 8px 0; border-radius: 4px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <strong>${escapeHtml(syntheticLabel)}</strong>
+              <span style="background: ${statusColor}; color: white; padding: 4px 8px; border-radius: 3px; font-size: 12px;">${status}</span>
+            </div>
+            <div style="font-size: 12px; color: #666; margin-bottom: 8px;">
+              ID: ${escapeHtml(ds.id)}<br />
+              Created: ${new Date(ds.created_at).toLocaleString()}<br />
+              Signature: ${escapeHtml(ds.signature || "pending")}
+            </div>
+            <div style="font-size: 12px; color: #444; margin-bottom: 8px;">
+              Source: ${escapeHtml(config.source_dataset || "unknown")}<br />
+              Problem type: ${escapeHtml(config.problem_type || "unknown")}<br />
+              Target column: ${escapeHtml(config.target_column || "all columns")}
+            </div>
+            ${genResult.n_rows ? `<div><strong>Generated rows:</strong> ${genResult.n_rows} | <strong>Columns:</strong> ${genResult.n_columns}</div>` : ""}
+            ${quality ? `
+              <div style="margin-top: 8px; padding: 8px; background: #f7f7f7; border-radius: 4px; font-size: 12px;">
+                <strong>Original vs Synthetic Quality</strong><br />
+                Score: ${formatValue(quality.quality_score)}<br />
+                Numeric similarity: ${formatValue(quality.summary_metrics?.numeric_similarity)}<br />
+                Categorical similarity: ${formatValue(quality.summary_metrics?.categorical_similarity)}
+              </div>
+            ` : ""}
+            ${genResult.preview ? `<div style="margin: 8px 0; max-height: 200px; overflow-y: auto;">${createTable(genResult.columns || [], genResult.preview, 5)}</div>` : ""}
+            ${infResult.model_name ? `<div style="background: #f5f5f5; padding: 8px; border-radius: 3px; margin: 8px 0;"><strong>Inference:</strong> ${infResult.model_name} | Predictions: ${infResult.n_predictions}</div>` : ""}
+            ${ds.error ? `<div style="color: #F44336; font-size: 12px; margin: 8px 0;"><strong>Error:</strong> ${ds.error}</div>` : ""}
+            <div style="margin-top: 8px;">${controls}</div>
+          </div>
+        `;
+      })
+      .join("");
+  } catch (err) {
+    syntheticList.innerHTML = `<p style="color: red;">Error loading datasets: ${err.message}</p>`;
+  }
+}
+
+async function refreshDatasetDropdowns() {
+  try {
+    const resp = await fetch("/api/datasets");
+    if (!resp.ok) return;
+
+    const datasets = await resp.json();
+    const dropdowns = [datasetSelect, syntheticDatasetSelect].filter(Boolean);
+    dropdowns.forEach((dropdown) => {
+      const currentValue = dropdown.value;
+      const currentLabel = dropdown.id === "dataset-select" ? "Choose a dataset from /data" : "Choose a dataset to generate synthetic data from";
+      dropdown.innerHTML = "";
+      const placeholder = document.createElement("option");
+      placeholder.value = "";
+      placeholder.textContent = currentLabel;
+      dropdown.appendChild(placeholder);
+
+      datasets.forEach((dataset) => {
+        const option = document.createElement("option");
+        option.value = String(dataset.path || "");
+        const category = dataset.category ? ` [${dataset.category}]` : "";
+        option.textContent = `${dataset.directory} / ${dataset.label}${category}`;
+        dropdown.appendChild(option);
+      });
+
+      if ([...dropdown.options].some((option) => option.value === currentValue)) {
+        dropdown.value = currentValue;
+      }
+    });
+
+    // Re-setup event listeners and populate target columns if a dataset is already selected
+    setupSyntheticEventListeners();
+    if (syntheticDatasetSelect?.value) {
+      await populateSyntheticTargetColumns(syntheticDatasetSelect.value);
+    }
+  } catch (err) {
+    console.warn("Failed to refresh dataset dropdowns", err);
+  }
+}
+
+async function runInference(syntheticId) {
+  try {
+    const detailsResp = await fetch(`/api/synthetic/${syntheticId}`);
+    if (!detailsResp.ok) {
+      throw new Error("Could not fetch synthetic dataset details before inference.");
+    }
+    const details = await detailsResp.json();
+    const config = details.config || {};
+
+    if (!config.problem_type || !config.target_column) {
+      throw new Error("Synthetic dataset is missing problem_type or target_column. Regenerate dataset with a selected target.");
+    }
+
+    const formData = new FormData();
+    formData.append("problem_type", config.problem_type);
+    formData.append("target_column", config.target_column);
+    if (config.preferred_model) {
+      formData.append("preferred_model", config.preferred_model);
+    }
+
+    const resp = await fetch(`/api/synthetic/${syntheticId}/infer`, {
+      method: "POST",
+      body: formData,
+    });
+
+    if (!resp.ok) {
+      let detail = resp.statusText;
+      try {
+        const payload = await resp.json();
+        detail = payload.detail || detail;
+      } catch {
+        // Ignore parsing failures and keep status text
+      }
+      throw new Error(detail);
+    }
+    alert("✓ Inference started. Checking results...");
+    pollInferenceResult(syntheticId);
+  } catch (err) {
+    alert(`Inference error: ${err.message}`);
+  }
+}
+
+function pollInferenceResult(syntheticId, maxAttempts = 30) {
+  let attempts = 0;
+
+  const checkResult = async () => {
+    try {
+      const resp = await fetch(`/api/synthetic/${syntheticId}/infer-status`);
+      if (!resp.ok) throw new Error(resp.statusText);
+
+      const data = await resp.json();
+      const status = data.status || "unknown";
+
+      if (status === "complete" || status === "inference_failed") {
+        clearInterval(pollInterval);
+        alert(`Inference ${status === "complete" ? "completed" : "failed"}!`);
+        refreshSyntheticList();
+        return;
+      }
+
+      attempts++;
+      if (attempts >= maxAttempts) {
+        clearInterval(pollInterval);
+        alert("Inference still running. Check back later.");
+        refreshSyntheticList();
+      }
+    } catch (err) {
+      clearInterval(pollInterval);
+      alert(`Poll error: ${err.message}`);
+    }
+  };
+
+  const pollInterval = setInterval(checkResult, 1000);
+}
+
+async function getInferenceResult(syntheticId) {
+  try {
+    const resp = await fetch(`/api/synthetic/${syntheticId}/infer-status`);
+    if (!resp.ok) throw new Error(resp.statusText);
+
+    const data = await resp.json();
+    alert(`Status: ${data.status}\nInference: ${data.inference_result ? JSON.stringify(data.inference_result, null, 2) : "Pending"}`);
+    refreshSyntheticList();
+  } catch (err) {
+    alert(`Error: ${err.message}`);
+  }
+}
+
+async function deleteDataset(syntheticId) {
+  if (!confirm("Delete this synthetic dataset?")) return;
+
+  // Currently no delete endpoint, but can be added later
+  alert("Delete functionality not yet implemented.");
+}
+
+// Refresh synthetic list on page load and periodically
+refreshDatasetDropdowns();
+refreshSyntheticList();
+synthRefreshHandle = setInterval(refreshSyntheticList, 5000);
 
 refreshHistory();

@@ -1,5 +1,6 @@
 import logging
 import json
+import re
 import pandas as pd
 from typing import Dict, Any, List, Optional
 from datetime import datetime
@@ -43,6 +44,8 @@ class IntelligentSummarizer:
             'summary': None
         }
         self.logging_enabled = True
+        self.critique_revision_threshold = 3
+        self.local_summary_agent = None
         
     def store_workflow_start(self, dataset_path: str, problem_type: str, target_column: str, feature_columns: List[str]):
         """Store workflow initialization information."""
@@ -140,18 +143,28 @@ class IntelligentSummarizer:
             try:
                 return self._generate_summary_with_reflexion()
             except Exception as e:
-                logging.warning(f"Reflexion loop failed: {e}, falling back to basic summary")
+                logging.warning(f"Reflexion loop failed: {e}, trying local Ollama fallback")
+                local_summary = self._generate_summary_with_local_reflexion()
+                if local_summary:
+                    return local_summary
+                logging.warning("Local Ollama fallback failed, using basic summary")
                 return self._generate_basic_summary()
         
-        # Legacy fallback: Use local LLM agent if provided (deprecated)
+        # Preferred local fallback when Cloud LLM is unavailable
+        local_summary = self._generate_summary_with_local_reflexion()
+        if local_summary:
+            return local_summary
+
+        # Legacy fallback: Use provided local llm_agent if available (deprecated)
         if self.llm_agent is not None:
             try:
                 summary_prompt = self._build_summary_prompt()
                 response = self.llm_agent.generate(summary_prompt, max_tokens=1000)
                 
                 if response and 'summary' in response:
-                    self.stored_results['summary'] = response['summary']
-                    return response['summary']
+                    sanitized_summary = self._sanitize_summary_text(response['summary'])
+                    self.stored_results['summary'] = sanitized_summary
+                    return sanitized_summary
                 else:
                     return self._generate_basic_summary()
             except Exception as e:
@@ -160,180 +173,264 @@ class IntelligentSummarizer:
         
         # Final fallback: Rule-based summary
         return self._generate_basic_summary()
+
+    def _generate_summary_with_local_reflexion(self) -> Optional[str]:
+        """Run Reflexion loop on local Ollama qwen3:4b before plain-text fallback."""
+        workflow_payload = self._build_workflow_payload()
+
+        draft_payload = self._run_local_reflexion_prompt(workflow_payload, previous_output=None)
+        if draft_payload is None:
+            return None
+
+        final_payload = self._run_local_reflexion_prompt(workflow_payload, previous_output=draft_payload)
+        if final_payload is None:
+            self.stored_results['summary'] = draft_payload['summary']
+            return draft_payload['summary']
+
+        self.stored_results['summary'] = final_payload['summary']
+        self.stored_results['reflexion_metadata'] = {
+            'draft': draft_payload,
+            'critique': final_payload.get('critique'),
+            'final': final_payload,
+            'method': 'local_ollama_reflexion_single_prompt',
+            'model': 'qwen3:4b'
+        }
+        return final_payload['summary']
     
     def _generate_summary_with_reflexion(self) -> str:
         """
-        Generate summary using Reflexion self-critique loop via Cloud LLM.
-        
-        This is the key architectural change for SLM reduction:
-        - Previously: Local SLM generated summary directly
-        - Now: Cloud LLM (Gemini) uses Reflexion loop (1 extra API turn)
-        
-        The Reflexion approach:
-        1. DRAFT: Generate initial summary
-        2. CRITIQUE: Model critiques its own output against actual metrics
-        3. REVISE: Generate final summary incorporating critique insights
+        Generate summary using a single Reflexion prompt template.
+
+        The same prompt is used twice:
+        - First call: no previous_output provided, so the model creates a draft.
+        - Second call: previous_output is provided, so the model critiques and improves it.
         """
-        logging.info("[Reflexion] Starting Cloud LLM Reflexion loop for summary generation...")
-        
-        # Step 1: DRAFT - Generate initial summary
-        draft_prompt = self._build_reflexion_draft_prompt()
-        logging.info("[Reflexion] Step 1/3: Generating initial draft...")
-        
-        try:
-            draft_response = self.cloud_llm_model.generate_content(draft_prompt)
-            draft_text = draft_response.text.strip()
-            logging.info("[Reflexion] Draft generated successfully")
-        except Exception as e:
-            logging.warning(f"[Reflexion] Draft generation failed: {e}")
+        logging.info("[Reflexion] Starting Cloud LLM summary generation...")
+
+        workflow_payload = self._build_workflow_payload()
+
+        draft_payload = self._run_reflexion_prompt(workflow_payload, previous_output=None)
+        if draft_payload is None:
             return self._generate_basic_summary()
-        
-        # Step 2: CRITIQUE - Self-critique against actual metrics
-        critique_prompt = self._build_reflexion_critique_prompt(draft_text)
-        logging.info("[Reflexion] Step 2/3: Self-critiquing draft against actual metrics...")
-        
+
+        final_payload = self._run_reflexion_prompt(workflow_payload, previous_output=draft_payload)
+        if final_payload is None:
+            return draft_payload['summary']
+
+        self.stored_results['summary'] = final_payload['summary']
+        self.stored_results['reflexion_metadata'] = {
+            'draft': draft_payload,
+            'critique': final_payload.get('critique'),
+            'final': final_payload,
+            'method': 'cloud_llm_reflexion_single_prompt'
+        }
+
+        return final_payload['summary']
+
+    def _run_reflexion_prompt(self, workflow_payload: Dict[str, Any], previous_output: Optional[Dict[str, Any]] = None) -> Optional[Dict[str, Any]]:
+        """Run one reflexion prompt. If previous_output is provided, the model critiques and improves it."""
+        prompt = self._build_reflexion_prompt(workflow_payload, previous_output=previous_output)
+        stage = "revision" if previous_output else "draft"
+        logging.info(f"[Reflexion] Generating {stage} output with single prompt...")
+
         try:
-            critique_response = self.cloud_llm_model.generate_content(critique_prompt)
-            critique_text = critique_response.text.strip()
-            logging.info("[Reflexion] Critique generated successfully")
+            response = self.cloud_llm_model.generate_content(prompt)
+            payload = self._parse_json_response(response.text)
+            payload = self._coerce_reflexion_payload(payload)
+            logging.info(f"[Reflexion] {stage.capitalize()} output generated and validated successfully")
+            return payload
         except Exception as e:
-            logging.warning(f"[Reflexion] Critique failed: {e}, using draft as final")
-            self.stored_results['summary'] = draft_text
-            return draft_text
-        
-        # Step 3: REVISE - Generate final summary incorporating critique
-        revise_prompt = self._build_reflexion_revise_prompt(draft_text, critique_text)
-        logging.info("[Reflexion] Step 3/3: Generating revised summary...")
-        
+            error_msg = str(e)
+            if "404" in error_msg or "not found" in error_msg.lower() or "not supported" in error_msg.lower():
+                logging.warning(f"[Reflexion] LLM call failed ({error_msg}); using plain-text fallback.")
+            else:
+                logging.warning(f"[Reflexion] {stage.capitalize()} generation failed: {e}")
+            return None
+
+    def _run_local_reflexion_prompt(self, workflow_payload: Dict[str, Any], previous_output: Optional[Dict[str, Any]] = None) -> Optional[Dict[str, Any]]:
+        """Run one reflexion prompt against local Ollama qwen3:4b."""
+        prompt = self._build_reflexion_prompt(workflow_payload, previous_output=previous_output)
+        stage = "revision" if previous_output else "draft"
+        logging.info(f"[Reflexion-Local] Generating {stage} output with Ollama qwen3:4b...")
+
         try:
-            revise_response = self.cloud_llm_model.generate_content(revise_prompt)
-            final_summary = revise_response.text.strip()
-            logging.info("[Reflexion] Final summary generated successfully")
-            
-            self.stored_results['summary'] = final_summary
-            self.stored_results['reflexion_metadata'] = {
-                'draft': draft_text,
-                'critique': critique_text,
-                'final': final_summary,
-                'method': 'cloud_llm_reflexion'
+            if self.local_summary_agent is None:
+                from agents.local_llm_agent import LocalLLMAgent
+
+                self.local_summary_agent = LocalLLMAgent(backend='ollama', model_name='qwen3:4b')
+
+            response = self.local_summary_agent.generate(prompt, max_tokens=1200, temperature=0.2)
+            raw_text = (response.get('raw') or '').strip()
+            payload = self._parse_json_response(raw_text)
+            payload = self._coerce_reflexion_payload(payload)
+            logging.info(f"[Reflexion-Local] {stage.capitalize()} output generated and validated successfully")
+            return payload
+        except Exception as e:
+            logging.warning(f"[Reflexion-Local] {stage.capitalize()} generation failed: {e}")
+            return None
+
+    def _build_reflexion_prompt(self, workflow_payload: Dict[str, Any], previous_output: Optional[Dict[str, Any]] = None) -> str:
+        """Build the single prompt used for both draft generation and reflexion refinement."""
+        prompt_payload = {
+            'role': 'expert_ml_failure_analyst',
+            'task': 'Generate or improve an industrial ML workflow summary.',
+            'instructions': [
+                'Return JSON only.',
+                'Do not include prose outside JSON.',
+                'Use the exact schema requested below.',
+                'If previous_output is empty, create a draft summary from workflow_data.',
+                'If previous_output is present, critique it against workflow_data and return a better final summary.',
+                'Base all claims on the provided workflow JSON.',
+                'If evidence is insufficient, say so explicitly instead of guessing.'
+            ],
+            'output_schema': {
+                'analysis': {
+                    'workflow_status': 'string',
+                    'model_performance': 'string',
+                    'root_cause': 'string',
+                    'key_risks': ['string'],
+                    'recommended_actions': ['string']
+                },
+                'summary': 'string',
+                'critique': {
+                    'strengths': ['string'],
+                    'issues': ['string'],
+                    'severity_score': 'integer_0_to_10'
+                }
+            },
+            'workflow_data': workflow_payload,
+            'previous_output': previous_output,
+            'required_focus': [
+                'real-time industrial prescriptive maintenance context',
+                'metric accuracy',
+                'failure diagnosis',
+                'actionability for operations teams'
+            ]
+        }
+
+        return json.dumps(prompt_payload, indent=2, default=str)
+
+    def _build_workflow_payload(self) -> Dict[str, Any]:
+        """Create a structured snapshot of workflow state for LLM prompts."""
+        return {
+            'dataset_info': self.stored_results.get('dataset_info', {}),
+            'model_results': self.stored_results.get('model_results', []),
+            'errors': self.stored_results.get('errors', []),
+            'feature_analysis': self.stored_results.get('feature_analysis', {}),
+            'recommendations': self.stored_results.get('recommendations', {}),
+            'performance_metrics': self.stored_results.get('performance_metrics', {}),
+            'adaptive_intelligence_events': self.stored_results.get('adaptive_intelligence_events', []),
+            'workflow_start_time': self.stored_results.get('workflow_start_time'),
+            'workflow_end_time': self.stored_results.get('workflow_end_time')
+        }
+
+    def _parse_json_response(self, response_text: str) -> Dict[str, Any]:
+        """Parse model output as JSON with a small amount of recovery logic."""
+        if response_text is None:
+            raise ValueError('Empty response from model')
+
+        raw_text = response_text.strip()
+        if not raw_text:
+            raise ValueError('Empty response from model')
+
+        try:
+            return json.loads(raw_text)
+        except json.JSONDecodeError:
+            start_index = raw_text.find('{')
+            end_index = raw_text.rfind('}')
+            if start_index == -1 or end_index == -1 or end_index <= start_index:
+                raise
+            return json.loads(raw_text[start_index:end_index + 1])
+
+    def _coerce_reflexion_payload(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+        """Validate and normalize the single-prompt reflexion output."""
+        if not isinstance(payload, dict):
+            raise ValueError('Reflexion payload must be a JSON object')
+
+        analysis = payload.get('analysis')
+        summary = payload.get('summary')
+        if not isinstance(analysis, dict):
+            raise ValueError('Reflexion payload missing analysis object')
+        if not isinstance(summary, str) or not summary.strip():
+            raise ValueError('Reflexion payload missing summary text')
+
+        normalized_analysis = {
+            'workflow_status': str(analysis.get('workflow_status', 'Unknown')),
+            'model_performance': str(analysis.get('model_performance', 'Unknown')),
+            'root_cause': str(analysis.get('root_cause', 'Insufficient evidence')),
+            'key_risks': self._ensure_string_list(analysis.get('key_risks', [])),
+            'recommended_actions': self._ensure_string_list(analysis.get('recommended_actions', []))
+        }
+
+        critique = payload.get('critique')
+        normalized_critique = None
+        if isinstance(critique, dict):
+            normalized_critique = {
+                'strengths': self._ensure_string_list(critique.get('strengths', [])),
+                'issues': self._ensure_string_list(critique.get('issues', [])),
+                'severity_score': self._normalize_severity_score(critique.get('severity_score', 0))
             }
-            
-            return final_summary
-            
-        except Exception as e:
-            logging.warning(f"[Reflexion] Revision failed: {e}, using draft as final")
-            self.stored_results['summary'] = draft_text
-            return draft_text
-    
-    def _build_reflexion_draft_prompt(self) -> str:
-        """Build prompt for the DRAFT phase of Reflexion loop."""
-        workflow_data = self.stored_results
-        
-        prompt_parts = [
-            "You are an expert data scientist generating a workflow summary.",
-            "Generate a detailed TECHNICAL summary for the following ML workflow execution.",
-            "",
-            "=== WORKFLOW DATA ===",
-            f"Dataset: {workflow_data['dataset_info'].get('dataset_path', 'Unknown')}",
-            f"Problem Type: {workflow_data['dataset_info'].get('problem_type', 'Unknown')}",
-            f"Target Column: {workflow_data['dataset_info'].get('target_column', 'Unknown')}",
-            f"Features: {len(workflow_data['dataset_info'].get('feature_columns', []))} columns",
-            ""
-        ]
-        
-        # Add model results
-        if workflow_data['model_results']:
-            prompt_parts.append("=== MODEL RESULTS ===")
-            for model_result in workflow_data['model_results']:
-                model_name = model_result['model_name']
-                performance = model_result['performance']
-                adaptive = model_result['adaptive_intelligence_used']
-                
-                prompt_parts.append(f"Model: {model_name}")
-                if 'r2' in performance:
-                    prompt_parts.append(f"  R2 Score: {performance['r2']:.4f}")
-                if 'accuracy' in performance:
-                    prompt_parts.append(f"  Accuracy: {performance['accuracy']:.4f}")
-                if 'mse' in performance:
-                    prompt_parts.append(f"  MSE: {performance['mse']:.4f}")
-                if adaptive:
-                    prompt_parts.append(f"  Adaptive Intelligence: ACTIVATED")
-                    prompt_parts.append(f"  Models Tried: {', '.join(model_result.get('tried_models', []))}")
-            prompt_parts.append("")
-        
-        # Add errors if any
-        if workflow_data['errors']:
-            prompt_parts.append(f"=== ERRORS: {len(workflow_data['errors'])} errors encountered ===")
-            prompt_parts.append("")
-        
-        prompt_parts.extend([
-            "=== REQUIRED OUTPUT ===",
-            "Generate a professional technical summary covering:",
-            "1. Workflow Status and Data Quality",
-            "2. Model Performance Analysis with specific metrics",
-            "3. Adaptive Intelligence events (if any)",
-            "4. Issues identified and their root causes",
-            "5. Actionable recommendations",
-            "",
-            "Write a clear, professional summary suitable for technical stakeholders."
-        ])
-        
-        return "\n".join(prompt_parts)
-    
-    def _build_reflexion_critique_prompt(self, draft: str) -> str:
-        """Build prompt for the CRITIQUE phase of Reflexion loop."""
-        workflow_data = self.stored_results
-        
-        # Extract actual metrics for comparison
-        actual_metrics = []
-        for model_result in workflow_data.get('model_results', []):
-            perf = model_result.get('performance', {})
-            if 'r2' in perf:
-                actual_metrics.append(f"R2: {perf['r2']:.4f}")
-            if 'accuracy' in perf:
-                actual_metrics.append(f"Accuracy: {perf['accuracy']:.4f}")
-            if 'mse' in perf:
-                actual_metrics.append(f"MSE: {perf['mse']:.4f}")
-        
-        prompt = f"""You are critiquing your own ML workflow summary. 
+        elif critique is not None:
+            normalized_critique = {
+                'strengths': [],
+                'issues': self._ensure_string_list(critique),
+                'severity_score': 0
+            }
 
-=== YOUR DRAFT SUMMARY ===
-{draft}
+        return {
+            'analysis': normalized_analysis,
+            'summary': self._sanitize_summary_text(summary.strip()),
+            'critique': normalized_critique
+        }
 
-=== ACTUAL METRICS TO VERIFY AGAINST ===
-{', '.join(actual_metrics) if actual_metrics else 'No metrics available'}
+    def _ensure_string_list(self, value: Any) -> List[str]:
+        """Normalize a value into a list of strings."""
+        if value is None:
+            return []
+        if isinstance(value, list):
+            return [str(item) for item in value]
+        return [str(value)]
 
-=== CRITIQUE TASK ===
-Identify issues with the draft:
-1. Are all metrics accurately reported?
-2. Is the performance assessment (good/poor) correctly characterized?
-3. Are there missing insights about the workflow?
-4. Is the summary appropriately detailed for technical stakeholders?
-5. Are recommendations actionable and specific?
+    def _normalize_severity_score(self, value: Any) -> int:
+        """Normalize critique severity to a bounded integer."""
+        try:
+            score = int(round(float(value)))
+        except (TypeError, ValueError):
+            score = 0
+        return max(0, min(10, score))
 
-Provide a brief, focused critique (2-4 sentences) identifying the most important improvements needed."""
+    def _sanitize_summary_text(self, text: str) -> str:
+        """Remove unwanted sections from LLM output (reasoning tags, critique, meta, etc.)."""
+        clean = (text or "").strip()
+        if not clean:
+            return ""
+
+        # Strip reasoning/thinking wrapper tags first
+        clean = re.sub(r"<think>.*?</think>", "", clean, flags=re.DOTALL).strip()
         
-        return prompt
-    
-    def _build_reflexion_revise_prompt(self, draft: str, critique: str) -> str:
-        """Build prompt for the REVISE phase of Reflexion loop."""
-        return f"""You are revising your ML workflow summary based on self-critique.
+        # Remove code blocks
+        clean = re.sub(r"```[\s\S]*?```", "", clean).strip()
 
-=== ORIGINAL DRAFT ===
-{draft}
+        blocked_prefixes = (
+            "critique", "revision", "revised", "analysis", "draft",
+            "strength", "issue", "severity", "workflow context"
+        )
+        kept_lines = []
+        for line in clean.splitlines():
+            stripped = line.strip()
+            if not stripped:
+                continue
+            lower = stripped.lower()
+            if any(lower.startswith(prefix) for prefix in blocked_prefixes):
+                continue
+            kept_lines.append(stripped)
 
-=== CRITIQUE ===
-{critique}
+        collapsed = " ".join(kept_lines).strip()
+        return re.sub(r"\s+", " ", collapsed)
 
-=== REVISION TASK ===
-Generate an improved summary that addresses all critique points.
-Ensure:
-- All metrics are accurate
-- Performance assessments are appropriately characterized
-- Insights are comprehensive yet concise
-- Recommendations are actionable
-
-Write the final revised summary now:"""
+    def _extract_severity_score(self, critique_payload: Dict[str, Any]) -> int:
+        """Read severity from normalized critique payload."""
+        return self._normalize_severity_score(critique_payload.get('severity_score', 0))
     
     def _build_summary_prompt(self) -> str:
         """Build a prompt for LLM-based technical summarization."""

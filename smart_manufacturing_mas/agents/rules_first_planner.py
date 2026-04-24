@@ -35,6 +35,7 @@ Key advantages over the original LLM-orchestrated approach:
 import json
 import logging
 import os
+import re
 import sys
 import time
 from typing import Any, Dict, List, Optional
@@ -132,6 +133,7 @@ class RulesFirstPlannerAgent:
         self.analysis_results: Optional[Dict[str, Any]] = None
         self.recommendations = None
         self._timings: Dict[str, float] = {}
+        self._local_summary_agent = None
 
         logging.info(
             f"RulesFirstPlannerAgent initialised — "
@@ -614,58 +616,36 @@ class RulesFirstPlannerAgent:
     def _step5_reflexion_summary(self) -> str:
         """
         Cloud LLM Reflexion loop:  draft → self-critique → revised summary.
-        Falls back to plain-text when no LLM model is provided.
+        Fallback chain:
+        1) Cloud LLM
+        2) Local Ollama SLM (qwen3:4b)
+        3) Plain-text summary
         """
         t0 = time.time()
         logging.info("── Step 5: Reflexion summary (Cloud LLM)")
 
-        if self.llm_model is None:
-            summary = self._plain_text_summary()
-            logging.info("[Reflexion] No LLM available — plain-text summary used.")
-            self._timings["step5_reflexion"] = round(time.time() - t0, 3)
-            return summary
-
         context = self._build_reflexion_context()
 
-        try:
-            # ── Draft ─────────────────────────────────────────────────────
-            draft_prompt = (
-                "You are summarising the results of an automated smart-manufacturing "
-                "prescriptive maintenance workflow for a non-technical operator.\n\n"
-                "Workflow context (JSON):\n"
-                f"{json.dumps(context, indent=2, default=str)}\n\n"
-                "Write a concise narrative summary (≤ 200 words) covering:\n"
-                "1. What dataset was analysed and what problem was solved.\n"
-                "2. Key preprocessing decisions.\n"
-                "3. Model selected and its performance metrics.\n"
-                "4. Top 3 maintenance recommendations with priority and reason.\n"
-                "5. Any reliability warnings the operator should know about.\n"
-                "Be specific — reference actual numbers from the context."
-            )
-            draft = self.llm_model.generate_content(draft_prompt).text.strip()
-            logging.info(f"[Reflexion] Draft generated ({len(draft)} chars).")
+        final_summary = None
+        if self.llm_model is not None:
+            try:
+                final_summary = self._run_reflexion_with_llm(context, source="cloud")
+            except Exception as exc:
+                logging.warning(f"[Reflexion] Cloud LLM failed ({exc}); trying local Ollama qwen3:4b.")
+        else:
+            logging.info("[Reflexion] No Cloud LLM available; trying local Ollama qwen3:4b.")
 
-            # ── Critique ──────────────────────────────────────────────────
-            critique_prompt = (
-                "Review this workflow summary against the JSON context below.\n"
-                "Identify any inaccuracies, missing critical numbers, or unclear statements (≤ 60 words).\n\n"
-                f"Summary:\n{draft}\n\nContext:\n{json.dumps(context, indent=2, default=str)}"
-            )
-            critique = self.llm_model.generate_content(critique_prompt).text.strip()
-            logging.info(f"[Reflexion] Critique: {critique[:120]}…")
+        if not final_summary:
+            try:
+                final_summary = self._run_reflexion_with_local_ollama(context)
+                if final_summary:
+                    logging.info("[Reflexion] Local Ollama summary generated successfully.")
+            except Exception as exc:
+                logging.warning(f"[Reflexion] Local Ollama fallback failed ({exc}); using plain-text fallback.")
 
-            # ── Revised draft ─────────────────────────────────────────────
-            revise_prompt = (
-                "Revise the summary below by applying the critique. "
-                "Keep the result to ≤ 200 words. Output only the revised summary.\n\n"
-                f"Original summary:\n{draft}\n\nCritique:\n{critique}"
-            )
-            final_summary = self.llm_model.generate_content(revise_prompt).text.strip()
-            logging.info(f"[Reflexion] Final summary ready ({len(final_summary)} chars).")
-
-        except Exception as exc:
-            logging.warning(f"[Reflexion] LLM call failed ({exc}); using plain-text fallback.")
+        if not final_summary:
             final_summary = self._plain_text_summary()
+            logging.info("[Reflexion] Plain-text fallback summary used.")
 
         self._timings["step5_reflexion"] = round(time.time() - t0, 3)
         logging.info("\n" + "=" * 60)
@@ -674,6 +654,133 @@ class RulesFirstPlannerAgent:
         logging.info(final_summary)
         logging.info("=" * 60)
         return final_summary
+
+    def _run_reflexion_with_llm(self, context: Dict[str, Any], source: str = "cloud") -> str:
+        """Run draft->critique->revise reflexion loop using a cloud/local compatible model object."""
+        # Draft
+        draft_prompt = (
+            "You are summarising the results of an automated smart-manufacturing "
+            "prescriptive maintenance workflow for a non-technical operator.\n\n"
+            "Workflow context (JSON):\n"
+            f"{json.dumps(context, indent=2, default=str)}\n\n"
+            "Write a concise narrative summary (<= 120 words) covering:\n"
+            "1. What dataset was analysed and what problem was solved.\n"
+            "2. Key preprocessing decisions.\n"
+            "3. Model selected and its performance metrics.\n"
+            "4. Top 3 maintenance recommendations with priority and reason.\n"
+            "5. Any reliability warnings the operator should know about.\n"
+            "6. Estimated total workflow runtime in seconds from estimated_total_runtime_seconds/timings_s.\n"
+            "Use plain language. No headings, no bullet points, no critique section, no meta commentary."
+        )
+        draft = self.llm_model.generate_content(draft_prompt).text.strip()
+        if not draft:
+            raise RuntimeError(f"{source} reflexion draft was empty")
+        logging.info(f"[Reflexion] {source.capitalize()} draft generated ({len(draft)} chars).")
+
+        # Critique
+        critique_prompt = (
+            "Review this workflow summary against the JSON context below.\n"
+            "Identify any inaccuracies, missing critical numbers, or unclear statements (<= 60 words).\n\n"
+            f"Summary:\n{draft}\n\nContext:\n{json.dumps(context, indent=2, default=str)}"
+        )
+        critique = self.llm_model.generate_content(critique_prompt).text.strip()
+        if not critique:
+            raise RuntimeError(f"{source} reflexion critique was empty")
+        logging.info(f"[Reflexion] {source.capitalize()} critique: {critique[:120]}...")
+
+        # Revise
+        revise_prompt = (
+            "Revise the summary below by applying the critique. "
+            "Keep the result to <= 120 words. Output only the revised summary text.\n"
+            "Do not include labels like 'Critique', 'Revision', 'Analysis', 'Draft', or headings.\n\n"
+            f"Original summary:\n{draft}\n\nCritique:\n{critique}"
+        )
+        final_summary = self._sanitize_summary_text(self.llm_model.generate_content(revise_prompt).text)
+        if not final_summary:
+            raise RuntimeError(f"{source} reflexion revised summary was empty")
+        logging.info(f"[Reflexion] {source.capitalize()} final summary ready ({len(final_summary)} chars).")
+        return final_summary
+
+    def _run_reflexion_with_local_ollama(self, context: Dict[str, Any]) -> str:
+        """Run reflexion loop on local Ollama model qwen3:4b."""
+        if self._local_summary_agent is None:
+            from agents.local_llm_agent import LocalLLMAgent
+
+            self._local_summary_agent = LocalLLMAgent(backend="ollama", model_name="qwen3:4b")
+
+        # Draft
+        draft_prompt = (
+            "You are summarising the results of an automated smart-manufacturing "
+            "prescriptive maintenance workflow for a non-technical operator.\n\n"
+            "Workflow context (JSON):\n"
+            f"{json.dumps(context, indent=2, default=str)}\n\n"
+            "Write a concise narrative summary (<= 120 words) covering:\n"
+            "1. What dataset was analysed and what problem was solved.\n"
+            "2. Key preprocessing decisions.\n"
+            "3. Model selected and its performance metrics.\n"
+            "4. Top 3 maintenance recommendations with priority and reason.\n"
+            "5. Any reliability warnings the operator should know about.\n"
+            "6. Estimated total workflow runtime in seconds from estimated_total_runtime_seconds/timings_s.\n"
+            "Use plain language. No headings, no bullet points, no critique section, no meta commentary."
+        )
+        draft_result = self._local_summary_agent.generate(draft_prompt, max_tokens=700, temperature=0.2)
+        draft = (draft_result.get("raw") or "").strip()
+        if not draft:
+            raise RuntimeError("Local reflexion draft was empty")
+
+        # Critique
+        critique_prompt = (
+            "Review this workflow summary against the JSON context below.\n"
+            "Identify any inaccuracies, missing critical numbers, or unclear statements (<= 60 words).\n\n"
+            f"Summary:\n{draft}\n\nContext:\n{json.dumps(context, indent=2, default=str)}"
+        )
+        critique_result = self._local_summary_agent.generate(critique_prompt, max_tokens=300, temperature=0.2)
+        critique = (critique_result.get("raw") or "").strip()
+        if not critique:
+            raise RuntimeError("Local reflexion critique was empty")
+
+        # Revise
+        revise_prompt = (
+            "Revise the summary below by applying the critique. "
+            "Keep the result to <= 120 words. Output only the revised summary text.\n"
+            "Do not include labels like 'Critique', 'Revision', 'Analysis', 'Draft', or headings.\n\n"
+            f"Original summary:\n{draft}\n\nCritique:\n{critique}"
+        )
+        final_result = self._local_summary_agent.generate(revise_prompt, max_tokens=700, temperature=0.2)
+        final_summary = self._sanitize_summary_text(final_result.get("raw") or "")
+        if not final_summary:
+            raise RuntimeError("Local reflexion revised summary was empty")
+
+        return final_summary
+
+    def _sanitize_summary_text(self, text: str) -> str:
+        """Keep only user-facing summary text and strip critique/meta sections."""
+        clean = (text or "").strip()
+        if not clean:
+            return ""
+
+        # Strip reasoning/thinking wrapper tags first
+        clean = re.sub(r"<think>.*?</think>", "", clean, flags=re.DOTALL).strip()
+        
+        # Remove code blocks
+        clean = re.sub(r"```[\s\S]*?```", "", clean).strip()
+
+        blocked_prefixes = (
+            "critique", "revision", "revised", "analysis", "draft",
+            "strength", "issue", "severity", "workflow context"
+        )
+        kept_lines = []
+        for line in clean.splitlines():
+            stripped = line.strip()
+            if not stripped:
+                continue
+            lower = stripped.lower()
+            if any(lower.startswith(prefix) for prefix in blocked_prefixes):
+                continue
+            kept_lines.append(stripped)
+
+        collapsed = " ".join(kept_lines).strip()
+        return re.sub(r"\s+", " ", collapsed)
 
     # ── HITL helpers ─────────────────────────────────────────────────────────
 
@@ -714,11 +821,13 @@ class RulesFirstPlannerAgent:
     # ── Utility helpers ───────────────────────────────────────────────────────
 
     def _build_reflexion_context(self) -> Dict[str, Any]:
+        estimated_total = self._effective_total_runtime()
         ctx: Dict[str, Any] = {
             "dataset":       os.path.basename(self.dataset_path),
             "problem_type":  self.problem_type,
             "target_column": self.target_column,
             "timings_s":     self._timings,
+            "estimated_total_runtime_seconds": round(estimated_total, 3) if estimated_total is not None else None,
         }
         if self.analysis_results:
             ctx["model"] = self.analysis_results.get("model")
@@ -739,6 +848,7 @@ class RulesFirstPlannerAgent:
         return ctx
 
     def _plain_text_summary(self) -> str:
+        runtime_seconds = self._effective_total_runtime()
         lines = [
             f"Dataset       : {os.path.basename(self.dataset_path)}",
             f"Problem type  : {self.problem_type}",
@@ -757,8 +867,29 @@ class RulesFirstPlannerAgent:
                     f"Anomalies     : {self.analysis_results['n_anomalies']} "
                     f"({self.analysis_results.get('anomaly_rate', 0):.2%})"
                 )
-        lines.append(f"Total runtime : {self._timings.get('total', '?')}s")
+        if runtime_seconds is not None:
+            lines.append(f"Total runtime : {runtime_seconds:.2f}s")
+        else:
+            lines.append("Total runtime : N/A")
         return "\n".join(lines)
+
+    def _effective_total_runtime(self) -> Optional[float]:
+        """Resolve a stable total runtime even when final total is not set yet."""
+        total = self._timings.get("total")
+        if isinstance(total, (int, float, np.floating)):
+            return float(total)
+
+        step_total = 0.0
+        seen = False
+        for key, value in self._timings.items():
+            if not key.startswith("step"):
+                continue
+            if isinstance(value, (int, float, np.floating)):
+                step_total += float(value)
+                seen = True
+        if seen:
+            return step_total
+        return None
 
     def _failed(self, step: str) -> Dict[str, Any]:
         return {

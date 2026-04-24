@@ -33,6 +33,7 @@ training/artifacts/*
 data/**/*.csv
 data/*.csv
 data/*npz
+scripts/.ipynb_checkpoints/
 
 # macOS
 .DS_Store

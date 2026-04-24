@@ -131,20 +131,75 @@
                 <input type="checkbox" name="use_pca" />
                 <span>Use PCA</span>
               </label>
-
-              <label class="field inline">
-                <input type="checkbox" name="generate_synthetic" />
-                <span>Generate synthetic data</span>
-              </label>
-
-              <label class="field">
-                <span>Synthetic rows</span>
-                <input type="number" name="synthetic_rows" value="300" min="50" max="5000" />
-              </label>
             </div>
 
             <button class="primary-button" type="submit">Launch Run</button>
           </form>
+        </section>
+
+        <section class="panel synthetic-panel">
+          <div class="panel-head">
+            <h2>Generate Synthetic Data</h2>
+            <p>Create synthetic datasets from real data, then run inference on them.</p>
+          </div>
+
+          <form id="synthetic-form" class="synthetic-form">
+            <label class="field">
+              <span>Source dataset</span>
+              <select id="synthetic-dataset-select" name="dataset_path" required>
+                <option value="">Choose a dataset to generate synthetic data from</option>
+                {% for dataset in datasets %}
+                <option value="{{ dataset.path }}">{{ dataset.directory }} / {{ dataset.label }}</option>
+                {% endfor %}
+              </select>
+            </label>
+
+            <div class="field-grid">
+              <label class="field">
+                <span>Problem type</span>
+                <select name="problem_type" required>
+                  <option value="classification">Classification</option>
+                  <option value="regression">Regression</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>Preferred model (optional)</span>
+                <input type="text" name="preferred_model" placeholder="Leave blank for auto-selection" />
+              </label>
+            </div>
+
+            <label class="field">
+              <span>Target column</span>
+              <select id="synthetic-target-column" name="target_column" required>
+                <option value="">Select a source dataset first</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>Number of synthetic rows to generate</span>
+              <input type="number" name="n_rows" value="500" min="10" max="10000" required />
+            </label>
+
+            <label class="field">
+              <span>Random seed (for reproducibility)</span>
+              <input type="number" name="seed" value="42" min="0" />
+            </label>
+
+            <button class="primary-button" type="submit">Generate Synthetic Data</button>
+          </form>
+
+          <div id="synthetic-progress" class="synthetic-progress empty">
+            <p>Generated datasets will appear below.</p>
+          </div>
+
+          <div class="panel-head compact-head">
+            <h3>Available Synthetic Datasets</h3>
+            <p>Choose one to run inference on the synthetic data.</p>
+          </div>
+          <div id="synthetic-list" class="synthetic-list empty">
+            <p>No synthetic datasets generated yet.</p>
+          </div>
         </section>
 
         <section class="panel status-panel">

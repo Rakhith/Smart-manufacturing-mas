@@ -40,6 +40,8 @@ body {
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
   backdrop-filter: blur(14px);
+  min-width: 0;
+  overflow: hidden;
 }
 
 .hero {
@@ -200,6 +202,35 @@ select {
   padding: 22px;
 }
 
+.hero-copy,
+.hero-panel,
+.panel-head,
+.run-form,
+.synthetic-form,
+.summary-grid,
+.metrics-grid,
+.stage-progress,
+.stages,
+.run-history,
+.artifact-list,
+.synthetic-list {
+  min-width: 0;
+}
+
+.layout > *,
+.bottom-grid > *,
+.hero > *,
+.field-grid > *,
+.field-grid.compact > *,
+.summary-grid > *,
+.metrics-grid > *,
+.highlight-grid > *,
+.stage-progress > *,
+.stage-grid > *,
+.meta-row > * {
+  min-width: 0;
+}
+
 .panel-head {
   margin-bottom: 18px;
 }
@@ -270,10 +301,20 @@ select {
 .log-feed,
 .result-overview,
 .stage-card,
-.summary-item {
+.summary-item,
+.metric-card,
+.highlight-card,
+.hero-stat,
+.subcard,
+.progress-step,
+.run-history-item,
+.artifact-list li a {
   border: 1px solid var(--line);
   border-radius: 18px;
   background: var(--surface-strong);
+  min-width: 0;
+  overflow-x: auto;
+  overflow-wrap: anywhere;
 }
 
 .dataset-preview {
@@ -288,6 +329,7 @@ select {
 
 .preview-table {
   width: 100%;
+  min-width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
 }
@@ -457,6 +499,22 @@ select {
   gap: 14px;
 }
 
+.stage-top > div,
+.stage-top h3,
+.stage-top p,
+.summary-item strong,
+.metric-card strong,
+.highlight-card strong,
+.hero-stat strong,
+.run-history-item strong,
+.artifact-list li span,
+.subcard,
+.subcard p {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 .status-pill {
   border-radius: 999px;
   padding: 6px 12px;
@@ -502,6 +560,7 @@ select {
   padding: 12px;
   border-radius: 14px;
   background: rgba(16, 32, 40, 0.04);
+  overflow: hidden;
 }
 
 .subcard h4 {
@@ -516,18 +575,28 @@ select {
 }
 
 .kv-list div {
-  display: flex;
-  justify-content: space-between;
-  gap: 14px;
+  display: grid;
+  grid-template-columns: minmax(88px, 120px) minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
 }
 
 .kv-list dt {
   color: var(--muted);
+  overflow-wrap: anywhere;
 }
 
 .kv-list dd,
 .kv-list dt {
   margin: 0;
+}
+
+.kv-list dd {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal;
+  text-align: left;
 }
 
 .log-feed {
@@ -603,6 +672,12 @@ select {
   border-radius: 14px;
   padding: 12px 14px;
   background: var(--surface-strong);
+  min-width: 0;
+}
+
+.artifact-list li a > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .artifact-kind {
@@ -670,7 +745,22 @@ label,
 }
 
 button {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+.synthetic-list,
+.run-history,
+.stages {
+  min-width: 0;
+}
+
+.synthetic-list > div,
+.run-history-item,
+.stage-card,
+.summary-item,
+.metric-card {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }

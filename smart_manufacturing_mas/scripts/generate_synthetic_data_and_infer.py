@@ -28,9 +28,29 @@ if not (PROJECT_DIR / 'data').exists():
 
 DATA_DIR = PROJECT_DIR / 'data'
 ARTIFACT_DIR = PROJECT_DIR / 'artifacts' / 'pretrained_models'
-REGRESSION_DATA_PATH = DATA_DIR / 'Smart_Manufacturing_Maintenance_Dataset' / 'smart_maintenance_dataset.csv'
-CLASSIFICATION_DATA_PATH = DATA_DIR / 'Smart_Manufacturing_Maintenance_Dataset' / 'smart_maintenance_dataset.csv'
-ALTERNATE_CLASSIFICATION_DATA_PATH = DATA_DIR / 'Intelligent_Manufacturing_Dataset' / 'manufacturing_6G_dataset.csv'
+
+
+def resolve_dataset_path(*relative_candidates: str) -> Path:
+    """Resolve the first existing dataset path from a set of relative candidates."""
+    for relative_candidate in relative_candidates:
+        candidate_path = DATA_DIR / relative_candidate
+        if candidate_path.exists():
+            return candidate_path
+    return DATA_DIR / relative_candidates[0]
+
+
+REGRESSION_DATA_PATH = resolve_dataset_path(
+    'Smart_Manufacturing_Maintenance_Dataset/smart_maintenance_dataset.csv',
+    'Smart Manufacturing Maintenance Dataset/smart_maintenance_dataset.csv',
+)
+CLASSIFICATION_DATA_PATH = resolve_dataset_path(
+    'Smart_Manufacturing_Maintenance_Dataset/smart_maintenance_dataset.csv',
+    'Smart Manufacturing Maintenance Dataset/smart_maintenance_dataset.csv',
+)
+ALTERNATE_CLASSIFICATION_DATA_PATH = resolve_dataset_path(
+    'Intelligent_Manufacturing_Dataset/manufacturing_6G_dataset.csv',
+    'Intelligent Manufacturing Dataset/manufacturing_6G_dataset.csv',
+)
 
 print(f"Project dir: {PROJECT_DIR}")
 print(f"Data dir: {DATA_DIR}")

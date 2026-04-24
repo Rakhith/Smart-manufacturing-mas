@@ -2,6 +2,9 @@ from __future__ import annotations
 
 import json
 import logging
+import hashlib
+import re
+import os
 import threading
 import time
 import uuid
@@ -29,6 +32,60 @@ PRETRAINED_DIR = ARTIFACTS_DIR / "pretrained_models"
 WEB_UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 WEB_SYNTHETIC_DIR.mkdir(parents=True, exist_ok=True)
 WEB_RUN_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def _build_cloud_llm_model() -> Optional[Any]:
+    """Create a Gemini model for Reflexion summary when GEMINI_API_KEY is set."""
+    api_key = os.getenv("GEMINI_API_KEY")
+    if not api_key:
+        env_file = ROOT_DIR / ".env"
+        if env_file.exists():
+            try:
+                for line in env_file.read_text(encoding="utf-8").splitlines():
+                    stripped = line.strip()
+                    if not stripped or stripped.startswith("#") or "=" not in stripped:
+                        continue
+                    key, value = stripped.split("=", 1)
+                    if key.strip() == "GEMINI_API_KEY":
+                        api_key = value.strip().strip('"').strip("'")
+                        if api_key:
+                            break
+            except Exception:
+                api_key = None
+    if not api_key:
+        logging.debug("No GEMINI_API_KEY found; Cloud LLM unavailable")
+        return None
+    try:
+        import google.generativeai as genai
+
+        genai.configure(api_key=api_key)
+        logging.info(f"Gemini API configured successfully")
+        
+        # Try models in order of preference (latest to fallback)
+        model_candidates = [
+            "gemini-2.5-flash",
+            "gemini-2.5-pro",
+            "gemini-1.5-flash",
+            "gemini-1.5-pro",
+            "gemini-pro"
+        ]
+        
+        for model_name in model_candidates:
+            try:
+                model_instance = genai.GenerativeModel(model_name)
+                logging.info(f"Successfully initialized Cloud LLM with model: {model_name}")
+                return model_instance
+            except Exception as model_error:
+                logging.debug(f"Model {model_name} initialization failed: {model_error}")
+                continue
+        
+        # If all models failed to initialize
+        logging.warning(f"All Cloud LLM models failed to initialize; using plain-text summary fallback")
+        return None
+        
+    except Exception as exc:
+        logging.warning(f"Cloud LLM initialization failed: {exc}; using plain-text summary fallback")
+        return None
 
 
 def _iso_now() -> str:
@@ -110,6 +167,16 @@ def _stage_overview(stages: List[Dict[str, Any]]) -> Dict[str, int]:
     return counts
 
 
+def _slugify_text(value: str) -> str:
+    text = re.sub(r"[^a-zA-Z0-9]+", "_", str(value).strip().lower())
+    return text.strip("_") or "dataset"
+
+
+def _synthetic_config_signature(config: Dict[str, Any]) -> str:
+    canonical = json.dumps(config, sort_keys=True, separators=(",", ":"), default=str)
+    return hashlib.sha1(canonical.encode("utf-8")).hexdigest()[:12]
+
+
 def _metrics_summary(results: Dict[str, Any]) -> Dict[str, Any]:
     keys = [
         "accuracy",
@@ -166,6 +233,27 @@ class _SyntheticDataGenerator:
         n_rows: int,
         target_column: Optional[str] = None,
     ) -> pd.DataFrame:
+        if target_column and target_column in df.columns:
+            sampled = df.sample(n=n_rows, replace=True, random_state=self.seed).reset_index(drop=True).copy()
+            numeric_cols = [col for col in sampled.columns if col != target_column and pd.api.types.is_numeric_dtype(sampled[col])]
+            categorical_cols = [col for col in sampled.columns if col != target_column and col not in numeric_cols]
+
+            for col in numeric_cols:
+                clean = df[col].dropna()
+                if clean.empty:
+                    continue
+                scale = float(clean.std() or 1.0) * 0.05
+                noise = np.random.normal(0.0, scale, size=n_rows)
+                sampled[col] = np.clip(sampled[col].astype(float) + noise, float(clean.min()), float(clean.max()))
+                if pd.api.types.is_integer_dtype(df[col]):
+                    sampled[col] = sampled[col].round().astype(int)
+
+            for col in categorical_cols:
+                if pd.api.types.is_object_dtype(df[col]) or pd.api.types.is_categorical_dtype(df[col]):
+                    sampled[col] = sampled[col].fillna(df[col].mode(dropna=True).iloc[0] if not df[col].mode(dropna=True).empty else sampled[col])
+
+            return sampled
+
         exclude = [col for col in df.columns if col.lower().endswith("_id") or col.lower() in {"id", "timestamp"}]
         feature_cols = [col for col in df.columns if col not in exclude and col != target_column]
 
@@ -211,8 +299,6 @@ class RunConfig:
     use_pca: bool
     use_cache: bool
     train_mode: str
-    generate_synthetic: bool
-    synthetic_rows: int
     preferred_model: Optional[str]
 
 
@@ -251,8 +337,6 @@ class PipelineRunManager:
                 "use_pca": config.use_pca,
                 "use_cache": config.use_cache,
                 "train_mode": config.train_mode,
-                "generate_synthetic": config.generate_synthetic,
-                "synthetic_rows": config.synthetic_rows,
                 "preferred_model": config.preferred_model,
             },
             "logs": [],
@@ -376,12 +460,13 @@ class PipelineRunManager:
         root_logger = logging.getLogger()
         root_logger.addHandler(log_handler)
 
+        cloud_llm_model = _build_cloud_llm_model()
         planner = RulesFirstPlannerAgent(
             dataset_path=config.dataset_path,
             feature_columns=config.feature_columns,
             target_column=config.target_column,
             problem_type=config.problem_type,
-            llm_model=None,
+            llm_model=cloud_llm_model,
             use_pca=config.use_pca,
             use_cache=config.use_cache,
             auto_hitl=True,
@@ -558,28 +643,6 @@ class PipelineRunManager:
                 "total_duration_seconds": round(time.time() - overall_started, 3),
             }
 
-            if config.generate_synthetic and planner.raw_data is not None:
-                try:
-                    synthetic_artifacts = self._run_synthetic_generation(
-                        run_id=run_id,
-                        raw_df=planner.raw_data.copy(),
-                        target_column=planner.target_column,
-                        problem_type=planner.problem_type,
-                        preferred_model=config.preferred_model,
-                        n_rows=config.synthetic_rows,
-                    )
-                    final_result["synthetic_generation"] = synthetic_artifacts
-                except Exception as synthetic_exc:
-                    self._set_stage(
-                        run_id,
-                        key="synthetic",
-                        title="Generate Synthetic Data",
-                        status="failed",
-                        notes=[f"Synthetic generation failed: {synthetic_exc}"],
-                    )
-                    final_result["synthetic_generation"] = {"error": str(synthetic_exc)}
-                    self.append_log(run_id, f"Synthetic generation warning: {synthetic_exc}")
-
             final_result["stage_overview"] = _stage_overview(self._runs[run_id]["stages"])
             final_result["saved_outputs"] = self._persist_run_outputs(run_id, final_result, recommendations)
 
@@ -691,6 +754,272 @@ class PipelineRunManager:
             duration_seconds=round(time.time() - stage_started, 3),
         )
         return artifact_summary
+
+    def generate_synthetic_data(
+        self,
+        dataset_path: str,
+        n_rows: int,
+        target_column: Optional[str],
+        seed: int,
+        problem_type: Optional[str] = None,
+        preferred_model: Optional[str] = None,
+    ) -> str:
+        """Generate synthetic data from a real dataset and return synthetic_id."""
+        config = {
+            "generator_version": "v2_bootstrap_target_preserving",
+            "source_dataset": str(Path(dataset_path).resolve()),
+            "n_rows": int(n_rows),
+            "target_column": target_column or "",
+            "seed": int(seed),
+            "problem_type": problem_type or "",
+            "preferred_model": preferred_model or "",
+        }
+        signature = _synthetic_config_signature(config)
+        source_slug = _slugify_text(Path(dataset_path).stem)
+        target_slug = _slugify_text(target_column) if target_column else "all_columns"
+        synthetic_name = f"{source_slug}__rows{n_rows}__target-{target_slug}__seed{seed}__sig-{signature}"
+        synthetic_id = f"syn_{signature}"
+
+        with self._lock:
+            if not hasattr(self, "_synthetic_datasets"):
+                self._synthetic_datasets = {}
+            existing = self._synthetic_datasets.get(synthetic_id)
+            if existing:
+                existing["updated_at"] = _iso_now()
+                return synthetic_id
+
+            existing_file = WEB_SYNTHETIC_DIR / f"{synthetic_name}.csv"
+            if existing_file.exists():
+                try:
+                    existing_df = pd.read_csv(existing_file)
+                    existing_preview = _preview_dataframe(existing_df, max_rows=5)
+                except Exception:
+                    existing_df = None
+                    existing_preview = None
+                synthetic_record = {
+                    "id": synthetic_id,
+                    "name": synthetic_name,
+                    "status": "ready_for_inference",
+                    "created_at": _iso_now(),
+                    "updated_at": _iso_now(),
+                    "config": config,
+                    "signature": signature,
+                    "generation_result": {
+                        "csv_path": str(existing_file.relative_to(ROOT_DIR)),
+                        "file_name": existing_file.name,
+                        "n_rows": int(n_rows),
+                        "n_columns": int(existing_df.shape[1]) if existing_df is not None else None,
+                        "columns": existing_df.columns.tolist() if existing_df is not None else [],
+                        "preview": existing_preview,
+                    },
+                    "inference_result": None,
+                    "error": None,
+                }
+                self._synthetic_datasets[synthetic_id] = synthetic_record
+                return synthetic_id
+
+        synthetic_record = {
+            "id": synthetic_id,
+            "name": synthetic_name,
+            "status": "queued",
+            "created_at": _iso_now(),
+            "updated_at": _iso_now(),
+            "config": config,
+            "signature": signature,
+            "generation_result": None,
+            "inference_result": None,
+            "error": None,
+        }
+
+        self._synthetic_datasets[synthetic_id] = synthetic_record
+
+        thread = threading.Thread(
+            target=self._execute_synthetic_generation,
+            args=(synthetic_id, dataset_path, n_rows, target_column, seed, synthetic_name, signature),
+            daemon=True,
+        )
+        thread.start()
+        return synthetic_id
+
+    def _execute_synthetic_generation(
+        self,
+        synthetic_id: str,
+        dataset_path: str,
+        n_rows: int,
+        target_column: Optional[str],
+        seed: int,
+        synthetic_name: str,
+        signature: str,
+    ) -> None:
+        """Execute synthetic data generation in background."""
+        try:
+            with self._lock:
+                self._synthetic_datasets[synthetic_id]["status"] = "running"
+                self._synthetic_datasets[synthetic_id]["updated_at"] = _iso_now()
+
+            # Load real data
+            df = pd.read_csv(dataset_path)
+
+            # Generate synthetic data
+            generator = _SyntheticDataGenerator(seed=seed)
+            synthetic_df = generator.generate(df, n_rows=n_rows, target_column=target_column)
+
+            quality_summary = None
+            try:
+                quality_analyzer = SyntheticQualityAnalyzer(df, synthetic_df)
+                quality_summary = quality_analyzer.get_summary_for_display()
+                logging.info(f"Synthetic dataset quality analysis completed successfully")
+            except Exception as quality_exc:
+                logging.warning(f"Synthetic quality analysis failed: {quality_exc}")
+
+            # Save to disk
+            csv_path = WEB_SYNTHETIC_DIR / f"{synthetic_name}.csv"
+            synthetic_df.to_csv(csv_path, index=False)
+
+            # Prepare result
+            with self._lock:
+                self._synthetic_datasets[synthetic_id]["generation_result"] = {
+                    "csv_path": str(csv_path.relative_to(ROOT_DIR)),
+                    "file_name": csv_path.name,
+                    "n_rows": int(synthetic_df.shape[0]),
+                    "n_columns": int(synthetic_df.shape[1]),
+                    "columns": synthetic_df.columns.tolist(),
+                    "preview": _preview_dataframe(synthetic_df, max_rows=5),
+                    "data_quality": quality_summary,
+                }
+                self._synthetic_datasets[synthetic_id]["signature"] = signature
+                self._synthetic_datasets[synthetic_id]["status"] = "ready_for_inference"
+                self._synthetic_datasets[synthetic_id]["updated_at"] = _iso_now()
+        except Exception as e:
+            with self._lock:
+                self._synthetic_datasets[synthetic_id]["status"] = "failed"
+                self._synthetic_datasets[synthetic_id]["error"] = str(e)
+                self._synthetic_datasets[synthetic_id]["updated_at"] = _iso_now()
+
+    def run_inference_on_synthetic(
+        self,
+        synthetic_id: str,
+        problem_type: Optional[str],
+        target_column: Optional[str],
+        preferred_model: Optional[str],
+    ) -> str:
+        """Run inference on synthetic data and return inference_id (same as synthetic_id)."""
+        with self._lock:
+            record = getattr(self, "_synthetic_datasets", {}).get(synthetic_id)
+            if record:
+                config = record.get("config", {})
+                problem_type = problem_type or config.get("problem_type") or None
+                target_column = target_column or config.get("target_column") or None
+                preferred_model = preferred_model or config.get("preferred_model") or None
+
+        inference_id = synthetic_id
+        thread = threading.Thread(
+            target=self._execute_synthetic_inference,
+            args=(synthetic_id, problem_type, target_column, preferred_model),
+            daemon=True,
+        )
+        thread.start()
+        return inference_id
+
+    def _execute_synthetic_inference(
+        self,
+        synthetic_id: str,
+        problem_type: Optional[str],
+        target_column: Optional[str],
+        preferred_model: Optional[str],
+    ) -> None:
+        """Execute inference on synthetic data in background."""
+        try:
+            with self._lock:
+                if not hasattr(self, "_synthetic_datasets"):
+                    return
+                record = self._synthetic_datasets.get(synthetic_id)
+                if not record or not record.get("generation_result"):
+                    return
+                record["status"] = "running_inference"
+                record["updated_at"] = _iso_now()
+
+            # Load synthetic data
+            csv_path = record["generation_result"]["csv_path"]
+            synthetic_df = pd.read_csv(ROOT_DIR / csv_path)
+
+            # Get metadata for pretrained model
+            meta = select_bundle_metadata(
+                problem_type=problem_type,
+                target_column=target_column,
+                preferred_model=preferred_model,
+                path=str(PRETRAINED_DIR),
+            )
+
+            if not meta or not meta.get("bundle_file"):
+                raise ValueError(f"No pretrained model found for {problem_type}, {target_column}")
+
+            # Load bundle and run inference
+            bundle = load_bundle(meta["bundle_file"], path=str(PRETRAINED_DIR))
+            prediction_bundle = predict_with_bundle(bundle, synthetic_df, target_column=target_column)
+            predictions = prediction_bundle.get("predictions")
+            if predictions is None:
+                raise ValueError("Pretrained bundle did not return predictions.")
+
+            # Analyze results
+            analyzer = PredictionAnalyzer(problem_type=problem_type or "regression")
+            actual_target = synthetic_df.get(target_column) if target_column and target_column in synthetic_df.columns else prediction_bundle.get("y_test")
+            analysis = analyzer.analyze(predictions, actual_target)
+
+            inference_result = {
+                "model_name": meta.get("model_name"),
+                "model_type": problem_type,
+                "target_column": target_column,
+                "bundle_file": meta.get("bundle_file"),
+                "bundle_target_column": prediction_bundle.get("bundle_target_column"),
+                "prediction_warning": prediction_bundle.get("target_mismatch_warning"),
+                "n_predictions": len(predictions),
+                "predictions_preview": predictions[:10].tolist() if hasattr(predictions, "tolist") else list(predictions[:10]),
+                "analysis": analysis,
+            }
+
+            with self._lock:
+                record["inference_result"] = inference_result
+                record["status"] = "complete"
+                record["updated_at"] = _iso_now()
+
+        except Exception as e:
+            with self._lock:
+                record = self._synthetic_datasets.get(synthetic_id)
+                if record:
+                    record["status"] = "inference_failed"
+                    record["error"] = str(e)
+                    record["updated_at"] = _iso_now()
+
+    def list_synthetic_datasets(self) -> List[Dict[str, Any]]:
+        """List all generated synthetic datasets."""
+        if not hasattr(self, "_synthetic_datasets"):
+            return []
+        with self._lock:
+            datasets = list(self._synthetic_datasets.values())
+        return sorted(datasets, key=lambda x: x["created_at"], reverse=True)
+
+    def get_synthetic_dataset(self, synthetic_id: str) -> Optional[Dict[str, Any]]:
+        """Get details of a synthetic dataset."""
+        if not hasattr(self, "_synthetic_datasets"):
+            return None
+        with self._lock:
+            dataset = self._synthetic_datasets.get(synthetic_id)
+            if dataset:
+                return json.loads(json.dumps(dataset, default=_json_safe))
+        return None
+
+    def get_synthetic_inference_result(self, synthetic_id: str) -> Optional[Dict[str, Any]]:
+        """Get inference results for a synthetic dataset."""
+        dataset = self.get_synthetic_dataset(synthetic_id)
+        if not dataset:
+            return None
+        return {
+            "status": dataset.get("status"),
+            "generation_result": dataset.get("generation_result"),
+            "inference_result": dataset.get("inference_result"),
+            "error": dataset.get("error"),
+        }
 
 
 run_manager = PipelineRunManager()
