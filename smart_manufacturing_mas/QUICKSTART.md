@@ -1,194 +1,145 @@
-# Quick Start Guide
+﻿# Quick Start Guide 🚀
 
-Get up and running with Smart Manufacturing MAS in 5 minutes!
+Get up and running with the Smart Manufacturing Multi-Agent System (MAS) in 5 minutes!
 
-## Architecture Overview (SLM Reduction 4 -> 1)
+---
 
-This system uses a **Three-Tier Intelligence Hierarchy** with optimized SLM usage:
+## ⚡ 1-Minute Web Dashboard Launcher
 
-| Component | Role | SLM Calls |
-|-----------|------|-----------|
-| Cloud LLM (Gemini) | Orchestration + Reflexion Summary | 0 (Cloud API) |
-| Local SLM (Qwen3:4B) | Anomaly Params ONLY | 1 per anomaly run |
-| Rule-Based ToolDecider | Preprocessing + Model Selection | 0 |
-
-**Key Feature**: Narrative summary uses Cloud LLM Reflexion loop (draft -> critique -> revise).
-
-## 🎯 5-Minute Setup
-
-### Step 1: Installation (2 minutes)
+For an interactive GUI with real-time stage tracking, synthetic data generation, and artifact downloads:
 
 ```bash
-# Clone repository
-git clone <repository-url>
-cd smart_manufacturing_mas_code
+# 1. Activate virtual environment
+# Windows:
+mas_venv\Scripts\activate
+# macOS/Linux:
+source mas_venv/bin/activate
 
-# Create and activate virtual environment
-python3 -m venv mas_venv
-source mas_venv/bin/activate  # On Windows: mas_venv\Scripts\activate
+# 2. Launch local web application
+python scripts/run_local_app.py
+```
+
+Then navigate to: **`http://127.0.0.1:8000`** in your browser.
+
+---
+
+## 🎯 5-Minute Terminal Setup
+
+### Step 1: Environment Setup (2 minutes)
+
+```bash
+# Clone the repository
+git clone <repository-url>
+cd smart_manufacturing_mas
+
+# Create virtual environment
+python -m venv mas_venv
+
+# Activate virtual environment
+# Windows:
+mas_venv\Scripts\activate
+# macOS/Linux:
+source mas_venv/bin/activate
 
 # Install dependencies
 pip install -r requirements.txt
 ```
 
-### Step 2: Choose Your LLM (1 minute)
+### Step 2: Configure LLM Backend (1 minute)
 
-**Option A: Google Gemini (Cloud)**
+**Option A: Google Gemini (Recommended for Reflexion Summaries)**
 ```bash
-echo "GEMINI_API_KEY=your_key_here" > .env
+# Copy template and add your API key
+cp .env.example .env
+# Edit .env and set: GEMINI_API_KEY="your-gemini-api-key"
 ```
 
-**Option B: Ollama (Local)**
+**Option B: Local Ollama (Offline / Factory Edge Mode)**
 ```bash
-curl -fsSL https://ollama.ai/install.sh | sh
-ollama pull qwen3:4b
-```
-
-**Option C: No setup needed!**
-Just skip API keys and use `--planner-llm mock` (limited functionality)
-
-### Step 3: Run Your First Analysis (2 minutes)
-
-**Interactive Mode** (Guided):
-```bash
-python3 main_llm.py
-```
-
-**Auto Mode** (Faster):
-```bash
-python3 main_llm.py --auto --dataset "data/Smart Manufacturing Maintenance Dataset/smart_maintenance_dataset.csv"
-```
-
-**With Local LLM**:
-```bash
-python3 main_llm.py --decision-llm ollama --decision-model qwen3:4b --auto
-```
-
-## What You'll See
-
-```
-================================================================================
-INTELLIGENT MULTI-AGENT SYSTEM FOR SMART MANUFACTURING
-================================================================================
-
-[INFO] - Architecture: Cloud LLM (orchestration + Reflexion summary) | Local SLM (anomaly params only) | Rule-based (preprocessing + model selection)
-[INFO] - Loading dataset...
-[INFO] - Preprocessing complete. Shape: (1430, 9)
-[INFO] - Analysis complete. Model: RandomForestClassifier, Accuracy: 0.87
-[INFO] - Generated 50 recommendations
-
-================================================================================
-GENERATING INTELLIGENT SUMMARY...
-================================================================================
-[INFO] - [Reflexion] Starting Cloud LLM Reflexion loop for summary generation...
-[INFO] - [Reflexion] Step 1/3: Generating initial draft...
-[INFO] - [Reflexion] Step 2/3: Self-critiquing draft against actual metrics...
-[INFO] - [Reflexion] Step 3/3: Generating revised summary...
-
-Workflow completed successfully in 3.2 seconds
-Model Performance: RandomForestClassifier - 87% accuracy
-Generated 50 prescriptive recommendations
-Top Priority: 15 critical maintenance actions identified
-```
-
-## 🎮 Common Commands
-
-### Basic Operations
-
-```bash
-# List available datasets
-ls data/*/
-
-# Run with auto mode
-python3 main_llm.py --auto
-
-# Process all datasets
-python3 main_llm.py --batch
-
-# Debug mode
-export LOG_LEVEL=DEBUG && python3 main_llm.py --auto
-```
-
-### LLM Options
-
-```bash
-# Use local LLM only
-python3 main_llm.py --decision-llm ollama --decision-model qwen3:4b
-
-# Use Gemini with local models for decisions
-python3 main_llm.py --planner-llm gemini --decision-llm ollama --decision-model llama3:8b
-
-# Use mock mode (no LLM required)
-python3 main_llm.py --planner-llm mock --decision-llm mock
-```
-
-## 📁 Output Files
-
-After running, check the `logs/` directory:
-
-```bash
-# View latest workflow report
-ls -lt logs/workflow_report_*.json | head -1
-
-# View recommendations
-ls -lt logs/detailed_results_*.json | head -1
-
-# View audit trail
-cat logs/hitl_audit.json
-```
-
-## 🐛 Quick Troubleshooting
-
-**Problem**: `ModuleNotFoundError`
-```bash
-source mas_venv/bin/activate
-pip install -r requirements.txt
-```
-
-**Problem**: `API key not configured`
-```bash
-# Option 1: Use local LLM
-python3 main_llm.py --decision-llm ollama --decision-model qwen3:4b
-
-# Option 2: Add Gemini API key
-echo "GEMINI_API_KEY=your_key" > .env
-```
-
-**Problem**: `Ollama connection failed`
-```bash
+# Start Ollama service and pull edge model
 ollama serve
 ollama pull qwen3:4b
-ollama list  # Verify model is available
 ```
 
-**Problem**: `Dataset not found`
-```bash
-# Use absolute path
-python3 main_llm.py --auto --dataset "$(pwd)/data/Smart Manufacturing Maintenance Dataset/smart_maintenance_dataset.csv"
-```
-
-## 📚 Next Steps
-
-- **Learn More**: Read [Detailed Usage Guide](documentation/usage_guide.md)
-- **Understand Architecture**: See [Architecture Documentation](documentation/architecture_and_workflow.md)
-- **Explore Features**: Check [Adaptive Intelligence System](documentation/adaptive_intelligence_system.md)
-
-## 💡 Pro Tips
-
-1. **Start with auto mode** to understand the workflow quickly
-2. **Use local LLMs** for faster, offline operation
-3. **Enable debug mode** when troubleshooting: `export LOG_LEVEL=DEBUG`
-4. **Check logs** for detailed information about decisions and performance
-5. **Try batch mode** to process multiple datasets at once
-
-## ❓ Need Help?
-
-- Check [Troubleshooting Guide](documentation/usage_guide.md#troubleshooting)
-- Review example outputs in `logs/` directory
-- Enable debug mode: `export LOG_LEVEL=DEBUG`
-- Check all command options: `python3 main_llm.py --help`
+**Option C: No API Key / Mock Mode**
+You can run full rules-first pipelines and pretrained inference without any API key (plain-text summary fallback is automatically used).
 
 ---
 
-**Ready?** Run `python3 main_llm.py` to start your first analysis! 🚀
+### Step 3: Run Your First Analysis (2 minutes)
 
+#### 1. Autonomous Rules-First Pipeline (Recommended)
+Automatically detects whether the task is classification, regression, or anomaly detection, runs deterministic ML preprocessing and training, and generates prescriptive actions:
+
+```bash
+python main_llm.py --mode rules-first --dataset "data/Smart Manufacturing Maintenance Dataset/smart_maintenance_dataset.csv" --auto-detect --use-cache
+```
+
+#### 2. Supervised Pretrained Inference
+Instantly scores datasets using pre-trained model bundles without re-training:
+
+```bash
+python main_llm.py --mode rules-first --dataset "data/smart_manufacturing_dataset.csv" --problem-type regression --inference-only
+```
+
+#### 3. Edge Anomaly Detection with Local SLM
+Uses local Qwen3:4B via Ollama to intelligently configure Isolation Forest contamination parameters:
+
+```bash
+python main_llm.py --mode rules-first --dataset "data/Intelligent Manufacturing Dataset/manufacturing_6G_dataset.csv" --problem-type anomaly_detection --decision-llm ollama --decision-model qwen3:4b
+```
+
+#### 4. Headless Automated Batch Run (CI / Scripting)
+Processes all datasets under `data/` non-interactively:
+
+```bash
+python main_llm.py --mode rules-first --batch --auto
+```
+
+---
+
+## 🏛️ Architecture Overview & Semester 7 Pivot
+
+The platform implements a **Three-Tier Intelligence Hierarchy**:
+1. **Tier 1 (Cloud LLM - Gemini 2.5 Flash)**: Strategic orchestration and Reflexion summary loop (Draft $\rightarrow$ Critique $\rightarrow$ Revise).
+2. **Tier 2 (Local SLM - Qwen3:4B via Ollama)**: Tactical parameter suggestions for anomaly detection.
+3. **Tier 3 (Rule-Based ToolDecider)**: Deterministic preprocessing and model family selection (zero hallucination, zero latency).
+
+### Semester 7 Autonomous Closed-Loop Pivot:
+*   **Learned Recommender**: `LGBMRanker` (LambdaMART) + Multi-Sensor Archetype Collaborative Filtering (cosine similarity) replaces static if-else action strings.
+*   **Self-Explaining Interpretability Layer**: Local `TreeSHAP` attributions + Case-Based historical incident retrieval explain *why* actions are prioritized.
+*   **Autonomous Execution State Machine**: Replaces blocking manual HITL review gates with autonomous action dispatch, post-intervention recovery tracking ($\Delta \text{Recovery}$), and continuous cost-saving feedback.
+
+---
+
+## 📁 Output Files & Artifacts
+
+After execution, all run artifacts and audit traces are saved in:
+
+*   **`artifacts/web_runs/`**: Per-run execution state snapshots, dataset previews, model diagnostics, recommendations, and Reflexion summaries from the Web UI.
+*   **`artifacts/pretrained_models/`**: Serialized model bundles and `registry.json`.
+*   **`artifacts/web_synthetic/`**: Synthetic datasets generated from the UI or API.
+*   **`logs/`**: Structured execution logs, including `hitl_audit.json` and workflow report snapshots.
+*   **`model_cache/`**: Hash-keyed model cache files (`.joblib` / `.pkl`) for instant cache-hit execution.
+
+---
+
+## 🐛 Troubleshooting
+
+*   **Virtual environment not activated**:
+    Ensure your prompt displays `(mas_venv)`. Run `mas_venv\Scripts\activate` (Windows) or `source mas_venv/bin/activate` (Linux/macOS).
+*   **Gemini API Key missing**:
+    Verify `.env` exists in the project root with `GEMINI_API_KEY=your_key`. If omitted, the system falls back gracefully to local SLM or plain-text summaries.
+*   **Port 8000 already in use**:
+    Run Uvicorn on a different port: `uvicorn webapp.app:app --host 127.0.0.1 --port 8080`.
+*   **Ollama connection refused**:
+    Start the Ollama daemon with `ollama serve` in a separate terminal and ensure `ollama list` shows `qwen3:4b`.
+
+---
+
+## 📚 Next Steps & Documentation
+
+*   [Detailed Usage Guide](documentation/usage_guide.md)
+*   [Architecture and Workflow](documentation/architecture_and_workflow.md)
+*   [Adaptive Intelligence System](documentation/adaptive_intelligence_system.md)
+*   [Synthetic Data Generation Guide](SYNTHETIC_DATA_GUIDE.md)

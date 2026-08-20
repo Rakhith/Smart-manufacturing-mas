@@ -1,163 +1,144 @@
-# Repo Summary
+﻿# Repo Summary
 
 ## 1. Repository Purpose
-Smart Manufacturing MAS is a multi-agent ML system for prescriptive maintenance workflows. It supports:
-- Dataset loading and schema inspection
-- Deterministic preprocessing and model analysis
-- Optimization/recommendation generation
-- LLM-generated workflow summaries
-- Local web execution and artifact management
+Smart Manufacturing MAS is a multi-agent cyber-physical platform engineered for predictive analytics and prescriptive maintenance workflows in smart manufacturing environments. It supports:
+- Dataset loading, schema inspection, and data quality profiling
+- Deterministic preprocessing and reproducible feature transformations
+- Dynamic multi-model analysis (Classification, Regression, Isolation Forest Anomaly Detection)
+- Pretrained model bundle inference (`artifacts/pretrained_models`) and hash-keyed caching
+- Autonomous Prescriptive Action Ranking (`LGBMRanker` + Collaborative Filtering)
+- Self-explaining interpretability via local `TreeSHAP` and Case-Based historical incident retrieval
+- Autonomous execution state machine and closed-loop post-intervention feedback logging
+- Cloud LLM / Local SLM Reflexion workflow summaries
+- Interactive local Web Dashboard (`webapp/`) with asynchronous background state management and synthetic data generation
 
-It is designed to run in two orchestration modes:
-- `llm` mode: cloud/local planner decides steps
-- `rules-first` mode: deterministic pipeline first, LLM interpretation at the end
+---
 
-## 2. High-Level Workflow
+## 2. High-Level Workflows
 
-### A) CLI Workflow (`main_llm.py`)
-1. Parse runtime flags (dataset path, mode, target/problem settings, cache/PCA, LLM backends).
-2. Build planner/decision model interfaces (Gemini and/or local SLM as configured).
-3. Resolve task setup:
-- target/problem selection (auto-detect or provided)
-- anomaly parameter suggestion (optional SLM path)
-4. Execute pipeline:
-- `llm` mode -> planner agents orchestrate each step
-- `rules-first` mode -> deterministic steps run first, then summary is generated
-5. Emit outputs:
-- model metrics/results
-- recommendations
-- optional logs/cache artifacts
+### A) Web Application Flow (`webapp/app.py` + `webapp/run_manager.py`)
+1. User selects a built-in dataset or uploads a custom CSV in the web UI.
+2. Web UI configures task parameters (problem type, pretrained inference vs. live training, caching, PCA).
+3. API dispatches a `RunConfig` to the background thread runner (`RunManager`).
+4. Pipeline executes stage-by-stage:
+   - `Step 1: DataLoaderAgent` (Schema & Quality Profiling)
+   - `Step 2: PreprocessingAgent` (Transformations & Scaling)
+   - `Step 3: DynamicAnalysisAgent` (Model Performance & Diagnostics)
+   * `Step 4: OptimizationAgent` (Prescriptive Action Ranking & Explainability)
+   - `Step 5: Reflexion Summary` (Intelligent Narrative Synthesis)
+5. Frontend polls `/api/run/{run_id}` for state updates and live log feeds.
+6. Frontend renders interactive charts, recommendation tables, and download links for execution artifacts under `artifacts/web_runs/{run_id}/`.
+7. Users can generate synthetic datasets via `/api/generate-synthetic` and immediately trigger inference.
 
-### B) Rules-First Internal Flow (`agents/rules_first_planner.py`)
-1. Step 0: Problem/target resolution with auto-detection and HITL fallback.
-2. Step 1: Data loading and inspection.
-3. Step 2: Preprocessing (cleaning, encoding/scaling, optional PCA).
-4. Step 3: Model analysis/training or inference selection.
-5. Step 4: Optimization and recommendation generation.
-6. Step 5: Reflexion-based summary generation (cloud first, local fallback, plain-text fallback).
+### B) Rules-First CLI Workflow (`agents/rules_first_planner.py`)
+1. **Step 0**: Statistical auto-detection of problem type and target column (with automated or HITL fallback).
+2. **Step 1**: Dataset loading, quality profiling, and column subset selection (`DataLoaderAgent`).
+3. **Step 2**: Pipeline preprocessing, categorical encoding, scaling, and optional PCA (`PreprocessingAgent`).
+4. **Step 3**: Pretrained bundle inference or multi-family model training with caching and Adaptive Intelligence retry (`DynamicAnalysisAgent`).
+5. **Step 4**: Prescriptive action ranking and explainability generation (`OptimizationAgent`).
+6. **Step 5**: Reflexion-based workflow summary loop (Cloud LLM $\rightarrow$ Local SLM $\rightarrow$ Plain text fallback).
 
-### C) Local Web App Flow (`webapp/app.py` + `webapp/run_manager.py`)
-1. User uploads/selects dataset in UI.
-2. API creates `RunConfig` and enqueues a run.
-3. `run_manager` executes workflow in background thread.
-4. Stage-by-stage progress is stored under web run artifacts.
-5. Frontend polls run status and renders:
-- data profile
-- model outputs
-- recommendations
-- workflow summary
-6. Optional synthetic dataset generation and re-run supported.
+### C) Autonomous Closed-Loop Architecture (Semester 7 Pivot)
+```
+[Telemetry Ingestion] ──► [Dynamic Analysis] ──► [Learned Recommender (LGBMRanker + CF)]
+        ▲                                                    │
+        │                                                    ▼
+[State & Outcome Feedback] ◄── [Automated Action Execution] ◄── [Explainability Layer (SHAP + CBR)]
+```
+- **Learned Recommender**: Replaces static if-else keyword heuristics with `LGBMRanker` (LambdaMART) per asset query group + multi-sensor archetype cosine similarity.
+- **Explainability Layer**: Local `TreeSHAP` attributions + Case-Based historical incident retrieval provide auditable rationales.
+- **Autonomous Execution State Machine**: Dispatches actions within validated safety boundaries and tracks post-intervention sensor recovery ($\Delta \text{Recovery}$ over horizon $H$) into the feedback store.
+
+---
 
 ## 3. Directory Map and Storage Semantics
 
 ### Workspace Root
-- `logs/`: external/runtime logs at workspace level.
-- `mas_venv/`: Python virtual environment (dependencies, scripts, site-packages).
-- `smart_manufacturing_mas/`: main project source tree.
+- `logs/`: Project runtime logs, audit traces, and workflow summaries.
+- `mas_venv/`: Python virtual environment.
+- `smart_manufacturing_mas/`: Main source tree.
 
 ### `smart_manufacturing_mas/`
-- `.env`: local secret/config values (for example `GEMINI_API_KEY`).
-- `.env.example`: template for required environment variables.
-- `.gitignore`: git exclusions.
-- `main_llm.py`: CLI entry point and mode orchestration.
-- `README.md`: primary usage and setup guide.
-- `QUICKSTART.md`: fast setup and run commands.
-- `SYNTHETIC_DATA_GUIDE.md`: synthetic-data workflow instructions.
-- `Repo Summary.md`: this repository-wide architecture and file summary.
-- `requirements.txt`: Python dependency lock list for runtime.
+- `.env`: Local environment variables (`GEMINI_API_KEY`, `LOG_LEVEL`).
+- `.env.example`: Configuration template for environment variables.
+- `.gitignore`: Git exclusions.
+- `main_llm.py`: Unified CLI entry point.
+- `README.md`: Primary platform guide and architecture overview.
+- `QUICKSTART.md`: Fast 5-minute setup and CLI/GUI cheat sheet.
+- `SYNTHETIC_DATA_GUIDE.md`: Synthetic telemetry generation and validation manual.
+- `Repo Summary.md`: Comprehensive codebase architecture and file guide.
+- `requirements.txt`: Python dependency lock manifest.
 
 ### `agents/`
-- `__init__.py`: package initializer.
-- `data_loader_agent.py`: dataset loading, basic schema/inspection utilities.
-- `preprocessing_agent.py`: preprocessing pipeline (cleaning, transforms, optional PCA).
-- `dynamic_analysis_agent.py`: model analysis/training execution logic.
-- `optimization_agent.py`: recommendation scoring and optimization outputs.
-- `planner_agent.py`: original planner orchestration utilities.
-- `llm_planner_agent.py`: LLM-assisted planning and JSON parser logic.
-- `rules_first_planner.py`: deterministic orchestrator for the recommended architecture.
-- `local_llm_agent.py`: local backend wrapper (`ollama`, `llamacpp`, `transformers`, `mock`).
+- `data_loader_agent.py`: Ingestion, schema discovery, sampling, ID column detection.
+- `preprocessing_agent.py`: Pipeline-based cleaning, encoding, scaling, and optional PCA.
+- `dynamic_analysis_agent.py`: Supervised model training, pretrained inference, adaptive retry.
+- `optimization_agent.py`: Prescriptive maintenance recommendation and ranking engine.
+- `rules_first_planner.py`: Deterministic orchestrator for rules-first workflow.
+- `llm_planner_agent.py`: LLM-orchestrated planner and interactive setup engine.
+- `local_llm_agent.py`: Local SLM backend wrapper (Ollama, LlamaCpp, HuggingFace).
+- `planner_agent.py`: Rule-based emergency fallback orchestrator.
 
 ### `utils/`
-- `__init__.py`: package initializer.
-- `auto_detect.py`: automatic target/problem-type detection helpers.
-- `column_utils.py`: column-role helpers (identifier detection, etc.).
-- `hitl_interface.py`: human-in-the-loop interaction abstraction.
-- `intelligent_feature_analysis.py`: feature signal/quality analysis.
-- `intelligent_summarization.py`: reflexion summary generation and sanitization.
-- `llm_output_logger.py`: structured logging for LLM decisions/outputs.
-- `model_cache.py`: hash-based model caching and retrieval.
-- `prediction_analyzer.py`: prediction quality diagnostics for regression/classification.
-- `pretrained_model_store.py`: registry/bundle selection and inference utilities.
-- `reporting.py`: report/summary assembly utilities.
-- `schema_discovery.py`: schema profiling and dataset metadata extraction.
-- `synthetic_quality_analyzer.py`: synthetic vs source-data quality comparison.
-- `tool_decider.py`: deterministic tool/model decision rules.
+- `auto_detect.py`: Statistical problem-type and target column auto-detection.
+- `column_utils.py`: Identifier column identification and column-role utilities.
+- `hitl_interface.py`: CLI and Web Human-in-the-Loop abstractions.
+- `intelligent_feature_analysis.py`: Mutual information and feature signal profiling.
+- `intelligent_summarization.py`: Reflexion summary generation and sanitization.
+- `llm_output_logger.py`: Structured JSON logger for LLM decisions and traces.
+- `model_cache.py`: Hash-keyed model persistence and retrieval engine.
+- `prediction_analyzer.py`: Diagnostics for regression and classification predictions.
+- `pretrained_model_store.py`: Bundle registry loader and inference helpers.
+- `reporting.py`: Workflow report assembler and JSON snapshot exporter.
+- `schema_discovery.py`: Dataset profiling and column role inspection.
+- `synthetic_quality_analyzer.py`: Statistical fidelity comparison for synthetic data.
+- `tool_decider.py`: Deterministic preprocessing and model family selection rules.
 
 ### `webapp/`
-- `__init__.py`: package initializer.
-- `app.py`: FastAPI app (dataset APIs, run APIs, synthetic generation APIs).
-- `run_manager.py`: background run state machine, artifacts, synthetic generation orchestration.
-- `static/app.js`: frontend behavior and API polling.
-- `static/app.css`: UI styling.
-- `templates/index.html`: web interface template.
+- `app.py`: FastAPI web server with dataset, execution, artifact, and synthetic data REST APIs.
+- `run_manager.py`: Background thread execution worker, state machine, and artifact storage manager.
+- `static/app.js`: Frontend state management, REST API polling, and UI rendering logic.
+- `static/app.css`: UI styling and responsive layouts.
+- `templates/index.html`: Web interface HTML template.
 
 ### `scripts/`
-- `run_local_app.py`: starts uvicorn local server for web app.
-- `generate_synthetic_data_and_infer.py`: synthetic data generation and inference workflow script.
-- `test_complete_flow.py`: end-to-end functional validation script.
+- `run_local_app.py`: Launches the local FastAPI/Uvicorn web application server.
+- `generate_synthetic_data_and_infer.py`: CLI synthetic telemetry generator and evaluation script.
+- `test_complete_flow.py`: End-to-end functional validation test suite.
 
 ### `training/`
-- `offline_model_training.ipynb`: notebook for exporting pretrained bundles.
-- `synthetic_data_inference_analysis.ipynb`: notebook for synthetic inference analysis.
-- `train_and_export_pretrained.py`: script for training/export workflows.
-- `artifacts/`: training-produced outputs (model binaries/metadata if generated there).
+- `train_and_export_pretrained.py`: Script for training and exporting supervised `.joblib` bundles.
+- `offline_model_training.ipynb`: Jupyter notebook for model exploration and bundle export.
+- `synthetic_data_inference_analysis.ipynb`: Analysis notebook for evaluating synthetic generalization.
 
 ### `data/`
-- `smart_manufacturing_data.csv`: dataset variant for experiments.
-- `smart_manufacturing_dataset.csv`: dataset variant for supervised tasks.
-- `digital_manufacturing_dataset.csv`: additional dataset variant.
-- `Intelligent Manufacturing Dataset/`: source dataset folder.
-- `Smart Manufacturing Maintenance Dataset/`: source maintenance dataset folder.
-- `superconductivty+data/`: auxiliary dataset folder.
+- `smart_manufacturing_data.csv`: Source dataset for manufacturing operations.
+- `smart_manufacturing_dataset.csv`: Supervised dataset for failure probability & maintenance tasks.
+- `digital_manufacturing_dataset.csv`: Auxiliary manufacturing telemetry dataset.
+- `Intelligent Manufacturing Dataset/`: Source dataset folder (6G manufacturing).
+- `Smart Manufacturing Maintenance Dataset/`: Source maintenance dataset folder.
+- `superconductivty+data/`: Auxiliary benchmarking dataset.
 
 ### `artifacts/`
-- `pretrained_models/`: model bundle files and `registry.json` for inference-only mode.
-- `web_uploads/`: user-uploaded datasets from web app.
-- `web_synthetic/`: generated synthetic datasets from web UI/API.
-- `web_runs/`: per-run state/output snapshots for local app pipeline runs.
+- `pretrained_models/`: Pretrained model bundles (`.joblib`) and `registry.json`.
+- `web_uploads/`: Datasets uploaded by operators via the Web GUI.
+- `web_synthetic/`: Synthetic datasets generated via the Web GUI or API.
+- `web_runs/`: Per-run execution state snapshots, dataset previews, and output logs.
 
-### Runtime/Cache Directories
-- `logs/` (inside project): run logs and audit traces.
-- `model_cache/`: cached model artifacts keyed by dataset/features/problem config.
+### `model_cache/`
+- Auto-generated directory storing serialized `.joblib` model fits keyed by configuration hash.
 
-## 4. Component-Level Behavior
+---
 
-### LLM/SLM Responsibilities
-- Cloud LLM (Gemini): primary planner and/or final summary generation.
-- Local SLM (`qwen3:4b` via Ollama): retained for specific local decision paths and fallback summary path.
-- Deterministic rule system: used heavily to reduce hallucination risk in orchestration.
+## 4. Intelligence Hierarchy & SLM Reduction
 
-### Summary Generation Stack
-- Primary: cloud reflexion loop (`draft -> critique -> revise`).
-- Fallback: local reflexion through local model adapter.
-- Final fallback: rule-based plain-text summary.
-- Sanitization removes reasoning tags and keeps only user-visible summary content.
+- **Tier 1 (Cloud LLM - Gemini 2.5 Flash)**: Strategic planning and Reflexion narrative summary generation.
+- **Tier 2 (Local SLM - Qwen3:4B via Ollama/LlamaCpp)**: Tactical anomaly detection parameter optimization at the edge.
+- **Tier 3 (Deterministic ToolDecider)**: Preprocessing strategy and model family selection.
 
-### HITL (Human In The Loop)
-- Used when confidence or configuration ambiguity is high.
-- Can be auto-approved via CLI flags for unattended runs.
-
-## 5. What Is Stored Where
-- Input datasets: `data/` and uploaded files in `artifacts/web_uploads/`.
-- Synthetic datasets: `artifacts/web_synthetic/`.
-- Pretrained bundles/registry: `artifacts/pretrained_models/`.
-- Live run state and outputs for web sessions: `artifacts/web_runs/`.
-- Cache of model fits: `model_cache/`.
-- Logs/audit traces: `logs/` (project-level and workspace-level usage).
-
-## 6. Notes on Current Repository State
-This summary reflects the current cleaned repository after removing redundant docs/checkpoint artifacts. The retained documentation files are:
-- `README.md`
-- `QUICKSTART.md`
-- `SYNTHETIC_DATA_GUIDE.md`
-- `Repo Summary.md`
+**SLM Reduction Rationale**:
+- SLM 1 (Perception): Replaced by deterministic pandas dtype discovery + schema analysis.
+- SLM 2 (Preprocessing): Replaced by deterministic `ToolDecider` rules.
+- SLM 3a (Model Selection): Replaced by `ToolDecider` decision tables.
+- SLM 3b (Anomaly Parameters): **Retained** for multi-signal contamination trade-offs.
+- SLM 4 (Summarization): Handled by Cloud LLM Reflexion loop with local SLM / plain-text fallbacks.

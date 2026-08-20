@@ -1,94 +1,157 @@
-# Architecture and Workflow
+﻿# Architecture and Workflow Specification
 
-## Three-Tier Intelligence Hierarchy
+## 1. System Overview
+
+The **Smart Manufacturing Multi-Agent System (MAS)** is an autonomous, closed-loop prescriptive maintenance platform for smart industrial operations. It combines deterministic multi-agent machine learning pipelines with learned ranking algorithms, local feature explainability, and an autonomous execution state machine.
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│  TIER 1 — Cloud LLM (Gemini 2.5-Flash)                             │
-│  Strategic Orchestration OR Reflexion Summary                       │
-│  • Reasons about full workflow state                                │
-│  • Chain-of-thought planning and error recovery (LLM mode)         │
-│  • OR: interprets structured results via Reflexion (rules-first)   │
-├─────────────────────────────────────────────────────────────────────┤
-│  TIER 2 — Local SLM (Qwen3:4B via Ollama / LlamaCpp)              │
-│  Tactical Edge Inference — ONE position retained                    │
-│  • SLM 3b only: suggests IsolationForest contamination param       │
-│  • Runs on factory edge node — no cloud dependency for this call   │
-│  • HITL gate immediately follows; sklearn fallback if unavailable  │
-├─────────────────────────────────────────────────────────────────────┤
-│  TIER 3 — Rule-Based ToolDecider                                    │
-│  Deterministic Decisions — zero latency, zero hallucination risk   │
-│  • Imputer choice (KNN vs SimpleImputer based on missing %)        │
-│  • Scaler choice (Robust vs Standard based on dataset size)        │
-│  • Model family selection (3 tasks × 5 families = 15 outcomes)    │
-└─────────────────────────────────────────────────────────────────────┘
+[Telemetry Ingestion] ──► [Dynamic Analysis] ──► [Learned Recommender (LGBMRanker + CF)]
+        ▲                                                    │
+        │                                                    ▼
+[State & Outcome Feedback] ◄── [Automated Action Execution] ◄── [Explainability Layer (SHAP + CBR)]
 ```
 
-## Five Agent Layers
+---
 
-1. **DataLoaderAgent** — CSV ingestion, schema discovery, data quality report.
-2. **PreprocessingAgent** — typing, feature analysis, sklearn pipeline, optional PCA.
-3. **DynamicAnalysisAgent** — model selection, training, adaptive retry, model cache.
-4. **OptimizationAgent** — priority scoring, prescriptive recommendations.
-5. **LLMPlannerAgent / RulesFirstPlannerAgent** — orchestration layer.
+## 2. Evolution: Last Semester (Sem 6) vs. This Semester (Sem 7)
 
-## Two Orchestration Modes
+| Dimension | Last Semester (Sem 6) | Proposed This Semester (Sem 7 Pivot) |
+| :--- | :--- | :--- |
+| **System Loop** | **Open-loop** (terminates at advisory CSV/JSON report) | **Closed-loop** (Prediction $\rightarrow$ Ranking $\rightarrow$ Simulated Execution $\rightarrow$ Feedback) |
+| **Operator Involvement** | **Heavy HITL gates** at every pipeline stage | **Autonomous execution** with automated safety fallbacks |
+| **Action Generation** | Static heuristic rules & keyword matching (`_action_plan_from_score`) | **Learned Recommender** (`LGBMRanker` + Collaborative Filtering) |
+| **Cross-Asset Signal** | None (assets scored individually) | **Cosine similarity** over multi-sensor archetypes |
+| **Action Justification** | Generic canned template strings | **Dual-pillar explainability** (Local `TreeSHAP` + Case-Based Reasoning) |
+| **Evaluation Metrics** | Standard ML metrics ($R^2$, Accuracy, MSE) | **RecSys & Economic metrics** ($\text{NDCG@k}$, $\text{Precision@k}$, Net Cost-Saved) |
 
-### LLM Mode (original)
+---
+
+## 3. Three-Tier Intelligence Hierarchy
+
 ```
-User → LLMPlannerAgent.run_workflow_with_llm()
-         ↓ (each step)
-       Gemini decides tool → execute → update context → repeat
-         ↓ (after all steps)
-       IntelligentSummarizer (Reflexion loop)
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  TIER 1 — Cloud LLM (Gemini 2.5-Flash)                                     │
+│  Strategic Orchestration OR Reflexion Summary                               │
+│  • Reasons about complete workflow state                                    │
+│  • Reflexion loop: Draft → Self-Critique → Revised Narrative Summary        │
+│  • Generates human-auditable executive reports from structured outputs      │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  TIER 2 — Local SLM (Qwen3:4B via Ollama / LlamaCpp)                      │
+│  Tactical Edge Parameter Optimization (Retained Position)                   │
+│  • Analyzes outlier fractions and feature distributions at the edge         │
+│  • Recommends IsolationForest contamination and estimator parameters        │
+│  • Zero cloud dependency for factory edge deployment                        │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  TIER 3 — Rule-Based ToolDecider                                            │
+│  Deterministic Decisions — Zero Latency, Zero Hallucination Risk           │
+│  • Missing value imputation strategy (SimpleImputer vs. KNNImputer)         │
+│  • Numerical scaling strategy (StandardScaler vs. RobustScaler)             │
+│  • Initial model family dispatch (Linear, Tree-based, SVM, Ensemble)        │
+└─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### Rules-First Mode (NEW — Proposed Next Architecture)
+---
+
+## 4. Core Autonomous Closed-Loop Components
+
+### A. Collaborative-Filtering-Augmented Learned Recommender
+Replaces static if-else keyword heuristics with a learning-to-rank engine:
+1. **Query Formulation**: Predictions and telemetry states are grouped per asset incident as queries $q = (\text{Machine\_ID}, t)$.
+2. **Candidate Action Space**: Structured maintenance actions $\mathcal{A} = \{\text{Lubricate Bearing}, \text{Recalibrate Sensor}, \text{Throttle Workload}, \text{Replace Subcomponent}, \text{Emergency Shutdown}, \text{Monitor}\}$.
+3. **LambdaMART (`LGBMRanker`)**: Optimizes candidate ranking against historical relevance labels derived from net cost reduction and recovery time ($\text{NDCG@k}$).
+4. **Cross-Asset Collaborative Filtering**: Computes multi-sensor archetype cosine similarity $S(m_i, m_k) = \frac{\mathbf{v}_i \cdot \mathbf{v}_k}{\|\mathbf{v}_i\| \|\mathbf{v}_k\|}$ to transfer historical maintenance success rates from nearest peer machines.
+5. **Deterministic Cold-Start Fallback**: Zero-history assets automatically fall back to deterministic safety heuristics.
+
+---
+
+### B. Self-Explaining Interpretability Layer
+Audits autonomous decisions to prevent black-box failures:
+
 ```
-User → RulesFirstPlannerAgent.run_workflow()
-         ↓ Step 0: auto-detect problem type (HITL if confidence < 75%)
-         ↓ Step 1: DataLoaderAgent
-         ↓ Step 2: PreprocessingAgent (+ optional PCA)
-         ↓ Step 3: DynamicAnalysisAgent (+ model cache)
-         ↓ Step 4: OptimizationAgent + HITL review
-         ↓ Step 5: Gemini Reflexion summary (draft → critique → revise)
+                      ┌─────────────────────────────────────────┐
+                      │       Top-Ranked Action Candidate       │
+                      └────────────────────┬────────────────────┘
+                                           │
+                 ┌─────────────────────────┴─────────────────────────┐
+                 ▼                                                   ▼
+┌─────────────────────────────────┐                 ┌─────────────────────────────────┐
+│    1. Quantitative Feature      │                 │     2. Empirical Precedent      │
+│          Attribution            │                 │       (Case-Based CBR)          │
+│          (Local SHAP)           │                 │                                 │
+├─────────────────────────────────┤                 ├─────────────────────────────────┤
+│ • TreeSHAP on LGBMRanker        │                 │ • Multi-sensor cosine distance  │
+│ • Local feature contributions   │                 │ • Nearest neighbor recovery log │
+│ • Captures non-linear           │                 │ • Empirical success rate and    │
+│   interactions (Vibr. + Fails)  │                 │   downtime outcomes             │
+└────────────────┬────────────────┘                 └────────────────┬────────────────┘
+                 │                                                   │
+                 └─────────────────────────┬─────────────────────────┘
+                                           ▼
+                      ┌─────────────────────────────────────────┐
+                      │      LLM Reflexion Synthesis & Audit    │
+                      │     (Machine-readable + Human audit)    │
+                      └─────────────────────────────────────────┘
 ```
 
-## SLM Reduction Detail (4 → 1)
+*   **Quantitative Pillar (`TreeSHAP`)**: Calculates local Shapley values $\phi_i(x, a)$ for every sensor feature to explain non-linear compound risks (e.g. moderate vibration paired with high past failures).
+*   **Empirical Pillar (Case-Based Reasoning)**: Retrieves the top-$K$ most similar historical incidents across peer assets to provide real-world precedents (*"In 3 historical incidents with similar vibration/duty-cycle profiles, executing Action X restored nominal efficiency in 3.5 hours"*).
+*   **Reflexion Synthesis**: Formats SHAP attributions and CBR precedents into auditable compliance summaries.
 
-| Position | Task | Status | Replacement |
-|----------|------|--------|-------------|
-| SLM 1 | Perception / schema discovery | ELIMINATED | pandas dtypes + HITL operator selection |
-| SLM 2 | Preprocessing strategy | ELIMINATED | ToolDecider if-else rules |
-| SLM 3a | Model family selection | ELIMINATED | ToolDecider rule table |
-| SLM 3b | Anomaly params (contamination) | **RETAINED** | irreplaceable: multi-signal interaction |
-| SLM 4 | Narrative summary | ELIMINATED | Cloud LLM Reflexion loop |
+---
 
-### Why SLM 3b is the only irreplaceable position
+### C. Autonomous Execution State Machine Engine
 
-`contamination` depends on a multi-signal interaction: outlier fraction + feature distribution shape + FP vs FN trade-off. Two datasets with identical outlier percentages may need very different values — a scalar if-else rule cannot generalise. The SLM provides an auditable `reason` field the operator can read and challenge. Output is bounded: contamination clipped to [0.001, 0.2], n_estimators floored at 50. A HITL gate immediately follows before IsolationForest runs.
+```mermaid
+stateDiagram-v2
+    [*] --> IDLE
+    IDLE --> ACTION_TRIGGERED: Telemetry Anomaly / Ranker Output
+    
+    ACTION_TRIGGERED --> POLICY_VALIDATION: Evaluate Action Candidate
+    
+    POLICY_VALIDATION --> DISPATCHED: Confidence >= Threshold & Safe Bounds
+    POLICY_VALIDATION --> ESCALATED: Policy Breach / Ambiguous Score (Fallback Rule)
+    
+    DISPATCHED --> EXECUTING: Send Signal (PLC / Actuator / Work Order)
+    
+    EXECUTING --> VERIFYING_RECOVERY: Observation Window (t to t+H)
+    
+    VERIFYING_RECOVERY --> COMPLETED: Delta Recovery >= Target (Nominal Restored)
+    VERIFYING_RECOVERY --> ESCALATED: Degradation Continues / Timeout
+    
+    COMPLETED --> FEEDBACK_LOGGED: Record (s, a, r, s') to Asset History
+    ESCALATED --> FEEDBACK_LOGGED: Record Failed Recovery / Incident Log
+    
+    FEEDBACK_LOGGED --> IDLE: Loop Back / Dynamic Model Adaptation
+```
 
-## Adaptive Intelligence
+1. **Policy Validation**: Verifies candidate actions against operational constraints, downtime limits, and confidence thresholds ($\tau_{\text{exec}}$).
+2. **Action Dispatch**: Programmatically dispatches control adjustments or generates automated maintenance tickets.
+3. **Recovery Verification**: Monitors telemetry over observation horizon $H$ and computes physical delta recovery:
+   $$\Delta \text{Recovery} = \|\mathbf{x}_{t} - \mathbf{x}_{\text{nominal}}\| - \|\mathbf{x}_{t+H} - \mathbf{x}_{\text{nominal}}\|$$
+4. **Closed-Loop Feedback Store**: Persists state-action-reward transition tuples $(s_t, a_t, r_t, s_{t+1})$ to update ranker models and collaborative filtering weights dynamically.
 
-Triggered when initial model performance falls below threshold:
-- Classification: accuracy < 0.60
-- Regression: R² < 0.10
+---
 
-The Analysis Agent systematically tries all model families, records all outcomes, and selects the best-performing configuration. All runs are logged for traceability and cumulative learning.
+## 5. Web Application Architecture (`webapp/`)
 
-## Model Cache (New)
+```
+Browser UI (Vanilla JS) ◄── Polling (/api/run/{id}) ──► FastAPI Backend (app.py)
+                                                              │
+                                                              ▼
+                                                     RunManager Worker Thread
+                                                              │
+                    ┌─────────────────────────────────────────┼─────────────────────────────────────────┐
+                    ▼                                         ▼                                         ▼
+            DataLoaderAgent                           DynamicAnalysisAgent                      OptimizationAgent
+          (Schema & Profiling)                     (Pretrained / Live Models)                (Ranking & Explainability)
+                    │                                         │                                         │
+                    └─────────────────────────────────────────┴─────────────────────────────────────────┘
+                                                              │
+                                                              ▼
+                                                   Artifacts & State Files
+                                                   (artifacts/web_runs/{id})
+```
 
-Cache key = SHA-256(dataset_basename + sorted_features + target + problem_type)[:16]
-
-- Same column set + same dataset → **cache HIT** → instant load.
-- Different column set → **cache MISS** → fresh train + save.
-- Moving the project directory does not invalidate the cache (basename only used).
-
-## Reflexion Loop (Cloud LLM)
-
-Based on Shinn et al. 2023. Three LLM calls, same model:
-1. **Draft**: generate narrative summary from structured context.
-2. **Critique**: identify inaccuracies or missing numbers vs. actual metrics.
-3. **Revise**: apply critique, produce final ≤200-word summary.
-
-Cost: 3 additional API turns (not local inference). No new model dependency.
+*   **`webapp/app.py`**: REST API endpoints for dataset uploads, run creation, status polling, synthetic data generation, and artifact streaming.
+*   **`webapp/run_manager.py`**: Threaded execution state machine managing pipeline progress, log capture, and JSON state persistence.
+*   **`webapp/static/app.js`**: Reactive frontend with dynamic stage indicators, result cards, and artifact downloads.
