@@ -28,6 +28,8 @@ logs/*.txt
 model_cache/*
 artifacts/*
 training/artifacts/*
+outputs/phase1/
+.phase1_deps/
 
 # Data files (add your CSV datasets manually)
 data/**/*.csv

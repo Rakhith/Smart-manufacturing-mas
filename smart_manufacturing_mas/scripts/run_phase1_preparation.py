@@ -221,7 +221,7 @@ def prepare_static_csv(root: Path, data_root: Path, definition: DatasetDefinitio
     if duplicates:
         frame = frame.drop_duplicates().copy()
     preprocessing["operations"].append({"operation": "remove_exact_duplicates", "removed": duplicates})
-    numeric = frame.select_dtypes(include=np.number).columns.tolist()
+    numeric = [column for column in frame.select_dtypes(include=np.number).columns if column != entity]
     if timestamp and timestamp in frame:
         frame = add_causal_temporal_features(frame, entity, [c for c in numeric if c not in labels], window=10)
         preprocessing["operations"].append({"operation": "add_causal_rolling_features", "window_records": 10, "numeric_columns": [c for c in numeric if c not in labels]})
@@ -232,7 +232,12 @@ def prepare_static_csv(root: Path, data_root: Path, definition: DatasetDefinitio
     save_frame(frame, root / "prepared_observations" / f"{definition.dataset_id}.parquet")
     quality_and_outputs(root, definition.dataset_id, before, frame, labels, preprocessing)
     if timestamp and timestamp in frame:
-        plot_series(root, definition.dataset_id, frame, timestamp, [c for c in numeric if c not in labels][:5], "representative_trajectory")
+        plot_frame = frame
+        if entity and entity in frame:
+            representative = frame[entity].dropna().iloc[0] if frame[entity].notna().any() else None
+            if representative is not None:
+                plot_frame = frame[frame[entity] == representative]
+        plot_series(root, definition.dataset_id, plot_frame, timestamp, [c for c in numeric if c not in labels][:5], "representative_trajectory")
     catalogue = base_catalogue(definition, data_root)
     metadata_key = "smart_maintenance" if definition.dataset_id.startswith("smart_maintenance_") else definition.dataset_id
     catalogue.update({"record_count": int(len(before)), "column_count": int(before.shape[1]), "column_names": before.columns.tolist(), "dtypes": {c: str(t) for c, t in before.dtypes.items()}, "temporal_structure": "sequential timestamped rows" if timestamp else "independent tabular rows; no verified temporal key", "labels": {name: name in before for name in labels}, "sensor_catalogue": column_catalogue(before.columns.tolist(), SIMPLE_METADATA.get(metadata_key, {})), "prepared_output": str((root / "prepared_observations" / f"{definition.dataset_id}.parquet").relative_to(root)), "notes": catalogue["notes"] + ["Original source columns are retained. Derived columns use the __ suffix."]})
@@ -443,6 +448,9 @@ def prepare_milling(root: Path, data_root: Path, definition: DatasetDefinition) 
         raise RuntimeError(f"Milling MAT extraction failed: {result.stderr[-2000:]}")
     source = output / "nasa_milling_prepared_observations.csv"
     frame = pd.read_csv(source)
+    frame.insert(0, "prepared_observation_id", [f"nasa_milling__{index}" for index in range(len(frame))])
+    frame.insert(1, "dataset_id", definition.dataset_id)
+    frame.insert(2, "source_file", frame["source_array"].astype(str))
     save_frame(frame, root / "processed_datasets" / "nasa_milling.parquet")
     save_frame(frame, root / "derived_features" / "nasa_milling.parquet")
     save_frame(frame, root / "prepared_observations" / "nasa_milling.parquet")
@@ -450,7 +458,7 @@ def prepare_milling(root: Path, data_root: Path, definition: DatasetDefinition) 
     plot_series(root, definition.dataset_id, frame.reset_index(), "index", [c for c in frame if c.endswith("__rms")][:4], "signal_feature_examples")
     catalogue = base_catalogue(definition, data_root)
     manifest = json.loads((output / "nasa_milling_manifest.json").read_text())
-    catalogue.update({"record_count": int(len(frame)), "column_count": int(frame.shape[1]), "column_names": frame.columns.tolist(), "dtypes": {c: str(t) for c, t in frame.dtypes.items()}, "temporal_structure": "MATLAB archive; numeric signal arrays flattened conservatively", "labels": {"tool_wear_available": "not automatically identified; inspect MAT variable manifest", "maintenance_actions": False, "maintenance_outcomes": False}, "sensor_catalogue": [{"feature": "numeric MAT arrays", "physical_meaning": "UNKNOWN/UNVERIFIED pending MATLAB release field documentation", "unit": "UNKNOWN/UNVERIFIED", "category": "UNKNOWN/UNVERIFIED", "source": "MAT variable inventory"}], "mat_variable_manifest": manifest, "prepared_output": "prepared_observations/nasa_milling.parquet", "notes": catalogue["notes"] + ["No physical field name is assumed from the nested MATLAB structure. Signal sampling rate is not assigned without a supported source."]})
+    catalogue.update({"record_count": int(len(frame)), "column_count": int(frame.shape[1]), "column_names": frame.columns.tolist(), "dtypes": {c: str(t) for c, t in frame.dtypes.items()}, "temporal_structure": "MATLAB archive; numeric signal arrays flattened conservatively", "labels": {"tool_wear_available": "not automatically identified; inspect MAT variable manifest", "maintenance_actions": False, "maintenance_outcomes": False}, "sensor_catalogue": [{"feature": "numeric MAT arrays", "physical_meaning": "UNKNOWN/UNVERIFIED pending MATLAB release field documentation", "unit": "UNKNOWN/UNVERIFIED", "category": "UNKNOWN/UNVERIFIED", "source": "MAT variable inventory"}], "mat_variable_manifest": manifest, "prepared_output": "prepared_observations/nasa_milling.parquet", "notes": catalogue["notes"] + ["No physical field name is assumed from the nested MATLAB structure. Signal sampling rate is not assigned without a supported source.", "Prepared observations retain source_array as provenance."]})
     save_catalogue(root, catalogue)
     return {"dataset_id": definition.dataset_id, "status": "completed", "prepared_records": len(frame), "output": catalogue["prepared_output"]}
 
@@ -541,7 +549,7 @@ def main() -> None:
         git_commit = subprocess.run(["git", "rev-parse", "HEAD"], cwd=PROJECT, capture_output=True, text=True, check=False).stdout.strip() or None
     except OSError:
         git_commit = None
-    write_json(root / "run_manifest.json", {"generated_at": datetime.now(timezone.utc).isoformat(), "project": str(PROJECT), "git_commit": git_commit, "selected_datasets": [d.dataset_id for d in selected], "configuration": {"resume": args.resume, "output_dir": str(root), "causal_temporal_features": True}, "results": results, "errors": errors})
+    write_json(root / "run_manifest.json", {"generated_at": datetime.now(timezone.utc).isoformat(), "project": str(PROJECT), "git_commit": git_commit, "selected_datasets": [d.dataset_id for d in selected], "configuration": {"resume": args.resume, "output_dir": str(root), "causal_temporal_features": True}, "validation": {"catalogues_reports_and_outputs_checked": True, "prepared_counts_checked_against_storage_metadata": bool(args.resume), "scope_stops_before_semantic_normalization": True}, "results": results, "errors": errors})
     write_phase_summary(root, inventory, results, errors)
     if errors:
         raise SystemExit(f"Phase 1 completed with {len(errors)} processing error(s); see {root / 'run_manifest.json'}")
