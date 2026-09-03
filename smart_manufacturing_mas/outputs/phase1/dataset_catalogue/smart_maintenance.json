@@ -1,0 +1,42 @@
+{
+  "dataset_id": "smart_maintenance",
+  "name": "Smart Manufacturing Maintenance",
+  "source_path": "Smart Manufacturing Maintenance Dataset",
+  "domain": "factory maintenance",
+  "asset_type": "machine fleet",
+  "component": "unknown",
+  "processing_type": "mixed_tabular_time_series",
+  "format": "CSV",
+  "status": "active",
+  "file_count": 2,
+  "size_bytes": 7405867,
+  "notes": [
+    "The two variants are prepared separately and must not be merged in Phase 1."
+  ],
+  "source_manifest": [
+    {
+      "path": "Smart Manufacturing Maintenance Dataset/smart_maintenance_dataset.csv",
+      "bytes": 138361,
+      "sha256": "c71bb6c49d96db1cff48a8e849df9287b0374956af89e3122886a9f0a8d5f091"
+    },
+    {
+      "path": "Smart Manufacturing Maintenance Dataset/smart_manufacturing_data.csv",
+      "bytes": 7267506,
+      "sha256": "f0f7fc4efc48fef26e5396443e8bd19d8fc7760d8dc6513cdf3840079d686473"
+    }
+  ],
+  "labels": {
+    "maintenance_priority": true,
+    "anomaly": true,
+    "failure_type": true,
+    "maintenance_required": true
+  },
+  "sensor_catalogue": [],
+  "record_count": 101430,
+  "column_count": "two source variants; see child catalogues",
+  "temporal_structure": "one static condition table and one timestamped machine table",
+  "prepared_output": [
+    "prepared_observations/smart_maintenance_static.parquet",
+    "prepared_observations/smart_maintenance_timeseries.parquet"
+  ]
+}

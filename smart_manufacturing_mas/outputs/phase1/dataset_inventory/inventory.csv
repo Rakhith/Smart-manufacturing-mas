@@ -1,0 +1,12 @@
+dataset_id,name,relative_path,file_count,size_bytes,formats_present,processing_type,status,exists
+ai4i_2020,AI4I 2020,ai4i2020.csv,1,522048,['CSV'],static_tabular,active,True
+cmapss,NASA C-MAPSS,CMAPSSData,14,45349906,['space-delimited text'],run_to_failure,active,True
+smart_maintenance,Smart Manufacturing Maintenance,Smart Manufacturing Maintenance Dataset,2,7405867,['CSV'],mixed_tabular_time_series,active,True
+iiot_6g,Intelligent Manufacturing 6G,Intelligent Manufacturing Dataset/manufacturing_6G_dataset.csv,1,20173052,['CSV'],low_frequency_time_series,active,True
+nasa_milling,NASA Milling Tool Wear,NASA Milling Tool Wear/3. Milling/mill.zip,1,15140674,['ZIP/MATLAB'],run_to_failure_signal,active,True
+metropt3,UCI MetroPT-3,UCI MetroPT-3/MetroPT3(AirCompressor).csv,1,218300507,['CSV'],low_frequency_time_series,active,True
+uci_hydraulic,UCI Hydraulic Systems,UCI Hydraulic Systems,21,556266030,['tab-delimited matrices'],multirate_cycle_signal,active,True
+tennessee_eastman,Tennessee Eastman Process,Tennessee Eastman Process,4,566068874,['RData'],multivariate_process_time_series,active,True
+nasa_ims,NASA IMS Bearings,NASA IMS Bearings,3142,3022786160,['ASCII waveform files'],high_frequency_signal,active,True
+metal_etch,Metal Etch,metal_etch_data.csv,1,1447692,['CSV'],static_tabular,active,True
+digital_manufacturing_deprecated,Digital Manufacturing (deprecated),_deprecated/digital_manufacturing_dataset.csv,1,2016929,['CSV'],static_tabular,deprecated,True

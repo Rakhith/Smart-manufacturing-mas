@@ -1,0 +1,35 @@
+{
+  "dataset_id": "iiot_6g",
+  "operations": [
+    {
+      "operation": "parse_timestamp",
+      "column": "Timestamp",
+      "invalid_to_missing": 0
+    },
+    {
+      "operation": "remove_exact_duplicates",
+      "removed": 0
+    },
+    {
+      "operation": "add_causal_rolling_features",
+      "window_records": 10,
+      "numeric_columns": [
+        "Temperature_C",
+        "Vibration_Hz",
+        "Power_Consumption_kW",
+        "Network_Latency_ms",
+        "Packet_Loss_%",
+        "Quality_Control_Defect_Rate_%",
+        "Production_Speed_units_per_hr",
+        "Predictive_Maintenance_Score",
+        "Error_Rate_%"
+      ]
+    }
+  ],
+  "removed_records": 0,
+  "columns_changed": [],
+  "records_before": 100000,
+  "records_after": 100000,
+  "columns_before": 13,
+  "columns_after": 51
+}

@@ -1,0 +1,235 @@
+{
+  "dataset_id": "metal_etch",
+  "name": "Metal Etch",
+  "source_path": "metal_etch_data.csv",
+  "domain": "unverified",
+  "asset_type": "unknown",
+  "component": "unknown",
+  "processing_type": "static_tabular",
+  "format": "CSV",
+  "status": "active",
+  "file_count": 1,
+  "size_bytes": 1447692,
+  "notes": [
+    "Anonymous features; physical meanings and units are unverified.",
+    "Original source columns are retained. Derived columns use the __ suffix."
+  ],
+  "source_manifest": [
+    {
+      "path": "metal_etch_data.csv",
+      "bytes": 1447692,
+      "sha256": "af8d46a2cdd67cbac62ea4b4951e9a34e55c6f7984c645dec163e777cfd56147"
+    }
+  ],
+  "labels": {
+    "Target": true
+  },
+  "sensor_catalogue": [
+    {
+      "feature": "Feature_1",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Feature_2",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Feature_3",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Feature_4",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Feature_5",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Feature_6",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Feature_7",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Feature_8",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Feature_9",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Feature_10",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Feature_11",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Feature_12",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Feature_13",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Feature_14",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Feature_15",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Feature_16",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Feature_17",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Feature_18",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Feature_19",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Feature_20",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Feature_21",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Target",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    }
+  ],
+  "record_count": 10770,
+  "column_count": 22,
+  "column_names": [
+    "Feature_1",
+    "Feature_2",
+    "Feature_3",
+    "Feature_4",
+    "Feature_5",
+    "Feature_6",
+    "Feature_7",
+    "Feature_8",
+    "Feature_9",
+    "Feature_10",
+    "Feature_11",
+    "Feature_12",
+    "Feature_13",
+    "Feature_14",
+    "Feature_15",
+    "Feature_16",
+    "Feature_17",
+    "Feature_18",
+    "Feature_19",
+    "Feature_20",
+    "Feature_21",
+    "Target"
+  ],
+  "dtypes": {
+    "Feature_1": "float64",
+    "Feature_2": "float64",
+    "Feature_3": "float64",
+    "Feature_4": "float64",
+    "Feature_5": "float64",
+    "Feature_6": "float64",
+    "Feature_7": "float64",
+    "Feature_8": "float64",
+    "Feature_9": "float64",
+    "Feature_10": "float64",
+    "Feature_11": "float64",
+    "Feature_12": "float64",
+    "Feature_13": "float64",
+    "Feature_14": "float64",
+    "Feature_15": "float64",
+    "Feature_16": "float64",
+    "Feature_17": "float64",
+    "Feature_18": "float64",
+    "Feature_19": "float64",
+    "Feature_20": "float64",
+    "Feature_21": "float64",
+    "Target": "int64"
+  },
+  "temporal_structure": "independent tabular rows; no verified temporal key",
+  "prepared_output": "prepared_observations/metal_etch.parquet"
+}

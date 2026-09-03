@@ -1,0 +1,166 @@
+{
+  "dataset_id": "metropt3",
+  "name": "UCI MetroPT-3",
+  "source_path": "UCI MetroPT-3/MetroPT3(AirCompressor).csv",
+  "domain": "railway pneumatics",
+  "asset_type": "air production unit",
+  "component": "compressor",
+  "processing_type": "low_frequency_time_series",
+  "format": "CSV",
+  "status": "active",
+  "file_count": 1,
+  "size_bytes": 218300507,
+  "notes": [
+    "One-minute windows are used to keep Phase 1 artifacts tractable; raw 1 Hz records remain untouched.",
+    "Failure reports in the PDF are not expanded into row-level labels in this phase."
+  ],
+  "source_manifest": [
+    {
+      "path": "UCI MetroPT-3/MetroPT3(AirCompressor).csv",
+      "bytes": 218300507,
+      "sha256": null
+    }
+  ],
+  "labels": {
+    "failure_reports_documented": true,
+    "row_level_failure_label": false,
+    "maintenance_actions": false,
+    "maintenance_outcomes": false
+  },
+  "sensor_catalogue": [
+    {
+      "feature": "timestamp",
+      "physical_meaning": "timestamp",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "metadata/identifier",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "TP2",
+      "physical_meaning": "compressor pressure",
+      "unit": "bar",
+      "category": "hydraulic/fluid",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "TP3",
+      "physical_meaning": "pneumatic panel pressure",
+      "unit": "bar",
+      "category": "hydraulic/fluid",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "H1",
+      "physical_meaning": "cyclonic separator pressure drop",
+      "unit": "bar",
+      "category": "hydraulic/fluid",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "DV_pressure",
+      "physical_meaning": "air-dryer discharge pressure drop",
+      "unit": "bar",
+      "category": "hydraulic/fluid",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Reservoirs",
+      "physical_meaning": "downstream reservoir pressure",
+      "unit": "bar",
+      "category": "hydraulic/fluid",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Oil_temperature",
+      "physical_meaning": "compressor oil temperature",
+      "unit": "C",
+      "category": "thermal",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Motor_current",
+      "physical_meaning": "single motor-phase current",
+      "unit": "A",
+      "category": "electrical",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "COMP",
+      "physical_meaning": "digital compressor/air-dryer/flow signal",
+      "unit": "binary/count; see MetroPT-3 documentation",
+      "category": "operating context",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "DV_eletric",
+      "physical_meaning": "digital compressor/air-dryer/flow signal",
+      "unit": "binary/count; see MetroPT-3 documentation",
+      "category": "operating context",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Towers",
+      "physical_meaning": "digital compressor/air-dryer/flow signal",
+      "unit": "binary/count; see MetroPT-3 documentation",
+      "category": "operating context",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "MPG",
+      "physical_meaning": "digital compressor/air-dryer/flow signal",
+      "unit": "binary/count; see MetroPT-3 documentation",
+      "category": "operating context",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "LPS",
+      "physical_meaning": "digital compressor/air-dryer/flow signal",
+      "unit": "binary/count; see MetroPT-3 documentation",
+      "category": "operating context",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Pressure_switch",
+      "physical_meaning": "digital compressor/air-dryer/flow signal",
+      "unit": "binary/count; see MetroPT-3 documentation",
+      "category": "operating context",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Oil_level",
+      "physical_meaning": "digital compressor/air-dryer/flow signal",
+      "unit": "binary/count; see MetroPT-3 documentation",
+      "category": "operating context",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Caudal_impulses",
+      "physical_meaning": "digital compressor/air-dryer/flow signal",
+      "unit": "binary/count; see MetroPT-3 documentation",
+      "category": "operating context",
+      "source": "dataset column name only"
+    }
+  ],
+  "record_count": 1516948,
+  "column_count": 17,
+  "column_names": [
+    "timestamp",
+    "TP2",
+    "TP3",
+    "H1",
+    "DV_pressure",
+    "Reservoirs",
+    "Oil_temperature",
+    "Motor_current",
+    "COMP",
+    "DV_eletric",
+    "Towers",
+    "MPG",
+    "LPS",
+    "Pressure_switch",
+    "Oil_level",
+    "Caudal_impulses"
+  ],
+  "temporal_structure": "1 Hz compressor multivariate time series",
+  "prepared_output": "prepared_observations/metropt3_minute_windows.parquet"
+}

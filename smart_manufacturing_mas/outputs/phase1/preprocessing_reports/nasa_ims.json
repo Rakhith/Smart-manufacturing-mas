@@ -1,0 +1,23 @@
+{
+  "dataset_id": "nasa_ims",
+  "operations": [
+    {
+      "operation": "read_ascii_vibration_snapshots",
+      "sampling_hz": 20000
+    },
+    {
+      "operation": "extract_time_and_frequency_domain_features"
+    },
+    {
+      "operation": "add_causal_snapshot_features",
+      "window_snapshots": 10
+    }
+  ],
+  "unreadable_files": [],
+  "removed_records": 0,
+  "columns_changed": [],
+  "records_before": 3140,
+  "records_after": 3140,
+  "columns_before": 1,
+  "columns_after": 105
+}

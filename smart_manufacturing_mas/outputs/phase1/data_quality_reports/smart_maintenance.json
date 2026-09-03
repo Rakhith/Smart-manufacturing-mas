@@ -1,0 +1,1073 @@
+{
+  "variants": [
+    {
+      "before": {
+        "records": 1430,
+        "columns": 10,
+        "duplicate_records": 0,
+        "missing_cells": 0,
+        "missing_by_column": {},
+        "constant_columns": [],
+        "infinite_numeric_values": 0,
+        "label_distribution": {
+          "Maintenance_Priority": {
+            "2": 1048,
+            "1": 308,
+            "3": 74
+          }
+        },
+        "columns_profile": [
+          {
+            "name": "Machine_ID",
+            "dtype": "str",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 10,
+            "constant": false
+          },
+          {
+            "name": "Temp_C",
+            "dtype": "float64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 1430,
+            "constant": false,
+            "min": 41.48389483095322,
+            "max": 109.958777896001,
+            "mean": 75.45775993128755,
+            "std": 9.95729879816733
+          },
+          {
+            "name": "Vibration_mm_s",
+            "dtype": "float64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 1430,
+            "constant": false,
+            "min": -0.8868137614883,
+            "max": 5.420752565885881,
+            "mean": 2.4929666834078366,
+            "std": 0.9937636726617611
+          },
+          {
+            "name": "Pressure_Bar",
+            "dtype": "float64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 1430,
+            "constant": false,
+            "min": 3.477035584459194,
+            "max": 7.026275061105978,
+            "mean": 5.006490024033493,
+            "std": 0.49371754539586515
+          },
+          {
+            "name": "Acoustic_dB",
+            "dtype": "float64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 1430,
+            "constant": false,
+            "min": 35.33095843127842,
+            "max": 97.9897953029466,
+            "mean": 70.16797303677912,
+            "std": 10.134302063632267
+          },
+          {
+            "name": "Inspection_Duration_min",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 120,
+            "constant": false,
+            "min": 30,
+            "max": 149,
+            "mean": 89.21748251748252,
+            "std": 34.830122205242034
+          },
+          {
+            "name": "Downtime_Cost_USD",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 1226,
+            "constant": false,
+            "min": 502,
+            "max": 4998,
+            "mean": 2718.5685314685315,
+            "std": 1296.4305074821875
+          },
+          {
+            "name": "Technician_Availability_pct",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 50,
+            "constant": false,
+            "min": 50,
+            "max": 99,
+            "mean": 74.43006993006993,
+            "std": 14.450429419985355
+          },
+          {
+            "name": "Failure_Prob",
+            "dtype": "float64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 34,
+            "constant": false,
+            "min": 0.31,
+            "max": 0.66,
+            "mean": 0.49196503496503496,
+            "std": 0.05689774661753074
+          },
+          {
+            "name": "Maintenance_Priority",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 3,
+            "constant": false,
+            "min": 1,
+            "max": 3,
+            "mean": 1.8363636363636364,
+            "std": 0.4904326726212797
+          }
+        ]
+      },
+      "after": {
+        "records": 1430,
+        "columns": 12,
+        "duplicate_records": 0,
+        "missing_cells": 0,
+        "missing_by_column": {},
+        "constant_columns": [
+          "dataset_id"
+        ],
+        "infinite_numeric_values": 0,
+        "label_distribution": {
+          "Maintenance_Priority": {
+            "2": 1048,
+            "1": 308,
+            "3": 74
+          }
+        },
+        "columns_profile": [
+          {
+            "name": "prepared_observation_id",
+            "dtype": "str",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 1430,
+            "constant": false
+          },
+          {
+            "name": "dataset_id",
+            "dtype": "str",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 1,
+            "constant": true
+          },
+          {
+            "name": "Machine_ID",
+            "dtype": "str",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 10,
+            "constant": false
+          },
+          {
+            "name": "Temp_C",
+            "dtype": "float64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 1430,
+            "constant": false,
+            "min": 41.48389483095322,
+            "max": 109.958777896001,
+            "mean": 75.45775993128755,
+            "std": 9.95729879816733
+          },
+          {
+            "name": "Vibration_mm_s",
+            "dtype": "float64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 1430,
+            "constant": false,
+            "min": -0.8868137614883,
+            "max": 5.420752565885881,
+            "mean": 2.4929666834078366,
+            "std": 0.9937636726617611
+          },
+          {
+            "name": "Pressure_Bar",
+            "dtype": "float64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 1430,
+            "constant": false,
+            "min": 3.477035584459194,
+            "max": 7.026275061105978,
+            "mean": 5.006490024033493,
+            "std": 0.49371754539586515
+          },
+          {
+            "name": "Acoustic_dB",
+            "dtype": "float64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 1430,
+            "constant": false,
+            "min": 35.33095843127842,
+            "max": 97.9897953029466,
+            "mean": 70.16797303677912,
+            "std": 10.134302063632267
+          },
+          {
+            "name": "Inspection_Duration_min",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 120,
+            "constant": false,
+            "min": 30,
+            "max": 149,
+            "mean": 89.21748251748252,
+            "std": 34.830122205242034
+          },
+          {
+            "name": "Downtime_Cost_USD",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 1226,
+            "constant": false,
+            "min": 502,
+            "max": 4998,
+            "mean": 2718.5685314685315,
+            "std": 1296.4305074821875
+          },
+          {
+            "name": "Technician_Availability_pct",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 50,
+            "constant": false,
+            "min": 50,
+            "max": 99,
+            "mean": 74.43006993006993,
+            "std": 14.450429419985355
+          },
+          {
+            "name": "Failure_Prob",
+            "dtype": "float64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 34,
+            "constant": false,
+            "min": 0.31,
+            "max": 0.66,
+            "mean": 0.49196503496503496,
+            "std": 0.05689774661753074
+          },
+          {
+            "name": "Maintenance_Priority",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 3,
+            "constant": false,
+            "min": 1,
+            "max": 3,
+            "mean": 1.8363636363636364,
+            "std": 0.4904326726212797
+          }
+        ]
+      }
+    },
+    {
+      "before": {
+        "records": 100000,
+        "columns": 13,
+        "duplicate_records": 0,
+        "missing_cells": 0,
+        "missing_by_column": {},
+        "constant_columns": [],
+        "infinite_numeric_values": 0,
+        "label_distribution": {
+          "anomaly_flag": {
+            "0": 91084,
+            "1": 8916
+          },
+          "failure_type": {
+            "Normal": 91899,
+            "Vibration Issue": 3129,
+            "Overheating": 1989,
+            "Pressure Drop": 1969,
+            "Electrical Fault": 1014
+          },
+          "maintenance_required": {
+            "0": 80303,
+            "1": 19697
+          }
+        },
+        "columns_profile": [
+          {
+            "name": "timestamp",
+            "dtype": "str",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 100000,
+            "constant": false
+          },
+          {
+            "name": "machine_id",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 50,
+            "constant": false,
+            "min": 1,
+            "max": 50,
+            "mean": 25.49933,
+            "std": 14.38943883932244
+          },
+          {
+            "name": "temperature",
+            "dtype": "float64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 5827,
+            "constant": false,
+            "min": 35.55,
+            "max": 121.94,
+            "mean": 75.015625,
+            "std": 10.03188390275333
+          },
+          {
+            "name": "vibration",
+            "dtype": "float64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 8221,
+            "constant": false,
+            "min": -17.09,
+            "max": 113.8,
+            "mean": 50.01227,
+            "std": 14.98544353285143
+          },
+          {
+            "name": "humidity",
+            "dtype": "float64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 5001,
+            "constant": false,
+            "min": 30.0,
+            "max": 80.0,
+            "mean": 54.995401400000006,
+            "std": 14.437959747336002
+          },
+          {
+            "name": "pressure",
+            "dtype": "float64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 401,
+            "constant": false,
+            "min": 1.0,
+            "max": 5.0,
+            "mean": 3.0004047,
+            "std": 1.1523991268025955
+          },
+          {
+            "name": "energy_consumption",
+            "dtype": "float64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 451,
+            "constant": false,
+            "min": 0.5,
+            "max": 5.0,
+            "mean": 2.7470643,
+            "std": 1.2978647468802447
+          },
+          {
+            "name": "machine_status",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 3,
+            "constant": false,
+            "min": 0,
+            "max": 2,
+            "mean": 1.00205,
+            "std": 0.4461925463047134
+          },
+          {
+            "name": "anomaly_flag",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 2,
+            "constant": false,
+            "min": 0,
+            "max": 1,
+            "mean": 0.08916,
+            "std": 0.2849759753261055
+          },
+          {
+            "name": "predicted_remaining_life",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 499,
+            "constant": false,
+            "min": 1,
+            "max": 499,
+            "mean": 234.26916,
+            "std": 150.06306208431315
+          },
+          {
+            "name": "failure_type",
+            "dtype": "str",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 5,
+            "constant": false
+          },
+          {
+            "name": "downtime_risk",
+            "dtype": "float64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 9,
+            "constant": false,
+            "min": 0.0,
+            "max": 1.0,
+            "mean": 0.0891552,
+            "std": 0.28496120497682387
+          },
+          {
+            "name": "maintenance_required",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 2,
+            "constant": false,
+            "min": 0,
+            "max": 1,
+            "mean": 0.19697,
+            "std": 0.3977114542529652
+          }
+        ]
+      },
+      "after": {
+        "records": 100000,
+        "columns": 47,
+        "duplicate_records": 0,
+        "missing_cells": 1200,
+        "missing_by_column": {
+          "temperature__rolling_std_10": 50,
+          "temperature__delta_1": 50,
+          "temperature__slope_10": 50,
+          "vibration__rolling_std_10": 50,
+          "vibration__delta_1": 50,
+          "vibration__slope_10": 50,
+          "humidity__rolling_std_10": 50,
+          "humidity__delta_1": 50,
+          "humidity__slope_10": 50,
+          "pressure__rolling_std_10": 50,
+          "pressure__delta_1": 50,
+          "pressure__slope_10": 50,
+          "energy_consumption__rolling_std_10": 50,
+          "energy_consumption__delta_1": 50,
+          "energy_consumption__slope_10": 50,
+          "machine_status__rolling_std_10": 50,
+          "machine_status__delta_1": 50,
+          "machine_status__slope_10": 50,
+          "predicted_remaining_life__rolling_std_10": 50,
+          "predicted_remaining_life__delta_1": 50,
+          "predicted_remaining_life__slope_10": 50,
+          "downtime_risk__rolling_std_10": 50,
+          "downtime_risk__delta_1": 50,
+          "downtime_risk__slope_10": 50
+        },
+        "constant_columns": [
+          "dataset_id"
+        ],
+        "infinite_numeric_values": 0,
+        "label_distribution": {
+          "anomaly_flag": {
+            "0": 91084,
+            "1": 8916
+          },
+          "failure_type": {
+            "Normal": 91899,
+            "Vibration Issue": 3129,
+            "Overheating": 1989,
+            "Pressure Drop": 1969,
+            "Electrical Fault": 1014
+          },
+          "maintenance_required": {
+            "0": 80303,
+            "1": 19697
+          }
+        },
+        "columns_profile": [
+          {
+            "name": "prepared_observation_id",
+            "dtype": "str",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 100000,
+            "constant": false
+          },
+          {
+            "name": "dataset_id",
+            "dtype": "str",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 1,
+            "constant": true
+          },
+          {
+            "name": "timestamp",
+            "dtype": "datetime64[us, UTC]",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 100000,
+            "constant": false
+          },
+          {
+            "name": "machine_id",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 50,
+            "constant": false,
+            "min": 1,
+            "max": 50,
+            "mean": 25.49933,
+            "std": 14.38943883932244
+          },
+          {
+            "name": "temperature",
+            "dtype": "float64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 5827,
+            "constant": false,
+            "min": 35.55,
+            "max": 121.94,
+            "mean": 75.015625,
+            "std": 10.03188390275333
+          },
+          {
+            "name": "vibration",
+            "dtype": "float64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 8221,
+            "constant": false,
+            "min": -17.09,
+            "max": 113.8,
+            "mean": 50.01227,
+            "std": 14.98544353285143
+          },
+          {
+            "name": "humidity",
+            "dtype": "float64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 5001,
+            "constant": false,
+            "min": 30.0,
+            "max": 80.0,
+            "mean": 54.995401400000006,
+            "std": 14.437959747336004
+          },
+          {
+            "name": "pressure",
+            "dtype": "float64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 401,
+            "constant": false,
+            "min": 1.0,
+            "max": 5.0,
+            "mean": 3.0004047,
+            "std": 1.1523991268025957
+          },
+          {
+            "name": "energy_consumption",
+            "dtype": "float64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 451,
+            "constant": false,
+            "min": 0.5,
+            "max": 5.0,
+            "mean": 2.7470643000000003,
+            "std": 1.297864746880245
+          },
+          {
+            "name": "machine_status",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 3,
+            "constant": false,
+            "min": 0,
+            "max": 2,
+            "mean": 1.00205,
+            "std": 0.4461925463047134
+          },
+          {
+            "name": "anomaly_flag",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 2,
+            "constant": false,
+            "min": 0,
+            "max": 1,
+            "mean": 0.08916,
+            "std": 0.2849759753261055
+          },
+          {
+            "name": "predicted_remaining_life",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 499,
+            "constant": false,
+            "min": 1,
+            "max": 499,
+            "mean": 234.26916,
+            "std": 150.06306208431315
+          },
+          {
+            "name": "failure_type",
+            "dtype": "str",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 5,
+            "constant": false
+          },
+          {
+            "name": "downtime_risk",
+            "dtype": "float64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 9,
+            "constant": false,
+            "min": 0.0,
+            "max": 1.0,
+            "mean": 0.0891552,
+            "std": 0.28496120497682387
+          },
+          {
+            "name": "maintenance_required",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 2,
+            "constant": false,
+            "min": 0,
+            "max": 1,
+            "mean": 0.19697,
+            "std": 0.3977114542529652
+          },
+          {
+            "name": "temperature__rolling_mean_10",
+            "dtype": "float64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 23678,
+            "constant": false,
+            "min": 55.33,
+            "max": 99.5,
+            "mean": 75.01675259357143,
+            "std": 3.19200349371254
+          },
+          {
+            "name": "temperature__rolling_std_10",
+            "dtype": "float64",
+            "missing": 50,
+            "missing_pct": 0.05,
+            "unique": 99912,
+            "constant": false,
+            "min": 0.8838834764831844,
+            "max": 24.30326006938164,
+            "mean": 9.756545234990414,
+            "std": 2.338647444512918
+          },
+          {
+            "name": "temperature__delta_1",
+            "dtype": "float64",
+            "missing": 50,
+            "missing_pct": 0.05,
+            "unique": 18281,
+            "constant": false,
+            "min": -58.38999999999999,
+            "max": 72.47,
+            "mean": -0.0008710355177588825,
+            "std": 14.202707874989104
+          },
+          {
+            "name": "temperature__slope_10",
+            "dtype": "float64",
+            "missing": 50,
+            "missing_pct": 0.05,
+            "unique": 84775,
+            "constant": false,
+            "min": -34.370000000000005,
+            "max": 33.04000000000002,
+            "mean": -0.003760505707402377,
+            "std": 1.1698267939251077
+          },
+          {
+            "name": "vibration__rolling_mean_10",
+            "dtype": "float64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 31274,
+            "constant": false,
+            "min": 22.92,
+            "max": 91.58,
+            "mean": 50.01064380571429,
+            "std": 4.736819120925301
+          },
+          {
+            "name": "vibration__rolling_std_10",
+            "dtype": "float64",
+            "missing": 50,
+            "missing_pct": 0.05,
+            "unique": 99931,
+            "constant": false,
+            "min": 1.4291605927956463,
+            "max": 31.126881844048125,
+            "mean": 14.574371270993986,
+            "std": 3.5146117104021894
+          },
+          {
+            "name": "vibration__delta_1",
+            "dtype": "float64",
+            "missing": 50,
+            "missing_pct": 0.05,
+            "unique": 26157,
+            "constant": false,
+            "min": -106.75,
+            "max": 96.14,
+            "mean": -0.0006050025012506421,
+            "std": 21.17111566748063
+          },
+          {
+            "name": "vibration__slope_10",
+            "dtype": "float64",
+            "missing": 50,
+            "missing_pct": 0.05,
+            "unique": 89356,
+            "constant": false,
+            "min": -42.68,
+            "max": 39.45,
+            "mean": 0.00017178164839971527,
+            "std": 1.7427954588200247
+          },
+          {
+            "name": "humidity__rolling_mean_10",
+            "dtype": "float64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 30650,
+            "constant": false,
+            "min": 30.34,
+            "max": 79.96,
+            "mean": 54.98994197436508,
+            "std": 4.566024622221752
+          },
+          {
+            "name": "humidity__rolling_std_10",
+            "dtype": "float64",
+            "missing": 50,
+            "missing_pct": 0.05,
+            "unique": 99933,
+            "constant": false,
+            "min": 0.9790471558272019,
+            "max": 31.388470016870844,
+            "mean": 14.250386639084716,
+            "std": 2.3848839221431866
+          },
+          {
+            "name": "humidity__delta_1",
+            "dtype": "float64",
+            "missing": 50,
+            "missing_pct": 0.05,
+            "unique": 24441,
+            "constant": false,
+            "min": -49.760000000000005,
+            "max": 49.669999999999995,
+            "mean": 0.0010497248624312123,
+            "std": 20.41573333481077
+          },
+          {
+            "name": "humidity__slope_10",
+            "dtype": "float64",
+            "missing": 50,
+            "missing_pct": 0.05,
+            "unique": 89328,
+            "constant": false,
+            "min": -44.39,
+            "max": 42.46000000000001,
+            "mean": 5.17167674757607e-05,
+            "std": 1.6968914994102482
+          },
+          {
+            "name": "pressure__rolling_mean_10",
+            "dtype": "float64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 5229,
+            "constant": false,
+            "min": 1.0,
+            "max": 4.88,
+            "mean": 3.000154753095238,
+            "std": 0.36859495661237135
+          },
+          {
+            "name": "pressure__rolling_std_10",
+            "dtype": "float64",
+            "missing": 50,
+            "missing_pct": 0.05,
+            "unique": 99388,
+            "constant": false,
+            "min": 0.007071067811865324,
+            "max": 2.411234123846127,
+            "mean": 1.1359972088822294,
+            "std": 0.18915621629706883
+          },
+          {
+            "name": "pressure__delta_1",
+            "dtype": "float64",
+            "missing": 50,
+            "missing_pct": 0.05,
+            "unique": 2917,
+            "constant": false,
+            "min": -3.99,
+            "max": 3.99,
+            "mean": 9.224612306153184e-05,
+            "std": 1.6270956247198929
+          },
+          {
+            "name": "pressure__slope_10",
+            "dtype": "float64",
+            "missing": 50,
+            "missing_pct": 0.05,
+            "unique": 45405,
+            "constant": false,
+            "min": -3.0500000000000003,
+            "max": 3.41,
+            "mean": 0.00035922446071600886,
+            "std": 0.13499475440230746
+          },
+          {
+            "name": "energy_consumption__rolling_mean_10",
+            "dtype": "float64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 5440,
+            "constant": false,
+            "min": 0.63,
+            "max": 4.96,
+            "mean": 2.7472645340873014,
+            "std": 0.41519834715474346
+          },
+          {
+            "name": "energy_consumption__rolling_std_10",
+            "dtype": "float64",
+            "missing": 50,
+            "missing_pct": 0.05,
+            "unique": 99530,
+            "constant": false,
+            "min": 0.014142135623730963,
+            "max": 2.729432175380073,
+            "mean": 1.2790427729982157,
+            "std": 0.21497605023929
+          },
+          {
+            "name": "energy_consumption__delta_1",
+            "dtype": "float64",
+            "missing": 50,
+            "missing_pct": 0.05,
+            "unique": 3375,
+            "constant": false,
+            "min": -4.49,
+            "max": 4.47,
+            "mean": -6.123061530765466e-05,
+            "std": 1.8323538451308217
+          },
+          {
+            "name": "energy_consumption__slope_10",
+            "dtype": "float64",
+            "missing": 50,
+            "missing_pct": 0.05,
+            "unique": 47652,
+            "constant": false,
+            "min": -3.77,
+            "max": 3.8599999999999994,
+            "mean": -5.5174860157202176e-05,
+            "std": 0.15219195161623675
+          },
+          {
+            "name": "machine_status__rolling_mean_10",
+            "dtype": "float64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 38,
+            "constant": false,
+            "min": 0.0,
+            "max": 2.0,
+            "mean": 1.0020799642857143,
+            "std": 0.14285560364856015
+          },
+          {
+            "name": "machine_status__rolling_std_10",
+            "dtype": "float64",
+            "missing": 50,
+            "missing_pct": 0.05,
+            "unique": 263,
+            "constant": false,
+            "min": 0.0,
+            "max": 1.1547005383792517,
+            "mean": 0.4066561089390888,
+            "std": 0.1830230110712873
+          },
+          {
+            "name": "machine_status__delta_1",
+            "dtype": "float64",
+            "missing": 50,
+            "missing_pct": 0.05,
+            "unique": 5,
+            "constant": false,
+            "min": -2.0,
+            "max": 2.0,
+            "mean": -2.001000500250125e-05,
+            "std": 0.6293027656104099
+          },
+          {
+            "name": "machine_status__slope_10",
+            "dtype": "float64",
+            "missing": 50,
+            "missing_pct": 0.05,
+            "unique": 133,
+            "constant": false,
+            "min": -1.0,
+            "max": 1.0,
+            "mean": -0.00010271802567950639,
+            "std": 0.052183238332093054
+          },
+          {
+            "name": "predicted_remaining_life__rolling_mean_10",
+            "dtype": "float64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 3157,
+            "constant": false,
+            "min": 3.0,
+            "max": 491.0,
+            "mean": 234.2535767698413,
+            "std": 47.876431149974785
+          },
+          {
+            "name": "predicted_remaining_life__rolling_std_10",
+            "dtype": "float64",
+            "missing": 50,
+            "missing_pct": 0.05,
+            "unique": 99429,
+            "constant": false,
+            "min": 7.7781745930520225,
+            "max": 336.5828278447966,
+            "mean": 148.03803221633092,
+            "std": 24.261792564532374
+          },
+          {
+            "name": "predicted_remaining_life__delta_1",
+            "dtype": "float64",
+            "missing": 50,
+            "missing_pct": 0.05,
+            "unique": 990,
+            "constant": false,
+            "min": -496.0,
+            "max": 497.0,
+            "mean": 0.03624812406203102,
+            "std": 211.90340840704445
+          },
+          {
+            "name": "predicted_remaining_life__slope_10",
+            "dtype": "float64",
+            "missing": 50,
+            "missing_pct": 0.05,
+            "unique": 13829,
+            "constant": false,
+            "min": -476.0,
+            "max": 419.0,
+            "mean": 0.07151357496930283,
+            "std": 17.552964839673955
+          },
+          {
+            "name": "downtime_risk__rolling_mean_10",
+            "dtype": "float64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 38,
+            "constant": false,
+            "min": 0.0,
+            "max": 1.0,
+            "mean": 0.08924564841269843,
+            "std": 0.09219156543959477
+          },
+          {
+            "name": "downtime_risk__rolling_std_10",
+            "dtype": "float64",
+            "missing": 50,
+            "missing_pct": 0.05,
+            "unique": 58,
+            "constant": false,
+            "min": 0.0,
+            "max": 0.7071067811865476,
+            "mean": 0.21722036902346367,
+            "std": 0.18379629434954867
+          },
+          {
+            "name": "downtime_risk__delta_1",
+            "dtype": "float64",
+            "missing": 50,
+            "missing_pct": 0.05,
+            "unique": 19,
+            "constant": false,
+            "min": -1.0,
+            "max": 1.0,
+            "mean": -7.003501750875438e-05,
+            "std": 0.4024358880194103
+          },
+          {
+            "name": "downtime_risk__slope_10",
+            "dtype": "float64",
+            "missing": 50,
+            "missing_pct": 0.05,
+            "unique": 211,
+            "constant": false,
+            "min": -1.0,
+            "max": 1.0,
+            "mean": -0.00017796777176467066,
+            "std": 0.03413428688628866
+          }
+        ]
+      }
+    }
+  ]
+}

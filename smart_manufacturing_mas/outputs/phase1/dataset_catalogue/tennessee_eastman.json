@@ -1,0 +1,552 @@
+{
+  "dataset_id": "tennessee_eastman",
+  "name": "Tennessee Eastman Process",
+  "source_path": "Tennessee Eastman Process",
+  "domain": "chemical process",
+  "asset_type": "chemical plant simulator",
+  "component": "process units",
+  "processing_type": "multivariate_process_time_series",
+  "format": "RData",
+  "status": "active",
+  "file_count": 4,
+  "size_bytes": 566068874,
+  "notes": [
+    "The repository does not contain the Tennessee Eastman variable dictionary; physical variable meanings remain UNKNOWN/UNVERIFIED pending source documentation."
+  ],
+  "source_manifest": [
+    {
+      "path": "Tennessee Eastman Process/.gitkeep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Tennessee Eastman Process/TEP_FaultFree_Testing.RData",
+      "bytes": 47327663,
+      "sha256": "4f45afafa469793eeb7203fb9ed10ed0b1724c73c9c95537f15a0889ade0ebd4"
+    },
+    {
+      "path": "Tennessee Eastman Process/TEP_FaultFree_Training.RData",
+      "bytes": 24678017,
+      "sha256": "12d1055b852763fac09ef36bd7c9612a800c8bf7b6f75f344d12119206f9e940"
+    },
+    {
+      "path": "Tennessee Eastman Process/TEP_Faulty_Training.RData",
+      "bytes": 494063194,
+      "sha256": null
+    }
+  ],
+  "labels": {
+    "fault_number": true,
+    "maintenance_actions": false,
+    "maintenance_outcomes": false
+  },
+  "sensor_catalogue": [
+    {
+      "feature": "xmeas_1",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_2",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_3",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_4",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_5",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_6",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_7",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_8",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_9",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_10",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_11",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_12",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_13",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_14",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_15",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_16",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_17",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_18",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_19",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_20",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_21",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_22",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_23",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_24",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_25",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_26",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_27",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_28",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_29",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_30",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_31",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_32",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_33",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_34",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_35",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_36",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_37",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_38",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_39",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_40",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmeas_41",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmv_1",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmv_2",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmv_3",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmv_4",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmv_5",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmv_6",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmv_7",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmv_8",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmv_9",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmv_10",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "xmv_11",
+      "physical_meaning": "Tennessee Eastman process variable; exact mapping not present in repository documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "process",
+      "source": "RData column name only"
+    },
+    {
+      "feature": "faultNumber",
+      "physical_meaning": "fault scenario identifier",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "label/target",
+      "source": "RData column name"
+    },
+    {
+      "feature": "simulationRun",
+      "physical_meaning": "simulation run identifier",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "metadata/identifier",
+      "source": "RData column name"
+    },
+    {
+      "feature": "sample",
+      "physical_meaning": "sample index",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "metadata/identifier",
+      "source": "RData column name"
+    }
+  ],
+  "record_count": 5730000,
+  "column_count": 57,
+  "column_names": [
+    "faultNumber",
+    "simulationRun",
+    "sample",
+    "xmeas_1",
+    "xmeas_2",
+    "xmeas_3",
+    "xmeas_4",
+    "xmeas_5",
+    "xmeas_6",
+    "xmeas_7",
+    "xmeas_8",
+    "xmeas_9",
+    "xmeas_10",
+    "xmeas_11",
+    "xmeas_12",
+    "xmeas_13",
+    "xmeas_14",
+    "xmeas_15",
+    "xmeas_16",
+    "xmeas_17",
+    "xmeas_18",
+    "xmeas_19",
+    "xmeas_20",
+    "xmeas_21",
+    "xmeas_22",
+    "xmeas_23",
+    "xmeas_24",
+    "xmeas_25",
+    "xmeas_26",
+    "xmeas_27",
+    "xmeas_28",
+    "xmeas_29",
+    "xmeas_30",
+    "xmeas_31",
+    "xmeas_32",
+    "xmeas_33",
+    "xmeas_34",
+    "xmeas_35",
+    "xmeas_36",
+    "xmeas_37",
+    "xmeas_38",
+    "xmeas_39",
+    "xmeas_40",
+    "xmeas_41",
+    "xmv_1",
+    "xmv_2",
+    "xmv_3",
+    "xmv_4",
+    "xmv_5",
+    "xmv_6",
+    "xmv_7",
+    "xmv_8",
+    "xmv_9",
+    "xmv_10",
+    "xmv_11",
+    "source_file",
+    "source_object"
+  ],
+  "dtypes": {
+    "faultNumber": "float64",
+    "simulationRun": "float64",
+    "sample": "int32",
+    "xmeas_1": "float64",
+    "xmeas_2": "float64",
+    "xmeas_3": "float64",
+    "xmeas_4": "float64",
+    "xmeas_5": "float64",
+    "xmeas_6": "float64",
+    "xmeas_7": "float64",
+    "xmeas_8": "float64",
+    "xmeas_9": "float64",
+    "xmeas_10": "float64",
+    "xmeas_11": "float64",
+    "xmeas_12": "float64",
+    "xmeas_13": "float64",
+    "xmeas_14": "float64",
+    "xmeas_15": "float64",
+    "xmeas_16": "float64",
+    "xmeas_17": "float64",
+    "xmeas_18": "float64",
+    "xmeas_19": "float64",
+    "xmeas_20": "float64",
+    "xmeas_21": "float64",
+    "xmeas_22": "float64",
+    "xmeas_23": "float64",
+    "xmeas_24": "float64",
+    "xmeas_25": "float64",
+    "xmeas_26": "float64",
+    "xmeas_27": "float64",
+    "xmeas_28": "float64",
+    "xmeas_29": "float64",
+    "xmeas_30": "float64",
+    "xmeas_31": "float64",
+    "xmeas_32": "float64",
+    "xmeas_33": "float64",
+    "xmeas_34": "float64",
+    "xmeas_35": "float64",
+    "xmeas_36": "float64",
+    "xmeas_37": "float64",
+    "xmeas_38": "float64",
+    "xmeas_39": "float64",
+    "xmeas_40": "float64",
+    "xmeas_41": "float64",
+    "xmv_1": "float64",
+    "xmv_2": "float64",
+    "xmv_3": "float64",
+    "xmv_4": "float64",
+    "xmv_5": "float64",
+    "xmv_6": "float64",
+    "xmv_7": "float64",
+    "xmv_8": "float64",
+    "xmv_9": "float64",
+    "xmv_10": "float64",
+    "xmv_11": "float64",
+    "source_file": "str",
+    "source_object": "str"
+  },
+  "temporal_structure": "multivariate process time series by simulation run",
+  "prepared_output": "prepared_observations/tennessee_eastman.parquet"
+}

@@ -1,0 +1,111 @@
+{
+  "generated_at": "2026-09-03T07:14:58.480102+00:00",
+  "project": "/Users/rakshith/Desktop/Smart-manufacturing-mas/smart_manufacturing_mas",
+  "git_commit": "dc0c576713431362d915095c2376205aac304a14",
+  "selected_datasets": [
+    "ai4i_2020",
+    "cmapss",
+    "smart_maintenance",
+    "iiot_6g",
+    "nasa_milling",
+    "metropt3",
+    "uci_hydraulic",
+    "tennessee_eastman",
+    "nasa_ims",
+    "metal_etch",
+    "digital_manufacturing_deprecated"
+  ],
+  "configuration": {
+    "resume": true,
+    "output_dir": "/Users/rakshith/Desktop/Smart-manufacturing-mas/smart_manufacturing_mas/outputs/phase1",
+    "causal_temporal_features": true
+  },
+  "validation": {
+    "catalogues_reports_and_outputs_checked": true,
+    "prepared_counts_checked_against_storage_metadata": true,
+    "scope_stops_before_semantic_normalization": true
+  },
+  "results": [
+    {
+      "dataset_id": "ai4i_2020",
+      "status": "completed",
+      "prepared_records": 10000,
+      "output": "prepared_observations/ai4i_2020.parquet",
+      "resumed": true
+    },
+    {
+      "dataset_id": "cmapss",
+      "status": "completed",
+      "prepared_records": 265256,
+      "output": "prepared_observations/cmapss.parquet",
+      "resumed": true
+    },
+    {
+      "dataset_id": "smart_maintenance",
+      "status": "completed",
+      "prepared_records": 101430,
+      "output": [
+        "prepared_observations/smart_maintenance_static.parquet",
+        "prepared_observations/smart_maintenance_timeseries.parquet"
+      ],
+      "resumed": true
+    },
+    {
+      "dataset_id": "iiot_6g",
+      "status": "completed",
+      "prepared_records": 100000,
+      "output": "prepared_observations/iiot_6g.parquet",
+      "resumed": true
+    },
+    {
+      "dataset_id": "nasa_milling",
+      "status": "completed",
+      "prepared_records": 1002,
+      "output": "prepared_observations/nasa_milling.parquet",
+      "resumed": true
+    },
+    {
+      "dataset_id": "metropt3",
+      "status": "completed",
+      "prepared_records": 306960,
+      "output": "prepared_observations/metropt3_minute_windows.parquet",
+      "resumed": true
+    },
+    {
+      "dataset_id": "uci_hydraulic",
+      "status": "completed",
+      "prepared_records": 2205,
+      "output": "prepared_observations/uci_hydraulic.parquet",
+      "resumed": true
+    },
+    {
+      "dataset_id": "tennessee_eastman",
+      "status": "completed",
+      "prepared_records": 5730000,
+      "output": "prepared_observations/tennessee_eastman.parquet",
+      "resumed": true
+    },
+    {
+      "dataset_id": "nasa_ims",
+      "status": "completed",
+      "prepared_records": 3140,
+      "output": "prepared_observations/nasa_ims.parquet",
+      "resumed": true
+    },
+    {
+      "dataset_id": "metal_etch",
+      "status": "completed",
+      "prepared_records": 10663,
+      "output": "prepared_observations/metal_etch.parquet",
+      "resumed": true
+    },
+    {
+      "dataset_id": "digital_manufacturing_deprecated",
+      "status": "catalogued_not_processed",
+      "prepared_records": 0,
+      "output": null,
+      "resumed": true
+    }
+  ],
+  "errors": []
+}

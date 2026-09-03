@@ -1,0 +1,15 @@
+{
+  "dataset_id": "ai4i_2020",
+  "operations": [
+    {
+      "operation": "remove_exact_duplicates",
+      "removed": 0
+    }
+  ],
+  "removed_records": 0,
+  "columns_changed": [],
+  "records_before": 10000,
+  "records_after": 10000,
+  "columns_before": 14,
+  "columns_after": 16
+}

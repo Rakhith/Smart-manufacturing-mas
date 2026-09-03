@@ -1,0 +1,288 @@
+{
+  "before": {
+    "records": 1430,
+    "columns": 10,
+    "duplicate_records": 0,
+    "missing_cells": 0,
+    "missing_by_column": {},
+    "constant_columns": [],
+    "infinite_numeric_values": 0,
+    "label_distribution": {
+      "Maintenance_Priority": {
+        "2": 1048,
+        "1": 308,
+        "3": 74
+      }
+    },
+    "columns_profile": [
+      {
+        "name": "Machine_ID",
+        "dtype": "str",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 10,
+        "constant": false
+      },
+      {
+        "name": "Temp_C",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1430,
+        "constant": false,
+        "min": 41.48389483095322,
+        "max": 109.958777896001,
+        "mean": 75.45775993128755,
+        "std": 9.95729879816733
+      },
+      {
+        "name": "Vibration_mm_s",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1430,
+        "constant": false,
+        "min": -0.8868137614883,
+        "max": 5.420752565885881,
+        "mean": 2.4929666834078366,
+        "std": 0.9937636726617611
+      },
+      {
+        "name": "Pressure_Bar",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1430,
+        "constant": false,
+        "min": 3.477035584459194,
+        "max": 7.026275061105978,
+        "mean": 5.006490024033493,
+        "std": 0.49371754539586515
+      },
+      {
+        "name": "Acoustic_dB",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1430,
+        "constant": false,
+        "min": 35.33095843127842,
+        "max": 97.9897953029466,
+        "mean": 70.16797303677912,
+        "std": 10.134302063632267
+      },
+      {
+        "name": "Inspection_Duration_min",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 120,
+        "constant": false,
+        "min": 30,
+        "max": 149,
+        "mean": 89.21748251748252,
+        "std": 34.830122205242034
+      },
+      {
+        "name": "Downtime_Cost_USD",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1226,
+        "constant": false,
+        "min": 502,
+        "max": 4998,
+        "mean": 2718.5685314685315,
+        "std": 1296.4305074821875
+      },
+      {
+        "name": "Technician_Availability_pct",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 50,
+        "constant": false,
+        "min": 50,
+        "max": 99,
+        "mean": 74.43006993006993,
+        "std": 14.450429419985355
+      },
+      {
+        "name": "Failure_Prob",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 34,
+        "constant": false,
+        "min": 0.31,
+        "max": 0.66,
+        "mean": 0.49196503496503496,
+        "std": 0.05689774661753074
+      },
+      {
+        "name": "Maintenance_Priority",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 3,
+        "constant": false,
+        "min": 1,
+        "max": 3,
+        "mean": 1.8363636363636364,
+        "std": 0.4904326726212797
+      }
+    ]
+  },
+  "after": {
+    "records": 1430,
+    "columns": 12,
+    "duplicate_records": 0,
+    "missing_cells": 0,
+    "missing_by_column": {},
+    "constant_columns": [
+      "dataset_id"
+    ],
+    "infinite_numeric_values": 0,
+    "label_distribution": {
+      "Maintenance_Priority": {
+        "2": 1048,
+        "1": 308,
+        "3": 74
+      }
+    },
+    "columns_profile": [
+      {
+        "name": "prepared_observation_id",
+        "dtype": "str",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1430,
+        "constant": false
+      },
+      {
+        "name": "dataset_id",
+        "dtype": "str",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1,
+        "constant": true
+      },
+      {
+        "name": "Machine_ID",
+        "dtype": "str",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 10,
+        "constant": false
+      },
+      {
+        "name": "Temp_C",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1430,
+        "constant": false,
+        "min": 41.48389483095322,
+        "max": 109.958777896001,
+        "mean": 75.45775993128755,
+        "std": 9.95729879816733
+      },
+      {
+        "name": "Vibration_mm_s",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1430,
+        "constant": false,
+        "min": -0.8868137614883,
+        "max": 5.420752565885881,
+        "mean": 2.4929666834078366,
+        "std": 0.9937636726617611
+      },
+      {
+        "name": "Pressure_Bar",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1430,
+        "constant": false,
+        "min": 3.477035584459194,
+        "max": 7.026275061105978,
+        "mean": 5.006490024033493,
+        "std": 0.49371754539586515
+      },
+      {
+        "name": "Acoustic_dB",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1430,
+        "constant": false,
+        "min": 35.33095843127842,
+        "max": 97.9897953029466,
+        "mean": 70.16797303677912,
+        "std": 10.134302063632267
+      },
+      {
+        "name": "Inspection_Duration_min",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 120,
+        "constant": false,
+        "min": 30,
+        "max": 149,
+        "mean": 89.21748251748252,
+        "std": 34.830122205242034
+      },
+      {
+        "name": "Downtime_Cost_USD",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1226,
+        "constant": false,
+        "min": 502,
+        "max": 4998,
+        "mean": 2718.5685314685315,
+        "std": 1296.4305074821875
+      },
+      {
+        "name": "Technician_Availability_pct",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 50,
+        "constant": false,
+        "min": 50,
+        "max": 99,
+        "mean": 74.43006993006993,
+        "std": 14.450429419985355
+      },
+      {
+        "name": "Failure_Prob",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 34,
+        "constant": false,
+        "min": 0.31,
+        "max": 0.66,
+        "mean": 0.49196503496503496,
+        "std": 0.05689774661753074
+      },
+      {
+        "name": "Maintenance_Priority",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 3,
+        "constant": false,
+        "min": 1,
+        "max": 3,
+        "mean": 1.8363636363636364,
+        "std": 0.4904326726212797
+      }
+    ]
+  }
+}

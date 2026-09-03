@@ -1,0 +1,181 @@
+{
+  "dataset_id": "uci_hydraulic",
+  "operations": [
+    {
+      "operation": "read_native_multirate_60_second_cycles"
+    },
+    {
+      "operation": "extract_per_cycle_physical_summaries",
+      "features": [
+        "mean",
+        "std",
+        "min",
+        "max",
+        "first",
+        "last",
+        "slope_per_sample"
+      ]
+    }
+  ],
+  "sensor_matrix_quality": {
+    "PS1": {
+      "shape": [
+        2205,
+        6000
+      ],
+      "sampling_hz": 100,
+      "missing": 0,
+      "infinite": 0
+    },
+    "PS2": {
+      "shape": [
+        2205,
+        6000
+      ],
+      "sampling_hz": 100,
+      "missing": 0,
+      "infinite": 0
+    },
+    "PS3": {
+      "shape": [
+        2205,
+        6000
+      ],
+      "sampling_hz": 100,
+      "missing": 0,
+      "infinite": 0
+    },
+    "PS4": {
+      "shape": [
+        2205,
+        6000
+      ],
+      "sampling_hz": 100,
+      "missing": 0,
+      "infinite": 0
+    },
+    "PS5": {
+      "shape": [
+        2205,
+        6000
+      ],
+      "sampling_hz": 100,
+      "missing": 0,
+      "infinite": 0
+    },
+    "PS6": {
+      "shape": [
+        2205,
+        6000
+      ],
+      "sampling_hz": 100,
+      "missing": 0,
+      "infinite": 0
+    },
+    "EPS1": {
+      "shape": [
+        2205,
+        6000
+      ],
+      "sampling_hz": 100,
+      "missing": 0,
+      "infinite": 0
+    },
+    "FS1": {
+      "shape": [
+        2205,
+        600
+      ],
+      "sampling_hz": 10,
+      "missing": 0,
+      "infinite": 0
+    },
+    "FS2": {
+      "shape": [
+        2205,
+        600
+      ],
+      "sampling_hz": 10,
+      "missing": 0,
+      "infinite": 0
+    },
+    "TS1": {
+      "shape": [
+        2205,
+        60
+      ],
+      "sampling_hz": 1,
+      "missing": 0,
+      "infinite": 0
+    },
+    "TS2": {
+      "shape": [
+        2205,
+        60
+      ],
+      "sampling_hz": 1,
+      "missing": 0,
+      "infinite": 0
+    },
+    "TS3": {
+      "shape": [
+        2205,
+        60
+      ],
+      "sampling_hz": 1,
+      "missing": 0,
+      "infinite": 0
+    },
+    "TS4": {
+      "shape": [
+        2205,
+        60
+      ],
+      "sampling_hz": 1,
+      "missing": 0,
+      "infinite": 0
+    },
+    "VS1": {
+      "shape": [
+        2205,
+        60
+      ],
+      "sampling_hz": 1,
+      "missing": 0,
+      "infinite": 0
+    },
+    "CE": {
+      "shape": [
+        2205,
+        60
+      ],
+      "sampling_hz": 1,
+      "missing": 0,
+      "infinite": 0
+    },
+    "CP": {
+      "shape": [
+        2205,
+        60
+      ],
+      "sampling_hz": 1,
+      "missing": 0,
+      "infinite": 0
+    },
+    "SE": {
+      "shape": [
+        2205,
+        60
+      ],
+      "sampling_hz": 1,
+      "missing": 0,
+      "infinite": 0
+    }
+  },
+  "removed_records": 0,
+  "columns_changed": [],
+  "records_before": 2205,
+  "records_after": 2205,
+  "columns_before": 5,
+  "columns_after": 126
+}

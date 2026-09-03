@@ -1,0 +1,131 @@
+{
+  "status": "success",
+  "problem_type": "regression",
+  "target_column": "Failure_Prob",
+  "feature_columns": [
+    "Temp_C",
+    "Vibration_mm_s",
+    "Pressure_Bar",
+    "Acoustic_dB",
+    "Inspection_Duration_min",
+    "Downtime_Cost_USD",
+    "Technician_Availability_pct",
+    "Maintenance_Priority"
+  ],
+  "analysis_metrics": {
+    "r2": 0.9974947778097587,
+    "mse": 8.104618470133988e-06,
+    "from_pretrained": true,
+    "from_cache": false,
+    "model_name": "LinearRegression"
+  },
+  "summary": "Dataset       : smart_maintenance_dataset.csv\nProblem type  : regression\nTarget column : Failure_Prob\nModel trained : LinearRegression\nR\u00b2            : 0.9975\nTotal runtime : 0.30s",
+  "recommendation_count": 32,
+  "recommendations_preview": {
+    "shape": [
+      32,
+      14
+    ],
+    "columns": [
+      "Problem_Type",
+      "Machine_ID",
+      "Predicted_Label",
+      "Predicted_Value",
+      "Anomaly_Count",
+      "Priority_Level",
+      "Priority_Score",
+      "Reason_for_Action"
+    ],
+    "truncated_columns": 6,
+    "truncated_rows": 24,
+    "rows": [
+      {
+        "Problem_Type": "regression",
+        "Machine_ID": "M009",
+        "Predicted_Label": null,
+        "Predicted_Value": 0.6635472176585343,
+        "Anomaly_Count": null,
+        "Priority_Level": "Warning",
+        "Priority_Score": 2.980058595117821,
+        "Reason_for_Action": "Predicted value (0.66) exceeds warning threshold (0.61)"
+      },
+      {
+        "Problem_Type": "regression",
+        "Machine_ID": "M009",
+        "Predicted_Label": null,
+        "Predicted_Value": 0.6421939972530928,
+        "Anomaly_Count": null,
+        "Priority_Level": "Warning",
+        "Priority_Score": 2.609076289800219,
+        "Reason_for_Action": "Predicted value (0.64) exceeds warning threshold (0.61)"
+      },
+      {
+        "Problem_Type": "regression",
+        "Machine_ID": "M004",
+        "Predicted_Label": null,
+        "Predicted_Value": 0.6387376335903521,
+        "Anomaly_Count": null,
+        "Priority_Level": "Warning",
+        "Priority_Score": 2.5490268108329723,
+        "Reason_for_Action": "Predicted value (0.64) exceeds warning threshold (0.61)"
+      },
+      {
+        "Problem_Type": "regression",
+        "Machine_ID": "M004",
+        "Predicted_Label": null,
+        "Predicted_Value": 0.6353739310430905,
+        "Anomaly_Count": null,
+        "Priority_Level": "Warning",
+        "Priority_Score": 2.4905871890011384,
+        "Reason_for_Action": "Predicted value (0.64) exceeds warning threshold (0.61)"
+      },
+      {
+        "Problem_Type": "regression",
+        "Machine_ID": "M010",
+        "Predicted_Label": null,
+        "Predicted_Value": 0.6347178633972814,
+        "Anomaly_Count": null,
+        "Priority_Level": "Warning",
+        "Priority_Score": 2.47918893229488,
+        "Reason_for_Action": "Predicted value (0.63) exceeds warning threshold (0.61)"
+      },
+      {
+        "Problem_Type": "regression",
+        "Machine_ID": "M006",
+        "Predicted_Label": null,
+        "Predicted_Value": 0.6339897775629489,
+        "Anomaly_Count": null,
+        "Priority_Level": "Warning",
+        "Priority_Score": 2.466539460404405,
+        "Reason_for_Action": "Predicted value (0.63) exceeds warning threshold (0.61)"
+      },
+      {
+        "Problem_Type": "regression",
+        "Machine_ID": "M005",
+        "Predicted_Label": null,
+        "Predicted_Value": 0.6306796203893774,
+        "Anomaly_Count": null,
+        "Priority_Level": "Warning",
+        "Priority_Score": 2.4090301144650814,
+        "Reason_for_Action": "Predicted value (0.63) exceeds warning threshold (0.61)"
+      },
+      {
+        "Problem_Type": "regression",
+        "Machine_ID": "M001",
+        "Predicted_Label": null,
+        "Predicted_Value": 0.630264678739393,
+        "Anomaly_Count": null,
+        "Priority_Level": "Warning",
+        "Priority_Score": 2.4018210843066004,
+        "Reason_for_Action": "Predicted value (0.63) exceeds warning threshold (0.61)"
+      }
+    ]
+  },
+  "total_duration_seconds": 60.726,
+  "stage_overview": {
+    "queued": 0,
+    "running": 0,
+    "completed": 6,
+    "failed": 0
+  }
+}

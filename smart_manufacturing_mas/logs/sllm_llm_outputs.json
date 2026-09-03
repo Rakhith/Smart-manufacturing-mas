@@ -1,0 +1,70 @@
+[
+  {
+    "timestamp_utc": "2026-04-06T12:42:12.924014+00:00",
+    "stage": "anomaly_param_suggestion",
+    "source": "main_llm._get_anomaly_params",
+    "backend": "ollama",
+    "model": "qwen3:4b",
+    "prompt": "You are configuring an IsolationForest for anomaly detection.\nDataset profile:\ndataset summary unavailable\n\nSuggest hyperparameters as JSON: {\"contamination\": <float 0.001-0.2 or 'auto'>, \"n_estimators\": <int 100-400>, \"reason\": \"...\"}",
+    "raw_output": "",
+    "parsed_output": {},
+    "effective_params": {
+      "contamination": "auto",
+      "n_estimators": 200,
+      "reason": "Fallback reason: contamination=auto, n_estimators=200 derived from dataset summary and bounded safety defaults (by decision LLM)"
+    },
+    "parse_status": "fallback"
+  },
+  {
+    "timestamp_utc": "2026-04-06T12:44:14.090602+00:00",
+    "stage": "anomaly_param_suggestion",
+    "source": "main_llm._get_anomaly_params",
+    "backend": "ollama",
+    "model": "qwen3:4b",
+    "prompt": "You are configuring an IsolationForest for anomaly detection.\nDataset profile:\ndataset summary unavailable\n\nSuggest hyperparameters as JSON: {\"contamination\": <float 0.001-0.2 or 'auto'>, \"n_estimators\": <int 100-400>, \"reason\": \"...\"}",
+    "raw_output": "",
+    "parsed_output": {},
+    "effective_params": {
+      "contamination": "auto",
+      "n_estimators": 200,
+      "reason": "Fallback reason: contamination=auto, n_estimators=200 derived from dataset summary and bounded safety defaults (by decision LLM)"
+    },
+    "parse_status": "fallback"
+  },
+  {
+    "timestamp_utc": "2026-04-06T12:46:07.436939+00:00",
+    "stage": "anomaly_param_suggestion",
+    "source": "main_llm._get_anomaly_params",
+    "backend": "ollama",
+    "model": "qwen3:4b",
+    "prompt": "You are configuring an IsolationForest for anomaly detection.\nDataset profile:\n        Machine_ID  Temperature_C  Vibration_Hz  Power_Consumption_kW  Network_Latency_ms  Packet_Loss_%  Quality_Control_Defect_Rate_%  Production_Speed_units_per_hr  Predictive_Maintenance_Score  Error_Rate_%\ncount  1000.000000    1000.000000   1000.000000           1000.000000         1000.000000    1000.000000                    1000.000000                    1000.000000                   1000.000000   1000.000000\nmean     25.830000      59.750284      2.548564              5.834305           25.721759       2.465445                       5.015674                     273.070362                      0.494872      7.500413\nstd      14.346809      17.414712      1.404054              2.415400           14.381597       1.465203                       2.901640                     128.921600                      0.292519      4.386828\nmin       1.000000      30.045851      0.102498              1.501971            1.017069       0.007002                       0.016483                      50.717834                      0.000103      0.022940\n25%      14.000000      44.408016      1.378464              3.835151           13.085121       1.194328                       2.513914                     159.847554                      0.242302      3.665407\n50%      26.000000      59.405764      2.503853              5.812805           26.272741       2.504285                       5.004000                     273.225448                      0.488710      7.587164\n75%      37.000000      74.408112      3.643662              7.886117           38.204905       3.690143                       7.501533                     385.069173                      0.751893     11.257900\nmax      50.000000      89.917033      4.999387              9.992129           49.977057       4.999814                       9.996985                     499.619771                      0.999338     14.965470\n\nSuggest hyperparameters as JSON: {\"contamination\": <float 0.001-0.2 or 'auto'>, \"n_estimators\": <int 100-400>, \"reason\": \"...\"}",
+    "raw_output": "",
+    "parsed_output": {},
+    "effective_params": {
+      "contamination": "auto",
+      "n_estimators": 200,
+      "reason": "Fallback reason: contamination=auto, n_estimators=200 derived from dataset summary and bounded safety defaults (by decision LLM)"
+    },
+    "parse_status": "fallback"
+  },
+  {
+    "timestamp_utc": "2026-05-10T14:25:08.933028+00:00",
+    "stage": "anomaly_param_suggestion",
+    "source": "main_llm._get_anomaly_params",
+    "backend": "mock",
+    "model": null,
+    "prompt": "You are configuring an IsolationForest for anomaly detection.\nDataset profile:\n        Machine_ID  Temperature_C  Vibration_Hz  Power_Consumption_kW  Network_Latency_ms  Packet_Loss_%  Quality_Control_Defect_Rate_%  Production_Speed_units_per_hr  Predictive_Maintenance_Score  Error_Rate_%\ncount  1000.000000    1000.000000   1000.000000           1000.000000         1000.000000    1000.000000                    1000.000000                    1000.000000                   1000.000000   1000.000000\nmean     25.830000      59.750284      2.548564              5.834305           25.721759       2.465445                       5.015674                     273.070362                      0.494872      7.500413\nstd      14.346809      17.414712      1.404054              2.415400           14.381597       1.465203                       2.901640                     128.921600                      0.292519      4.386828\nmin       1.000000      30.045851      0.102498              1.501971            1.017069       0.007002                       0.016483                      50.717834                      0.000103      0.022940\n25%      14.000000      44.408016      1.378464              3.835151           13.085121       1.194328                       2.513914                     159.847554                      0.242302      3.665407\n50%      26.000000      59.405764      2.503853              5.812805           26.272741       2.504285                       5.004000                     273.225448                      0.488710      7.587164\n75%      37.000000      74.408112      3.643662              7.886117           38.204905       3.690143                       7.501533                     385.069173                      0.751893     11.257900\nmax      50.000000      89.917033      4.999387              9.992129           49.977057       4.999814                       9.996985                     499.619771                      0.999338     14.965470\n\nSuggest hyperparameters as JSON: {\"contamination\": <float 0.001-0.2 or 'auto'>, \"n_estimators\": <int 100-400>, \"reason\": \"...\"}. Return only the final JSON object and do not include chain-of-thought, analysis, or <think> tags.",
+    "raw_output": "{\"tool\": \"load_and_inspect_data\", \"reason\": \"Starting workflow by loading data.\", \"finish\": false}",
+    "parsed_output": {
+      "tool": "load_and_inspect_data",
+      "reason": "Starting workflow by loading data.",
+      "finish": false
+    },
+    "effective_params": {
+      "contamination": "auto",
+      "n_estimators": 200,
+      "reason": "Starting workflow by loading data. (by decision LLM)"
+    },
+    "parse_status": "parsed"
+  }
+]

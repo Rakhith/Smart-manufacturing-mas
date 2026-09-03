@@ -1,0 +1,55 @@
+{
+  "dataset_id": "smart_maintenance",
+  "variants": [
+    {
+      "dataset_id": "smart_maintenance_static",
+      "operations": [
+        {
+          "operation": "remove_exact_duplicates",
+          "removed": 0
+        }
+      ],
+      "removed_records": 0,
+      "columns_changed": [],
+      "records_before": 1430,
+      "records_after": 1430,
+      "columns_before": 10,
+      "columns_after": 12
+    },
+    {
+      "dataset_id": "smart_maintenance_timeseries",
+      "operations": [
+        {
+          "operation": "parse_timestamp",
+          "column": "timestamp",
+          "invalid_to_missing": 0
+        },
+        {
+          "operation": "remove_exact_duplicates",
+          "removed": 0
+        },
+        {
+          "operation": "add_causal_rolling_features",
+          "window_records": 10,
+          "numeric_columns": [
+            "temperature",
+            "vibration",
+            "humidity",
+            "pressure",
+            "energy_consumption",
+            "machine_status",
+            "predicted_remaining_life",
+            "downtime_risk"
+          ]
+        }
+      ],
+      "removed_records": 0,
+      "columns_changed": [],
+      "records_before": 100000,
+      "records_after": 100000,
+      "columns_before": 13,
+      "columns_after": 47
+    }
+  ],
+  "note": "Variants remain separate and are not merged."
+}

@@ -1,0 +1,832 @@
+[
+  {
+    "dataset_id": "ai4i_2020",
+    "name": "AI4I 2020",
+    "relative_path": "ai4i2020.csv",
+    "domain": "CNC machining",
+    "asset_type": "CNC machine",
+    "component": "tooling",
+    "processing_type": "static_tabular",
+    "format": "CSV",
+    "status": "active",
+    "notes": "",
+    "path": "/Users/rakshith/Desktop/Smart-manufacturing-mas/smart_manufacturing_mas/data/ai4i2020.csv",
+    "exists": true,
+    "file_count": 1,
+    "size_bytes": 522048,
+    "formats_present": [
+      "CSV"
+    ],
+    "files": [
+      {
+        "path": "ai4i2020.csv",
+        "bytes": 522048
+      }
+    ],
+    "files_truncated": false
+  },
+  {
+    "dataset_id": "cmapss",
+    "name": "NASA C-MAPSS",
+    "relative_path": "CMAPSSData",
+    "domain": "aerospace",
+    "asset_type": "turbofan engine",
+    "component": "HPC/fan",
+    "processing_type": "run_to_failure",
+    "format": "space-delimited text",
+    "status": "active",
+    "notes": "",
+    "path": "/Users/rakshith/Desktop/Smart-manufacturing-mas/smart_manufacturing_mas/data/CMAPSSData",
+    "exists": true,
+    "file_count": 14,
+    "size_bytes": 45349906,
+    "formats_present": [
+      "space-delimited text"
+    ],
+    "files": [
+      {
+        "path": "CMAPSSData/Damage Propagation Modeling.pdf",
+        "bytes": 434158
+      },
+      {
+        "path": "CMAPSSData/train_FD001.txt",
+        "bytes": 3515356
+      },
+      {
+        "path": "CMAPSSData/train_FD003.txt",
+        "bytes": 4213862
+      },
+      {
+        "path": "CMAPSSData/RUL_FD004.txt",
+        "bytes": 1084
+      },
+      {
+        "path": "CMAPSSData/train_FD002.txt",
+        "bytes": 9082480
+      },
+      {
+        "path": "CMAPSSData/RUL_FD001.txt",
+        "bytes": 429
+      },
+      {
+        "path": "CMAPSSData/RUL_FD003.txt",
+        "bytes": 428
+      },
+      {
+        "path": "CMAPSSData/RUL_FD002.txt",
+        "bytes": 1110
+      },
+      {
+        "path": "CMAPSSData/train_FD004.txt",
+        "bytes": 10350705
+      },
+      {
+        "path": "CMAPSSData/test_FD003.txt",
+        "bytes": 2826651
+      },
+      {
+        "path": "CMAPSSData/test_FD002.txt",
+        "bytes": 5734587
+      },
+      {
+        "path": "CMAPSSData/test_FD001.txt",
+        "bytes": 2228855
+      },
+      {
+        "path": "CMAPSSData/test_FD004.txt",
+        "bytes": 6957759
+      },
+      {
+        "path": "CMAPSSData/readme.txt",
+        "bytes": 2442
+      }
+    ],
+    "files_truncated": false
+  },
+  {
+    "dataset_id": "smart_maintenance",
+    "name": "Smart Manufacturing Maintenance",
+    "relative_path": "Smart Manufacturing Maintenance Dataset",
+    "domain": "factory maintenance",
+    "asset_type": "machine fleet",
+    "component": "unknown",
+    "processing_type": "mixed_tabular_time_series",
+    "format": "CSV",
+    "status": "active",
+    "notes": "",
+    "path": "/Users/rakshith/Desktop/Smart-manufacturing-mas/smart_manufacturing_mas/data/Smart Manufacturing Maintenance Dataset",
+    "exists": true,
+    "file_count": 2,
+    "size_bytes": 7405867,
+    "formats_present": [
+      "CSV"
+    ],
+    "files": [
+      {
+        "path": "Smart Manufacturing Maintenance Dataset/smart_manufacturing_data.csv",
+        "bytes": 7267506
+      },
+      {
+        "path": "Smart Manufacturing Maintenance Dataset/smart_maintenance_dataset.csv",
+        "bytes": 138361
+      }
+    ],
+    "files_truncated": false
+  },
+  {
+    "dataset_id": "iiot_6g",
+    "name": "Intelligent Manufacturing 6G",
+    "relative_path": "Intelligent Manufacturing Dataset/manufacturing_6G_dataset.csv",
+    "domain": "smart factory / IIoT",
+    "asset_type": "machine fleet",
+    "component": "unknown",
+    "processing_type": "low_frequency_time_series",
+    "format": "CSV",
+    "status": "active",
+    "notes": "",
+    "path": "/Users/rakshith/Desktop/Smart-manufacturing-mas/smart_manufacturing_mas/data/Intelligent Manufacturing Dataset/manufacturing_6G_dataset.csv",
+    "exists": true,
+    "file_count": 1,
+    "size_bytes": 20173052,
+    "formats_present": [
+      "CSV"
+    ],
+    "files": [
+      {
+        "path": "Intelligent Manufacturing Dataset/manufacturing_6G_dataset.csv",
+        "bytes": 20173052
+      }
+    ],
+    "files_truncated": false
+  },
+  {
+    "dataset_id": "nasa_milling",
+    "name": "NASA Milling Tool Wear",
+    "relative_path": "NASA Milling Tool Wear/3. Milling/mill.zip",
+    "domain": "CNC metal cutting",
+    "asset_type": "milling machine",
+    "component": "cutting tool",
+    "processing_type": "run_to_failure_signal",
+    "format": "ZIP/MATLAB",
+    "status": "active",
+    "notes": "",
+    "path": "/Users/rakshith/Desktop/Smart-manufacturing-mas/smart_manufacturing_mas/data/NASA Milling Tool Wear/3. Milling/mill.zip",
+    "exists": true,
+    "file_count": 1,
+    "size_bytes": 15140674,
+    "formats_present": [
+      "ZIP/MATLAB"
+    ],
+    "files": [
+      {
+        "path": "NASA Milling Tool Wear/3. Milling/mill.zip",
+        "bytes": 15140674
+      }
+    ],
+    "files_truncated": false
+  },
+  {
+    "dataset_id": "metropt3",
+    "name": "UCI MetroPT-3",
+    "relative_path": "UCI MetroPT-3/MetroPT3(AirCompressor).csv",
+    "domain": "railway pneumatics",
+    "asset_type": "air production unit",
+    "component": "compressor",
+    "processing_type": "low_frequency_time_series",
+    "format": "CSV",
+    "status": "active",
+    "notes": "",
+    "path": "/Users/rakshith/Desktop/Smart-manufacturing-mas/smart_manufacturing_mas/data/UCI MetroPT-3/MetroPT3(AirCompressor).csv",
+    "exists": true,
+    "file_count": 1,
+    "size_bytes": 218300507,
+    "formats_present": [
+      "CSV"
+    ],
+    "files": [
+      {
+        "path": "UCI MetroPT-3/MetroPT3(AirCompressor).csv",
+        "bytes": 218300507
+      }
+    ],
+    "files_truncated": false
+  },
+  {
+    "dataset_id": "uci_hydraulic",
+    "name": "UCI Hydraulic Systems",
+    "relative_path": "UCI Hydraulic Systems",
+    "domain": "industrial hydraulics",
+    "asset_type": "hydraulic test rig",
+    "component": "cooler/valve/pump/accumulator",
+    "processing_type": "multirate_cycle_signal",
+    "format": "tab-delimited matrices",
+    "status": "active",
+    "notes": "",
+    "path": "/Users/rakshith/Desktop/Smart-manufacturing-mas/smart_manufacturing_mas/data/UCI Hydraulic Systems",
+    "exists": true,
+    "file_count": 21,
+    "size_bytes": 556266030,
+    "formats_present": [
+      "tab-delimited matrices"
+    ],
+    "files": [
+      {
+        "path": "UCI Hydraulic Systems/SE.txt",
+        "bytes": 824838
+      },
+      {
+        "path": "UCI Hydraulic Systems/PS1.txt",
+        "bytes": 91391892
+      },
+      {
+        "path": "UCI Hydraulic Systems/TS4.txt",
+        "bytes": 910127
+      },
+      {
+        "path": "UCI Hydraulic Systems/PS2.txt",
+        "bytes": 82373611
+      },
+      {
+        "path": "UCI Hydraulic Systems/.gitkeep",
+        "bytes": 0
+      },
+      {
+        "path": "UCI Hydraulic Systems/PS3.txt",
+        "bytes": 69916801
+      },
+      {
+        "path": "UCI Hydraulic Systems/TS3.txt",
+        "bytes": 908805
+      },
+      {
+        "path": "UCI Hydraulic Systems/VS1.txt",
+        "bytes": 778499
+      },
+      {
+        "path": "UCI Hydraulic Systems/TS2.txt",
+        "bytes": 910594
+      },
+      {
+        "path": "UCI Hydraulic Systems/PS6.txt",
+        "bytes": 77875407
+      },
+      {
+        "path": "UCI Hydraulic Systems/PS4.txt",
+        "bytes": 46698180
+      },
+      {
+        "path": "UCI Hydraulic Systems/documentation.txt",
+        "bytes": 4719
+      },
+      {
+        "path": "UCI Hydraulic Systems/TS1.txt",
+        "bytes": 904586
+      },
+      {
+        "path": "UCI Hydraulic Systems/PS5.txt",
+        "bytes": 77776429
+      },
+      {
+        "path": "UCI Hydraulic Systems/CP.txt",
+        "bytes": 779343
+      },
+      {
+        "path": "UCI Hydraulic Systems/CE.txt",
+        "bytes": 911516
+      },
+      {
+        "path": "UCI Hydraulic Systems/description.txt",
+        "bytes": 4044
+      },
+      {
+        "path": "UCI Hydraulic Systems/EPS1.txt",
+        "bytes": 87411594
+      },
+      {
+        "path": "UCI Hydraulic Systems/FS1.txt",
+        "bytes": 7581926
+      },
+      {
+        "path": "UCI Hydraulic Systems/FS2.txt",
+        "bytes": 8271923
+      },
+      {
+        "path": "UCI Hydraulic Systems/profile.txt",
+        "bytes": 31196
+      }
+    ],
+    "files_truncated": false
+  },
+  {
+    "dataset_id": "tennessee_eastman",
+    "name": "Tennessee Eastman Process",
+    "relative_path": "Tennessee Eastman Process",
+    "domain": "chemical process",
+    "asset_type": "chemical plant simulator",
+    "component": "process units",
+    "processing_type": "multivariate_process_time_series",
+    "format": "RData",
+    "status": "active",
+    "notes": "",
+    "path": "/Users/rakshith/Desktop/Smart-manufacturing-mas/smart_manufacturing_mas/data/Tennessee Eastman Process",
+    "exists": true,
+    "file_count": 4,
+    "size_bytes": 566068874,
+    "formats_present": [
+      "RData"
+    ],
+    "files": [
+      {
+        "path": "Tennessee Eastman Process/.gitkeep",
+        "bytes": 0
+      },
+      {
+        "path": "Tennessee Eastman Process/TEP_FaultFree_Training.RData",
+        "bytes": 24678017
+      },
+      {
+        "path": "Tennessee Eastman Process/TEP_FaultFree_Testing.RData",
+        "bytes": 47327663
+      },
+      {
+        "path": "Tennessee Eastman Process/TEP_Faulty_Training.RData",
+        "bytes": 494063194
+      }
+    ],
+    "files_truncated": false
+  },
+  {
+    "dataset_id": "nasa_ims",
+    "name": "NASA IMS Bearings",
+    "relative_path": "NASA IMS Bearings",
+    "domain": "rotating machinery",
+    "asset_type": "bearing test rig",
+    "component": "rolling bearings",
+    "processing_type": "high_frequency_signal",
+    "format": "ASCII waveform files",
+    "status": "active",
+    "notes": "",
+    "path": "/Users/rakshith/Desktop/Smart-manufacturing-mas/smart_manufacturing_mas/data/NASA IMS Bearings",
+    "exists": true,
+    "file_count": 3142,
+    "size_bytes": 3022786160,
+    "formats_present": [
+      "ASCII waveform files"
+    ],
+    "files": [
+      {
+        "path": "NASA IMS Bearings/.gitkeep",
+        "bytes": 0
+      },
+      {
+        "path": "NASA IMS Bearings/Readme Document for IMS Bearing Data.pdf",
+        "bytes": 400443
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.17.00.02.39",
+        "bytes": 553418
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.16.00.02.39",
+        "bytes": 553631
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.14.14.32.39",
+        "bytes": 553540
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.15.14.32.39",
+        "bytes": 553645
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.12.11.22.39",
+        "bytes": 553576
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.13.11.22.39",
+        "bytes": 553533
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.17.02.22.39",
+        "bytes": 553447
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.16.02.22.39",
+        "bytes": 553562
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.18.15.52.39",
+        "bytes": 553292
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.14.16.12.39",
+        "bytes": 553514
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.15.16.12.39",
+        "bytes": 553699
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.18.08.02.39",
+        "bytes": 553361
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.12.13.02.39",
+        "bytes": 553562
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.13.13.02.39",
+        "bytes": 553485
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.16.04.42.39",
+        "bytes": 553568
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.17.04.42.39",
+        "bytes": 553348
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.13.08.32.39",
+        "bytes": 553389
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.18.13.32.39",
+        "bytes": 553042
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.16.19.12.39",
+        "bytes": 553497
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.17.19.12.39",
+        "bytes": 553440
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.17.20.52.39",
+        "bytes": 553367
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.16.20.52.39",
+        "bytes": 553661
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.18.11.12.39",
+        "bytes": 553294
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.15.12.52.39",
+        "bytes": 553444
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.14.12.52.39",
+        "bytes": 553662
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.13.17.42.39",
+        "bytes": 553278
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.12.17.42.39",
+        "bytes": 553567
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.12.17.52.39",
+        "bytes": 553799
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.13.17.52.39",
+        "bytes": 553688
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.14.12.42.39",
+        "bytes": 553481
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.15.12.42.39",
+        "bytes": 553520
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.18.11.02.39",
+        "bytes": 553181
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.16.20.42.39",
+        "bytes": 553356
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.17.20.42.39",
+        "bytes": 553405
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.17.19.02.39",
+        "bytes": 553392
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.16.19.02.39",
+        "bytes": 553558
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.18.13.22.39",
+        "bytes": 553202
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.13.08.22.39",
+        "bytes": 553784
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.17.04.52.39",
+        "bytes": 553299
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.16.04.52.39",
+        "bytes": 553594
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.13.13.12.39",
+        "bytes": 553723
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.18.08.12.39",
+        "bytes": 553559
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.12.13.12.39",
+        "bytes": 553494
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.15.16.02.39",
+        "bytes": 553467
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.14.16.02.39",
+        "bytes": 553495
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.18.15.42.39",
+        "bytes": 553487
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.16.02.32.39",
+        "bytes": 553544
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.17.02.32.39",
+        "bytes": 553808
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.13.11.32.39",
+        "bytes": 553373
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.12.11.32.39",
+        "bytes": 553439
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.15.14.22.39",
+        "bytes": 553612
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.14.14.22.39",
+        "bytes": 553427
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.16.00.12.39",
+        "bytes": 553781
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.17.00.12.39",
+        "bytes": 553472
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.16.00.32.39",
+        "bytes": 553693
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.15.09.52.39",
+        "bytes": 553347
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.14.09.52.39",
+        "bytes": 553636
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.17.00.32.39",
+        "bytes": 553296
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.18.17.42.39",
+        "bytes": 553122
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.15.14.02.39",
+        "bytes": 553378
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.14.14.02.39",
+        "bytes": 553541
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.13.11.12.39",
+        "bytes": 553592
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.12.11.12.39",
+        "bytes": 553463
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.16.02.12.39",
+        "bytes": 553479
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.17.02.12.39",
+        "bytes": 553410
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.15.16.22.39",
+        "bytes": 553500
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.14.16.22.39",
+        "bytes": 553572
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.13.13.32.39",
+        "bytes": 553672
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.12.13.32.39",
+        "bytes": 553785
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.18.08.32.39",
+        "bytes": 553294
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.16.22.42.39",
+        "bytes": 553406
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.17.22.42.39",
+        "bytes": 553449
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.18.13.02.39",
+        "bytes": 553464
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.13.08.02.39",
+        "bytes": 553430
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.14.10.42.39",
+        "bytes": 553567
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.17.19.22.39",
+        "bytes": 553545
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.16.19.22.39",
+        "bytes": 553394
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.15.10.42.39",
+        "bytes": 553463
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.12.15.52.39",
+        "bytes": 553560
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.13.15.52.39",
+        "bytes": 553490
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.17.06.52.39",
+        "bytes": 553592
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.16.06.52.39",
+        "bytes": 553693
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.18.11.22.39",
+        "bytes": 552995
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.18.11.32.39",
+        "bytes": 553309
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.16.06.42.39",
+        "bytes": 553360
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.17.06.42.39",
+        "bytes": 553444
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.13.15.42.39",
+        "bytes": 553569
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.12.15.42.39",
+        "bytes": 553507
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.15.10.52.39",
+        "bytes": 553368
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.16.19.32.39",
+        "bytes": 553716
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.17.19.32.39",
+        "bytes": 553362
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.14.10.52.39",
+        "bytes": 553487
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.13.08.12.39",
+        "bytes": 553484
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.18.13.12.39",
+        "bytes": 553350
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.17.22.52.39",
+        "bytes": 553625
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.16.22.52.39",
+        "bytes": 553306
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.12.13.22.39",
+        "bytes": 553480
+      },
+      {
+        "path": "NASA IMS Bearings/2nd_test/2nd_test/2004.02.18.08.22.39",
+        "bytes": 553488
+      }
+    ],
+    "files_truncated": true
+  },
+  {
+    "dataset_id": "metal_etch",
+    "name": "Metal Etch",
+    "relative_path": "metal_etch_data.csv",
+    "domain": "unverified",
+    "asset_type": "unknown",
+    "component": "unknown",
+    "processing_type": "static_tabular",
+    "format": "CSV",
+    "status": "active",
+    "notes": "Anonymous features; physical meanings and units are unverified.",
+    "path": "/Users/rakshith/Desktop/Smart-manufacturing-mas/smart_manufacturing_mas/data/metal_etch_data.csv",
+    "exists": true,
+    "file_count": 1,
+    "size_bytes": 1447692,
+    "formats_present": [
+      "CSV"
+    ],
+    "files": [
+      {
+        "path": "metal_etch_data.csv",
+        "bytes": 1447692
+      }
+    ],
+    "files_truncated": false
+  },
+  {
+    "dataset_id": "digital_manufacturing_deprecated",
+    "name": "Digital Manufacturing (deprecated)",
+    "relative_path": "_deprecated/digital_manufacturing_dataset.csv",
+    "domain": "mixed manufacturing/business",
+    "asset_type": "unknown",
+    "component": "unknown",
+    "processing_type": "static_tabular",
+    "format": "CSV",
+    "status": "deprecated",
+    "notes": "Retained for inventory only; excluded from active PreparedObservation corpus.",
+    "path": "/Users/rakshith/Desktop/Smart-manufacturing-mas/smart_manufacturing_mas/data/_deprecated/digital_manufacturing_dataset.csv",
+    "exists": true,
+    "file_count": 1,
+    "size_bytes": 2016929,
+    "formats_present": [
+      "CSV"
+    ],
+    "files": [
+      {
+        "path": "_deprecated/digital_manufacturing_dataset.csv",
+        "bytes": 2016929
+      }
+    ],
+    "files_truncated": false
+  }
+]

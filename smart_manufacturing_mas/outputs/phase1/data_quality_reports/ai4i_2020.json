@@ -1,0 +1,414 @@
+{
+  "before": {
+    "records": 10000,
+    "columns": 14,
+    "duplicate_records": 0,
+    "missing_cells": 0,
+    "missing_by_column": {},
+    "constant_columns": [],
+    "infinite_numeric_values": 0,
+    "label_distribution": {
+      "Machine failure": {
+        "0": 9661,
+        "1": 339
+      },
+      "TWF": {
+        "0": 9954,
+        "1": 46
+      },
+      "HDF": {
+        "0": 9885,
+        "1": 115
+      },
+      "PWF": {
+        "0": 9905,
+        "1": 95
+      },
+      "OSF": {
+        "0": 9902,
+        "1": 98
+      },
+      "RNF": {
+        "0": 9981,
+        "1": 19
+      }
+    },
+    "columns_profile": [
+      {
+        "name": "UDI",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 10000,
+        "constant": false,
+        "min": 1,
+        "max": 10000,
+        "mean": 5000.5,
+        "std": 2886.8956799071675
+      },
+      {
+        "name": "Product ID",
+        "dtype": "str",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 10000,
+        "constant": false
+      },
+      {
+        "name": "Type",
+        "dtype": "str",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 3,
+        "constant": false
+      },
+      {
+        "name": "Air temperature [K]",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 93,
+        "constant": false,
+        "min": 295.3,
+        "max": 304.5,
+        "mean": 300.00493,
+        "std": 2.0002586829157516
+      },
+      {
+        "name": "Process temperature [K]",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 82,
+        "constant": false,
+        "min": 305.7,
+        "max": 313.8,
+        "mean": 310.00555999999995,
+        "std": 1.4837342191657208
+      },
+      {
+        "name": "Rotational speed [rpm]",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 941,
+        "constant": false,
+        "min": 1168,
+        "max": 2886,
+        "mean": 1538.7761,
+        "std": 179.2840959134266
+      },
+      {
+        "name": "Torque [Nm]",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 577,
+        "constant": false,
+        "min": 3.8,
+        "max": 76.6,
+        "mean": 39.986909999999995,
+        "std": 9.968933725121337
+      },
+      {
+        "name": "Tool wear [min]",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 246,
+        "constant": false,
+        "min": 0,
+        "max": 253,
+        "mean": 107.951,
+        "std": 63.65414663663636
+      },
+      {
+        "name": "Machine failure",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 2,
+        "constant": false,
+        "min": 0,
+        "max": 1,
+        "mean": 0.0339,
+        "std": 0.18098084265065362
+      },
+      {
+        "name": "TWF",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 2,
+        "constant": false,
+        "min": 0,
+        "max": 1,
+        "mean": 0.0046,
+        "std": 0.06767051004531426
+      },
+      {
+        "name": "HDF",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 2,
+        "constant": false,
+        "min": 0,
+        "max": 1,
+        "mean": 0.0115,
+        "std": 0.10662498247919606
+      },
+      {
+        "name": "PWF",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 2,
+        "constant": false,
+        "min": 0,
+        "max": 1,
+        "mean": 0.0095,
+        "std": 0.09700871645943425
+      },
+      {
+        "name": "OSF",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 2,
+        "constant": false,
+        "min": 0,
+        "max": 1,
+        "mean": 0.0098,
+        "std": 0.09851360562404211
+      },
+      {
+        "name": "RNF",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 2,
+        "constant": false,
+        "min": 0,
+        "max": 1,
+        "mean": 0.0019,
+        "std": 0.043549737748530666
+      }
+    ]
+  },
+  "after": {
+    "records": 10000,
+    "columns": 16,
+    "duplicate_records": 0,
+    "missing_cells": 0,
+    "missing_by_column": {},
+    "constant_columns": [
+      "dataset_id"
+    ],
+    "infinite_numeric_values": 0,
+    "label_distribution": {
+      "Machine failure": {
+        "0": 9661,
+        "1": 339
+      },
+      "TWF": {
+        "0": 9954,
+        "1": 46
+      },
+      "HDF": {
+        "0": 9885,
+        "1": 115
+      },
+      "PWF": {
+        "0": 9905,
+        "1": 95
+      },
+      "OSF": {
+        "0": 9902,
+        "1": 98
+      },
+      "RNF": {
+        "0": 9981,
+        "1": 19
+      }
+    },
+    "columns_profile": [
+      {
+        "name": "prepared_observation_id",
+        "dtype": "str",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 10000,
+        "constant": false
+      },
+      {
+        "name": "dataset_id",
+        "dtype": "str",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1,
+        "constant": true
+      },
+      {
+        "name": "UDI",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 10000,
+        "constant": false,
+        "min": 1,
+        "max": 10000,
+        "mean": 5000.5,
+        "std": 2886.8956799071675
+      },
+      {
+        "name": "Product ID",
+        "dtype": "str",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 10000,
+        "constant": false
+      },
+      {
+        "name": "Type",
+        "dtype": "str",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 3,
+        "constant": false
+      },
+      {
+        "name": "Air temperature [K]",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 93,
+        "constant": false,
+        "min": 295.3,
+        "max": 304.5,
+        "mean": 300.00493,
+        "std": 2.0002586829157516
+      },
+      {
+        "name": "Process temperature [K]",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 82,
+        "constant": false,
+        "min": 305.7,
+        "max": 313.8,
+        "mean": 310.00555999999995,
+        "std": 1.4837342191657208
+      },
+      {
+        "name": "Rotational speed [rpm]",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 941,
+        "constant": false,
+        "min": 1168,
+        "max": 2886,
+        "mean": 1538.7761,
+        "std": 179.2840959134266
+      },
+      {
+        "name": "Torque [Nm]",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 577,
+        "constant": false,
+        "min": 3.8,
+        "max": 76.6,
+        "mean": 39.986909999999995,
+        "std": 9.968933725121337
+      },
+      {
+        "name": "Tool wear [min]",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 246,
+        "constant": false,
+        "min": 0,
+        "max": 253,
+        "mean": 107.951,
+        "std": 63.65414663663636
+      },
+      {
+        "name": "Machine failure",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 2,
+        "constant": false,
+        "min": 0,
+        "max": 1,
+        "mean": 0.0339,
+        "std": 0.18098084265065362
+      },
+      {
+        "name": "TWF",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 2,
+        "constant": false,
+        "min": 0,
+        "max": 1,
+        "mean": 0.0046,
+        "std": 0.06767051004531426
+      },
+      {
+        "name": "HDF",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 2,
+        "constant": false,
+        "min": 0,
+        "max": 1,
+        "mean": 0.0115,
+        "std": 0.10662498247919606
+      },
+      {
+        "name": "PWF",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 2,
+        "constant": false,
+        "min": 0,
+        "max": 1,
+        "mean": 0.0095,
+        "std": 0.09700871645943425
+      },
+      {
+        "name": "OSF",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 2,
+        "constant": false,
+        "min": 0,
+        "max": 1,
+        "mean": 0.0098,
+        "std": 0.09851360562404211
+      },
+      {
+        "name": "RNF",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 2,
+        "constant": false,
+        "min": 0,
+        "max": 1,
+        "mean": 0.0019,
+        "std": 0.043549737748530666
+      }
+    ]
+  }
+}

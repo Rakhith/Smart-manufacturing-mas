@@ -25,28 +25,12 @@ build/
 .env
 .env.local
 
-# Logs and outputs
-logs/
-smart_manufacturing_mas/logs/
-outputs/
-smart_manufacturing_mas/outputs/
-
-# Large model artifacts and caches
-model_cache/
-artifacts/
-smart_manufacturing_mas/model_cache/
-smart_manufacturing_mas/artifacts/
-
-# Archives
-*.zip
-smart_manufacturing_mas/phase1.zip
-
 # IDEs
 .idea/
 .vscode/
 *.swp
 
-# Datasets and large data files (ignore datasets while preserving folder structure & docs)
+# Datasets and large data files (>100MB or raw multi-gigabyte files)
 smart_manufacturing_mas/data/*
 !smart_manufacturing_mas/data/**/
 !smart_manufacturing_mas/data/README.md
@@ -71,5 +55,10 @@ smart_manufacturing_mas/data/**/CMAPSSData/
 smart_manufacturing_mas/data/**/Intelligent Manufacturing Dataset/
 smart_manufacturing_mas/data/**/Smart Manufacturing Maintenance Dataset/
 smart_manufacturing_mas/data/**/_deprecated/
-!smart_manufacturing_mas/data/UCI Hydraulic Systems/description.txt
-!smart_manufacturing_mas/data/UCI Hydraulic Systems/documentation.txt
+
+# Heavy temporary work dirs & oversized files (>100MB)
+smart_manufacturing_mas/outputs/phase1/_work_milling/
+smart_manufacturing_mas/outputs/phase1/derived_features/
+smart_manufacturing_mas/outputs/phase1/prepared_observations/
+**/cmapss.parquet
+**/tennessee_eastman.parquet

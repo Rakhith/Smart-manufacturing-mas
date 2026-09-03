@@ -1,0 +1,22 @@
+{
+  "dataset_id": "cmapss",
+  "operations": [
+    {
+      "operation": "parse_space_delimited_trajectories"
+    },
+    {
+      "operation": "derive_rul_label",
+      "note": "test RUL uses repository truth labels and remains a label, not a feature"
+    },
+    {
+      "operation": "add_causal_rolling_features",
+      "window_cycles": 20
+    }
+  ],
+  "removed_records": 0,
+  "columns_changed": [],
+  "records_before": 265256,
+  "records_after": 265256,
+  "columns_before": 29,
+  "columns_after": 115
+}

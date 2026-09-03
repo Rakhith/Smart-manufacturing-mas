@@ -1,0 +1,21 @@
+{
+  "dataset_id": "nasa_milling",
+  "operations": [
+    {
+      "operation": "extract_mill_mat_from_zip"
+    },
+    {
+      "operation": "flatten_numeric_signal_arrays_conservatively"
+    },
+    {
+      "operation": "extract_time_and_frequency_features",
+      "sampling_rate": "UNKNOWN/UNVERIFIED"
+    }
+  ],
+  "removed_records": 0,
+  "columns_changed": [],
+  "records_before": 1002,
+  "records_after": 1002,
+  "columns_before": 15,
+  "columns_after": 15
+}

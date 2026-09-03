@@ -1,0 +1,19 @@
+{
+  "dataset_id": "metropt3",
+  "records_before": 1516948,
+  "records_after": 306960,
+  "operations": [
+    {
+      "operation": "read_csv_and_parse_timestamp"
+    },
+    {
+      "operation": "vectorized_one_minute_resample",
+      "memory_note": "raw 1 Hz rows are reduced immediately after loading"
+    },
+    {
+      "operation": "extract_window_mean_std_min_max_delta"
+    }
+  ],
+  "removed_records": 0,
+  "columns_changed": []
+}

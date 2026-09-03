@@ -1,0 +1,225 @@
+{
+  "before": {
+    "records": 9800,
+    "columns": 17,
+    "duplicate_records": 0,
+    "missing_cells": 0,
+    "missing_by_column": {},
+    "constant_columns": [],
+    "infinite_numeric_values": 0,
+    "label_distribution": {
+      "Demand_Class": {
+        "1": 6172,
+        "0": 2291,
+        "2": 1337
+      }
+    },
+    "columns_profile": [
+      {
+        "name": "Machine_Temperature",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 9800,
+        "constant": false,
+        "min": 50.38799874190829,
+        "max": 89.63118853218162,
+        "mean": 69.98963184513649,
+        "std": 5.022666836666736
+      },
+      {
+        "name": "Process_Temperature",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 9800,
+        "constant": false,
+        "min": 113.64799772459898,
+        "max": 194.79084251025756,
+        "mean": 150.12870502541517,
+        "std": 10.001145488031714
+      },
+      {
+        "name": "Rotational_Speed",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 9800,
+        "constant": false,
+        "min": 428.7249341518806,
+        "max": 1938.324900239561,
+        "mean": 1197.750143261894,
+        "std": 197.93023477893675
+      },
+      {
+        "name": "Torque",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 9800,
+        "constant": false,
+        "min": 4.27516909176898,
+        "max": 69.8226667581055,
+        "mean": 39.89098799817586,
+        "std": 8.050275228066486
+      },
+      {
+        "name": "Tool_Wear",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 250,
+        "constant": false,
+        "min": 0,
+        "max": 249,
+        "mean": 125.16010204081633,
+        "std": 72.1748253112175
+      },
+      {
+        "name": "Vibration_Level",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 9800,
+        "constant": false,
+        "min": 0.1325393660336056,
+        "max": 0.8554049749748472,
+        "mean": 0.49943669058578527,
+        "std": 0.09848009670093241
+      },
+      {
+        "name": "Production_Rate",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 9800,
+        "constant": false,
+        "min": 200.7513604480227,
+        "max": 794.4625738520994,
+        "mean": 498.2335248495389,
+        "std": 79.75013768850741
+      },
+      {
+        "name": "Machine_Utilization",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 9800,
+        "constant": false,
+        "min": 60.00978654317947,
+        "max": 94.98962107618496,
+        "mean": 77.50726848547632,
+        "std": 10.01027062273869
+      },
+      {
+        "name": "Downtime_Minutes",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 60,
+        "constant": false,
+        "min": 0,
+        "max": 59,
+        "mean": 29.481938775510205,
+        "std": 17.46151952334084
+      },
+      {
+        "name": "Inventory_Level",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 450,
+        "constant": false,
+        "min": 50,
+        "max": 499,
+        "mean": 274.1658163265306,
+        "std": 129.50127181152732
+      },
+      {
+        "name": "Supplier_Lead_Time",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 13,
+        "constant": false,
+        "min": 2,
+        "max": 14,
+        "mean": 7.991530612244898,
+        "std": 3.721533407513184
+      },
+      {
+        "name": "Logistics_Cost",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 9800,
+        "constant": false,
+        "min": 166.25056714436892,
+        "max": 3759.0189357306144,
+        "mean": 2002.7639338682661,
+        "std": 498.6760666077146
+      },
+      {
+        "name": "Order_Quantity",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 99,
+        "constant": false,
+        "min": 1,
+        "max": 99,
+        "mean": 50.26765306122449,
+        "std": 28.449615912665003
+      },
+      {
+        "name": "Sales_Value",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 9800,
+        "constant": false,
+        "min": 50.703673738935976,
+        "max": 11854.021308552088,
+        "mean": 4277.742508658101,
+        "std": 2701.5048951065332
+      },
+      {
+        "name": "Customer_Demand_Index",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 9800,
+        "constant": false,
+        "min": 0.1001139094310169,
+        "max": 0.9998970960506272,
+        "mean": 0.5469441914244292,
+        "std": 0.2586021958666551
+      },
+      {
+        "name": "Transaction_Frequency",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 19,
+        "constant": false,
+        "min": 1,
+        "max": 19,
+        "mean": 10.021938775510204,
+        "std": 5.498668841900517
+      },
+      {
+        "name": "Demand_Class",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 3,
+        "constant": false,
+        "min": 0,
+        "max": 2,
+        "mean": 0.9026530612244898,
+        "std": 0.6006367186948285
+      }
+    ]
+  },
+  "after": null
+}

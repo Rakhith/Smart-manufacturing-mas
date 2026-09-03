@@ -1,0 +1,358 @@
+{
+  "before": {
+    "records": 1002,
+    "columns": 15,
+    "duplicate_records": 0,
+    "missing_cells": 0,
+    "missing_by_column": {},
+    "constant_columns": [
+      "dataset_id"
+    ],
+    "infinite_numeric_values": 0,
+    "label_distribution": {},
+    "columns_profile": [
+      {
+        "name": "prepared_observation_id",
+        "dtype": "str",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1002,
+        "constant": false
+      },
+      {
+        "name": "dataset_id",
+        "dtype": "str",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1,
+        "constant": true
+      },
+      {
+        "name": "source_file",
+        "dtype": "str",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1002,
+        "constant": false
+      },
+      {
+        "name": "source_array",
+        "dtype": "str",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1002,
+        "constant": false
+      },
+      {
+        "name": "sample_count",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 2,
+        "constant": false,
+        "min": 9000,
+        "max": 15360,
+        "mean": 9038.08383233533,
+        "std": 490.92088735400483
+      },
+      {
+        "name": "signal__mean",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1002,
+        "constant": false,
+        "min": -1.1560133349358496e+30,
+        "max": 4.6468253994381075e+30,
+        "mean": 3.483938313573234e+27,
+        "std": 1.5130861422768863e+29
+      },
+      {
+        "name": "signal__rms",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1002,
+        "constant": false,
+        "min": 3.787260101118344e-05,
+        "max": 5.384472960694027e+32,
+        "mean": 9.3207114759611e+29,
+        "std": 2.1094983392266172e+31
+      },
+      {
+        "name": "signal__variance",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1002,
+        "constant": false,
+        "min": 1.3198300188338586e-09,
+        "max": 2.8990389765815824e+65,
+        "mean": 4.45400087254089e+62,
+        "std": 1.0401643530429604e+64
+      },
+      {
+        "name": "signal__std",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1002,
+        "constant": false,
+        "min": 3.6329464885046946e-05,
+        "max": 5.384272445355623e+32,
+        "mean": 9.320494427804189e+29,
+        "std": 2.109444140938812e+31
+      },
+      {
+        "name": "signal__skewness",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1002,
+        "constant": false,
+        "min": -3.2060055835840684,
+        "max": 123.92336367686332,
+        "mean": 2.0476138535411192,
+        "std": 9.507828017767064
+      },
+      {
+        "name": "signal__kurtosis",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1002,
+        "constant": false,
+        "min": -1.6677205691921266,
+        "max": 15355.000065028224,
+        "mean": 119.14133790287929,
+        "std": 906.2930362339456
+      },
+      {
+        "name": "signal__crest_factor",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1002,
+        "constant": false,
+        "min": 1.0893524970160051,
+        "max": 123.93546707846149,
+        "mean": 2.802068733639155,
+        "std": 7.358573448024695
+      },
+      {
+        "name": "signal__dominant_frequency_hz",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 100,
+        "constant": false,
+        "min": 0.0001111111111111,
+        "max": 0.4666666666666667,
+        "mean": 0.01837662868707028,
+        "std": 0.04604629739800658
+      },
+      {
+        "name": "signal__spectral_energy",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1002,
+        "constant": false,
+        "min": 1.0136314811038992e-05,
+        "max": 1.3045675395542614e+69,
+        "mean": 2.0043544196530566e+66,
+        "std": 4.6808206695208875e+67
+      },
+      {
+        "name": "signal__spectral_entropy",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1002,
+        "constant": false,
+        "min": 1.1112823070863658,
+        "max": 12.906890595604684,
+        "mean": 4.988215099912105,
+        "std": 2.5273548897721283
+      }
+    ]
+  },
+  "after": {
+    "records": 1002,
+    "columns": 15,
+    "duplicate_records": 0,
+    "missing_cells": 0,
+    "missing_by_column": {},
+    "constant_columns": [
+      "dataset_id"
+    ],
+    "infinite_numeric_values": 0,
+    "label_distribution": {},
+    "columns_profile": [
+      {
+        "name": "prepared_observation_id",
+        "dtype": "str",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1002,
+        "constant": false
+      },
+      {
+        "name": "dataset_id",
+        "dtype": "str",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1,
+        "constant": true
+      },
+      {
+        "name": "source_file",
+        "dtype": "str",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1002,
+        "constant": false
+      },
+      {
+        "name": "source_array",
+        "dtype": "str",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1002,
+        "constant": false
+      },
+      {
+        "name": "sample_count",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 2,
+        "constant": false,
+        "min": 9000,
+        "max": 15360,
+        "mean": 9038.08383233533,
+        "std": 490.92088735400483
+      },
+      {
+        "name": "signal__mean",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1002,
+        "constant": false,
+        "min": -1.1560133349358496e+30,
+        "max": 4.6468253994381075e+30,
+        "mean": 3.483938313573234e+27,
+        "std": 1.5130861422768863e+29
+      },
+      {
+        "name": "signal__rms",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1002,
+        "constant": false,
+        "min": 3.787260101118344e-05,
+        "max": 5.384472960694027e+32,
+        "mean": 9.3207114759611e+29,
+        "std": 2.1094983392266172e+31
+      },
+      {
+        "name": "signal__variance",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1002,
+        "constant": false,
+        "min": 1.3198300188338586e-09,
+        "max": 2.8990389765815824e+65,
+        "mean": 4.45400087254089e+62,
+        "std": 1.0401643530429604e+64
+      },
+      {
+        "name": "signal__std",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1002,
+        "constant": false,
+        "min": 3.6329464885046946e-05,
+        "max": 5.384272445355623e+32,
+        "mean": 9.320494427804189e+29,
+        "std": 2.109444140938812e+31
+      },
+      {
+        "name": "signal__skewness",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1002,
+        "constant": false,
+        "min": -3.2060055835840684,
+        "max": 123.92336367686332,
+        "mean": 2.0476138535411192,
+        "std": 9.507828017767064
+      },
+      {
+        "name": "signal__kurtosis",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1002,
+        "constant": false,
+        "min": -1.6677205691921266,
+        "max": 15355.000065028224,
+        "mean": 119.14133790287929,
+        "std": 906.2930362339456
+      },
+      {
+        "name": "signal__crest_factor",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1002,
+        "constant": false,
+        "min": 1.0893524970160051,
+        "max": 123.93546707846149,
+        "mean": 2.802068733639155,
+        "std": 7.358573448024695
+      },
+      {
+        "name": "signal__dominant_frequency_hz",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 100,
+        "constant": false,
+        "min": 0.0001111111111111,
+        "max": 0.4666666666666667,
+        "mean": 0.01837662868707028,
+        "std": 0.04604629739800658
+      },
+      {
+        "name": "signal__spectral_energy",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1002,
+        "constant": false,
+        "min": 1.0136314811038992e-05,
+        "max": 1.3045675395542614e+69,
+        "mean": 2.0043544196530566e+66,
+        "std": 4.6808206695208875e+67
+      },
+      {
+        "name": "signal__spectral_entropy",
+        "dtype": "float64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 1002,
+        "constant": false,
+        "min": 1.1112823070863658,
+        "max": 12.906890595604684,
+        "mean": 4.988215099912105,
+        "std": 2.5273548897721283
+      }
+    ]
+  }
+}

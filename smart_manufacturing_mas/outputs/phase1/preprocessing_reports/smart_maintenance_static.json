@@ -1,0 +1,15 @@
+{
+  "dataset_id": "smart_maintenance_static",
+  "operations": [
+    {
+      "operation": "remove_exact_duplicates",
+      "removed": 0
+    }
+  ],
+  "removed_records": 0,
+  "columns_changed": [],
+  "records_before": 1430,
+  "records_after": 1430,
+  "columns_before": 10,
+  "columns_after": 12
+}

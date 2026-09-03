@@ -1,0 +1,153 @@
+{
+  "dataset_id": "iiot_6g",
+  "name": "Intelligent Manufacturing 6G",
+  "source_path": "Intelligent Manufacturing Dataset/manufacturing_6G_dataset.csv",
+  "domain": "smart factory / IIoT",
+  "asset_type": "machine fleet",
+  "component": "unknown",
+  "processing_type": "low_frequency_time_series",
+  "format": "CSV",
+  "status": "active",
+  "file_count": 1,
+  "size_bytes": 20173052,
+  "notes": [
+    "Original source columns are retained. Derived columns use the __ suffix."
+  ],
+  "source_manifest": [
+    {
+      "path": "Intelligent Manufacturing Dataset/manufacturing_6G_dataset.csv",
+      "bytes": 20173052,
+      "sha256": "577f64df3e5a15f82714dcd48ce798e08aa8877b0d48d0cd9bf3813497ef8e6b"
+    }
+  ],
+  "labels": {
+    "Efficiency_Status": true
+  },
+  "sensor_catalogue": [
+    {
+      "feature": "Timestamp",
+      "physical_meaning": "observation timestamp",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "metadata/identifier",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Machine_ID",
+      "physical_meaning": "machine identifier",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "metadata/identifier",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Operation_Mode",
+      "physical_meaning": "operating mode",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "operating context",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Temperature_C",
+      "physical_meaning": "temperature",
+      "unit": "C",
+      "category": "thermal",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Vibration_Hz",
+      "physical_meaning": "vibration measurement",
+      "unit": "Hz",
+      "category": "mechanical",
+      "source": "column name; exact vibration quantity unverified"
+    },
+    {
+      "feature": "Power_Consumption_kW",
+      "physical_meaning": "power consumption",
+      "unit": "kW",
+      "category": "electrical",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Network_Latency_ms",
+      "physical_meaning": "network latency",
+      "unit": "ms",
+      "category": "operating context",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Packet_Loss_%",
+      "physical_meaning": "packet loss",
+      "unit": "%",
+      "category": "operating context",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Quality_Control_Defect_Rate_%",
+      "physical_meaning": "quality-control defect rate",
+      "unit": "%",
+      "category": "process",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Production_Speed_units_per_hr",
+      "physical_meaning": "production speed",
+      "unit": "units/hr",
+      "category": "operating context",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Predictive_Maintenance_Score",
+      "physical_meaning": "predictive maintenance score",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "health/degradation",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Error_Rate_%",
+      "physical_meaning": "error rate",
+      "unit": "%",
+      "category": "process",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Efficiency_Status",
+      "physical_meaning": "efficiency status",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "label/target",
+      "source": "dataset column name only"
+    }
+  ],
+  "record_count": 100000,
+  "column_count": 13,
+  "column_names": [
+    "Timestamp",
+    "Machine_ID",
+    "Operation_Mode",
+    "Temperature_C",
+    "Vibration_Hz",
+    "Power_Consumption_kW",
+    "Network_Latency_ms",
+    "Packet_Loss_%",
+    "Quality_Control_Defect_Rate_%",
+    "Production_Speed_units_per_hr",
+    "Predictive_Maintenance_Score",
+    "Error_Rate_%",
+    "Efficiency_Status"
+  ],
+  "dtypes": {
+    "Timestamp": "str",
+    "Machine_ID": "int64",
+    "Operation_Mode": "str",
+    "Temperature_C": "float64",
+    "Vibration_Hz": "float64",
+    "Power_Consumption_kW": "float64",
+    "Network_Latency_ms": "float64",
+    "Packet_Loss_%": "float64",
+    "Quality_Control_Defect_Rate_%": "float64",
+    "Production_Speed_units_per_hr": "float64",
+    "Predictive_Maintenance_Score": "float64",
+    "Error_Rate_%": "float64",
+    "Efficiency_Status": "str"
+  },
+  "temporal_structure": "sequential timestamped rows",
+  "prepared_output": "prepared_observations/iiot_6g.parquet"
+}

@@ -1,0 +1,84 @@
+{
+  "dataset_id": "nasa_milling",
+  "name": "NASA Milling Tool Wear",
+  "source_path": "NASA Milling Tool Wear/3. Milling/mill.zip",
+  "domain": "CNC metal cutting",
+  "asset_type": "milling machine",
+  "component": "cutting tool",
+  "processing_type": "run_to_failure_signal",
+  "format": "ZIP/MATLAB",
+  "status": "active",
+  "file_count": 1,
+  "size_bytes": 15140674,
+  "notes": [
+    "No physical field name is assumed from the nested MATLAB structure. Signal sampling rate is not assigned without a supported source.",
+    "Prepared observations retain source_array as provenance."
+  ],
+  "source_manifest": [
+    {
+      "path": "NASA Milling Tool Wear/3. Milling/mill.zip",
+      "bytes": 15140674,
+      "sha256": "de9c8685cb0e07b4f39459dc282b49192a3ad660e9577ff99b68dc9994e35d27"
+    }
+  ],
+  "labels": {
+    "tool_wear_available": "not automatically identified; inspect MAT variable manifest",
+    "maintenance_actions": false,
+    "maintenance_outcomes": false
+  },
+  "sensor_catalogue": [
+    {
+      "feature": "numeric MAT arrays",
+      "physical_meaning": "UNKNOWN/UNVERIFIED pending MATLAB release field documentation",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "MAT variable inventory"
+    }
+  ],
+  "record_count": 1002,
+  "column_count": 15,
+  "column_names": [
+    "prepared_observation_id",
+    "dataset_id",
+    "source_file",
+    "source_array",
+    "sample_count",
+    "signal__mean",
+    "signal__rms",
+    "signal__variance",
+    "signal__std",
+    "signal__skewness",
+    "signal__kurtosis",
+    "signal__crest_factor",
+    "signal__dominant_frequency_hz",
+    "signal__spectral_energy",
+    "signal__spectral_entropy"
+  ],
+  "dtypes": {
+    "prepared_observation_id": "str",
+    "dataset_id": "str",
+    "source_file": "str",
+    "source_array": "str",
+    "sample_count": "int64",
+    "signal__mean": "float64",
+    "signal__rms": "float64",
+    "signal__variance": "float64",
+    "signal__std": "float64",
+    "signal__skewness": "float64",
+    "signal__kurtosis": "float64",
+    "signal__crest_factor": "float64",
+    "signal__dominant_frequency_hz": "float64",
+    "signal__spectral_energy": "float64",
+    "signal__spectral_entropy": "float64"
+  },
+  "temporal_structure": "MATLAB archive; numeric signal arrays flattened conservatively",
+  "mat_variable_manifest": {
+    "mat_variables": {
+      "mill": [
+        167
+      ]
+    },
+    "notes": []
+  },
+  "prepared_output": "prepared_observations/nasa_milling.parquet"
+}

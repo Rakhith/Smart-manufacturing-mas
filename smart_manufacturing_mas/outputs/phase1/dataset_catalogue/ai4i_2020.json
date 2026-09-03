@@ -1,0 +1,167 @@
+{
+  "dataset_id": "ai4i_2020",
+  "name": "AI4I 2020",
+  "source_path": "ai4i2020.csv",
+  "domain": "CNC machining",
+  "asset_type": "CNC machine",
+  "component": "tooling",
+  "processing_type": "static_tabular",
+  "format": "CSV",
+  "status": "active",
+  "file_count": 1,
+  "size_bytes": 522048,
+  "notes": [
+    "Original source columns are retained. Derived columns use the __ suffix."
+  ],
+  "source_manifest": [
+    {
+      "path": "ai4i2020.csv",
+      "bytes": 522048,
+      "sha256": "dc6630cd9b1f0f853922fad78a1b6436570d3f1ec863f1dd5c4340ac56bc8a8e"
+    }
+  ],
+  "labels": {
+    "Machine failure": true,
+    "TWF": true,
+    "HDF": true,
+    "PWF": true,
+    "OSF": true,
+    "RNF": true
+  },
+  "sensor_catalogue": [
+    {
+      "feature": "UDI",
+      "physical_meaning": "row identifier",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "metadata/identifier",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Product ID",
+      "physical_meaning": "product identifier",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "metadata/identifier",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Type",
+      "physical_meaning": "product quality variant",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "operating context",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Air temperature [K]",
+      "physical_meaning": "air temperature",
+      "unit": "K",
+      "category": "thermal",
+      "source": "column name"
+    },
+    {
+      "feature": "Process temperature [K]",
+      "physical_meaning": "process temperature",
+      "unit": "K",
+      "category": "thermal",
+      "source": "column name"
+    },
+    {
+      "feature": "Rotational speed [rpm]",
+      "physical_meaning": "rotational speed",
+      "unit": "rpm",
+      "category": "mechanical",
+      "source": "column name"
+    },
+    {
+      "feature": "Torque [Nm]",
+      "physical_meaning": "torque",
+      "unit": "Nm",
+      "category": "mechanical",
+      "source": "column name"
+    },
+    {
+      "feature": "Tool wear [min]",
+      "physical_meaning": "accumulated tool wear",
+      "unit": "min",
+      "category": "health/degradation",
+      "source": "column name"
+    },
+    {
+      "feature": "Machine failure",
+      "physical_meaning": "machine failure label",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "label/target",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "TWF",
+      "physical_meaning": "tool wear failure label",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "label/target",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "HDF",
+      "physical_meaning": "heat dissipation failure label",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "label/target",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "PWF",
+      "physical_meaning": "power failure label",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "label/target",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "OSF",
+      "physical_meaning": "overstrain failure label",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "label/target",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "RNF",
+      "physical_meaning": "random failure label",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "label/target",
+      "source": "dataset column name only"
+    }
+  ],
+  "record_count": 10000,
+  "column_count": 14,
+  "column_names": [
+    "UDI",
+    "Product ID",
+    "Type",
+    "Air temperature [K]",
+    "Process temperature [K]",
+    "Rotational speed [rpm]",
+    "Torque [Nm]",
+    "Tool wear [min]",
+    "Machine failure",
+    "TWF",
+    "HDF",
+    "PWF",
+    "OSF",
+    "RNF"
+  ],
+  "dtypes": {
+    "UDI": "int64",
+    "Product ID": "str",
+    "Type": "str",
+    "Air temperature [K]": "float64",
+    "Process temperature [K]": "float64",
+    "Rotational speed [rpm]": "int64",
+    "Torque [Nm]": "float64",
+    "Tool wear [min]": "int64",
+    "Machine failure": "int64",
+    "TWF": "int64",
+    "HDF": "int64",
+    "PWF": "int64",
+    "OSF": "int64",
+    "RNF": "int64"
+  },
+  "temporal_structure": "independent tabular rows; no verified temporal key",
+  "prepared_output": "prepared_observations/ai4i_2020.parquet"
+}

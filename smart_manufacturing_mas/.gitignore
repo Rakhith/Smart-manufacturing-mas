@@ -15,23 +15,19 @@ mas_venv/
 venv/
 .venv/
 env/
+.phase1_deps/
 
 # Environment secrets
 .env
 
-# Logs and output
-logs/*.json
-logs/*.txt
-*.log
+# Large datasets & heavy temporary work files (>100MB)
+outputs/phase1/_work_milling/
+outputs/phase1/derived_features/
+outputs/phase1/prepared_observations/
+**/cmapss.parquet
+**/tennessee_eastman.parquet
 
-# Model cache (large binary files)
-model_cache/*
-artifacts/*
-training/artifacts/*
-outputs/phase1/
-.phase1_deps/
-
-# Data files (add your CSV datasets manually)
+# Data files (raw datasets)
 data/**/*.csv
 data/*.csv
 data/*npz

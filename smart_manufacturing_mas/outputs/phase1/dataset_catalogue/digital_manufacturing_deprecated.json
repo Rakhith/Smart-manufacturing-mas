@@ -1,0 +1,192 @@
+{
+  "dataset_id": "digital_manufacturing_deprecated",
+  "name": "Digital Manufacturing (deprecated)",
+  "source_path": "_deprecated/digital_manufacturing_dataset.csv",
+  "domain": "mixed manufacturing/business",
+  "asset_type": "unknown",
+  "component": "unknown",
+  "processing_type": "static_tabular",
+  "format": "CSV",
+  "status": "deprecated",
+  "file_count": 1,
+  "size_bytes": 2016929,
+  "notes": [
+    "Retained for inventory only; excluded from active PreparedObservation corpus.",
+    "Excluded from the active Phase 1 corpus because its source documentation categorizes it as deprecated and its non-engineering business fields dominate."
+  ],
+  "source_manifest": [
+    {
+      "path": "_deprecated/digital_manufacturing_dataset.csv",
+      "bytes": 2016929,
+      "sha256": "a003f3bc8cf699b9865377e72cbcb3e043e773f3ec93c7978703d3a0f5609a1b"
+    }
+  ],
+  "labels": {
+    "demand_class": true,
+    "maintenance_actions": false,
+    "maintenance_outcomes": false
+  },
+  "sensor_catalogue": [
+    {
+      "feature": "Machine_Temperature",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Process_Temperature",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Rotational_Speed",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Torque",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Tool_Wear",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Vibration_Level",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Production_Rate",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Machine_Utilization",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Downtime_Minutes",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Inventory_Level",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Supplier_Lead_Time",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Logistics_Cost",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Order_Quantity",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Sales_Value",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Customer_Demand_Index",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Transaction_Frequency",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Demand_Class",
+      "physical_meaning": "UNKNOWN/UNVERIFIED",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "UNKNOWN/UNVERIFIED",
+      "source": "dataset column name only"
+    }
+  ],
+  "record_count": 9800,
+  "column_count": 17,
+  "column_names": [
+    "Machine_Temperature",
+    "Process_Temperature",
+    "Rotational_Speed",
+    "Torque",
+    "Tool_Wear",
+    "Vibration_Level",
+    "Production_Rate",
+    "Machine_Utilization",
+    "Downtime_Minutes",
+    "Inventory_Level",
+    "Supplier_Lead_Time",
+    "Logistics_Cost",
+    "Order_Quantity",
+    "Sales_Value",
+    "Customer_Demand_Index",
+    "Transaction_Frequency",
+    "Demand_Class"
+  ],
+  "dtypes": {
+    "Machine_Temperature": "float64",
+    "Process_Temperature": "float64",
+    "Rotational_Speed": "float64",
+    "Torque": "float64",
+    "Tool_Wear": "int64",
+    "Vibration_Level": "float64",
+    "Production_Rate": "float64",
+    "Machine_Utilization": "float64",
+    "Downtime_Minutes": "int64",
+    "Inventory_Level": "int64",
+    "Supplier_Lead_Time": "int64",
+    "Logistics_Cost": "float64",
+    "Order_Quantity": "int64",
+    "Sales_Value": "float64",
+    "Customer_Demand_Index": "float64",
+    "Transaction_Frequency": "int64",
+    "Demand_Class": "int64"
+  },
+  "temporal_structure": "independent tabular rows; no temporal key",
+  "prepared_output": null
+}

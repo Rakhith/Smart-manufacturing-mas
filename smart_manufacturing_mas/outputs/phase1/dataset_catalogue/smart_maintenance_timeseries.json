@@ -1,0 +1,155 @@
+{
+  "dataset_id": "smart_maintenance_timeseries",
+  "name": "Smart Manufacturing Maintenance - timestamped variant",
+  "source_path": "Smart Manufacturing Maintenance Dataset/smart_manufacturing_data.csv",
+  "domain": "factory maintenance",
+  "asset_type": "machine fleet",
+  "component": "unknown",
+  "processing_type": "low_frequency_time_series",
+  "format": "CSV",
+  "status": "active",
+  "file_count": 1,
+  "size_bytes": 7267506,
+  "notes": [
+    "Original source columns are retained. Derived columns use the __ suffix."
+  ],
+  "source_manifest": [
+    {
+      "path": "Smart Manufacturing Maintenance Dataset/smart_manufacturing_data.csv",
+      "bytes": 7267506,
+      "sha256": "f0f7fc4efc48fef26e5396443e8bd19d8fc7760d8dc6513cdf3840079d686473"
+    }
+  ],
+  "labels": {
+    "anomaly_flag": true,
+    "failure_type": true,
+    "maintenance_required": true
+  },
+  "sensor_catalogue": [
+    {
+      "feature": "timestamp",
+      "physical_meaning": "observation timestamp",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "metadata/identifier",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "machine_id",
+      "physical_meaning": "machine identifier",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "metadata/identifier",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "temperature",
+      "physical_meaning": "temperature",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "thermal",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "vibration",
+      "physical_meaning": "vibration",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "mechanical",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "humidity",
+      "physical_meaning": "humidity",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "operating context",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "pressure",
+      "physical_meaning": "pressure",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "hydraulic/fluid",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "energy_consumption",
+      "physical_meaning": "energy consumption",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "electrical",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "machine_status",
+      "physical_meaning": "machine status",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "operating context",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "anomaly_flag",
+      "physical_meaning": "anomaly label",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "label/target",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "predicted_remaining_life",
+      "physical_meaning": "predicted remaining life",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "health/degradation",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "failure_type",
+      "physical_meaning": "failure category",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "label/target",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "downtime_risk",
+      "physical_meaning": "downtime risk",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "business/economic",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "maintenance_required",
+      "physical_meaning": "maintenance-required label",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "label/target",
+      "source": "dataset column name only"
+    }
+  ],
+  "record_count": 100000,
+  "column_count": 13,
+  "column_names": [
+    "timestamp",
+    "machine_id",
+    "temperature",
+    "vibration",
+    "humidity",
+    "pressure",
+    "energy_consumption",
+    "machine_status",
+    "anomaly_flag",
+    "predicted_remaining_life",
+    "failure_type",
+    "downtime_risk",
+    "maintenance_required"
+  ],
+  "dtypes": {
+    "timestamp": "str",
+    "machine_id": "int64",
+    "temperature": "float64",
+    "vibration": "float64",
+    "humidity": "float64",
+    "pressure": "float64",
+    "energy_consumption": "float64",
+    "machine_status": "int64",
+    "anomaly_flag": "int64",
+    "predicted_remaining_life": "int64",
+    "failure_type": "str",
+    "downtime_risk": "float64",
+    "maintenance_required": "int64"
+  },
+  "temporal_structure": "sequential timestamped rows",
+  "prepared_output": "prepared_observations/smart_maintenance_timeseries.parquet"
+}

@@ -1,0 +1,126 @@
+{
+  "dataset_id": "smart_maintenance_static",
+  "name": "Smart Manufacturing Maintenance - static variant",
+  "source_path": "Smart Manufacturing Maintenance Dataset/smart_maintenance_dataset.csv",
+  "domain": "factory maintenance",
+  "asset_type": "machine fleet",
+  "component": "unknown",
+  "processing_type": "static_tabular",
+  "format": "CSV",
+  "status": "active",
+  "file_count": 1,
+  "size_bytes": 138361,
+  "notes": [
+    "Original source columns are retained. Derived columns use the __ suffix."
+  ],
+  "source_manifest": [
+    {
+      "path": "Smart Manufacturing Maintenance Dataset/smart_maintenance_dataset.csv",
+      "bytes": 138361,
+      "sha256": "c71bb6c49d96db1cff48a8e849df9287b0374956af89e3122886a9f0a8d5f091"
+    }
+  ],
+  "labels": {
+    "Maintenance_Priority": true
+  },
+  "sensor_catalogue": [
+    {
+      "feature": "Machine_ID",
+      "physical_meaning": "machine identifier",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "metadata/identifier",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Temp_C",
+      "physical_meaning": "temperature",
+      "unit": "C",
+      "category": "thermal",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Vibration_mm_s",
+      "physical_meaning": "vibration velocity",
+      "unit": "mm/s",
+      "category": "mechanical",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Pressure_Bar",
+      "physical_meaning": "pressure",
+      "unit": "bar",
+      "category": "hydraulic/fluid",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Acoustic_dB",
+      "physical_meaning": "acoustic level",
+      "unit": "dB",
+      "category": "acoustic",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Inspection_Duration_min",
+      "physical_meaning": "inspection duration",
+      "unit": "min",
+      "category": "business/economic",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Downtime_Cost_USD",
+      "physical_meaning": "downtime cost",
+      "unit": "USD",
+      "category": "business/economic",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Technician_Availability_pct",
+      "physical_meaning": "technician availability",
+      "unit": "%",
+      "category": "business/economic",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Failure_Prob",
+      "physical_meaning": "failure probability",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "health/degradation",
+      "source": "dataset column name only"
+    },
+    {
+      "feature": "Maintenance_Priority",
+      "physical_meaning": "maintenance priority label",
+      "unit": "UNKNOWN/UNVERIFIED",
+      "category": "label/target",
+      "source": "dataset column name only"
+    }
+  ],
+  "record_count": 1430,
+  "column_count": 10,
+  "column_names": [
+    "Machine_ID",
+    "Temp_C",
+    "Vibration_mm_s",
+    "Pressure_Bar",
+    "Acoustic_dB",
+    "Inspection_Duration_min",
+    "Downtime_Cost_USD",
+    "Technician_Availability_pct",
+    "Failure_Prob",
+    "Maintenance_Priority"
+  ],
+  "dtypes": {
+    "Machine_ID": "str",
+    "Temp_C": "float64",
+    "Vibration_mm_s": "float64",
+    "Pressure_Bar": "float64",
+    "Acoustic_dB": "float64",
+    "Inspection_Duration_min": "int64",
+    "Downtime_Cost_USD": "int64",
+    "Technician_Availability_pct": "int64",
+    "Failure_Prob": "float64",
+    "Maintenance_Priority": "int64"
+  },
+  "temporal_structure": "independent tabular rows; no verified temporal key",
+  "prepared_output": "prepared_observations/smart_maintenance_static.parquet"
+}

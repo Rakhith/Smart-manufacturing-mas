@@ -1,0 +1,15 @@
+{
+  "dataset_id": "metal_etch",
+  "operations": [
+    {
+      "operation": "remove_exact_duplicates",
+      "removed": 107
+    }
+  ],
+  "removed_records": 0,
+  "columns_changed": [],
+  "records_before": 10770,
+  "records_after": 10663,
+  "columns_before": 22,
+  "columns_after": 24
+}

@@ -1,0 +1,382 @@
+2026-09-03 12:09:54,932 INFO Starting ai4i_2020
+2026-09-03 12:09:55,026 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:09:55,026 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:09:55,048 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:09:55,048 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:09:55,070 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:09:55,070 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:09:55,090 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:09:55,090 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:09:55,110 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:09:55,111 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:09:55,131 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:09:55,131 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:09:55,150 INFO Completed ai4i_2020: {'dataset_id': 'ai4i_2020', 'status': 'completed', 'prepared_records': 10000, 'output': 'prepared_observations/ai4i_2020.parquet'}
+2026-09-03 12:09:55,150 INFO Starting cmapss
+2026-09-03 12:10:25,147 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:10:25,147 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:10:25,294 INFO Completed cmapss: {'dataset_id': 'cmapss', 'status': 'completed', 'prepared_records': 265256, 'output': 'prepared_observations/cmapss.parquet'}
+2026-09-03 12:10:25,294 INFO Starting smart_maintenance
+2026-09-03 12:10:25,348 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:10:25,348 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:10:26,303 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:10:26,303 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:10:26,350 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:10:26,350 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:10:26,540 INFO Completed smart_maintenance: {'dataset_id': 'smart_maintenance', 'status': 'completed', 'prepared_records': 101430, 'output': 'prepared_observations/smart_maintenance_static.parquet; prepared_observations/smart_maintenance_timeseries.parquet'}
+2026-09-03 12:10:26,540 INFO Starting iiot_6g
+2026-09-03 12:10:28,036 INFO Completed iiot_6g: {'dataset_id': 'iiot_6g', 'status': 'completed', 'prepared_records': 100000, 'output': 'prepared_observations/iiot_6g.parquet'}
+2026-09-03 12:10:28,036 INFO Starting nasa_milling
+2026-09-03 12:10:28,872 INFO Completed nasa_milling: {'dataset_id': 'nasa_milling', 'status': 'completed', 'prepared_records': 1002, 'output': 'prepared_observations/nasa_milling.parquet'}
+2026-09-03 12:10:28,872 INFO Starting metropt3
+2026-09-03 12:10:32,416 INFO Completed metropt3: {'dataset_id': 'metropt3', 'status': 'completed', 'prepared_records': 306960, 'output': 'prepared_observations/metropt3_minute_windows.parquet'}
+2026-09-03 12:10:32,416 INFO Starting uci_hydraulic
+2026-09-03 12:10:35,678 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:10:35,678 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:10:35,705 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:10:35,705 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:10:35,728 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:10:35,728 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:10:35,750 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:10:35,751 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:10:35,779 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:10:35,779 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:10:35,905 INFO Completed uci_hydraulic: {'dataset_id': 'uci_hydraulic', 'status': 'completed', 'prepared_records': 2205, 'output': 'prepared_observations/uci_hydraulic.parquet'}
+2026-09-03 12:10:35,905 INFO Starting tennessee_eastman
+2026-09-03 12:24:32,419 INFO Starting smart_maintenance
+2026-09-03 12:24:32,489 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:24:32,489 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:24:33,378 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:24:33,378 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:24:33,423 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:24:33,423 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:24:33,591 INFO Completed smart_maintenance: {'dataset_id': 'smart_maintenance', 'status': 'completed', 'prepared_records': 101430, 'output': 'prepared_observations/smart_maintenance_static.parquet; prepared_observations/smart_maintenance_timeseries.parquet'}
+2026-09-03 12:24:33,591 INFO Starting nasa_milling
+2026-09-03 12:24:34,407 INFO Completed nasa_milling: {'dataset_id': 'nasa_milling', 'status': 'completed', 'prepared_records': 1002, 'output': 'prepared_observations/nasa_milling.parquet'}
+2026-09-03 12:24:34,408 INFO Starting metropt3
+2026-09-03 12:24:38,112 INFO Completed metropt3: {'dataset_id': 'metropt3', 'status': 'completed', 'prepared_records': 306960, 'output': 'prepared_observations/metropt3_minute_windows.parquet'}
+2026-09-03 12:24:38,112 INFO Starting uci_hydraulic
+2026-09-03 12:24:41,404 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:24:41,404 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:24:41,431 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:24:41,431 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:24:41,454 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:24:41,454 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:24:41,478 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:24:41,478 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:24:41,504 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:24:41,504 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:24:41,631 INFO Completed uci_hydraulic: {'dataset_id': 'uci_hydraulic', 'status': 'completed', 'prepared_records': 2205, 'output': 'prepared_observations/uci_hydraulic.parquet'}
+2026-09-03 12:24:41,631 INFO Starting tennessee_eastman
+2026-09-03 12:27:14,053 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:27:14,054 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:27:14,578 INFO Completed tennessee_eastman: {'dataset_id': 'tennessee_eastman', 'status': 'completed', 'prepared_records': 5730000, 'output': 'prepared_observations/tennessee_eastman.parquet'}
+2026-09-03 12:27:14,578 INFO Starting metal_etch
+2026-09-03 12:27:14,727 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:27:14,727 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:27:14,750 INFO Completed metal_etch: {'dataset_id': 'metal_etch', 'status': 'completed', 'prepared_records': 10663, 'output': 'prepared_observations/metal_etch.parquet'}
+2026-09-03 12:27:14,750 INFO Starting digital_manufacturing_deprecated
+2026-09-03 12:27:14,774 INFO Completed digital_manufacturing_deprecated: {'dataset_id': 'digital_manufacturing_deprecated', 'status': 'catalogued_not_processed', 'prepared_records': 0, 'output': None}
+2026-09-03 12:28:44,708 INFO Starting ai4i_2020
+2026-09-03 12:28:44,709 INFO Reused completed ai4i_2020
+2026-09-03 12:28:44,709 INFO Starting cmapss
+2026-09-03 12:28:44,709 INFO Reused completed cmapss
+2026-09-03 12:28:44,709 INFO Starting smart_maintenance
+2026-09-03 12:28:44,709 INFO Reused completed smart_maintenance
+2026-09-03 12:28:44,709 INFO Starting iiot_6g
+2026-09-03 12:28:44,709 INFO Reused completed iiot_6g
+2026-09-03 12:28:44,709 INFO Starting nasa_milling
+2026-09-03 12:28:44,709 INFO Reused completed nasa_milling
+2026-09-03 12:28:44,709 INFO Starting metropt3
+2026-09-03 12:28:44,709 INFO Reused completed metropt3
+2026-09-03 12:28:44,709 INFO Starting uci_hydraulic
+2026-09-03 12:28:44,709 INFO Reused completed uci_hydraulic
+2026-09-03 12:28:44,709 INFO Starting tennessee_eastman
+2026-09-03 12:28:44,709 INFO Reused completed tennessee_eastman
+2026-09-03 12:28:44,709 INFO Starting nasa_ims
+2026-09-03 12:28:44,710 INFO Reused completed nasa_ims
+2026-09-03 12:28:44,710 INFO Starting metal_etch
+2026-09-03 12:28:44,711 INFO Reused completed metal_etch
+2026-09-03 12:28:44,711 INFO Starting digital_manufacturing_deprecated
+2026-09-03 12:29:05,701 INFO Starting ai4i_2020
+2026-09-03 12:29:05,720 INFO Reused completed ai4i_2020
+2026-09-03 12:29:05,721 INFO Starting cmapss
+2026-09-03 12:29:05,721 INFO Reused completed cmapss
+2026-09-03 12:29:05,721 INFO Starting smart_maintenance
+2026-09-03 12:29:05,722 INFO Reused completed smart_maintenance
+2026-09-03 12:29:05,722 INFO Starting iiot_6g
+2026-09-03 12:29:05,723 INFO Reused completed iiot_6g
+2026-09-03 12:29:05,723 INFO Starting nasa_milling
+2026-09-03 12:29:05,723 INFO Reused completed nasa_milling
+2026-09-03 12:29:05,723 INFO Starting metropt3
+2026-09-03 12:29:05,724 INFO Reused completed metropt3
+2026-09-03 12:29:05,724 INFO Starting uci_hydraulic
+2026-09-03 12:29:05,724 INFO Reused completed uci_hydraulic
+2026-09-03 12:29:05,724 INFO Starting tennessee_eastman
+2026-09-03 12:29:05,725 INFO Reused completed tennessee_eastman
+2026-09-03 12:29:05,725 INFO Starting nasa_ims
+2026-09-03 12:29:05,726 INFO Reused completed nasa_ims
+2026-09-03 12:29:05,726 INFO Starting metal_etch
+2026-09-03 12:29:05,726 INFO Reused completed metal_etch
+2026-09-03 12:29:05,726 INFO Starting digital_manufacturing_deprecated
+2026-09-03 12:29:44,664 INFO Starting smart_maintenance
+2026-09-03 12:29:44,740 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:29:44,740 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:29:45,721 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:29:45,721 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:29:45,767 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:29:45,768 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:29:45,943 INFO Completed smart_maintenance: {'dataset_id': 'smart_maintenance', 'status': 'completed', 'prepared_records': 101430, 'output': 'prepared_observations/smart_maintenance_static.parquet; prepared_observations/smart_maintenance_timeseries.parquet'}
+2026-09-03 12:29:46,398 INFO Starting ai4i_2020
+2026-09-03 12:29:46,411 INFO Reused completed ai4i_2020
+2026-09-03 12:29:46,411 INFO Starting cmapss
+2026-09-03 12:29:46,411 INFO Reused completed cmapss
+2026-09-03 12:29:46,411 INFO Starting smart_maintenance
+2026-09-03 12:29:46,412 INFO Reused completed smart_maintenance
+2026-09-03 12:29:46,412 INFO Starting iiot_6g
+2026-09-03 12:29:46,412 INFO Reused completed iiot_6g
+2026-09-03 12:29:46,412 INFO Starting nasa_milling
+2026-09-03 12:29:46,412 INFO Reused completed nasa_milling
+2026-09-03 12:29:46,412 INFO Starting metropt3
+2026-09-03 12:29:46,413 INFO Reused completed metropt3
+2026-09-03 12:29:46,413 INFO Starting uci_hydraulic
+2026-09-03 12:29:46,413 INFO Reused completed uci_hydraulic
+2026-09-03 12:29:46,413 INFO Starting tennessee_eastman
+2026-09-03 12:29:46,414 INFO Reused completed tennessee_eastman
+2026-09-03 12:29:46,414 INFO Starting nasa_ims
+2026-09-03 12:29:46,415 INFO Reused completed nasa_ims
+2026-09-03 12:29:46,415 INFO Starting metal_etch
+2026-09-03 12:29:46,415 INFO Reused completed metal_etch
+2026-09-03 12:29:46,415 INFO Starting digital_manufacturing_deprecated
+2026-09-03 12:30:28,541 INFO Starting uci_hydraulic
+2026-09-03 12:30:31,660 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:30:31,660 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:30:31,684 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:30:31,684 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:30:31,706 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:30:31,707 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:30:31,729 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:30:31,729 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:30:31,755 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:30:31,755 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:30:31,875 INFO Completed uci_hydraulic: {'dataset_id': 'uci_hydraulic', 'status': 'completed', 'prepared_records': 2205, 'output': 'prepared_observations/uci_hydraulic.parquet'}
+2026-09-03 12:30:32,313 INFO Starting ai4i_2020
+2026-09-03 12:30:32,326 INFO Reused completed ai4i_2020
+2026-09-03 12:30:32,326 INFO Starting cmapss
+2026-09-03 12:30:32,326 INFO Reused completed cmapss
+2026-09-03 12:30:32,326 INFO Starting smart_maintenance
+2026-09-03 12:30:32,327 INFO Reused completed smart_maintenance
+2026-09-03 12:30:32,327 INFO Starting iiot_6g
+2026-09-03 12:30:32,327 INFO Reused completed iiot_6g
+2026-09-03 12:30:32,327 INFO Starting nasa_milling
+2026-09-03 12:30:32,327 INFO Reused completed nasa_milling
+2026-09-03 12:30:32,327 INFO Starting metropt3
+2026-09-03 12:30:32,328 INFO Reused completed metropt3
+2026-09-03 12:30:32,328 INFO Starting uci_hydraulic
+2026-09-03 12:30:32,328 INFO Reused completed uci_hydraulic
+2026-09-03 12:30:32,328 INFO Starting tennessee_eastman
+2026-09-03 12:30:32,329 INFO Reused completed tennessee_eastman
+2026-09-03 12:30:32,329 INFO Starting nasa_ims
+2026-09-03 12:30:32,330 INFO Reused completed nasa_ims
+2026-09-03 12:30:32,330 INFO Starting metal_etch
+2026-09-03 12:30:32,331 INFO Reused completed metal_etch
+2026-09-03 12:30:32,331 INFO Starting digital_manufacturing_deprecated
+2026-09-03 12:30:57,716 INFO Starting iiot_6g
+2026-09-03 12:30:59,141 INFO Completed iiot_6g: {'dataset_id': 'iiot_6g', 'status': 'completed', 'prepared_records': 100000, 'output': 'prepared_observations/iiot_6g.parquet'}
+2026-09-03 12:30:59,567 INFO Starting ai4i_2020
+2026-09-03 12:30:59,579 INFO Reused completed ai4i_2020
+2026-09-03 12:30:59,579 INFO Starting cmapss
+2026-09-03 12:30:59,579 INFO Reused completed cmapss
+2026-09-03 12:30:59,579 INFO Starting smart_maintenance
+2026-09-03 12:30:59,580 INFO Reused completed smart_maintenance
+2026-09-03 12:30:59,580 INFO Starting iiot_6g
+2026-09-03 12:30:59,580 INFO Reused completed iiot_6g
+2026-09-03 12:30:59,580 INFO Starting nasa_milling
+2026-09-03 12:30:59,580 INFO Reused completed nasa_milling
+2026-09-03 12:30:59,580 INFO Starting metropt3
+2026-09-03 12:30:59,581 INFO Reused completed metropt3
+2026-09-03 12:30:59,581 INFO Starting uci_hydraulic
+2026-09-03 12:30:59,581 INFO Reused completed uci_hydraulic
+2026-09-03 12:30:59,581 INFO Starting tennessee_eastman
+2026-09-03 12:30:59,582 INFO Reused completed tennessee_eastman
+2026-09-03 12:30:59,582 INFO Starting nasa_ims
+2026-09-03 12:30:59,583 INFO Reused completed nasa_ims
+2026-09-03 12:30:59,583 INFO Starting metal_etch
+2026-09-03 12:30:59,583 INFO Reused completed metal_etch
+2026-09-03 12:30:59,583 INFO Starting digital_manufacturing_deprecated
+2026-09-03 12:31:23,126 INFO Starting iiot_6g
+2026-09-03 12:31:24,559 INFO Completed iiot_6g: {'dataset_id': 'iiot_6g', 'status': 'completed', 'prepared_records': 100000, 'output': 'prepared_observations/iiot_6g.parquet'}
+2026-09-03 12:31:24,559 INFO Starting uci_hydraulic
+2026-09-03 12:31:27,682 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:31:27,683 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:31:27,707 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:31:27,707 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:31:27,729 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:31:27,729 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:31:27,751 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:31:27,751 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:31:27,779 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:31:27,779 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:31:27,896 INFO Completed uci_hydraulic: {'dataset_id': 'uci_hydraulic', 'status': 'completed', 'prepared_records': 2205, 'output': 'prepared_observations/uci_hydraulic.parquet'}
+2026-09-03 12:31:28,334 INFO Starting ai4i_2020
+2026-09-03 12:31:28,347 INFO Reused completed ai4i_2020
+2026-09-03 12:31:28,347 INFO Starting cmapss
+2026-09-03 12:31:28,347 INFO Reused completed cmapss
+2026-09-03 12:31:28,347 INFO Starting smart_maintenance
+2026-09-03 12:31:28,348 INFO Reused completed smart_maintenance
+2026-09-03 12:31:28,348 INFO Starting iiot_6g
+2026-09-03 12:31:28,348 INFO Reused completed iiot_6g
+2026-09-03 12:31:28,348 INFO Starting nasa_milling
+2026-09-03 12:31:28,348 INFO Reused completed nasa_milling
+2026-09-03 12:31:28,348 INFO Starting metropt3
+2026-09-03 12:31:28,349 INFO Reused completed metropt3
+2026-09-03 12:31:28,349 INFO Starting uci_hydraulic
+2026-09-03 12:31:28,349 INFO Reused completed uci_hydraulic
+2026-09-03 12:31:28,349 INFO Starting tennessee_eastman
+2026-09-03 12:31:28,350 INFO Reused completed tennessee_eastman
+2026-09-03 12:31:28,350 INFO Starting nasa_ims
+2026-09-03 12:31:28,351 INFO Reused completed nasa_ims
+2026-09-03 12:31:28,351 INFO Starting metal_etch
+2026-09-03 12:31:28,352 INFO Reused completed metal_etch
+2026-09-03 12:31:28,352 INFO Starting digital_manufacturing_deprecated
+2026-09-03 12:32:22,814 INFO Starting iiot_6g
+2026-09-03 12:32:24,242 INFO Completed iiot_6g: {'dataset_id': 'iiot_6g', 'status': 'completed', 'prepared_records': 100000, 'output': 'prepared_observations/iiot_6g.parquet'}
+2026-09-03 12:32:24,242 INFO Starting uci_hydraulic
+2026-09-03 12:32:27,369 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:32:27,370 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:32:27,394 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:32:27,394 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:32:27,419 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:32:27,419 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:32:27,441 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:32:27,441 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:32:27,467 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:32:27,468 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:32:27,586 INFO Completed uci_hydraulic: {'dataset_id': 'uci_hydraulic', 'status': 'completed', 'prepared_records': 2205, 'output': 'prepared_observations/uci_hydraulic.parquet'}
+2026-09-03 12:32:28,020 INFO Starting ai4i_2020
+2026-09-03 12:32:28,032 INFO Reused completed ai4i_2020
+2026-09-03 12:32:28,032 INFO Starting cmapss
+2026-09-03 12:32:28,032 INFO Reused completed cmapss
+2026-09-03 12:32:28,032 INFO Starting smart_maintenance
+2026-09-03 12:32:28,033 INFO Reused completed smart_maintenance
+2026-09-03 12:32:28,033 INFO Starting iiot_6g
+2026-09-03 12:32:28,033 INFO Reused completed iiot_6g
+2026-09-03 12:32:28,033 INFO Starting nasa_milling
+2026-09-03 12:32:28,033 INFO Reused completed nasa_milling
+2026-09-03 12:32:28,033 INFO Starting metropt3
+2026-09-03 12:32:28,033 INFO Reused completed metropt3
+2026-09-03 12:32:28,033 INFO Starting uci_hydraulic
+2026-09-03 12:32:28,034 INFO Reused completed uci_hydraulic
+2026-09-03 12:32:28,034 INFO Starting tennessee_eastman
+2026-09-03 12:32:28,035 INFO Reused completed tennessee_eastman
+2026-09-03 12:32:28,035 INFO Starting nasa_ims
+2026-09-03 12:32:28,036 INFO Reused completed nasa_ims
+2026-09-03 12:32:28,036 INFO Starting metal_etch
+2026-09-03 12:32:28,036 INFO Reused completed metal_etch
+2026-09-03 12:32:28,036 INFO Starting digital_manufacturing_deprecated
+2026-09-03 12:33:15,400 INFO Starting ai4i_2020
+2026-09-03 12:33:15,412 INFO Reused completed ai4i_2020
+2026-09-03 12:33:15,412 INFO Starting cmapss
+2026-09-03 12:33:15,413 INFO Reused completed cmapss
+2026-09-03 12:33:15,413 INFO Starting smart_maintenance
+2026-09-03 12:33:15,413 INFO Reused completed smart_maintenance
+2026-09-03 12:33:15,413 INFO Starting iiot_6g
+2026-09-03 12:33:15,413 INFO Reused completed iiot_6g
+2026-09-03 12:33:15,413 INFO Starting nasa_milling
+2026-09-03 12:33:15,414 INFO Reused completed nasa_milling
+2026-09-03 12:33:15,414 INFO Starting metropt3
+2026-09-03 12:33:15,414 INFO Reused completed metropt3
+2026-09-03 12:33:15,414 INFO Starting uci_hydraulic
+2026-09-03 12:33:15,414 INFO Reused completed uci_hydraulic
+2026-09-03 12:33:15,414 INFO Starting tennessee_eastman
+2026-09-03 12:33:15,415 INFO Reused completed tennessee_eastman
+2026-09-03 12:33:15,415 INFO Starting nasa_ims
+2026-09-03 12:33:15,416 INFO Reused completed nasa_ims
+2026-09-03 12:33:15,416 INFO Starting metal_etch
+2026-09-03 12:33:15,417 INFO Reused completed metal_etch
+2026-09-03 12:33:15,417 INFO Starting digital_manufacturing_deprecated
+2026-09-03 12:43:23,561 INFO Starting smart_maintenance
+2026-09-03 12:43:23,629 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:43:23,629 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:43:24,467 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:43:24,468 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:43:24,513 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:43:24,513 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:43:24,685 INFO Completed smart_maintenance: {'dataset_id': 'smart_maintenance', 'status': 'completed', 'prepared_records': 101430, 'output': 'prepared_observations/smart_maintenance_static.parquet; prepared_observations/smart_maintenance_timeseries.parquet'}
+2026-09-03 12:43:24,685 INFO Starting iiot_6g
+2026-09-03 12:43:26,073 INFO Completed iiot_6g: {'dataset_id': 'iiot_6g', 'status': 'completed', 'prepared_records': 100000, 'output': 'prepared_observations/iiot_6g.parquet'}
+2026-09-03 12:43:26,073 INFO Starting nasa_milling
+2026-09-03 12:43:26,906 INFO Completed nasa_milling: {'dataset_id': 'nasa_milling', 'status': 'completed', 'prepared_records': 1002, 'output': 'prepared_observations/nasa_milling.parquet'}
+2026-09-03 12:43:27,341 INFO Starting ai4i_2020
+2026-09-03 12:43:27,353 INFO Reused completed ai4i_2020
+2026-09-03 12:43:27,353 INFO Starting cmapss
+2026-09-03 12:43:27,354 INFO Reused completed cmapss
+2026-09-03 12:43:27,354 INFO Starting smart_maintenance
+2026-09-03 12:43:27,354 INFO Reused completed smart_maintenance
+2026-09-03 12:43:27,354 INFO Starting iiot_6g
+2026-09-03 12:43:27,355 INFO Reused completed iiot_6g
+2026-09-03 12:43:27,355 INFO Starting nasa_milling
+2026-09-03 12:43:27,355 INFO Reused completed nasa_milling
+2026-09-03 12:43:27,355 INFO Starting metropt3
+2026-09-03 12:43:27,355 INFO Reused completed metropt3
+2026-09-03 12:43:27,355 INFO Starting uci_hydraulic
+2026-09-03 12:43:27,356 INFO Reused completed uci_hydraulic
+2026-09-03 12:43:27,356 INFO Starting tennessee_eastman
+2026-09-03 12:43:27,356 INFO Reused completed tennessee_eastman
+2026-09-03 12:43:27,356 INFO Starting nasa_ims
+2026-09-03 12:43:27,358 INFO Reused completed nasa_ims
+2026-09-03 12:43:27,358 INFO Starting metal_etch
+2026-09-03 12:43:27,358 INFO Reused completed metal_etch
+2026-09-03 12:43:27,358 INFO Starting digital_manufacturing_deprecated
+2026-09-03 12:44:28,120 INFO Starting smart_maintenance
+2026-09-03 12:44:28,185 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:44:28,185 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:44:29,030 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:44:29,030 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:44:29,075 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:44:29,075 INFO Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-09-03 12:44:29,220 INFO Completed smart_maintenance: {'dataset_id': 'smart_maintenance', 'status': 'completed', 'prepared_records': 101430, 'output': 'prepared_observations/smart_maintenance_static.parquet; prepared_observations/smart_maintenance_timeseries.parquet'}
+2026-09-03 12:44:29,220 INFO Starting iiot_6g
+2026-09-03 12:44:30,549 INFO Completed iiot_6g: {'dataset_id': 'iiot_6g', 'status': 'completed', 'prepared_records': 100000, 'output': 'prepared_observations/iiot_6g.parquet'}
+2026-09-03 12:44:30,981 INFO Starting ai4i_2020
+2026-09-03 12:44:30,993 INFO Reused completed ai4i_2020
+2026-09-03 12:44:30,993 INFO Starting cmapss
+2026-09-03 12:44:30,993 INFO Reused completed cmapss
+2026-09-03 12:44:30,993 INFO Starting smart_maintenance
+2026-09-03 12:44:30,994 INFO Reused completed smart_maintenance
+2026-09-03 12:44:30,994 INFO Starting iiot_6g
+2026-09-03 12:44:30,994 INFO Reused completed iiot_6g
+2026-09-03 12:44:30,994 INFO Starting nasa_milling
+2026-09-03 12:44:30,994 INFO Reused completed nasa_milling
+2026-09-03 12:44:30,994 INFO Starting metropt3
+2026-09-03 12:44:30,994 INFO Reused completed metropt3
+2026-09-03 12:44:30,994 INFO Starting uci_hydraulic
+2026-09-03 12:44:30,995 INFO Reused completed uci_hydraulic
+2026-09-03 12:44:30,995 INFO Starting tennessee_eastman
+2026-09-03 12:44:30,996 INFO Reused completed tennessee_eastman
+2026-09-03 12:44:30,996 INFO Starting nasa_ims
+2026-09-03 12:44:30,997 INFO Reused completed nasa_ims
+2026-09-03 12:44:30,997 INFO Starting metal_etch
+2026-09-03 12:44:30,997 INFO Reused completed metal_etch
+2026-09-03 12:44:30,997 INFO Starting digital_manufacturing_deprecated
+2026-09-03 12:44:58,451 INFO Starting ai4i_2020
+2026-09-03 12:44:58,463 INFO Reused completed ai4i_2020
+2026-09-03 12:44:58,463 INFO Starting cmapss
+2026-09-03 12:44:58,463 INFO Reused completed cmapss
+2026-09-03 12:44:58,464 INFO Starting smart_maintenance
+2026-09-03 12:44:58,464 INFO Reused completed smart_maintenance
+2026-09-03 12:44:58,464 INFO Starting iiot_6g
+2026-09-03 12:44:58,464 INFO Reused completed iiot_6g
+2026-09-03 12:44:58,464 INFO Starting nasa_milling
+2026-09-03 12:44:58,464 INFO Reused completed nasa_milling
+2026-09-03 12:44:58,464 INFO Starting metropt3
+2026-09-03 12:44:58,465 INFO Reused completed metropt3
+2026-09-03 12:44:58,465 INFO Starting uci_hydraulic
+2026-09-03 12:44:58,465 INFO Reused completed uci_hydraulic
+2026-09-03 12:44:58,465 INFO Starting tennessee_eastman
+2026-09-03 12:44:58,466 INFO Reused completed tennessee_eastman
+2026-09-03 12:44:58,466 INFO Starting nasa_ims
+2026-09-03 12:44:58,467 INFO Reused completed nasa_ims
+2026-09-03 12:44:58,467 INFO Starting metal_etch
+2026-09-03 12:44:58,467 INFO Reused completed metal_etch
+2026-09-03 12:44:58,467 INFO Starting digital_manufacturing_deprecated
