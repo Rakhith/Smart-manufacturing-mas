@@ -1,0 +1,75 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Virtual environments & local dependencies
+.venv/
+mas_venv/
+smart_manufacturing_mas/mas_venv/
+env/
+venv/
+.phase1_deps/
+
+# Python cache & build outputs
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Environment secrets
+.env
+.env.local
+
+# Logs and outputs
+logs/
+smart_manufacturing_mas/logs/
+outputs/
+smart_manufacturing_mas/outputs/
+
+# Large model artifacts and caches
+model_cache/
+artifacts/
+smart_manufacturing_mas/model_cache/
+smart_manufacturing_mas/artifacts/
+
+# Archives
+*.zip
+smart_manufacturing_mas/phase1.zip
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+
+# Datasets and large data files (ignore datasets while preserving folder structure & docs)
+smart_manufacturing_mas/data/*
+!smart_manufacturing_mas/data/**/
+!smart_manufacturing_mas/data/README.md
+!smart_manufacturing_mas/data/**/.gitkeep
+!smart_manufacturing_mas/data/**/README*
+!smart_manufacturing_mas/data/**/Data Description*
+!smart_manufacturing_mas/data/**/Readme Document*
+!smart_manufacturing_mas/data/**/description.txt
+!smart_manufacturing_mas/data/**/documentation.txt
+
+smart_manufacturing_mas/data/**/*.csv
+smart_manufacturing_mas/data/**/*.RData
+smart_manufacturing_mas/data/**/*.txt
+smart_manufacturing_mas/data/**/*.npz
+smart_manufacturing_mas/data/**/*.zip
+smart_manufacturing_mas/data/**/*.mat
+smart_manufacturing_mas/data/**/2nd_test/
+smart_manufacturing_mas/data/**/1st_test/
+smart_manufacturing_mas/data/**/3rd_test/
+smart_manufacturing_mas/data/**/4th_test/
+smart_manufacturing_mas/data/**/CMAPSSData/
+smart_manufacturing_mas/data/**/Intelligent Manufacturing Dataset/
+smart_manufacturing_mas/data/**/Smart Manufacturing Maintenance Dataset/
+smart_manufacturing_mas/data/**/_deprecated/
+!smart_manufacturing_mas/data/UCI Hydraulic Systems/description.txt
+!smart_manufacturing_mas/data/UCI Hydraulic Systems/documentation.txt
