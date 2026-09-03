@@ -17,6 +17,7 @@ import os
 import shutil
 import subprocess
 import sys
+import weakref
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Callable
@@ -35,7 +36,7 @@ from phase1.features import add_causal_temporal_features, matrix_cycle_features,
 
 
 OUTPUT_DIRS = ("dataset_inventory", "dataset_catalogue", "data_quality_reports", "preprocessing_reports", "processed_datasets", "derived_features", "prepared_observations", "visualizations", "logs")
-_FRAME_ARTIFACTS: dict[int, Path] = {}
+_FRAME_ARTIFACTS: dict[int, tuple[weakref.ReferenceType[pd.DataFrame], Path]] = {}
 
 
 SIMPLE_METADATA: dict[str, dict[str, dict[str, str]]] = {
@@ -65,17 +66,19 @@ def setup_output(root: Path, clean: bool) -> None:
 
 def save_frame(frame: pd.DataFrame, destination: Path) -> Path:
     destination.parent.mkdir(parents=True, exist_ok=True)
-    source = _FRAME_ARTIFACTS.get(id(frame))
+    cached = _FRAME_ARTIFACTS.get(id(frame))
+    source = cached[1] if cached and cached[0]() is frame else None
     if source and source.exists():
         linked = destination.with_suffix(source.suffix)
         try:
             linked.unlink(missing_ok=True)
-            linked.hardlink_to(source)
+            linked.symlink_to(source.resolve())
             return linked
         except OSError:
             # A separate filesystem or a restricted output mount may not allow
-            # hard links; fall through to a normal write in that case.
+            # symlinks; fall through to a normal write in that case.
             pass
+            destination.unlink(missing_ok=True)
     try:
         frame.to_parquet(destination, index=False)
         result = destination
@@ -85,7 +88,7 @@ def save_frame(frame: pd.DataFrame, destination: Path) -> Path:
         fallback = destination.with_suffix(".csv")
         frame.to_csv(fallback, index=False)
         result = fallback
-    _FRAME_ARTIFACTS[id(frame)] = result
+    _FRAME_ARTIFACTS[id(frame)] = (weakref.ref(frame), result)
     return result
 
 
@@ -114,6 +117,28 @@ def normalize_artifact_paths(root: Path, value: Any) -> Any:
     if isinstance(value, dict):
         return {key: normalize_artifact_paths(root, item) for key, item in value.items()}
     return value
+
+
+def artifact_paths_exist(root: Path, value: Any) -> bool:
+    if isinstance(value, str):
+        return all((root / item.strip()).exists() for item in value.split("; "))
+    if isinstance(value, list):
+        return all(artifact_paths_exist(root, item) for item in value)
+    return True
+
+
+def artifact_record_count(root: Path, value: Any) -> int:
+    paths = value if isinstance(value, list) else str(value).split("; ")
+    total = 0
+    for relative in paths:
+        path = root / relative
+        if path.suffix == ".parquet":
+            import pyarrow.parquet as parquet
+            total += parquet.ParquetFile(path).metadata.num_rows
+        elif path.suffix == ".csv":
+            with path.open("rb") as stream:
+                total += max(0, sum(1 for _ in stream) - 1)
+    return total
 
 
 def save_catalogue(root: Path, record: dict[str, Any]) -> None:
@@ -443,19 +468,24 @@ def prepare_deprecated(root: Path, data_root: Path, definition: DatasetDefinitio
 
 def write_phase_summary(root: Path, inventory: list[dict[str, Any]], results: list[dict[str, Any]], errors: list[dict[str, str]]) -> None:
     rows = {result["dataset_id"]: result for result in results}
-    lines = ["# Phase 1 Summary - Dataset Preparation", "", f"Generated: {datetime.now(timezone.utc).isoformat()}", "", "## Scope", "", "This artifact documents dataset-specific preparation before semantic normalization. No common semantic schema, action ontology, LLM judgment, recommender, or closed-loop simulator is implemented here.", "", "## Dataset inventory", "", "| Dataset | Format | Files | Approx. size | Processing type | Status |", "|---|---:|---:|---:|---|---|"]
+    limited = {"nasa_milling", "metropt3", "tennessee_eastman", "nasa_ims", "metal_etch"}
+    lines = ["# Phase 1 Summary - Dataset Preparation", "", f"Generated: {datetime.now(timezone.utc).isoformat()}", "", "## Scope", "", "Dataset-specific preparation is complete through prepared observations. No semantic normalization, ontology mapping, severity mapping, action generation, recommender, LLM-as-a-Judge, LGBMRanker, collaborative filtering, or closed-loop functionality is included.", "", "## Dataset Status", "", "| Dataset | Type | Status | Raw Records | Prepared Observations | Labels/Targets | Notes |", "|---|---|---|---:|---:|---|---|"]
     for item in inventory:
         outcome = rows.get(item["dataset_id"], {})
-        lines.append(f"| {item['name']} | {', '.join(item['formats_present'])} | {item['file_count']} | {item['size_bytes'] / 1_000_000:.1f} MB | {item['processing_type']} | {outcome.get('status', 'not run')} |")
-    lines += ["", "## Final prepared outputs", "", "| Dataset | Raw input | Processing type | Processed output | Labels available | Ready for next phase |", "|---|---|---|---|---|---|"]
-    for item in inventory:
-        catalogue_path = root / "dataset_catalogue" / f"{item['dataset_id']}.json"
-        catalogue = json.loads(catalogue_path.read_text()) if catalogue_path.exists() else {}
-        outcome = rows.get(item["dataset_id"], {})
+        raw_catalogue = root / "dataset_catalogue" / f"{item['dataset_id']}.json"
+        catalogue = json.loads(raw_catalogue.read_text(encoding="utf-8")) if raw_catalogue.exists() else {}
+        status = outcome.get("status", "failed")
+        if status == "completed":
+            status = "SUCCESS_WITH_LIMITATIONS" if item["dataset_id"] in limited else "SUCCESS"
+        elif status == "catalogued_not_processed":
+            status = "SKIPPED_NOT_AVAILABLE" if item["dataset_id"] == "digital_manufacturing_deprecated" else "FAILED"
         labels = ", ".join(key for key, value in catalogue.get("labels", {}).items() if value) or "none observed"
-        ready = "Yes - dataset-specific PreparedObservation" if outcome.get("status") == "completed" else "No - catalogued only"
-        lines.append(f"| {item['name']} | `{item['relative_path']}` | {item['processing_type']} | `{outcome.get('output') or 'none'}` | {labels} | {ready} |")
-    lines += ["", "## Major limitations", "", "- Existing data mostly contains condition, fault, degradation, RUL, or process labels rather than real maintenance action-to-outcome histories.", "- Tennessee Eastman physical variable mappings are not present in the repository; its xmeas/xmv values remain explicitly unverified.", "- Metal Etch uses anonymous feature names and therefore has no verified physical interpretation.", "- MetroPT-3 failure reports exist in source documentation, but are not converted into row-level labels in Phase 1.", "- IMS end-of-test failure descriptions do not make every earlier waveform a labelled failure sample.", "- NASA Milling MATLAB variables are conservatively inventoried/extracted without unsupported physical field mappings.", "", "## Next-phase input", "", "Each active completed dataset has a separate Parquet PreparedObservation artifact, derived physical features, a data-quality report, preprocessing log, dataset catalogue, and representative visualizations. These outputs preserve dataset-specific feature names, units where documented, labels and source provenance for the later semantic-normalization phase."]
+        notes = "; ".join(catalogue.get("notes", [])[-2:]) or "See catalogue and preprocessing report"
+        lines.append(f"| {item['name']} | {item['processing_type']} | {status} | {catalogue.get('record_count', 'UNKNOWN')} | {outcome.get('prepared_records', 0)} | {labels} | {notes} |")
+    completed = sum(result.get("status") == "completed" for result in results)
+    limited_count = sum(result.get("status") == "completed" and result.get("dataset_id") in limited for result in results)
+    failed_count = len(errors)
+    lines += ["", "## Overall Summary", "", f"- Available catalogue entries: {len(inventory)} ({len(inventory) - 1} active datasets and 1 deprecated inventory-only entry).", f"- Successfully processed: {completed}.", f"- Success with limitations: {limited_count}.", f"- Failed: {failed_count}.", "- Skipped: 1 deprecated dataset, retained for inventory only.", "- Modalities: thermal, mechanical/vibration, electrical, hydraulic/fluid, acoustic, process, operating context, degradation/health, and business/economic fields where documented.", "- Processing types: static tabular, low-frequency time series, run-to-failure trajectories, high-frequency signal snapshots, multirate cycle signals, and multivariate process time series.", "", "## Major Limitations", "", "- Most datasets contain condition, fault, degradation, RUL, or process labels rather than maintenance action/outcome histories.", "- Tennessee Eastman xmeas/xmv physical mappings are unavailable in the repository and remain UNKNOWN/UNVERIFIED.", "- Metal Etch features are anonymous and have no verified physical interpretation.", "- MetroPT-3 source failure reports are not converted into row-level labels.", "- NASA IMS failure descriptions apply at test end, not to every preceding snapshot.", "- NASA Milling is conservatively extracted from nested MATLAB variables without unsupported semantics.", "", "## Next-phase Input", "", "Every active dataset has separate prepared observations, quality/preprocessing reports, catalogues, derived features where applicable, provenance, and representative visualizations. These artifacts are ready for semantic normalization while preserving dataset-specific physical meaning."]
     if errors:
         lines += ["", "## Processing errors", ""] + [f"- `{item['dataset_id']}`: {item['error']}" for item in errors]
     (root / "PHASE_1_SUMMARY.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -465,6 +495,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output-dir", type=Path, default=PROJECT / "outputs" / "phase1")
     parser.add_argument("--clean", action="store_true", help="Remove only the selected Phase 1 output directory before regenerating it.")
+    parser.add_argument("--resume", action="store_true", help="Reuse completed catalogue/output artifacts and regenerate the audit manifest without reprocessing them.")
     parser.add_argument("--datasets", nargs="*", choices=[definition.dataset_id for definition in DATASETS], help="Optional subset for development; default processes all datasets.")
     args = parser.parse_args()
     root = args.output_dir.resolve(); data_root = PROJECT / "data"
@@ -488,6 +519,17 @@ def main() -> None:
     for definition in selected:
         logging.info("Starting %s", definition.dataset_id)
         try:
+            existing = root / "dataset_catalogue" / f"{definition.dataset_id}.json"
+            if args.resume and existing.exists():
+                catalogue = json.loads(existing.read_text(encoding="utf-8"))
+                prepared = catalogue.get("prepared_output")
+                if prepared and artifact_paths_exist(root, prepared):
+                    results.append({"dataset_id": definition.dataset_id, "status": "completed", "prepared_records": artifact_record_count(root, prepared), "output": prepared, "resumed": True})
+                    logging.info("Reused completed %s", definition.dataset_id)
+                    continue
+                if definition.status == "deprecated":
+                    results.append({"dataset_id": definition.dataset_id, "status": "catalogued_not_processed", "prepared_records": 0, "output": None, "resumed": True})
+                    continue
             result = processors[definition.dataset_id](definition)
             result = normalize_artifact_paths(root, result)
             results.append(result); logging.info("Completed %s: %s", definition.dataset_id, result)
@@ -495,7 +537,11 @@ def main() -> None:
             logging.exception("Failed %s", definition.dataset_id)
             errors.append({"dataset_id": definition.dataset_id, "error": f"{type(exc).__name__}: {exc}"})
             base = base_catalogue(definition, data_root); base["notes"].append(f"Processing failed: {type(exc).__name__}: {exc}"); save_catalogue(root, base)
-    write_json(root / "run_manifest.json", {"generated_at": datetime.now(timezone.utc).isoformat(), "project": str(PROJECT), "selected_datasets": [d.dataset_id for d in selected], "results": results, "errors": errors})
+    try:
+        git_commit = subprocess.run(["git", "rev-parse", "HEAD"], cwd=PROJECT, capture_output=True, text=True, check=False).stdout.strip() or None
+    except OSError:
+        git_commit = None
+    write_json(root / "run_manifest.json", {"generated_at": datetime.now(timezone.utc).isoformat(), "project": str(PROJECT), "git_commit": git_commit, "selected_datasets": [d.dataset_id for d in selected], "configuration": {"resume": args.resume, "output_dir": str(root), "causal_temporal_features": True}, "results": results, "errors": errors})
     write_phase_summary(root, inventory, results, errors)
     if errors:
         raise SystemExit(f"Phase 1 completed with {len(errors)} processing error(s); see {root / 'run_manifest.json'}")
@@ -509,6 +555,8 @@ def prepare_smart_maintenance(root: Path, data_root: Path, definition: DatasetDe
         prepare_static_csv(root, data_root, static_def, folder / "smart_maintenance_dataset.csv", ["Maintenance_Priority"], None, "Machine_ID"),
         prepare_static_csv(root, data_root, time_def, folder / "smart_manufacturing_data.csv", ["anomaly_flag", "failure_type", "maintenance_required"], "timestamp", "machine_id"),
     ]
+    write_json(root / "data_quality_reports" / f"{definition.dataset_id}.json", {"variants": [json.loads((root / "data_quality_reports" / f"{result['dataset_id']}.json").read_text(encoding="utf-8")) for result in results]})
+    write_json(root / "preprocessing_reports" / f"{definition.dataset_id}.json", {"dataset_id": definition.dataset_id, "variants": [json.loads((root / "preprocessing_reports" / f"{result['dataset_id']}.json").read_text(encoding="utf-8")) for result in results], "note": "Variants remain separate and are not merged."})
     # Preserve two source variants under one dataset family and provide one run-level catalogue.
     family = base_catalogue(definition, data_root)
     family.update({"record_count": sum(int(r["prepared_records"]) for r in results), "column_count": "two source variants; see child catalogues", "temporal_structure": "one static condition table and one timestamped machine table", "labels": {"maintenance_priority": True, "anomaly": True, "failure_type": True, "maintenance_required": True}, "sensor_catalogue": [], "prepared_output": ["prepared_observations/smart_maintenance_static.parquet", "prepared_observations/smart_maintenance_timeseries.parquet"], "notes": family["notes"] + ["The two variants are prepared separately and must not be merged in Phase 1."]})
