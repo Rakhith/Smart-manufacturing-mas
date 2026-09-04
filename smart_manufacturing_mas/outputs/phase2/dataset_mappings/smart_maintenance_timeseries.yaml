@@ -1,0 +1,126 @@
+dataset_id: "smart_maintenance_timeseries"
+asset_context: "Factory machine fleet continuous telemetry stream"
+machine_archetype: "industrial_machine"
+provenance: "Smart Manufacturing Maintenance Dataset (Time-Series Variant)"
+
+features:
+  timestamp:
+    modality: "metadata_identifier"
+    physical_quantity: "unknown"
+    role: "identifier"
+    unit: "iso8601"
+    canonical_unit: "iso8601"
+    confidence: "high"
+    is_target: false
+
+  machine_id:
+    modality: "metadata_identifier"
+    physical_quantity: "unknown"
+    role: "identifier"
+    unit: "id"
+    canonical_unit: "id"
+    confidence: "high"
+    is_target: false
+
+  temperature:
+    modality: "thermal"
+    physical_quantity: "temperature"
+    role: "process_sensor"
+    unit: "C"
+    canonical_unit: "degC"
+    conversion_rule: "x"
+    confidence: "medium"
+    is_target: false
+
+  vibration:
+    modality: "mechanical"
+    physical_quantity: "vibration_velocity"
+    role: "process_sensor"
+    unit: "mm/s"
+    canonical_unit: "mm/s"
+    conversion_rule: "x"
+    confidence: "medium"
+    is_target: false
+
+  humidity:
+    modality: "process_operating"
+    physical_quantity: "unknown"
+    role: "ambient_sensor"
+    unit: "%"
+    canonical_unit: "pct"
+    confidence: "medium"
+    is_target: false
+
+  pressure:
+    modality: "fluid"
+    physical_quantity: "pressure"
+    role: "process_sensor"
+    unit: "bar"
+    canonical_unit: "bar"
+    conversion_rule: "x"
+    confidence: "medium"
+    is_target: false
+
+  energy_consumption:
+    modality: "electrical"
+    physical_quantity: "energy_consumption"
+    role: "electrical_driver"
+    unit: "kWh"
+    canonical_unit: "kWh"
+    conversion_rule: "x"
+    confidence: "medium"
+    is_target: false
+
+  machine_status:
+    modality: "process_operating"
+    physical_quantity: "unknown"
+    role: "operating_setting"
+    unit: "category"
+    canonical_unit: "category"
+    confidence: "medium"
+    is_target: false
+
+  predicted_remaining_life:
+    modality: "health_degradation"
+    physical_quantity: "remaining_useful_life"
+    role: "health_metric"
+    unit: "cycles"
+    canonical_unit: "cycles"
+    confidence: "medium"
+    is_target: false
+
+  downtime_risk:
+    modality: "health_degradation"
+    physical_quantity: "failure_probability"
+    role: "health_metric"
+    unit: "score"
+    canonical_unit: "score"
+    confidence: "medium"
+    is_target: false
+
+  anomaly_flag:
+    modality: "outcome_label"
+    physical_quantity: "unknown"
+    role: "target_label"
+    unit: "binary"
+    canonical_unit: "binary"
+    confidence: "high"
+    is_target: true
+
+  failure_type:
+    modality: "outcome_label"
+    physical_quantity: "unknown"
+    role: "target_label"
+    unit: "category"
+    canonical_unit: "category"
+    confidence: "high"
+    is_target: true
+
+  maintenance_required:
+    modality: "outcome_label"
+    physical_quantity: "unknown"
+    role: "target_label"
+    unit: "binary"
+    canonical_unit: "binary"
+    confidence: "high"
+    is_target: true

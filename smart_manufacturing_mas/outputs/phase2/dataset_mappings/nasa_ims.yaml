@@ -1,0 +1,78 @@
+dataset_id: "nasa_ims"
+asset_context: "Rotating machinery four-bearing test rig under radial mechanical load"
+machine_archetype: "bearing_test_rig"
+provenance: "NASA Intelligent Maintenance Systems (IMS) Bearing Dataset"
+
+features:
+  test_set:
+    modality: "metadata_identifier"
+    physical_quantity: "unknown"
+    role: "identifier"
+    unit: "category"
+    canonical_unit: "category"
+    confidence: "high"
+    is_target: false
+
+  source_file:
+    modality: "metadata_identifier"
+    physical_quantity: "unknown"
+    role: "identifier"
+    unit: "string"
+    canonical_unit: "string"
+    confidence: "high"
+    is_target: false
+
+  snapshot_sequence:
+    modality: "metadata_identifier"
+    physical_quantity: "unknown"
+    role: "identifier"
+    unit: "index"
+    canonical_unit: "index"
+    confidence: "high"
+    is_target: false
+
+  timestamp:
+    modality: "metadata_identifier"
+    physical_quantity: "unknown"
+    role: "identifier"
+    unit: "iso8601"
+    canonical_unit: "iso8601"
+    confidence: "high"
+    is_target: false
+
+  sample_count:
+    modality: "metadata_identifier"
+    physical_quantity: "unknown"
+    role: "identifier"
+    unit: "count"
+    canonical_unit: "count"
+    confidence: "high"
+    is_target: false
+
+  channel_count:
+    modality: "metadata_identifier"
+    physical_quantity: "unknown"
+    role: "identifier"
+    unit: "count"
+    canonical_unit: "count"
+    confidence: "high"
+    is_target: false
+
+  known_end_of_test_failure:
+    modality: "outcome_label"
+    physical_quantity: "unknown"
+    role: "target_label"
+    unit: "description"
+    canonical_unit: "description"
+    confidence: "high"
+    is_target: true
+
+channel_pattern:
+  prefix: "channel_"
+  modality: "mechanical"
+  physical_quantity: "vibration_acceleration"
+  role: "accelerometer_channel"
+  unit: "g"
+  canonical_unit: "g"
+  confidence: "medium"
+  is_target: false

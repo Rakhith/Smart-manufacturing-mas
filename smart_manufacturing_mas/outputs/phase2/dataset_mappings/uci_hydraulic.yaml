@@ -1,0 +1,220 @@
+dataset_id: "uci_hydraulic"
+asset_context: "Industrial hydraulic test rig with primary and secondary cooling circuits"
+machine_archetype: "hydraulic_test_rig"
+provenance: "UCI Condition Monitoring of Hydraulic Systems Dataset"
+
+features:
+  cooler_condition_pct_label:
+    modality: "outcome_label"
+    physical_quantity: "condition_pct"
+    role: "target_label"
+    unit: "%"
+    canonical_unit: "pct"
+    confidence: "high"
+    is_target: true
+
+  valve_condition_pct_label:
+    modality: "outcome_label"
+    physical_quantity: "condition_pct"
+    role: "target_label"
+    unit: "%"
+    canonical_unit: "pct"
+    confidence: "high"
+    is_target: true
+
+  pump_leakage_label:
+    modality: "outcome_label"
+    physical_quantity: "unknown"
+    role: "target_label"
+    unit: "category"
+    canonical_unit: "category"
+    confidence: "high"
+    is_target: true
+
+  accumulator_pressure_bar_label:
+    modality: "outcome_label"
+    physical_quantity: "pressure"
+    role: "target_label"
+    unit: "bar"
+    canonical_unit: "bar"
+    confidence: "high"
+    is_target: true
+
+  stable_flag:
+    modality: "outcome_label"
+    physical_quantity: "unknown"
+    role: "target_label"
+    unit: "binary"
+    canonical_unit: "binary"
+    confidence: "high"
+    is_target: true
+
+  PS1:
+    modality: "fluid"
+    physical_quantity: "pressure"
+    role: "process_sensor"
+    unit: "bar"
+    canonical_unit: "bar"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  PS2:
+    modality: "fluid"
+    physical_quantity: "pressure"
+    role: "process_sensor"
+    unit: "bar"
+    canonical_unit: "bar"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  PS3:
+    modality: "fluid"
+    physical_quantity: "pressure"
+    role: "process_sensor"
+    unit: "bar"
+    canonical_unit: "bar"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  PS4:
+    modality: "fluid"
+    physical_quantity: "pressure"
+    role: "process_sensor"
+    unit: "bar"
+    canonical_unit: "bar"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  PS5:
+    modality: "fluid"
+    physical_quantity: "pressure"
+    role: "process_sensor"
+    unit: "bar"
+    canonical_unit: "bar"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  PS6:
+    modality: "fluid"
+    physical_quantity: "pressure"
+    role: "process_sensor"
+    unit: "bar"
+    canonical_unit: "bar"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  EPS1:
+    modality: "electrical"
+    physical_quantity: "electric_power"
+    role: "electrical_driver"
+    unit: "W"
+    canonical_unit: "kW"
+    conversion_rule: "x / 1000.0"
+    confidence: "high"
+    is_target: false
+
+  FS1:
+    modality: "fluid"
+    physical_quantity: "flow_rate"
+    role: "process_sensor"
+    unit: "l/min"
+    canonical_unit: "l/min"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  FS2:
+    modality: "fluid"
+    physical_quantity: "flow_rate"
+    role: "process_sensor"
+    unit: "l/min"
+    canonical_unit: "l/min"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  TS1:
+    modality: "thermal"
+    physical_quantity: "temperature"
+    role: "process_sensor"
+    unit: "C"
+    canonical_unit: "degC"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  TS2:
+    modality: "thermal"
+    physical_quantity: "temperature"
+    role: "process_sensor"
+    unit: "C"
+    canonical_unit: "degC"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  TS3:
+    modality: "thermal"
+    physical_quantity: "temperature"
+    role: "process_sensor"
+    unit: "C"
+    canonical_unit: "degC"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  TS4:
+    modality: "thermal"
+    physical_quantity: "temperature"
+    role: "process_sensor"
+    unit: "C"
+    canonical_unit: "degC"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  VS1:
+    modality: "mechanical"
+    physical_quantity: "vibration_velocity"
+    role: "process_sensor"
+    unit: "mm/s"
+    canonical_unit: "mm/s"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  CE:
+    modality: "process_operating"
+    physical_quantity: "unknown"
+    role: "virtual_sensor"
+    unit: "%"
+    canonical_unit: "pct"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  CP:
+    modality: "process_operating"
+    physical_quantity: "electric_power"
+    role: "virtual_sensor"
+    unit: "kW"
+    canonical_unit: "kW"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  SE:
+    modality: "process_operating"
+    physical_quantity: "unknown"
+    role: "virtual_sensor"
+    unit: "%"
+    canonical_unit: "pct"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false

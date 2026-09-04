@@ -24,8 +24,11 @@ env/
 outputs/phase1/_work_milling/
 outputs/phase1/derived_features/
 outputs/phase1/prepared_observations/
+outputs/phase2/canonical_machine_states/
+processed_datasets/
 **/cmapss.parquet
 **/tennessee_eastman.parquet
+data/*.zip
 
 # Data files (raw datasets)
 data/**/*.csv
@@ -40,3 +43,4 @@ scripts/.ipynb_checkpoints/
 .idea/
 .vscode/
 *.swp
+.agents/

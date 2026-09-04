@@ -1,0 +1,72 @@
+dataset_id: "tennessee_eastman"
+asset_context: "Two-phase chemical reactor, condenser, recycle compressor, separator, and stripper"
+machine_archetype: "chemical_plant"
+provenance: "Tennessee Eastman Process Simulation Benchmark"
+
+features:
+  faultNumber:
+    modality: "outcome_label"
+    physical_quantity: "unknown"
+    role: "target_label"
+    unit: "id"
+    canonical_unit: "id"
+    confidence: "high"
+    is_target: true
+
+  simulationRun:
+    modality: "metadata_identifier"
+    physical_quantity: "unknown"
+    role: "identifier"
+    unit: "id"
+    canonical_unit: "id"
+    confidence: "high"
+    is_target: false
+
+  sample:
+    modality: "metadata_identifier"
+    physical_quantity: "unknown"
+    role: "identifier"
+    unit: "index"
+    canonical_unit: "index"
+    confidence: "high"
+    is_target: false
+
+  source_file:
+    modality: "metadata_identifier"
+    physical_quantity: "unknown"
+    role: "identifier"
+    unit: "string"
+    canonical_unit: "string"
+    confidence: "high"
+    is_target: false
+
+  source_object:
+    modality: "metadata_identifier"
+    physical_quantity: "unknown"
+    role: "identifier"
+    unit: "string"
+    canonical_unit: "string"
+    confidence: "high"
+    is_target: false
+
+# xmeas_1 through xmeas_41: continuous process measurements with unmapped repository dictionary
+xmeas_pattern:
+  prefix: "xmeas_"
+  modality: "process_operating"
+  physical_quantity: "unknown"
+  role: "process_measurement"
+  unit: "UNKNOWN"
+  canonical_unit: "UNKNOWN"
+  confidence: "low"
+  is_target: false
+
+# xmv_1 through xmv_11: manipulated valve setpoints with unmapped repository dictionary
+xmv_pattern:
+  prefix: "xmv_"
+  modality: "process_operating"
+  physical_quantity: "unknown"
+  role: "actuator_control"
+  unit: "UNKNOWN"
+  canonical_unit: "UNKNOWN"
+  confidence: "low"
+  is_target: false

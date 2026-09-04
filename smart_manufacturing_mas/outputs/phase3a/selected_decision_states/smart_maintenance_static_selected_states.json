@@ -1,0 +1,5002 @@
+[
+  {
+    "decision_state_id": "DS_SMSTATIC_M005_140",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 140
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.39)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 60.2267195909386
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.8524270044256008
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.328968146376538
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 65.90873591516755
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 45,
+        "Downtime_Cost_USD": 2572,
+        "Technician_Availability_pct": 97
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.39
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__140"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M010_22",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 22
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.4)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 71.60085494230783
+      },
+      "mechanical": {
+        "Vibration_mm_s": 0.8301998469036529
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.569818906007016
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 67.43426590361638
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 49,
+        "Downtime_Cost_USD": 3868,
+        "Technician_Availability_pct": 80
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.4
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__22"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M007_593",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 593
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.4)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 75.60321914532972
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.0972572767637327
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.990247735729568
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 59.21052020908811
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 99,
+        "Downtime_Cost_USD": 3341,
+        "Technician_Availability_pct": 85
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.4
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__593"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M010_1426",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1426
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.4)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 66.95009339069712
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.7350547591217165
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.9358256621315615
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 56.72627276618432
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 55,
+        "Downtime_Cost_USD": 2654,
+        "Technician_Availability_pct": 83
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.4
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__1426"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M002_245",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 245
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.36)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 75.44243854223774
+      },
+      "mechanical": {
+        "Vibration_mm_s": 0.6614931681974496
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.911822331790659
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 53.568597349237734
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 103,
+        "Downtime_Cost_USD": 3727,
+        "Technician_Availability_pct": 96
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.36
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__245"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M005_294",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 294
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.38)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 77.91730377253408
+      },
+      "mechanical": {
+        "Vibration_mm_s": 0.6400651381733939
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.9331980311984145
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 56.593771409221105
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 41,
+        "Downtime_Cost_USD": 2933,
+        "Technician_Availability_pct": 94
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.38
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__294"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M007_1076",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1076
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.4)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 58.9264034299742
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.800681792172338
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.109822580141523
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 72.08149971646739
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 89,
+        "Downtime_Cost_USD": 1543,
+        "Technician_Availability_pct": 95
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.4
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__1076"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M004_208",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 208
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.37)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 49.84961547464993
+      },
+      "mechanical": {
+        "Vibration_mm_s": 2.0623917432430336
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.337704559465521
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 67.56101836551716
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 116,
+        "Downtime_Cost_USD": 2522,
+        "Technician_Availability_pct": 96
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.37
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__208"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M005_922",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 922
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.37)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 72.33762467838542
+      },
+      "mechanical": {
+        "Vibration_mm_s": 0.6195569448751621
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.550616387736301
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 50.74541781663106
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 112,
+        "Downtime_Cost_USD": 3844,
+        "Technician_Availability_pct": 74
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.37
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__922"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M010_473",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 473
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.4)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 65.0376794377748
+      },
+      "mechanical": {
+        "Vibration_mm_s": 0.7699662605647084
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.874945770502171
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 72.47032870223339
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 86,
+        "Downtime_Cost_USD": 2727,
+        "Technician_Availability_pct": 74
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.4
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__473"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M008_1150",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1150
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.4)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 77.62362380323663
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.7108583716073975
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.704556318784589
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 41.80823523944742
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 79,
+        "Downtime_Cost_USD": 1080,
+        "Technician_Availability_pct": 85
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.4
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__1150"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M010_975",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 975
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.4)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 77.13645881512471
+      },
+      "mechanical": {
+        "Vibration_mm_s": 0.8258143011860966
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.930988362275117
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 41.13277195936523
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 73,
+        "Downtime_Cost_USD": 2915,
+        "Technician_Availability_pct": 51
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.4
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__975"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M001_795",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 795
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.4)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 70.19797625852982
+      },
+      "mechanical": {
+        "Vibration_mm_s": 0.932670846475472
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.50603369604704
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 67.24453021604273
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 147,
+        "Downtime_Cost_USD": 3179,
+        "Technician_Availability_pct": 82
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.4
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__795"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M007_198",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 198
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.4)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 64.76772233856701
+      },
+      "mechanical": {
+        "Vibration_mm_s": 2.203103148679496
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.51362961318409
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 57.72797101341707
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 122,
+        "Downtime_Cost_USD": 1948,
+        "Technician_Availability_pct": 98
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.4
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__198"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M003_959",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 959
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.36)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 54.26579111063617
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.5653212895167452
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.622147506646754
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 67.83016738583973
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 107,
+        "Downtime_Cost_USD": 3303,
+        "Technician_Availability_pct": 97
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.36
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__959"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M005_429",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 429
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.38)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 59.59581328110964
+      },
+      "mechanical": {
+        "Vibration_mm_s": 2.3413833229486785
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.211836599374782
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 48.66364158341179
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 74,
+        "Downtime_Cost_USD": 771,
+        "Technician_Availability_pct": 87
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.38
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__429"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M006_529",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 529
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.36)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 63.102384582679
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.9719661614366952
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.865949733681502
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 46.85366197747212
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 74,
+        "Downtime_Cost_USD": 2756,
+        "Technician_Availability_pct": 99
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.36
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__529"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M009_804",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 804
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.4)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 77.43307664128366
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.2499315107936058
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.691990245586009
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 56.243842843192496
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 98,
+        "Downtime_Cost_USD": 869,
+        "Technician_Availability_pct": 91
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.4
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__804"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M005_1045",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1045
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.39)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 58.2570227946137
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.8392579639646915
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.66851060995539
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 58.18161430591009
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 114,
+        "Downtime_Cost_USD": 2059,
+        "Technician_Availability_pct": 79
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.39
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__1045"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M005_206",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 206
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.4)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 63.983380846205975
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.6710723869951043
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.522256751364403
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 61.1972304616789
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 64,
+        "Downtime_Cost_USD": 2175,
+        "Technician_Availability_pct": 81
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.4
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__206"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M008_1151",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1151
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.33)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 75.2887572314901
+      },
+      "mechanical": {
+        "Vibration_mm_s": -0.8395001782542422
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.460659024419076
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 44.03823575555344
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 147,
+        "Downtime_Cost_USD": 3812,
+        "Technician_Availability_pct": 55
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.33
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__1151"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M008_1292",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1292
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.39)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 67.84528302868529
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.465342379563067
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.915679065675863
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 57.79764300774279
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 42,
+        "Downtime_Cost_USD": 2816,
+        "Technician_Availability_pct": 92
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.39
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__1292"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M001_1069",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1069
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.4)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 60.43162130606677
+      },
+      "mechanical": {
+        "Vibration_mm_s": 2.019042529583886
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.605806943065497
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 53.33310865225451
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 71,
+        "Downtime_Cost_USD": 2438,
+        "Technician_Availability_pct": 69
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.4
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__1069"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M004_330",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 330
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.4)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 64.32983413582124
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.6236152665546966
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.6799437732942035
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 68.70939063438091
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 57,
+        "Downtime_Cost_USD": 3924,
+        "Technician_Availability_pct": 97
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.4
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__330"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M009_810",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 810
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.39)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 71.50021872845583
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.2818920284506783
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.345181562945735
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 55.69520435612528
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 51,
+        "Downtime_Cost_USD": 1899,
+        "Technician_Availability_pct": 86
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.39
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__810"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M001_502",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 502
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.4)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 83.08985515032975
+      },
+      "mechanical": {
+        "Vibration_mm_s": 0.4880419725001852
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.638327415628267
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 56.2043866509745
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 38,
+        "Downtime_Cost_USD": 744,
+        "Technician_Availability_pct": 77
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.4
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__502"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M003_1290",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1290
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.38)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 72.67600893499528
+      },
+      "mechanical": {
+        "Vibration_mm_s": -0.0297162106054607
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.453282880341851
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 67.59429967823918
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 71,
+        "Downtime_Cost_USD": 1426,
+        "Technician_Availability_pct": 71
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.38
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__1290"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M001_282",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 282
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.33)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 59.06282984648967
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.289929279898797
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.147124156383528
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 37.471412035683834
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 93,
+        "Downtime_Cost_USD": 2137,
+        "Technician_Availability_pct": 70
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.33
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__282"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M009_1328",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1328
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.38)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 68.27721727812401
+      },
+      "mechanical": {
+        "Vibration_mm_s": 0.5647694151922424
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.3698130720024375
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 74.48818405772225
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 46,
+        "Downtime_Cost_USD": 940,
+        "Technician_Availability_pct": 95
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.38
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__1328"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M007_791",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 791
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.35)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 62.034982325191706
+      },
+      "mechanical": {
+        "Vibration_mm_s": 0.1783695933000846
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.340592825062057
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 59.33317296694137
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 62,
+        "Downtime_Cost_USD": 2718,
+        "Technician_Availability_pct": 57
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.35
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__791"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M004_610",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 610
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.4)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 76.35753879917665
+      },
+      "mechanical": {
+        "Vibration_mm_s": 0.7110105872029953
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.645704366530892
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 65.0085717642594
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 123,
+        "Downtime_Cost_USD": 3153,
+        "Technician_Availability_pct": 86
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.4
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__610"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M007_858",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 858
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.39)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 64.53522057375571
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.282603881010734
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.651716720757869
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 67.33289990115887
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 127,
+        "Downtime_Cost_USD": 1179,
+        "Technician_Availability_pct": 90
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.39
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__858"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M008_1321",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1321
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.36)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 75.91434127558996
+      },
+      "mechanical": {
+        "Vibration_mm_s": 0.3345184142869986
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.387062450339106
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 53.47903205328273
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 78,
+        "Downtime_Cost_USD": 2473,
+        "Technician_Availability_pct": 88
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.36
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__1321"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M006_25",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 25
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "High maintenance priority; high failure probability / severe degradation (Failure_Prob=0.34)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 58.81542166319724
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.0898589950196766
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.121173639182362
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 57.21866859814834
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 133,
+        "Downtime_Cost_USD": 720,
+        "Technician_Availability_pct": 95
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.34
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 3
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__25"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M001_1356",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1356
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.51)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 64.98231721435346
+      },
+      "mechanical": {
+        "Vibration_mm_s": 3.1392695378569173
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.517319727809893
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 79.80413665988927
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 97,
+        "Downtime_Cost_USD": 4097,
+        "Technician_Availability_pct": 75
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.51
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__1356"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M006_254",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 254
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.47)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 73.9715583686393
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.653087671683021
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.376730725829164
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 64.3172821392446
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 137,
+        "Downtime_Cost_USD": 4259,
+        "Technician_Availability_pct": 50
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.47
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__254"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M006_124",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 124
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.44)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 60.850473892835595
+      },
+      "mechanical": {
+        "Vibration_mm_s": 2.472284433754601
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.1144014174225685
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 64.99323598504485
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 57,
+        "Downtime_Cost_USD": 4285,
+        "Technician_Availability_pct": 68
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.44
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__124"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M008_420",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 420
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.55)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 72.86287848004119
+      },
+      "mechanical": {
+        "Vibration_mm_s": 4.330393856128166
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.883155303527937
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 64.00902581790972
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 102,
+        "Downtime_Cost_USD": 4389,
+        "Technician_Availability_pct": 68
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.55
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__420"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M009_1176",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1176
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.36)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 48.76211764450734
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.309800971904488
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.881337348101737
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 58.49115707673686
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 92,
+        "Downtime_Cost_USD": 4727,
+        "Technician_Availability_pct": 55
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.36
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__1176"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M001_331",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 331
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.54)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 83.6474469164084
+      },
+      "mechanical": {
+        "Vibration_mm_s": 3.5818261510402634
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.090723232656648
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 67.08136150860238
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 42,
+        "Downtime_Cost_USD": 4946,
+        "Technician_Availability_pct": 93
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.54
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__331"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M002_734",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 734
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.51)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 76.85767492086771
+      },
+      "mechanical": {
+        "Vibration_mm_s": 2.2456232241944503
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.633819688030229
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 78.26028791706781
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 44,
+        "Downtime_Cost_USD": 4128,
+        "Technician_Availability_pct": 69
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.51
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__734"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M009_1375",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1375
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.6)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 87.49140641691119
+      },
+      "mechanical": {
+        "Vibration_mm_s": 2.7395888807241686
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.924679639859238
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 89.93690566745299
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 88,
+        "Downtime_Cost_USD": 4542,
+        "Technician_Availability_pct": 52
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.6
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__1375"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M005_742",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 742
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.54)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 87.04068018884884
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.9926163182539016
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.331549623370087
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 80.97208045564233
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 98,
+        "Downtime_Cost_USD": 4544,
+        "Technician_Availability_pct": 62
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.54
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__742"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M005_765",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 765
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.55)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 85.47009174643314
+      },
+      "mechanical": {
+        "Vibration_mm_s": 3.1157007293625534
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.335710171138007
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 75.74517340617182
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 105,
+        "Downtime_Cost_USD": 4126,
+        "Technician_Availability_pct": 83
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.55
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__765"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M001_459",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 459
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.5)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 75.62502733249475
+      },
+      "mechanical": {
+        "Vibration_mm_s": 3.097731708113624
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.281728632977883
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 60.09365609785986
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 126,
+        "Downtime_Cost_USD": 4955,
+        "Technician_Availability_pct": 75
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.5
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__459"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M002_499",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 499
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.47)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 66.50613084844095
+      },
+      "mechanical": {
+        "Vibration_mm_s": 3.424195465990201
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.745416115037519
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 45.484636055911224
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 138,
+        "Downtime_Cost_USD": 4251,
+        "Technician_Availability_pct": 61
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.47
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__499"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M002_158",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 158
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.51)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 75.16885058419895
+      },
+      "mechanical": {
+        "Vibration_mm_s": 3.069079259535643
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.217187771805274
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 75.78191895055586
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 145,
+        "Downtime_Cost_USD": 4211,
+        "Technician_Availability_pct": 85
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.51
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__158"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M010_1198",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1198
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.5)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 78.31971733953483
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.6637118812746126
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 6.12211258996804
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 85.00420437688149
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 81,
+        "Downtime_Cost_USD": 4266,
+        "Technician_Availability_pct": 67
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.5
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__1198"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M008_21",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 21
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.42)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 77.41048477108166
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.5465810976223249
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.102034351137491
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 58.87067925076951
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 107,
+        "Downtime_Cost_USD": 4981,
+        "Technician_Availability_pct": 88
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.42
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__21"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M002_383",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 383
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.53)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 92.25416275055466
+      },
+      "mechanical": {
+        "Vibration_mm_s": 2.0774872655779566
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.1695272255664895
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 73.45836657795563
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 97,
+        "Downtime_Cost_USD": 4238,
+        "Technician_Availability_pct": 75
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.53
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__383"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M004_214",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 214
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.45)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 63.01895936735782
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.545960864455642
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.06516337087248
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 84.58685643212742
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 47,
+        "Downtime_Cost_USD": 4756,
+        "Technician_Availability_pct": 68
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.45
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__214"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M005_84",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 84
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.46)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 88.06874095875274
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.7700590540979526
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 6.42197369826284
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 62.28197971205375
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 55,
+        "Downtime_Cost_USD": 4119,
+        "Technician_Availability_pct": 98
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.46
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__84"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M001_919",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 919
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.51)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 81.62481060164515
+      },
+      "mechanical": {
+        "Vibration_mm_s": 2.5612276084701735
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.653639298549878
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 58.75973815269391
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 133,
+        "Downtime_Cost_USD": 4082,
+        "Technician_Availability_pct": 54
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.51
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__919"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M006_201",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 201
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.48)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 72.25771642945469
+      },
+      "mechanical": {
+        "Vibration_mm_s": 3.196730909231844
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.414606970413128
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 63.51810852932656
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 98,
+        "Downtime_Cost_USD": 4264,
+        "Technician_Availability_pct": 87
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.48
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__201"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M008_837",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 837
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.61)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 79.36713966890338
+      },
+      "mechanical": {
+        "Vibration_mm_s": 4.263557440006718
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.881359409454837
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 77.17765409124823
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 134,
+        "Downtime_Cost_USD": 4874,
+        "Technician_Availability_pct": 50
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.61
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__837"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M003_914",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 914
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.47)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 59.391090972459345
+      },
+      "mechanical": {
+        "Vibration_mm_s": 3.341504679815997
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.295884411778939
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 70.3437176103026
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 126,
+        "Downtime_Cost_USD": 4627,
+        "Technician_Availability_pct": 80
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.47
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__914"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M001_42",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 42
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.52)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 63.85252292675111
+      },
+      "mechanical": {
+        "Vibration_mm_s": 4.073060366064164
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.199133886089663
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 65.44155126169713
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 142,
+        "Downtime_Cost_USD": 4778,
+        "Technician_Availability_pct": 63
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.52
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__42"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M008_1347",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1347
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.47)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 68.14262413211655
+      },
+      "mechanical": {
+        "Vibration_mm_s": 2.228518532393065
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.137747606962607
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 61.23870272842805
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 101,
+        "Downtime_Cost_USD": 4194,
+        "Technician_Availability_pct": 51
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.47
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__1347"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M007_1136",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1136
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.51)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 79.30840244333749
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.9969194608953449
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.7172701043585015
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 75.1337256863802
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 125,
+        "Downtime_Cost_USD": 4193,
+        "Technician_Availability_pct": 57
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.51
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__1136"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M008_631",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 631
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.46)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 66.3413356287094
+      },
+      "mechanical": {
+        "Vibration_mm_s": 3.2504465708873735
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.144506227766169
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 62.50612600055131
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 83,
+        "Downtime_Cost_USD": 4333,
+        "Technician_Availability_pct": 94
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.46
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__631"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M010_843",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 843
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.4)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 70.02501341594859
+      },
+      "mechanical": {
+        "Vibration_mm_s": 2.061740882621438
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 3.664877001286595
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 53.62719260596405
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 145,
+        "Downtime_Cost_USD": 4552,
+        "Technician_Availability_pct": 98
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.4
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__843"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M008_1077",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1077
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.49)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 64.14543923103784
+      },
+      "mechanical": {
+        "Vibration_mm_s": 2.81403162435367
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.1992486751527816
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 72.84491935409496
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 148,
+        "Downtime_Cost_USD": 4470,
+        "Technician_Availability_pct": 65
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.49
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__1077"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M003_1387",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1387
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.48)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 80.11737669079005
+      },
+      "mechanical": {
+        "Vibration_mm_s": 2.566814883177406
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.19511039215924
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 60.552917907275926
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 42,
+        "Downtime_Cost_USD": 4100,
+        "Technician_Availability_pct": 83
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.48
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__1387"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M005_910",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 910
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.42)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 71.64020490427055
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.099080671890871
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.649365054320102
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 71.12422454948215
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 133,
+        "Downtime_Cost_USD": 4263,
+        "Technician_Availability_pct": 85
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.42
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__910"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M007_697",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 697
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.47)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 64.84786596854785
+      },
+      "mechanical": {
+        "Vibration_mm_s": 2.7499017091177276
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.182005582280113
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 64.39044022611569
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 57,
+        "Downtime_Cost_USD": 4093,
+        "Technician_Availability_pct": 59
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.47
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__697"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M006_479",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 479
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.42)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 82.34244289702978
+      },
+      "mechanical": {
+        "Vibration_mm_s": 0.7350796158551571
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.62940329986846
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 54.16875180593094
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 139,
+        "Downtime_Cost_USD": 4291,
+        "Technician_Availability_pct": 68
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.42
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__479"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M001_1187",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1187
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Low maintenance priority; asset operating within nominal envelope (Failure_Prob=0.44)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 70.38370409743538
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.4007717496418564
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.958415644598983
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 71.37372838798224
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 135,
+        "Downtime_Cost_USD": 4755,
+        "Technician_Availability_pct": 73
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.44
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__1187"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M008_1339",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1339
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.53)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 91.26519471699682
+      },
+      "mechanical": {
+        "Vibration_mm_s": 2.5962607764033825
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.782759643725177
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 74.35238137185132
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 30,
+        "Downtime_Cost_USD": 3264,
+        "Technician_Availability_pct": 94
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.53
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__1339"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M004_624",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 624
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.48)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 71.9775032407848
+      },
+      "mechanical": {
+        "Vibration_mm_s": 3.237252532943198
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.440792492194282
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 48.863344574402696
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 45,
+        "Downtime_Cost_USD": 2062,
+        "Technician_Availability_pct": 63
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.48
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__624"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M001_273",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 273
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.51)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 91.41526948644152
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.4913376856165448
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.887839344083683
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 72.92347807345753
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 124,
+        "Downtime_Cost_USD": 3475,
+        "Technician_Availability_pct": 69
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.51
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__273"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M004_588",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 588
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.47)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 76.6156301343999
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.5474418771814369
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.056190594898347
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 71.3840543415406
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 73,
+        "Downtime_Cost_USD": 3654,
+        "Technician_Availability_pct": 62
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.47
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__588"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M006_968",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 968
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.55)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 81.18663937480649
+      },
+      "mechanical": {
+        "Vibration_mm_s": 3.545134548384269
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.543852518408624
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 72.29763887185706
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 141,
+        "Downtime_Cost_USD": 2688,
+        "Technician_Availability_pct": 77
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.55
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__968"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M001_752",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 752
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.42)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 53.14289517524657
+      },
+      "mechanical": {
+        "Vibration_mm_s": 2.855977123959746
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.430131485700597
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 62.04522347845635
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 49,
+        "Downtime_Cost_USD": 3549,
+        "Technician_Availability_pct": 76
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.42
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__752"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M006_915",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 915
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.51)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 81.7440124149432
+      },
+      "mechanical": {
+        "Vibration_mm_s": 2.9346323654706343
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.592207730662037
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 61.77248724136959
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 38,
+        "Downtime_Cost_USD": 3298,
+        "Technician_Availability_pct": 72
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.51
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__915"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M002_934",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 934
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.46)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 75.0278237092158
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.602953569354745
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.446124857876812
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 83.6849770130496
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 90,
+        "Downtime_Cost_USD": 3017,
+        "Technician_Availability_pct": 95
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.46
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__934"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M001_836",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 836
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.5)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 69.9789699590112
+      },
+      "mechanical": {
+        "Vibration_mm_s": 2.3034778805726166
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.5478470932526704
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 83.79309335550754
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 43,
+        "Downtime_Cost_USD": 2162,
+        "Technician_Availability_pct": 74
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.5
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__836"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M001_504",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 504
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.49)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 77.75524877468531
+      },
+      "mechanical": {
+        "Vibration_mm_s": 2.655522425954996
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.630333605321638
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 61.42199807435911
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 130,
+        "Downtime_Cost_USD": 2850,
+        "Technician_Availability_pct": 75
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.49
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__504"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M005_1065",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1065
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.48)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 63.28656990269028
+      },
+      "mechanical": {
+        "Vibration_mm_s": 3.161422784083347
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.271149384652871
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 69.81976747270618
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 55,
+        "Downtime_Cost_USD": 1021,
+        "Technician_Availability_pct": 75
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.48
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__1065"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M001_1391",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1391
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.62)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 87.05691460081431
+      },
+      "mechanical": {
+        "Vibration_mm_s": 3.977681877937678
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.097837031615489
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 80.43845994807079
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 134,
+        "Downtime_Cost_USD": 1704,
+        "Technician_Availability_pct": 66
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.62
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__1391"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M003_338",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 338
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.41)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 61.46440143865607
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.5211907892009389
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.2568395875124345
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 64.87055830851055
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 129,
+        "Downtime_Cost_USD": 2510,
+        "Technician_Availability_pct": 60
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.41
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__338"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M003_627",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 627
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.48)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 68.15481787783031
+      },
+      "mechanical": {
+        "Vibration_mm_s": 2.0341779210803907
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.87206309204211
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 72.02165377707892
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 39,
+        "Downtime_Cost_USD": 739,
+        "Technician_Availability_pct": 52
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.48
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__627"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M002_93",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 93
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.6)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 78.28495370129816
+      },
+      "mechanical": {
+        "Vibration_mm_s": 4.545817288088285
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.808591507787573
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 80.69729290200465
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 113,
+        "Downtime_Cost_USD": 2560,
+        "Technician_Availability_pct": 75
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.6
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__93"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M001_476",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 476
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.53)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 79.33967422465048
+      },
+      "mechanical": {
+        "Vibration_mm_s": 2.8549682547576656
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.98670479512423
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 73.41791468118964
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 91,
+        "Downtime_Cost_USD": 1714,
+        "Technician_Availability_pct": 69
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.53
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__476"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M009_183",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 183
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.47)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 92.20830297119534
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.5606732621340602
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.108453221866181
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 56.37620480170491
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 80,
+        "Downtime_Cost_USD": 3545,
+        "Technician_Availability_pct": 86
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.47
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__183"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M010_673",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 673
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.51)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 74.81750034799481
+      },
+      "mechanical": {
+        "Vibration_mm_s": 3.328709435219918
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.914271587513433
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 54.46387570424595
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 52,
+        "Downtime_Cost_USD": 957,
+        "Technician_Availability_pct": 59
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.51
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__673"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M008_897",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 897
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.54)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 85.73052159003127
+      },
+      "mechanical": {
+        "Vibration_mm_s": 2.625699822176984
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.366726441570543
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 81.59613588425282
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 107,
+        "Downtime_Cost_USD": 1940,
+        "Technician_Availability_pct": 87
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.54
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__897"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M007_1405",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1405
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.48)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 72.66009333097836
+      },
+      "mechanical": {
+        "Vibration_mm_s": 2.9261195264046616
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.627156766469319
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 54.393930129670714
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 116,
+        "Downtime_Cost_USD": 1271,
+        "Technician_Availability_pct": 63
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.48
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__1405"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M010_415",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 415
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.51)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 69.44453267186579
+      },
+      "mechanical": {
+        "Vibration_mm_s": 3.467487749238639
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 6.068260372645051
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 71.63198459496357
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 36,
+        "Downtime_Cost_USD": 1451,
+        "Technician_Availability_pct": 81
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.51
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__415"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M004_1148",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1148
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.49)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 75.10175070741431
+      },
+      "mechanical": {
+        "Vibration_mm_s": 2.309842056261272
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.651532490166221
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 73.0931333301634
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 94,
+        "Downtime_Cost_USD": 2184,
+        "Technician_Availability_pct": 69
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.49
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__1148"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M009_101",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 101
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.61)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 91.21600099766322
+      },
+      "mechanical": {
+        "Vibration_mm_s": 3.419705293227165
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.95792210468925
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 84.69392063162138
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 36,
+        "Downtime_Cost_USD": 2975,
+        "Technician_Availability_pct": 67
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.61
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__101"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M008_1421",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1421
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.44)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 85.27677674801032
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.379041774793643
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 6.086474874680432
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 52.421025157420914
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 69,
+        "Downtime_Cost_USD": 3648,
+        "Technician_Availability_pct": 76
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.44
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__1421"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M001_1194",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1194
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.47)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 65.45938252253677
+      },
+      "mechanical": {
+        "Vibration_mm_s": 2.934831220766845
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.287160247037356
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 68.98174934239572
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 31,
+        "Downtime_Cost_USD": 3172,
+        "Technician_Availability_pct": 84
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.47
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__1194"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M001_1016",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1016
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.47)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 70.1822673701516
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.2124809739407014
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.933518554405614
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 95.57730919268994
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 109,
+        "Downtime_Cost_USD": 1044,
+        "Technician_Availability_pct": 83
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.47
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__1016"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M010_1008",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1008
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.54)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 87.52212909759818
+      },
+      "mechanical": {
+        "Vibration_mm_s": 2.125035922052207
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.695827353023689
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 76.64638829579674
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 63,
+        "Downtime_Cost_USD": 3392,
+        "Technician_Availability_pct": 56
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.54
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__1008"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M007_1230",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1230
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.44)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 71.42088909618838
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.7338075287365542
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.63230985581109
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 63.14409136470942
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 80,
+        "Downtime_Cost_USD": 2492,
+        "Technician_Availability_pct": 73
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.44
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__1230"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M004_495",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 495
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.54)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 84.95548585362279
+      },
+      "mechanical": {
+        "Vibration_mm_s": 3.53311851539984
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.451607081275326
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 70.13264643083973
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 56,
+        "Downtime_Cost_USD": 3115,
+        "Technician_Availability_pct": 97
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.54
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__495"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M005_812",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 812
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.42)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 69.26110517664867
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.682598188911279
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.400757159438505
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 68.3880197767287
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 61,
+        "Downtime_Cost_USD": 908,
+        "Technician_Availability_pct": 96
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.42
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__812"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M006_1316",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1316
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.48)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 68.4591999018568
+      },
+      "mechanical": {
+        "Vibration_mm_s": 2.5647597617045657
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.57099455568361
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 77.96540687656204
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 34,
+        "Downtime_Cost_USD": 1620,
+        "Technician_Availability_pct": 81
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.48
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__1316"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M006_1192",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1192
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.41)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 68.11496492072824
+      },
+      "mechanical": {
+        "Vibration_mm_s": 1.9618409987932717
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 5.901255929537378
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 64.78864604206949
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 55,
+        "Downtime_Cost_USD": 3441,
+        "Technician_Availability_pct": 99
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.41
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__1192"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_SMSTATIC_M009_818",
+    "dataset_id": "smart_maintenance_static",
+    "asset_context": {
+      "machine_archetype": "industrial_machine",
+      "asset_id": "smart_maint_fleet",
+      "operational_domain": "factory_maintenance",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 818
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Medium maintenance priority; scheduled inspection recommended (Failure_Prob=0.54)",
+    "input_machine_state": {
+      "thermal": {
+        "Temp_C": 88.37831020966117
+      },
+      "mechanical": {
+        "Vibration_mm_s": 3.202692384818765
+      },
+      "kinematic": {},
+      "fluid": {
+        "Pressure_Bar": 4.853957762265674
+      },
+      "electrical": {},
+      "acoustic": {
+        "Acoustic_dB": 69.37146502909656
+      },
+      "process_operating": {
+        "Inspection_Duration_min": 81,
+        "Downtime_Cost_USD": 2791,
+        "Technician_Availability_pct": 89
+      },
+      "health_degradation": {
+        "Failure_Prob": 0.54
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Maintenance_Priority": 2
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "smart_maintenance_static__818"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/smart_maintenance_static.parquet"
+    }
+  }
+]

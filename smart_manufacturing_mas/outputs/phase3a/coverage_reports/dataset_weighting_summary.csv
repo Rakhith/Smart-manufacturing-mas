@@ -1,0 +1,12 @@
+dataset_id,weight,candidates_harvested,quota_allocated,selected_in_corpus,machine_archetype
+ai4i_2020,1.1,208,116,116,cnc_mill
+cmapss,1.15,203,121,121,turbofan_engine
+iiot_6g,1.0,200,105,105,iiot_machine
+metal_etch,0.85,165,90,90,etch_tool
+metropt3,1.05,63,63,63,air_compressor
+nasa_ims,0.85,187,90,90,bearing_test_rig
+nasa_milling,0.7,33,33,33,cnc_mill
+smart_maintenance_static,0.95,195,100,100,industrial_machine
+smart_maintenance_timeseries,1.05,220,110,110,industrial_machine
+tennessee_eastman,0.7,174,74,74,chemical_plant
+uci_hydraulic,1.15,166,121,121,hydraulic_test_rig

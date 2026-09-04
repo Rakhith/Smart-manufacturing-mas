@@ -1,0 +1,12 @@
+,thermal,mechanical,kinematic,fluid,electrical,acoustic,process_operating,health_degradation,unmapped
+ai4i_2020,116,116,116,0,0,0,116,116,0
+cmapss,0,0,0,0,0,0,121,0,0
+iiot_6g,105,105,105,0,105,0,105,105,0
+metal_etch,0,0,0,0,0,0,0,0,90
+metropt3,63,0,0,63,63,0,63,0,0
+nasa_ims,0,90,0,0,0,0,0,0,0
+nasa_milling,0,33,0,0,0,0,0,0,0
+smart_maintenance_static,100,100,0,100,0,100,100,100,0
+smart_maintenance_timeseries,110,110,0,110,110,0,110,110,0
+tennessee_eastman,0,0,0,0,0,0,74,0,0
+uci_hydraulic,121,121,0,121,121,0,121,0,0

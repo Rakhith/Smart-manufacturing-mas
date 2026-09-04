@@ -1,0 +1,147 @@
+{
+  "generated_at": "2026-09-04T09:29:18.162218+00:00",
+  "phase": "3A",
+  "git_commit": "88326eb823619fd260bb90ef4fc4ab238eff0262",
+  "target_budget": 1100,
+  "seed": 42,
+  "distance_threshold": 0.12,
+  "total_selected_states": 1023,
+  "dataset_weights": {
+    "ai4i_2020": 1.1,
+    "cmapss": 1.15,
+    "smart_maintenance_static": 0.95,
+    "smart_maintenance_timeseries": 1.05,
+    "iiot_6g": 1.0,
+    "metal_etch": 0.85,
+    "metropt3": 1.05,
+    "uci_hydraulic": 1.15,
+    "tennessee_eastman": 0.7,
+    "nasa_ims": 0.85,
+    "nasa_milling": 0.7
+  },
+  "breakdown": {
+    "ai4i_2020": {
+      "available": 208,
+      "quota": 116,
+      "selected": 116,
+      "weight": 1.1,
+      "severity_distribution": {
+        "CRITICAL": 29,
+        "DEGRADING": 29,
+        "HEALTHY": 29,
+        "WATCH": 29
+      }
+    },
+    "cmapss": {
+      "available": 203,
+      "quota": 121,
+      "selected": 121,
+      "weight": 1.15,
+      "severity_distribution": {
+        "CRITICAL": 31,
+        "DEGRADING": 30,
+        "HEALTHY": 30,
+        "WATCH": 30
+      }
+    },
+    "smart_maintenance_static": {
+      "available": 195,
+      "quota": 100,
+      "selected": 100,
+      "weight": 0.95,
+      "severity_distribution": {
+        "CRITICAL": 34,
+        "HEALTHY": 33,
+        "WATCH": 33
+      }
+    },
+    "smart_maintenance_timeseries": {
+      "available": 220,
+      "quota": 110,
+      "selected": 110,
+      "weight": 1.05,
+      "severity_distribution": {
+        "CRITICAL": 37,
+        "HEALTHY": 37,
+        "WATCH": 36
+      }
+    },
+    "iiot_6g": {
+      "available": 200,
+      "quota": 105,
+      "selected": 105,
+      "weight": 1.0,
+      "severity_distribution": {
+        "CRITICAL": 35,
+        "HEALTHY": 35,
+        "WATCH": 35
+      }
+    },
+    "metal_etch": {
+      "available": 165,
+      "quota": 90,
+      "selected": 90,
+      "weight": 0.85,
+      "severity_distribution": {
+        "CRITICAL": 45,
+        "HEALTHY": 45
+      }
+    },
+    "metropt3": {
+      "available": 63,
+      "quota": 63,
+      "selected": 63,
+      "weight": 1.05,
+      "severity_distribution": {
+        "CRITICAL": 33,
+        "HEALTHY": 30
+      }
+    },
+    "uci_hydraulic": {
+      "available": 166,
+      "quota": 121,
+      "selected": 121,
+      "weight": 1.15,
+      "severity_distribution": {
+        "CRITICAL": 30,
+        "DEGRADING": 36,
+        "HEALTHY": 21,
+        "WATCH": 34
+      }
+    },
+    "tennessee_eastman": {
+      "available": 174,
+      "quota": 74,
+      "selected": 74,
+      "weight": 0.7,
+      "severity_distribution": {
+        "CRITICAL": 25,
+        "HEALTHY": 25,
+        "WATCH": 24
+      }
+    },
+    "nasa_ims": {
+      "available": 187,
+      "quota": 90,
+      "selected": 90,
+      "weight": 0.85,
+      "severity_distribution": {
+        "CRITICAL": 21,
+        "HEALTHY": 37,
+        "WATCH": 32
+      }
+    },
+    "nasa_milling": {
+      "available": 33,
+      "quota": 33,
+      "selected": 33,
+      "weight": 0.7,
+      "severity_distribution": {
+        "HEALTHY": 6,
+        "WATCH": 13,
+        "CRITICAL": 14
+      }
+    }
+  },
+  "validation_status": "SUCCESS_ALL_INVARIANTS_PASSED"
+}

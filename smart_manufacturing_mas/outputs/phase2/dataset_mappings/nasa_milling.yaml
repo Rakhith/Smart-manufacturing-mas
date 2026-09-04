@@ -1,0 +1,41 @@
+dataset_id: "nasa_milling"
+asset_context: "Bridgeport CNC milling machine with cutting insert flank wear"
+machine_archetype: "cnc_mill"
+provenance: "NASA Milling Tool Wear Dataset"
+
+features:
+  source_file:
+    modality: "metadata_identifier"
+    physical_quantity: "unknown"
+    role: "identifier"
+    unit: "string"
+    canonical_unit: "string"
+    confidence: "high"
+    is_target: false
+
+  source_array:
+    modality: "metadata_identifier"
+    physical_quantity: "unknown"
+    role: "identifier"
+    unit: "string"
+    canonical_unit: "string"
+    confidence: "high"
+    is_target: false
+
+  sample_count:
+    modality: "metadata_identifier"
+    physical_quantity: "unknown"
+    role: "identifier"
+    unit: "count"
+    canonical_unit: "count"
+    confidence: "high"
+    is_target: false
+
+  signal:
+    modality: "mechanical"
+    physical_quantity: "unknown"
+    role: "waveform_statistic"
+    unit: "UNKNOWN"
+    canonical_unit: "UNKNOWN"
+    confidence: "low"
+    is_target: false

@@ -1,0 +1,289 @@
+{
+  "generated_at": "2026-09-03T17:13:36.484663+00:00",
+  "total_features_catalogued": 730,
+  "total_active_datasets": 11,
+  "datasets": [
+    {
+      "dataset_id": "ai4i_2020",
+      "total_records": 10000,
+      "total_columns": 16,
+      "state_columns_count": 6,
+      "target_columns_count": 6,
+      "target_columns": [
+        "Machine failure",
+        "TWF",
+        "HDF",
+        "PWF",
+        "OSF",
+        "RNF"
+      ],
+      "converted_unit_columns": [
+        "Air temperature [K]__canonical_degC",
+        "Process temperature [K]__canonical_degC"
+      ],
+      "modalities_present": [
+        "health_degradation",
+        "kinematic",
+        "mechanical",
+        "process_operating",
+        "thermal"
+      ],
+      "confidence_distribution": {
+        "high": 16,
+        "medium": 0,
+        "low": 0,
+        "unknown": 0
+      },
+      "machine_archetype": "cnc_mill"
+    },
+    {
+      "dataset_id": "cmapss",
+      "total_records": 265256,
+      "total_columns": 115,
+      "state_columns_count": 108,
+      "target_columns_count": 1,
+      "target_columns": [
+        "rul_cycles_label"
+      ],
+      "converted_unit_columns": [],
+      "modalities_present": [
+        "process_operating"
+      ],
+      "confidence_distribution": {
+        "high": 7,
+        "medium": 3,
+        "low": 105,
+        "unknown": 0
+      },
+      "machine_archetype": "turbofan_engine"
+    },
+    {
+      "dataset_id": "smart_maintenance_static",
+      "total_records": 1430,
+      "total_columns": 12,
+      "state_columns_count": 8,
+      "target_columns_count": 1,
+      "target_columns": [
+        "Maintenance_Priority"
+      ],
+      "converted_unit_columns": [],
+      "modalities_present": [
+        "acoustic",
+        "fluid",
+        "health_degradation",
+        "mechanical",
+        "process_operating",
+        "thermal"
+      ],
+      "confidence_distribution": {
+        "high": 9,
+        "medium": 3,
+        "low": 0,
+        "unknown": 0
+      },
+      "machine_archetype": "industrial_machine"
+    },
+    {
+      "dataset_id": "smart_maintenance_timeseries",
+      "total_records": 100000,
+      "total_columns": 47,
+      "state_columns_count": 40,
+      "target_columns_count": 3,
+      "target_columns": [
+        "anomaly_flag",
+        "failure_type",
+        "maintenance_required"
+      ],
+      "converted_unit_columns": [],
+      "modalities_present": [
+        "electrical",
+        "fluid",
+        "health_degradation",
+        "mechanical",
+        "process_operating",
+        "thermal"
+      ],
+      "confidence_distribution": {
+        "high": 7,
+        "medium": 40,
+        "low": 0,
+        "unknown": 0
+      },
+      "machine_archetype": "industrial_machine"
+    },
+    {
+      "dataset_id": "iiot_6g",
+      "total_records": 100000,
+      "total_columns": 51,
+      "state_columns_count": 46,
+      "target_columns_count": 1,
+      "target_columns": [
+        "Efficiency_Status"
+      ],
+      "converted_unit_columns": [],
+      "modalities_present": [
+        "electrical",
+        "health_degradation",
+        "kinematic",
+        "mechanical",
+        "process_operating",
+        "thermal"
+      ],
+      "confidence_distribution": {
+        "high": 41,
+        "medium": 10,
+        "low": 0,
+        "unknown": 0
+      },
+      "machine_archetype": "iiot_machine"
+    },
+    {
+      "dataset_id": "metal_etch",
+      "total_records": 10663,
+      "total_columns": 24,
+      "state_columns_count": 21,
+      "target_columns_count": 1,
+      "target_columns": [
+        "Target"
+      ],
+      "converted_unit_columns": [],
+      "modalities_present": [
+        "unknown"
+      ],
+      "confidence_distribution": {
+        "high": 3,
+        "medium": 0,
+        "low": 21,
+        "unknown": 0
+      },
+      "machine_archetype": "etch_tool"
+    },
+    {
+      "dataset_id": "metropt3",
+      "total_records": 306960,
+      "total_columns": 80,
+      "state_columns_count": 75,
+      "target_columns_count": 0,
+      "target_columns": [],
+      "converted_unit_columns": [],
+      "modalities_present": [
+        "electrical",
+        "fluid",
+        "process_operating",
+        "thermal"
+      ],
+      "confidence_distribution": {
+        "high": 80,
+        "medium": 0,
+        "low": 0,
+        "unknown": 0
+      },
+      "machine_archetype": "air_compressor"
+    },
+    {
+      "dataset_id": "uci_hydraulic",
+      "total_records": 2205,
+      "total_columns": 126,
+      "state_columns_count": 119,
+      "target_columns_count": 5,
+      "target_columns": [
+        "cooler_condition_pct_label",
+        "valve_condition_pct_label",
+        "pump_leakage_label",
+        "accumulator_pressure_bar_label",
+        "stable_flag"
+      ],
+      "converted_unit_columns": [
+        "EPS1__mean__canonical_kW",
+        "EPS1__std__canonical_kW",
+        "EPS1__min__canonical_kW",
+        "EPS1__max__canonical_kW",
+        "EPS1__first__canonical_kW",
+        "EPS1__last__canonical_kW",
+        "EPS1__slope_per_sample__canonical_kW"
+      ],
+      "modalities_present": [
+        "electrical",
+        "fluid",
+        "mechanical",
+        "process_operating",
+        "thermal"
+      ],
+      "confidence_distribution": {
+        "high": 126,
+        "medium": 0,
+        "low": 0,
+        "unknown": 0
+      },
+      "machine_archetype": "hydraulic_test_rig"
+    },
+    {
+      "dataset_id": "tennessee_eastman",
+      "total_records": 5730000,
+      "total_columns": 139,
+      "state_columns_count": 132,
+      "target_columns_count": 1,
+      "target_columns": [
+        "faultNumber"
+      ],
+      "converted_unit_columns": [],
+      "modalities_present": [
+        "process_operating"
+      ],
+      "confidence_distribution": {
+        "high": 7,
+        "medium": 0,
+        "low": 132,
+        "unknown": 0
+      },
+      "machine_archetype": "chemical_plant"
+    },
+    {
+      "dataset_id": "nasa_ims",
+      "total_records": 3140,
+      "total_columns": 105,
+      "state_columns_count": 96,
+      "target_columns_count": 1,
+      "target_columns": [
+        "known_end_of_test_failure"
+      ],
+      "converted_unit_columns": [],
+      "modalities_present": [
+        "mechanical"
+      ],
+      "confidence_distribution": {
+        "high": 9,
+        "medium": 96,
+        "low": 0,
+        "unknown": 0
+      },
+      "machine_archetype": "bearing_test_rig"
+    },
+    {
+      "dataset_id": "nasa_milling",
+      "total_records": 1002,
+      "total_columns": 15,
+      "state_columns_count": 10,
+      "target_columns_count": 0,
+      "target_columns": [],
+      "converted_unit_columns": [],
+      "modalities_present": [
+        "mechanical"
+      ],
+      "confidence_distribution": {
+        "high": 5,
+        "medium": 0,
+        "low": 10,
+        "unknown": 0
+      },
+      "machine_archetype": "cnc_mill"
+    }
+  ],
+  "validation_assertions": {
+    "no_invented_physical_quantities_for_anonymous_features": true,
+    "target_outcomes_isolated_from_state_columns": true,
+    "original_column_names_preserved": true,
+    "dataset_provenance_preserved": true,
+    "traceable_unit_conversions": true
+  }
+}

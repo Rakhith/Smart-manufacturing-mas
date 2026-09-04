@@ -1,0 +1,136 @@
+dataset_id: "ai4i_2020"
+asset_context: "CNC machine tooling and spindle dynamics"
+machine_archetype: "cnc_mill"
+provenance: "AI4I 2020 Predictive Maintenance Dataset (UCI Machine Learning Repository)"
+
+features:
+  UDI:
+    modality: "metadata_identifier"
+    physical_quantity: "unknown"
+    role: "identifier"
+    unit: "none"
+    canonical_unit: "none"
+    confidence: "high"
+    is_target: false
+
+  Product ID:
+    modality: "metadata_identifier"
+    physical_quantity: "unknown"
+    role: "identifier"
+    unit: "none"
+    canonical_unit: "none"
+    confidence: "high"
+    is_target: false
+
+  Type:
+    modality: "process_operating"
+    physical_quantity: "unknown"
+    role: "operating_setting"
+    unit: "category"
+    canonical_unit: "category"
+    confidence: "high"
+    is_target: false
+
+  "Air temperature [K]":
+    modality: "thermal"
+    physical_quantity: "temperature"
+    role: "ambient_sensor"
+    unit: "K"
+    canonical_unit: "degC"
+    conversion_rule: "x - 273.15"
+    confidence: "high"
+    is_target: false
+
+  "Process temperature [K]":
+    modality: "thermal"
+    physical_quantity: "temperature"
+    role: "process_sensor"
+    unit: "K"
+    canonical_unit: "degC"
+    conversion_rule: "x - 273.15"
+    confidence: "high"
+    is_target: false
+
+  "Rotational speed [rpm]":
+    modality: "kinematic"
+    physical_quantity: "rotational_speed"
+    role: "electrical_driver"
+    unit: "rpm"
+    canonical_unit: "rpm"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  "Torque [Nm]":
+    modality: "mechanical"
+    physical_quantity: "torque"
+    role: "process_sensor"
+    unit: "Nm"
+    canonical_unit: "Nm"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  "Tool wear [min]":
+    modality: "health_degradation"
+    physical_quantity: "tool_wear_duration"
+    role: "health_metric"
+    unit: "min"
+    canonical_unit: "min"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  "Machine failure":
+    modality: "outcome_label"
+    physical_quantity: "unknown"
+    role: "target_label"
+    unit: "binary"
+    canonical_unit: "binary"
+    confidence: "high"
+    is_target: true
+
+  TWF:
+    modality: "outcome_label"
+    physical_quantity: "unknown"
+    role: "target_label"
+    unit: "binary"
+    canonical_unit: "binary"
+    confidence: "high"
+    is_target: true
+
+  HDF:
+    modality: "outcome_label"
+    physical_quantity: "unknown"
+    role: "target_label"
+    unit: "binary"
+    canonical_unit: "binary"
+    confidence: "high"
+    is_target: true
+
+  PWF:
+    modality: "outcome_label"
+    physical_quantity: "unknown"
+    role: "target_label"
+    unit: "binary"
+    canonical_unit: "binary"
+    confidence: "high"
+    is_target: true
+
+  OSF:
+    modality: "outcome_label"
+    physical_quantity: "unknown"
+    role: "target_label"
+    unit: "binary"
+    canonical_unit: "binary"
+    confidence: "high"
+    is_target: true
+
+  RNF:
+    modality: "outcome_label"
+    physical_quantity: "unknown"
+    role: "target_label"
+    unit: "binary"
+    canonical_unit: "binary"
+    confidence: "high"
+    is_target: true

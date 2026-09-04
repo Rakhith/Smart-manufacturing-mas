@@ -1,0 +1,6266 @@
+[
+  {
+    "decision_state_id": "DS_AI4I_168",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 168
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Observed machine failure mode(s): PWF",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 298.4,
+        "Process temperature [K]": 308.3,
+        "Air temperature [K]__canonical_degC": 25.25,
+        "Process temperature [K]__canonical_degC": 35.150000000000034
+      },
+      "mechanical": {
+        "Torque [Nm]": 62.3
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1433
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 20
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 1,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 1,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__168"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_847",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 847
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Observed machine failure mode(s): PWF",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 296.4,
+        "Process temperature [K]": 307.4,
+        "Air temperature [K]__canonical_degC": 23.25,
+        "Process temperature [K]__canonical_degC": 34.25
+      },
+      "mechanical": {
+        "Torque [Nm]": 5.6
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 2833
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 213
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 1,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 1,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__847"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_880",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 880
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Observed machine failure mode(s): PWF",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 295.8,
+        "Process temperature [K]": 306.3,
+        "Air temperature [K]__canonical_degC": 22.650000000000034,
+        "Process temperature [K]__canonical_degC": 33.150000000000034
+      },
+      "mechanical": {
+        "Torque [Nm]": 76.2
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1235
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "M"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 89
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 1,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 1,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__880"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_903",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 903
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Observed machine failure mode(s): PWF",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 295.7,
+        "Process temperature [K]": 306.2,
+        "Air temperature [K]__canonical_degC": 22.55000000000001,
+        "Process temperature [K]__canonical_degC": 33.05000000000001
+      },
+      "mechanical": {
+        "Torque [Nm]": 14.6
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 2270
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 149
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 1,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 1,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__903"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_926",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 926
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Observed machine failure mode(s): OSF",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 295.6,
+        "Process temperature [K]": 306.1,
+        "Air temperature [K]__canonical_degC": 22.450000000000045,
+        "Process temperature [K]__canonical_degC": 32.950000000000045
+      },
+      "mechanical": {
+        "Torque [Nm]": 55.6
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1372
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 215
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 1,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 1,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__926"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_1095",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1095
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Observed machine failure mode(s): PWF",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 296.9,
+        "Process temperature [K]": 307.5,
+        "Air temperature [K]__canonical_degC": 23.75,
+        "Process temperature [K]__canonical_degC": 34.35000000000002
+      },
+      "mechanical": {
+        "Torque [Nm]": 9.3
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 2721
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 18
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 1,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 1,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__1095"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_1124",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1124
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Observed machine failure mode(s): PWF",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 296.7,
+        "Process temperature [K]": 307.8,
+        "Air temperature [K]__canonical_degC": 23.55000000000001,
+        "Process temperature [K]__canonical_degC": 34.650000000000034
+      },
+      "mechanical": {
+        "Torque [Nm]": 69.0
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1258
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "M"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 105
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 1,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 1,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__1124"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_1437",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1437
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Observed machine failure mode(s): unspecified",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 298.8,
+        "Process temperature [K]": 309.9,
+        "Air temperature [K]__canonical_degC": 25.650000000000034,
+        "Process temperature [K]__canonical_degC": 36.75
+      },
+      "mechanical": {
+        "Torque [Nm]": 45.2
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1439
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "H"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 40
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 1,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__1437"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_1509",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1509
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Observed machine failure mode(s): TWF",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 298.0,
+        "Process temperature [K]": 308.5,
+        "Air temperature [K]__canonical_degC": 24.850000000000023,
+        "Process temperature [K]__canonical_degC": 35.35000000000002
+      },
+      "mechanical": {
+        "Torque [Nm]": 37.7
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1429
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 220
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 1,
+      "TWF": 1,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__1509"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_1808",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1808
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Observed machine failure mode(s): PWF",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 298.1,
+        "Process temperature [K]": 307.7,
+        "Air temperature [K]__canonical_degC": 24.950000000000045,
+        "Process temperature [K]__canonical_degC": 34.55000000000001
+      },
+      "mechanical": {
+        "Torque [Nm]": 12.8
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 2567
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 125
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 1,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 1,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__1808"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_2125",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 2125
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Observed machine failure mode(s): PWF",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 299.3,
+        "Process temperature [K]": 308.9,
+        "Air temperature [K]__canonical_degC": 26.150000000000034,
+        "Process temperature [K]__canonical_degC": 35.75
+      },
+      "mechanical": {
+        "Torque [Nm]": 69.4
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1258
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 119
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 1,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 1,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__2125"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_2166",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 2166
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Observed machine failure mode(s): TWF",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 299.6,
+        "Process temperature [K]": 309.2,
+        "Air temperature [K]__canonical_degC": 26.450000000000045,
+        "Process temperature [K]__canonical_degC": 36.05000000000001
+      },
+      "mechanical": {
+        "Torque [Nm]": 23.4
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1867
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "M"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 225
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 1,
+      "TWF": 1,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__2166"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_2864",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 2864
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Observed machine failure mode(s): TWF",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 300.6,
+        "Process temperature [K]": 309.4,
+        "Air temperature [K]__canonical_degC": 27.450000000000045,
+        "Process temperature [K]__canonical_degC": 36.25
+      },
+      "mechanical": {
+        "Torque [Nm]": 47.6
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1380
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "H"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 246
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 1,
+      "TWF": 1,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__2864"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_4138",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 4138
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Observed machine failure mode(s): HDF",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 301.7,
+        "Process temperature [K]": 310.2,
+        "Air temperature [K]__canonical_degC": 28.55000000000001,
+        "Process temperature [K]__canonical_degC": 37.05000000000001
+      },
+      "mechanical": {
+        "Torque [Nm]": 57.4
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1311
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 40
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 1,
+      "TWF": 0,
+      "HDF": 1,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__4138"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_4292",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 4292
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Observed machine failure mode(s): PWF",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 301.8,
+        "Process temperature [K]": 310.1,
+        "Air temperature [K]__canonical_degC": 28.650000000000034,
+        "Process temperature [K]__canonical_degC": 36.950000000000045
+      },
+      "mechanical": {
+        "Torque [Nm]": 13.9
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 2372
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "M"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 205
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 1,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 1,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__4292"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_4296",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 4296
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Observed machine failure mode(s): PWF",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 301.8,
+        "Process temperature [K]": 310.2,
+        "Air temperature [K]__canonical_degC": 28.650000000000034,
+        "Process temperature [K]__canonical_degC": 37.05000000000001
+      },
+      "mechanical": {
+        "Torque [Nm]": 5.8
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 2825
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 215
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 1,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 1,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__4296"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_4651",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 4651
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Observed machine failure mode(s): HDF",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 303.2,
+        "Process temperature [K]": 311.4,
+        "Air temperature [K]__canonical_degC": 30.05000000000001,
+        "Process temperature [K]__canonical_degC": 38.25
+      },
+      "mechanical": {
+        "Torque [Nm]": 51.1
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1349
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 9
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 1,
+      "TWF": 0,
+      "HDF": 1,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__4651"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_4731",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 4731
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Observed machine failure mode(s): HDF",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 303.3,
+        "Process temperature [K]": 311.6,
+        "Air temperature [K]__canonical_degC": 30.150000000000034,
+        "Process temperature [K]__canonical_degC": 38.450000000000045
+      },
+      "mechanical": {
+        "Torque [Nm]": 45.1
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1301
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 219
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 1,
+      "TWF": 0,
+      "HDF": 1,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__4731"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_4976",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 4976
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Observed machine failure mode(s): OSF",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 303.7,
+        "Process temperature [K]": 312.7,
+        "Air temperature [K]__canonical_degC": 30.55000000000001,
+        "Process temperature [K]__canonical_degC": 39.55000000000001
+      },
+      "mechanical": {
+        "Torque [Nm]": 56.8
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1359
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 194
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 1,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 1,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__4976"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_4997",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 4997
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Observed machine failure mode(s): PWF",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 303.6,
+        "Process temperature [K]": 312.8,
+        "Air temperature [K]__canonical_degC": 30.450000000000045,
+        "Process temperature [K]__canonical_degC": 39.650000000000034
+      },
+      "mechanical": {
+        "Torque [Nm]": 11.4
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 2659
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "M"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 26
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 1,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 1,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__4997"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_5394",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 5394
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Observed machine failure mode(s): PWF, OSF",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 302.8,
+        "Process temperature [K]": 312.3,
+        "Air temperature [K]__canonical_degC": 29.650000000000034,
+        "Process temperature [K]__canonical_degC": 39.150000000000034
+      },
+      "mechanical": {
+        "Torque [Nm]": 70.5
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1262
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "M"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 234
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 1,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 1,
+      "OSF": 1,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__5394"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_5490",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 5490
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Observed machine failure mode(s): PWF",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 302.6,
+        "Process temperature [K]": 312.1,
+        "Air temperature [K]__canonical_degC": 29.450000000000045,
+        "Process temperature [K]__canonical_degC": 38.950000000000045
+      },
+      "mechanical": {
+        "Torque [Nm]": 68.5
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1288
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 0
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 1,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 1,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__5490"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_6248",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 6248
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Observed machine failure mode(s): PWF, OSF",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 300.8,
+        "Process temperature [K]": 310.1,
+        "Air temperature [K]__canonical_degC": 27.650000000000034,
+        "Process temperature [K]__canonical_degC": 36.950000000000045
+      },
+      "mechanical": {
+        "Torque [Nm]": 61.2
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1405
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 189
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 1,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 1,
+      "OSF": 1,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__6248"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_7011",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 7011
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Observed machine failure mode(s): PWF",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 300.5,
+        "Process temperature [K]": 310.5,
+        "Air temperature [K]__canonical_degC": 27.350000000000023,
+        "Process temperature [K]__canonical_degC": 37.35000000000002
+      },
+      "mechanical": {
+        "Torque [Nm]": 12.2
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 2633
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 17
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 1,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 1,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__7011"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_7510",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 7510
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Observed machine failure mode(s): TWF",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 300.5,
+        "Process temperature [K]": 311.8,
+        "Air temperature [K]__canonical_degC": 27.350000000000023,
+        "Process temperature [K]__canonical_degC": 38.650000000000034
+      },
+      "mechanical": {
+        "Torque [Nm]": 38.9
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1524
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 214
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 1,
+      "TWF": 1,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__7510"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_7763",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 7763
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Observed machine failure mode(s): PWF",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 300.4,
+        "Process temperature [K]": 311.6,
+        "Air temperature [K]__canonical_degC": 27.25,
+        "Process temperature [K]__canonical_degC": 38.450000000000045
+      },
+      "mechanical": {
+        "Torque [Nm]": 76.6
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1200
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 3
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 1,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 1,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__7763"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_7884",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 7884
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Observed machine failure mode(s): PWF",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 300.8,
+        "Process temperature [K]": 312.4,
+        "Air temperature [K]__canonical_degC": 27.650000000000034,
+        "Process temperature [K]__canonical_degC": 39.25
+      },
+      "mechanical": {
+        "Torque [Nm]": 59.1
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1465
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 91
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 1,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 1,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__7884"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_9174",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 9174
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Observed machine failure mode(s): TWF",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 297.8,
+        "Process temperature [K]": 308.9,
+        "Air temperature [K]__canonical_degC": 24.650000000000034,
+        "Process temperature [K]__canonical_degC": 35.75
+      },
+      "mechanical": {
+        "Torque [Nm]": 25.6
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1871
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 200
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 1,
+      "TWF": 1,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__9174"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_9758",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 9758
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Observed machine failure mode(s): TWF",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 298.6,
+        "Process temperature [K]": 309.8,
+        "Air temperature [K]__canonical_degC": 25.450000000000045,
+        "Process temperature [K]__canonical_degC": 36.650000000000034
+      },
+      "mechanical": {
+        "Torque [Nm]": 16.2
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 2271
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 218
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 1,
+      "TWF": 1,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__9758"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_7502",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 7502
+    },
+    "decision_severity": "DEGRADING",
+    "decision_relevance_rationale": "High accumulated tool wear (193 min) approaching failure threshold",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 300.3,
+        "Process temperature [K]": 311.7,
+        "Air temperature [K]__canonical_degC": 27.150000000000034,
+        "Process temperature [K]__canonical_degC": 38.55000000000001
+      },
+      "mechanical": {
+        "Torque [Nm]": 29.9
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1655
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "H"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 193
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__7502"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_8845",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 8845
+    },
+    "decision_severity": "DEGRADING",
+    "decision_relevance_rationale": "High accumulated tool wear (201 min) approaching failure threshold",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 297.4,
+        "Process temperature [K]": 308.9,
+        "Air temperature [K]__canonical_degC": 24.25,
+        "Process temperature [K]__canonical_degC": 35.75
+      },
+      "mechanical": {
+        "Torque [Nm]": 59.1
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1348
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "M"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 201
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__8845"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_4730",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 4730
+    },
+    "decision_severity": "DEGRADING",
+    "decision_relevance_rationale": "High accumulated tool wear (217 min) approaching failure threshold",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 303.3,
+        "Process temperature [K]": 311.7,
+        "Air temperature [K]__canonical_degC": 30.150000000000034,
+        "Process temperature [K]__canonical_degC": 38.55000000000001
+      },
+      "mechanical": {
+        "Torque [Nm]": 35.5
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1508
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 217
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__4730"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_7424",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 7424
+    },
+    "decision_severity": "DEGRADING",
+    "decision_relevance_rationale": "High accumulated tool wear (210 min) approaching failure threshold",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 300.1,
+        "Process temperature [K]": 311.4,
+        "Air temperature [K]__canonical_degC": 26.950000000000045,
+        "Process temperature [K]__canonical_degC": 38.25
+      },
+      "mechanical": {
+        "Torque [Nm]": 29.8
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1575
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "M"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 210
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__7424"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_4029",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 4029
+    },
+    "decision_severity": "DEGRADING",
+    "decision_relevance_rationale": "High accumulated tool wear (222 min) approaching failure threshold",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 302.0,
+        "Process temperature [K]": 310.9,
+        "Air temperature [K]__canonical_degC": 28.850000000000023,
+        "Process temperature [K]__canonical_degC": 37.75
+      },
+      "mechanical": {
+        "Torque [Nm]": 29.0
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1679
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "H"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 222
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__4029"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_8927",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 8927
+    },
+    "decision_severity": "DEGRADING",
+    "decision_relevance_rationale": "High accumulated tool wear (210 min) approaching failure threshold",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 297.4,
+        "Process temperature [K]": 308.4,
+        "Air temperature [K]__canonical_degC": 24.25,
+        "Process temperature [K]__canonical_degC": 35.25
+      },
+      "mechanical": {
+        "Torque [Nm]": 25.0
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1789
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "M"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 210
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__8927"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_7508",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 7508
+    },
+    "decision_severity": "DEGRADING",
+    "decision_relevance_rationale": "High accumulated tool wear (209 min) approaching failure threshold",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 300.5,
+        "Process temperature [K]": 311.9,
+        "Air temperature [K]__canonical_degC": 27.350000000000023,
+        "Process temperature [K]__canonical_degC": 38.75
+      },
+      "mechanical": {
+        "Torque [Nm]": 27.5
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1730
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "M"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 209
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__7508"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_4022",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 4022
+    },
+    "decision_severity": "DEGRADING",
+    "decision_relevance_rationale": "High accumulated tool wear (203 min) approaching failure threshold",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 302.1,
+        "Process temperature [K]": 310.9,
+        "Air temperature [K]__canonical_degC": 28.950000000000045,
+        "Process temperature [K]__canonical_degC": 37.75
+      },
+      "mechanical": {
+        "Torque [Nm]": 30.7
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1666
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 203
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__4022"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_8194",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 8194
+    },
+    "decision_severity": "DEGRADING",
+    "decision_relevance_rationale": "High accumulated tool wear (213 min) approaching failure threshold",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 299.4,
+        "Process temperature [K]": 310.7,
+        "Air temperature [K]__canonical_degC": 26.25,
+        "Process temperature [K]__canonical_degC": 37.55000000000001
+      },
+      "mechanical": {
+        "Torque [Nm]": 45.7
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1426
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 213
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__8194"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_748",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 748
+    },
+    "decision_severity": "DEGRADING",
+    "decision_relevance_rationale": "High accumulated tool wear (203 min) approaching failure threshold",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 296.7,
+        "Process temperature [K]": 308.1,
+        "Air temperature [K]__canonical_degC": 23.55000000000001,
+        "Process temperature [K]__canonical_degC": 34.950000000000045
+      },
+      "mechanical": {
+        "Torque [Nm]": 46.3
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1528
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "H"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 203
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__748"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_4985",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 4985
+    },
+    "decision_severity": "DEGRADING",
+    "decision_relevance_rationale": "High accumulated tool wear (215 min) approaching failure threshold",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 303.8,
+        "Process temperature [K]": 313.0,
+        "Air temperature [K]__canonical_degC": 30.650000000000034,
+        "Process temperature [K]__canonical_degC": 39.85000000000002
+      },
+      "mechanical": {
+        "Torque [Nm]": 23.5
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1789
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "M"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 215
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__4985"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_4550",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 4550
+    },
+    "decision_severity": "DEGRADING",
+    "decision_relevance_rationale": "High accumulated tool wear (201 min) approaching failure threshold",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 302.5,
+        "Process temperature [K]": 310.5,
+        "Air temperature [K]__canonical_degC": 29.350000000000023,
+        "Process temperature [K]__canonical_degC": 37.35000000000002
+      },
+      "mechanical": {
+        "Torque [Nm]": 40.2
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1507
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "M"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 201
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__4550"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_2242",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 2242
+    },
+    "decision_severity": "DEGRADING",
+    "decision_relevance_rationale": "High accumulated tool wear (199 min) approaching failure threshold",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 299.2,
+        "Process temperature [K]": 308.4,
+        "Air temperature [K]__canonical_degC": 26.05000000000001,
+        "Process temperature [K]__canonical_degC": 35.25
+      },
+      "mechanical": {
+        "Torque [Nm]": 29.0
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1667
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 199
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__2242"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_7504",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 7504
+    },
+    "decision_severity": "DEGRADING",
+    "decision_relevance_rationale": "High accumulated tool wear (201 min) approaching failure threshold",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 300.4,
+        "Process temperature [K]": 311.8,
+        "Air temperature [K]__canonical_degC": 27.25,
+        "Process temperature [K]__canonical_degC": 38.650000000000034
+      },
+      "mechanical": {
+        "Torque [Nm]": 42.0
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1589
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 201
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__7504"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_1590",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1590
+    },
+    "decision_severity": "DEGRADING",
+    "decision_relevance_rationale": "High accumulated tool wear (207 min) approaching failure threshold",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 298.2,
+        "Process temperature [K]": 308.4,
+        "Air temperature [K]__canonical_degC": 25.05000000000001,
+        "Process temperature [K]__canonical_degC": 35.25
+      },
+      "mechanical": {
+        "Torque [Nm]": 37.7
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1497
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 207
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__1590"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_9496",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 9496
+    },
+    "decision_severity": "DEGRADING",
+    "decision_relevance_rationale": "High accumulated tool wear (226 min) approaching failure threshold",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 299.2,
+        "Process temperature [K]": 310.0,
+        "Air temperature [K]__canonical_degC": 26.05000000000001,
+        "Process temperature [K]__canonical_degC": 36.85000000000002
+      },
+      "mechanical": {
+        "Torque [Nm]": 50.4
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1349
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "M"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 226
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__9496"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_6076",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 6076
+    },
+    "decision_severity": "DEGRADING",
+    "decision_relevance_rationale": "High accumulated tool wear (199 min) approaching failure threshold",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 301.0,
+        "Process temperature [K]": 310.9,
+        "Air temperature [K]__canonical_degC": 27.850000000000023,
+        "Process temperature [K]__canonical_degC": 37.75
+      },
+      "mechanical": {
+        "Torque [Nm]": 36.7
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1492
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 199
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__6076"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_4719",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 4719
+    },
+    "decision_severity": "DEGRADING",
+    "decision_relevance_rationale": "High accumulated tool wear (189 min) approaching failure threshold",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 303.4,
+        "Process temperature [K]": 311.7,
+        "Air temperature [K]__canonical_degC": 30.25,
+        "Process temperature [K]__canonical_degC": 38.55000000000001
+      },
+      "mechanical": {
+        "Torque [Nm]": 34.9
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1690
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "M"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 189
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__4719"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_409",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 409
+    },
+    "decision_severity": "DEGRADING",
+    "decision_relevance_rationale": "High accumulated tool wear (196 min) approaching failure threshold",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 297.4,
+        "Process temperature [K]": 308.6,
+        "Air temperature [K]__canonical_degC": 24.25,
+        "Process temperature [K]__canonical_degC": 35.450000000000045
+      },
+      "mechanical": {
+        "Torque [Nm]": 41.3
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1459
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 196
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__409"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_4384",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 4384
+    },
+    "decision_severity": "DEGRADING",
+    "decision_relevance_rationale": "High accumulated tool wear (231 min) approaching failure threshold",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 301.8,
+        "Process temperature [K]": 309.6,
+        "Air temperature [K]__canonical_degC": 28.650000000000034,
+        "Process temperature [K]__canonical_degC": 36.450000000000045
+      },
+      "mechanical": {
+        "Torque [Nm]": 42.7
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1443
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 231
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__4384"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_587",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 587
+    },
+    "decision_severity": "DEGRADING",
+    "decision_relevance_rationale": "High accumulated tool wear (224 min) approaching failure threshold",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 297.6,
+        "Process temperature [K]": 309.5,
+        "Air temperature [K]__canonical_degC": 24.450000000000045,
+        "Process temperature [K]__canonical_degC": 36.35000000000002
+      },
+      "mechanical": {
+        "Torque [Nm]": 33.1
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1623
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "H"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 224
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__587"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_2763",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 2763
+    },
+    "decision_severity": "DEGRADING",
+    "decision_relevance_rationale": "High accumulated tool wear (216 min) approaching failure threshold",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 299.8,
+        "Process temperature [K]": 309.2,
+        "Air temperature [K]__canonical_degC": 26.650000000000034,
+        "Process temperature [K]__canonical_degC": 36.05000000000001
+      },
+      "mechanical": {
+        "Torque [Nm]": 47.5
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1491
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 216
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__2763"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_8193",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 8193
+    },
+    "decision_severity": "DEGRADING",
+    "decision_relevance_rationale": "High accumulated tool wear (211 min) approaching failure threshold",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 299.5,
+        "Process temperature [K]": 310.8,
+        "Air temperature [K]__canonical_degC": 26.350000000000023,
+        "Process temperature [K]__canonical_degC": 37.650000000000034
+      },
+      "mechanical": {
+        "Torque [Nm]": 22.3
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1873
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 211
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__8193"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_1680",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1680
+    },
+    "decision_severity": "DEGRADING",
+    "decision_relevance_rationale": "High accumulated tool wear (219 min) approaching failure threshold",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 297.9,
+        "Process temperature [K]": 307.4,
+        "Air temperature [K]__canonical_degC": 24.75,
+        "Process temperature [K]__canonical_degC": 34.25
+      },
+      "mechanical": {
+        "Torque [Nm]": 34.6
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1610
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "M"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 219
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__1680"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_8282",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 8282
+    },
+    "decision_severity": "DEGRADING",
+    "decision_relevance_rationale": "High accumulated tool wear (218 min) approaching failure threshold",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 298.9,
+        "Process temperature [K]": 310.7,
+        "Air temperature [K]__canonical_degC": 25.75,
+        "Process temperature [K]__canonical_degC": 37.55000000000001
+      },
+      "mechanical": {
+        "Torque [Nm]": 33.6
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1638
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "M"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 218
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__8282"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_2409",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 2409
+    },
+    "decision_severity": "DEGRADING",
+    "decision_relevance_rationale": "High accumulated tool wear (190 min) approaching failure threshold",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 299.1,
+        "Process temperature [K]": 308.5,
+        "Air temperature [K]__canonical_degC": 25.950000000000045,
+        "Process temperature [K]__canonical_degC": 35.35000000000002
+      },
+      "mechanical": {
+        "Torque [Nm]": 46.8
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1539
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 190
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__2409"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_3852",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 3852
+    },
+    "decision_severity": "DEGRADING",
+    "decision_relevance_rationale": "High accumulated tool wear (190 min) approaching failure threshold",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 302.3,
+        "Process temperature [K]": 310.9,
+        "Air temperature [K]__canonical_degC": 29.150000000000034,
+        "Process temperature [K]__canonical_degC": 37.75
+      },
+      "mechanical": {
+        "Torque [Nm]": 19.7
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 2034
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 190
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__3852"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_5486",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 5486
+    },
+    "decision_severity": "DEGRADING",
+    "decision_relevance_rationale": "High accumulated tool wear (208 min) approaching failure threshold",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 302.6,
+        "Process temperature [K]": 312.2,
+        "Air temperature [K]__canonical_degC": 29.450000000000045,
+        "Process temperature [K]__canonical_degC": 39.05000000000001
+      },
+      "mechanical": {
+        "Torque [Nm]": 43.0
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1520
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 208
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__5486"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_6338",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 6338
+    },
+    "decision_severity": "DEGRADING",
+    "decision_relevance_rationale": "High accumulated tool wear (206 min) approaching failure threshold",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 300.4,
+        "Process temperature [K]": 309.9,
+        "Air temperature [K]__canonical_degC": 27.25,
+        "Process temperature [K]__canonical_degC": 36.75
+      },
+      "mechanical": {
+        "Torque [Nm]": 28.6
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1681
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 206
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__6338"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_8526",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 8526
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal operating point with fresh tooling (14 min wear)",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 298.3,
+        "Process temperature [K]": 309.3,
+        "Air temperature [K]__canonical_degC": 25.150000000000034,
+        "Process temperature [K]__canonical_degC": 36.150000000000034
+      },
+      "mechanical": {
+        "Torque [Nm]": 51.9
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1401
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 14
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__8526"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_9586",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 9586
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal operating point with fresh tooling (22 min wear)",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 299.4,
+        "Process temperature [K]": 310.6,
+        "Air temperature [K]__canonical_degC": 26.25,
+        "Process temperature [K]__canonical_degC": 37.450000000000045
+      },
+      "mechanical": {
+        "Torque [Nm]": 54.5
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1348
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 22
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__9586"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_5142",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 5142
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal operating point with fresh tooling (0 min wear)",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 304.4,
+        "Process temperature [K]": 313.6,
+        "Air temperature [K]__canonical_degC": 31.25,
+        "Process temperature [K]__canonical_degC": 40.450000000000045
+      },
+      "mechanical": {
+        "Torque [Nm]": 39.1
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1568
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 0
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__5142"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_6093",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 6093
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal operating point with fresh tooling (20 min wear)",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 301.0,
+        "Process temperature [K]": 310.8,
+        "Air temperature [K]__canonical_degC": 27.850000000000023,
+        "Process temperature [K]__canonical_degC": 37.650000000000034
+      },
+      "mechanical": {
+        "Torque [Nm]": 57.2
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1375
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 20
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__6093"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_5153",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 5153
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal operating point with fresh tooling (23 min wear)",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 304.2,
+        "Process temperature [K]": 313.4,
+        "Air temperature [K]__canonical_degC": 31.05000000000001,
+        "Process temperature [K]__canonical_degC": 40.25
+      },
+      "mechanical": {
+        "Torque [Nm]": 31.7
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1644
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 23
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__5153"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_3956",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 3956
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal operating point with fresh tooling (30 min wear)",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 302.3,
+        "Process temperature [K]": 311.4,
+        "Air temperature [K]__canonical_degC": 29.150000000000034,
+        "Process temperature [K]__canonical_degC": 38.25
+      },
+      "mechanical": {
+        "Torque [Nm]": 40.2
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1500
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "M"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 30
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__3956"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_1013",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1013
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal operating point with fresh tooling (17 min wear)",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 296.1,
+        "Process temperature [K]": 307.2,
+        "Air temperature [K]__canonical_degC": 22.950000000000045,
+        "Process temperature [K]__canonical_degC": 34.05000000000001
+      },
+      "mechanical": {
+        "Torque [Nm]": 29.7
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1619
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "M"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 17
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__1013"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_1352",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1352
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal operating point with fresh tooling (36 min wear)",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 298.7,
+        "Process temperature [K]": 310.2,
+        "Air temperature [K]__canonical_degC": 25.55000000000001,
+        "Process temperature [K]__canonical_degC": 37.05000000000001
+      },
+      "mechanical": {
+        "Torque [Nm]": 33.3
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1598
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "M"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 36
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__1352"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_5158",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 5158
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal operating point with fresh tooling (39 min wear)",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 304.1,
+        "Process temperature [K]": 313.3,
+        "Air temperature [K]__canonical_degC": 30.950000000000045,
+        "Process temperature [K]__canonical_degC": 40.150000000000034
+      },
+      "mechanical": {
+        "Torque [Nm]": 50.3
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1459
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 39
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__5158"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_3372",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 3372
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal operating point with fresh tooling (21 min wear)",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 301.4,
+        "Process temperature [K]": 310.8,
+        "Air temperature [K]__canonical_degC": 28.25,
+        "Process temperature [K]__canonical_degC": 37.650000000000034
+      },
+      "mechanical": {
+        "Torque [Nm]": 44.3
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1431
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 21
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__3372"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_4473",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 4473
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal operating point with fresh tooling (6 min wear)",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 302.7,
+        "Process temperature [K]": 310.5,
+        "Air temperature [K]__canonical_degC": 29.55000000000001,
+        "Process temperature [K]__canonical_degC": 37.35000000000002
+      },
+      "mechanical": {
+        "Torque [Nm]": 35.9
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1551
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 6
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__4473"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_2519",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 2519
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal operating point with fresh tooling (38 min wear)",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 298.8,
+        "Process temperature [K]": 308.6,
+        "Air temperature [K]__canonical_degC": 25.650000000000034,
+        "Process temperature [K]__canonical_degC": 35.450000000000045
+      },
+      "mechanical": {
+        "Torque [Nm]": 32.4
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1631
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 38
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__2519"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_6262",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 6262
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal operating point with fresh tooling (12 min wear)",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 301.0,
+        "Process temperature [K]": 310.6,
+        "Air temperature [K]__canonical_degC": 27.850000000000023,
+        "Process temperature [K]__canonical_degC": 37.450000000000045
+      },
+      "mechanical": {
+        "Torque [Nm]": 33.4
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1641
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 12
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__6262"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_7774",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 7774
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal operating point with fresh tooling (36 min wear)",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 300.3,
+        "Process temperature [K]": 311.5,
+        "Air temperature [K]__canonical_degC": 27.150000000000034,
+        "Process temperature [K]__canonical_degC": 38.35000000000002
+      },
+      "mechanical": {
+        "Torque [Nm]": 31.9
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1634
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 36
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__7774"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_8440",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 8440
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal operating point with fresh tooling (0 min wear)",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 298.6,
+        "Process temperature [K]": 309.8,
+        "Air temperature [K]__canonical_degC": 25.450000000000045,
+        "Process temperature [K]__canonical_degC": 36.650000000000034
+      },
+      "mechanical": {
+        "Torque [Nm]": 56.0
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1370
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 0
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__8440"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_2428",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 2428
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal operating point with fresh tooling (35 min wear)",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 299.0,
+        "Process temperature [K]": 308.3,
+        "Air temperature [K]__canonical_degC": 25.850000000000023,
+        "Process temperature [K]__canonical_degC": 35.150000000000034
+      },
+      "mechanical": {
+        "Torque [Nm]": 47.2
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1377
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "M"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 35
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__2428"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_8291",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 8291
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal operating point with fresh tooling (17 min wear)",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 298.9,
+        "Process temperature [K]": 310.5,
+        "Air temperature [K]__canonical_degC": 25.75,
+        "Process temperature [K]__canonical_degC": 37.35000000000002
+      },
+      "mechanical": {
+        "Torque [Nm]": 26.9
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1717
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 17
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__8291"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_4998",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 4998
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal operating point with fresh tooling (29 min wear)",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 303.6,
+        "Process temperature [K]": 312.8,
+        "Air temperature [K]__canonical_degC": 30.450000000000045,
+        "Process temperature [K]__canonical_degC": 39.650000000000034
+      },
+      "mechanical": {
+        "Torque [Nm]": 25.2
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1825
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "M"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 29
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__4998"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_6517",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 6517
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal operating point with fresh tooling (28 min wear)",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 301.1,
+        "Process temperature [K]": 310.1,
+        "Air temperature [K]__canonical_degC": 27.950000000000045,
+        "Process temperature [K]__canonical_degC": 36.950000000000045
+      },
+      "mechanical": {
+        "Torque [Nm]": 36.6
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1540
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 28
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__6517"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_2596",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 2596
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal operating point with fresh tooling (16 min wear)",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 299.0,
+        "Process temperature [K]": 308.7,
+        "Air temperature [K]__canonical_degC": 25.850000000000023,
+        "Process temperature [K]__canonical_degC": 35.55000000000001
+      },
+      "mechanical": {
+        "Torque [Nm]": 38.6
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1426
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 16
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__2596"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_1764",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1764
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal operating point with fresh tooling (0 min wear)",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 298.2,
+        "Process temperature [K]": 307.6,
+        "Air temperature [K]__canonical_degC": 25.05000000000001,
+        "Process temperature [K]__canonical_degC": 34.450000000000045
+      },
+      "mechanical": {
+        "Torque [Nm]": 55.7
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1318
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "H"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 0
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__1764"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_4401",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 4401
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal operating point with fresh tooling (38 min wear)",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 302.2,
+        "Process temperature [K]": 310.0,
+        "Air temperature [K]__canonical_degC": 29.05000000000001,
+        "Process temperature [K]__canonical_degC": 36.85000000000002
+      },
+      "mechanical": {
+        "Torque [Nm]": 43.6
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1468
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "H"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 38
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__4401"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_1264",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1264
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal operating point with fresh tooling (36 min wear)",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 297.8,
+        "Process temperature [K]": 309.3,
+        "Air temperature [K]__canonical_degC": 24.650000000000034,
+        "Process temperature [K]__canonical_degC": 36.150000000000034
+      },
+      "mechanical": {
+        "Torque [Nm]": 15.7
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 2243
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "M"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 36
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__1264"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_934",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 934
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal operating point with fresh tooling (18 min wear)",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 295.5,
+        "Process temperature [K]": 306.0,
+        "Air temperature [K]__canonical_degC": 22.350000000000023,
+        "Process temperature [K]__canonical_degC": 32.85000000000002
+      },
+      "mechanical": {
+        "Torque [Nm]": 50.8
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1326
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "M"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 18
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__934"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_162",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 162
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal operating point with fresh tooling (0 min wear)",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 298.3,
+        "Process temperature [K]": 308.1,
+        "Air temperature [K]__canonical_degC": 25.150000000000034,
+        "Process temperature [K]__canonical_degC": 34.950000000000045
+      },
+      "mechanical": {
+        "Torque [Nm]": 35.5
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1586
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 0
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__162"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_4045",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 4045
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal operating point with fresh tooling (23 min wear)",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 301.8,
+        "Process temperature [K]": 310.9,
+        "Air temperature [K]__canonical_degC": 28.650000000000034,
+        "Process temperature [K]__canonical_degC": 37.75
+      },
+      "mechanical": {
+        "Torque [Nm]": 20.9
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1881
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "M"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 23
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__4045"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_3194",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 3194
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal operating point with fresh tooling (2 min wear)",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 300.0,
+        "Process temperature [K]": 309.0,
+        "Air temperature [K]__canonical_degC": 26.850000000000023,
+        "Process temperature [K]__canonical_degC": 35.85000000000002
+      },
+      "mechanical": {
+        "Torque [Nm]": 51.7
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1454
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 2
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__3194"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_1924",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1924
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal operating point with fresh tooling (13 min wear)",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 297.9,
+        "Process temperature [K]": 307.7,
+        "Air temperature [K]__canonical_degC": 24.75,
+        "Process temperature [K]__canonical_degC": 34.55000000000001
+      },
+      "mechanical": {
+        "Torque [Nm]": 50.7
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1353
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 13
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__1924"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_3871",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 3871
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal operating point with fresh tooling (12 min wear)",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 302.7,
+        "Process temperature [K]": 311.8,
+        "Air temperature [K]__canonical_degC": 29.55000000000001,
+        "Process temperature [K]__canonical_degC": 38.650000000000034
+      },
+      "mechanical": {
+        "Torque [Nm]": 30.0
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1728
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "M"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 12
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__3871"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_3341",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 3341
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate tool wear accumulation (160 min); maintenance planning window",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 301.4,
+        "Process temperature [K]": 310.7,
+        "Air temperature [K]__canonical_degC": 28.25,
+        "Process temperature [K]__canonical_degC": 37.55000000000001
+      },
+      "mechanical": {
+        "Torque [Nm]": 52.0
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1329
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "H"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 160
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__3341"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_292",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 292
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate tool wear accumulation (109 min); maintenance planning window",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 298.1,
+        "Process temperature [K]": 308.4,
+        "Air temperature [K]__canonical_degC": 24.950000000000045,
+        "Process temperature [K]__canonical_degC": 35.25
+      },
+      "mechanical": {
+        "Torque [Nm]": 40.2
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1335
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 109
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__292"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_7729",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 7729
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate tool wear accumulation (121 min); maintenance planning window",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 300.7,
+        "Process temperature [K]": 311.9,
+        "Air temperature [K]__canonical_degC": 27.55000000000001,
+        "Process temperature [K]__canonical_degC": 38.75
+      },
+      "mechanical": {
+        "Torque [Nm]": 59.2
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1329
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "H"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 121
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__7729"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_2047",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 2047
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate tool wear accumulation (125 min); maintenance planning window",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 299.3,
+        "Process temperature [K]": 309.2,
+        "Air temperature [K]__canonical_degC": 26.150000000000034,
+        "Process temperature [K]__canonical_degC": 36.05000000000001
+      },
+      "mechanical": {
+        "Torque [Nm]": 24.2
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1775
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 125
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__2047"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_2902",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 2902
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate tool wear accumulation (105 min); maintenance planning window",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 300.6,
+        "Process temperature [K]": 309.4,
+        "Air temperature [K]__canonical_degC": 27.450000000000045,
+        "Process temperature [K]__canonical_degC": 36.25
+      },
+      "mechanical": {
+        "Torque [Nm]": 35.2
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1541
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "M"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 105
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__2902"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_646",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 646
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate tool wear accumulation (142 min); maintenance planning window",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 297.7,
+        "Process temperature [K]": 309.4,
+        "Air temperature [K]__canonical_degC": 24.55000000000001,
+        "Process temperature [K]__canonical_degC": 36.25
+      },
+      "mechanical": {
+        "Torque [Nm]": 43.7
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1461
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "M"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 142
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__646"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_1742",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1742
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate tool wear accumulation (152 min); maintenance planning window",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 298.5,
+        "Process temperature [K]": 308.0,
+        "Air temperature [K]__canonical_degC": 25.350000000000023,
+        "Process temperature [K]__canonical_degC": 34.85000000000002
+      },
+      "mechanical": {
+        "Torque [Nm]": 49.6
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1379
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 152
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__1742"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_983",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 983
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate tool wear accumulation (140 min); maintenance planning window",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 296.2,
+        "Process temperature [K]": 306.9,
+        "Air temperature [K]__canonical_degC": 23.05000000000001,
+        "Process temperature [K]__canonical_degC": 33.75
+      },
+      "mechanical": {
+        "Torque [Nm]": 34.9
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1526
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 140
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__983"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_1654",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1654
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate tool wear accumulation (149 min); maintenance planning window",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 298.2,
+        "Process temperature [K]": 308.1,
+        "Air temperature [K]__canonical_degC": 25.05000000000001,
+        "Process temperature [K]__canonical_degC": 34.950000000000045
+      },
+      "mechanical": {
+        "Torque [Nm]": 62.3
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1379
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 149
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__1654"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_1399",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1399
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate tool wear accumulation (159 min); maintenance planning window",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 299.0,
+        "Process temperature [K]": 310.2,
+        "Air temperature [K]__canonical_degC": 25.850000000000023,
+        "Process temperature [K]__canonical_degC": 37.05000000000001
+      },
+      "mechanical": {
+        "Torque [Nm]": 43.5
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1533
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 159
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__1399"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_3586",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 3586
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate tool wear accumulation (139 min); maintenance planning window",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 301.8,
+        "Process temperature [K]": 310.5,
+        "Air temperature [K]__canonical_degC": 28.650000000000034,
+        "Process temperature [K]__canonical_degC": 37.35000000000002
+      },
+      "mechanical": {
+        "Torque [Nm]": 34.9
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1593
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 139
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__3586"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_6548",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 6548
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate tool wear accumulation (112 min); maintenance planning window",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 301.4,
+        "Process temperature [K]": 310.8,
+        "Air temperature [K]__canonical_degC": 28.25,
+        "Process temperature [K]__canonical_degC": 37.650000000000034
+      },
+      "mechanical": {
+        "Torque [Nm]": 24.1
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1770
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 112
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__6548"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_1478",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1478
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate tool wear accumulation (140 min); maintenance planning window",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 298.3,
+        "Process temperature [K]": 309.4,
+        "Air temperature [K]__canonical_degC": 25.150000000000034,
+        "Process temperature [K]__canonical_degC": 36.25
+      },
+      "mechanical": {
+        "Torque [Nm]": 35.8
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1568
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 140
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__1478"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_2735",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 2735
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate tool wear accumulation (147 min); maintenance planning window",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 299.7,
+        "Process temperature [K]": 309.2,
+        "Air temperature [K]__canonical_degC": 26.55000000000001,
+        "Process temperature [K]__canonical_degC": 36.05000000000001
+      },
+      "mechanical": {
+        "Torque [Nm]": 45.4
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1412
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 147
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__2735"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_3754",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 3754
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate tool wear accumulation (152 min); maintenance planning window",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 302.3,
+        "Process temperature [K]": 311.0,
+        "Air temperature [K]__canonical_degC": 29.150000000000034,
+        "Process temperature [K]__canonical_degC": 37.85000000000002
+      },
+      "mechanical": {
+        "Torque [Nm]": 43.7
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1442
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 152
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__3754"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_1969",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1969
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate tool wear accumulation (124 min); maintenance planning window",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 297.8,
+        "Process temperature [K]": 307.5,
+        "Air temperature [K]__canonical_degC": 24.650000000000034,
+        "Process temperature [K]__canonical_degC": 34.35000000000002
+      },
+      "mechanical": {
+        "Torque [Nm]": 31.3
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1631
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "H"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 124
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__1969"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_1142",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1142
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate tool wear accumulation (149 min); maintenance planning window",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 296.9,
+        "Process temperature [K]": 307.9,
+        "Air temperature [K]__canonical_degC": 23.75,
+        "Process temperature [K]__canonical_degC": 34.75
+      },
+      "mechanical": {
+        "Torque [Nm]": 43.9
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1423
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 149
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__1142"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_8080",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 8080
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate tool wear accumulation (127 min); maintenance planning window",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 300.2,
+        "Process temperature [K]": 311.5,
+        "Air temperature [K]__canonical_degC": 27.05000000000001,
+        "Process temperature [K]__canonical_degC": 38.35000000000002
+      },
+      "mechanical": {
+        "Torque [Nm]": 43.6
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1432
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "H"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 127
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__8080"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_4351",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 4351
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate tool wear accumulation (138 min); maintenance planning window",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 301.8,
+        "Process temperature [K]": 309.6,
+        "Air temperature [K]__canonical_degC": 28.650000000000034,
+        "Process temperature [K]__canonical_degC": 36.450000000000045
+      },
+      "mechanical": {
+        "Torque [Nm]": 43.7
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1432
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 138
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__4351"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_9813",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 9813
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate tool wear accumulation (160 min); maintenance planning window",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 298.3,
+        "Process temperature [K]": 309.1,
+        "Air temperature [K]__canonical_degC": 25.150000000000034,
+        "Process temperature [K]__canonical_degC": 35.950000000000045
+      },
+      "mechanical": {
+        "Torque [Nm]": 52.3
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1387
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 160
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__9813"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_5958",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 5958
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate tool wear accumulation (117 min); maintenance planning window",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 300.6,
+        "Process temperature [K]": 310.8,
+        "Air temperature [K]__canonical_degC": 27.450000000000045,
+        "Process temperature [K]__canonical_degC": 37.650000000000034
+      },
+      "mechanical": {
+        "Torque [Nm]": 38.5
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1533
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 117
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__5958"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_5698",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 5698
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate tool wear accumulation (119 min); maintenance planning window",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 302.5,
+        "Process temperature [K]": 311.9,
+        "Air temperature [K]__canonical_degC": 29.350000000000023,
+        "Process temperature [K]__canonical_degC": 38.75
+      },
+      "mechanical": {
+        "Torque [Nm]": 59.8
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1265
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 119
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__5698"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_3838",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 3838
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate tool wear accumulation (156 min); maintenance planning window",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 302.4,
+        "Process temperature [K]": 311.1,
+        "Air temperature [K]__canonical_degC": 29.25,
+        "Process temperature [K]__canonical_degC": 37.950000000000045
+      },
+      "mechanical": {
+        "Torque [Nm]": 24.5
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1880
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 156
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__3838"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_649",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 649
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate tool wear accumulation (152 min); maintenance planning window",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 297.7,
+        "Process temperature [K]": 309.2,
+        "Air temperature [K]__canonical_degC": 24.55000000000001,
+        "Process temperature [K]__canonical_degC": 36.05000000000001
+      },
+      "mechanical": {
+        "Torque [Nm]": 28.8
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1732
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "M"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 152
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__649"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_4696",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 4696
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate tool wear accumulation (132 min); maintenance planning window",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 303.4,
+        "Process temperature [K]": 311.6,
+        "Air temperature [K]__canonical_degC": 30.25,
+        "Process temperature [K]__canonical_degC": 38.450000000000045
+      },
+      "mechanical": {
+        "Torque [Nm]": 41.7
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1449
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 132
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__4696"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_9303",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 9303
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate tool wear accumulation (121 min); maintenance planning window",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 298.2,
+        "Process temperature [K]": 309.0,
+        "Air temperature [K]__canonical_degC": 25.05000000000001,
+        "Process temperature [K]__canonical_degC": 35.85000000000002
+      },
+      "mechanical": {
+        "Torque [Nm]": 38.3
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1491
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 121
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__9303"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_2816",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 2816
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate tool wear accumulation (127 min); maintenance planning window",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 300.1,
+        "Process temperature [K]": 309.4,
+        "Air temperature [K]__canonical_degC": 26.950000000000045,
+        "Process temperature [K]__canonical_degC": 36.25
+      },
+      "mechanical": {
+        "Torque [Nm]": 47.3
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1434
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 127
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__2816"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_2138",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 2138
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate tool wear accumulation (154 min); maintenance planning window",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 299.3,
+        "Process temperature [K]": 309.0,
+        "Air temperature [K]__canonical_degC": 26.150000000000034,
+        "Process temperature [K]__canonical_degC": 35.85000000000002
+      },
+      "mechanical": {
+        "Torque [Nm]": 30.6
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1734
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 154
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__2138"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_AI4I_4443",
+    "dataset_id": "ai4i_2020",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "ai4i_cnc_fleet",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 4443
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate tool wear accumulation (152 min); maintenance planning window",
+    "input_machine_state": {
+      "thermal": {
+        "Air temperature [K]": 302.5,
+        "Process temperature [K]": 310.3,
+        "Air temperature [K]__canonical_degC": 29.350000000000023,
+        "Process temperature [K]__canonical_degC": 37.150000000000034
+      },
+      "mechanical": {
+        "Torque [Nm]": 57.4
+      },
+      "kinematic": {
+        "Rotational speed [rpm]": 1405
+      },
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {
+        "Type": "L"
+      },
+      "health_degradation": {
+        "Tool wear [min]": 152
+      },
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Machine failure": 0,
+      "TWF": 0,
+      "HDF": 0,
+      "PWF": 0,
+      "OSF": 0,
+      "RNF": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "ai4i_2020__4443"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/ai4i_2020.parquet"
+    }
+  }
+]

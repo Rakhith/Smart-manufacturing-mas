@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-09-03T17:13:36.537553+00:00",
+  "phase": 2,
+  "git_commit": "88326eb823619fd260bb90ef4fc4ab238eff0262",
+  "ontology_version": "1.0.0",
+  "total_datasets_processed": 11,
+  "total_features_catalogued": 730,
+  "target_outcomes_isolated": 20,
+  "output_dir": "C:\\Users\\Darsh Veer Singh\\OneDrive - iiit-b\\Sem 7\\AIM801 - Project Elective\\Smart-manufacturing-mas\\smart_manufacturing_mas\\outputs\\phase2",
+  "datasets": [
+    "ai4i_2020",
+    "cmapss",
+    "smart_maintenance_static",
+    "smart_maintenance_timeseries",
+    "iiot_6g",
+    "metal_etch",
+    "metropt3",
+    "uci_hydraulic",
+    "tennessee_eastman",
+    "nasa_ims",
+    "nasa_milling"
+  ],
+  "validation_status": "SUCCESS_ALL_INVARIANTS_PASSED"
+}

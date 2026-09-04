@@ -1,0 +1,127 @@
+dataset_id: "iiot_6g"
+asset_context: "Smart factory machine fleet communicating over 6G cellular network"
+machine_archetype: "iiot_machine"
+provenance: "Intelligent Manufacturing 6G Dataset"
+
+features:
+  Timestamp:
+    modality: "metadata_identifier"
+    physical_quantity: "unknown"
+    role: "identifier"
+    unit: "iso8601"
+    canonical_unit: "iso8601"
+    confidence: "high"
+    is_target: false
+
+  Machine_ID:
+    modality: "metadata_identifier"
+    physical_quantity: "unknown"
+    role: "identifier"
+    unit: "id"
+    canonical_unit: "id"
+    confidence: "high"
+    is_target: false
+
+  Operation_Mode:
+    modality: "process_operating"
+    physical_quantity: "unknown"
+    role: "operating_setting"
+    unit: "category"
+    canonical_unit: "category"
+    confidence: "high"
+    is_target: false
+
+  Temperature_C:
+    modality: "thermal"
+    physical_quantity: "temperature"
+    role: "process_sensor"
+    unit: "C"
+    canonical_unit: "degC"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  Vibration_Hz:
+    modality: "mechanical"
+    physical_quantity: "vibration_velocity"
+    role: "process_sensor"
+    unit: "Hz"
+    canonical_unit: "Hz"
+    conversion_rule: "x"
+    confidence: "medium"
+    is_target: false
+
+  Power_Consumption_kW:
+    modality: "electrical"
+    physical_quantity: "electric_power"
+    role: "electrical_driver"
+    unit: "kW"
+    canonical_unit: "kW"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  Network_Latency_ms:
+    modality: "process_operating"
+    physical_quantity: "network_latency"
+    role: "process_parameter"
+    unit: "ms"
+    canonical_unit: "ms"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  "Packet_Loss_%":
+    modality: "process_operating"
+    physical_quantity: "packet_loss_rate"
+    role: "process_parameter"
+    unit: "%"
+    canonical_unit: "pct"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  "Quality_Control_Defect_Rate_%":
+    modality: "process_operating"
+    physical_quantity: "unknown"
+    role: "process_parameter"
+    unit: "%"
+    canonical_unit: "pct"
+    confidence: "high"
+    is_target: false
+
+  Production_Speed_units_per_hr:
+    modality: "kinematic"
+    physical_quantity: "rotational_speed"
+    role: "process_parameter"
+    unit: "units/hr"
+    canonical_unit: "units/hr"
+    confidence: "high"
+    is_target: false
+
+  Predictive_Maintenance_Score:
+    modality: "health_degradation"
+    physical_quantity: "failure_probability"
+    role: "health_metric"
+    unit: "score"
+    canonical_unit: "score"
+    confidence: "medium"
+    is_target: false
+
+  "Error_Rate_%":
+    modality: "process_operating"
+    physical_quantity: "unknown"
+    role: "process_parameter"
+    unit: "%"
+    canonical_unit: "pct"
+    confidence: "high"
+    is_target: false
+
+  Efficiency_Status:
+    modality: "outcome_label"
+    physical_quantity: "unknown"
+    role: "target_label"
+    unit: "category"
+    canonical_unit: "category"
+    confidence: "high"
+    is_target: true

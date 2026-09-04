@@ -1,0 +1,1520 @@
+[
+  {
+    "decision_state_id": "DS_MILL_HEALTHY_237",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 237,
+      "trajectory_phase": "sharp_insert"
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Early cutting insert pass with baseline acoustic/cutting force energy",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": 0.2911749945746528,
+        "signal__rms": 0.2934486874596473,
+        "signal__variance": 0.0013292547062407,
+        "signal__std": 0.0364589454899717,
+        "signal__skewness": 28.924051941380167,
+        "signal__kurtosis": 1124.7637221942869,
+        "signal__crest_factor": 6.817997514983345,
+        "signal__dominant_frequency_hz": 0.0002222222222222,
+        "signal__spectral_energy": 5.981646863619486,
+        "signal__spectral_entropy": 10.355327532298215
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__237"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_MILL_HEALTHY_45",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 45,
+      "trajectory_phase": "sharp_insert"
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Early cutting insert pass with baseline acoustic/cutting force energy",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": 0.4065597873263888,
+        "signal__rms": 0.4144325677901043,
+        "signal__variance": 0.0064634925742208,
+        "signal__std": 0.0803958492350247,
+        "signal__skewness": 3.79077522047463,
+        "signal__kurtosis": 44.060674744730434,
+        "signal__crest_factor": 3.879198066401063,
+        "signal__dominant_frequency_hz": 0.0001111111111111,
+        "signal__spectral_energy": 29.08571758568287,
+        "signal__spectral_entropy": 6.952410145211019
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__45"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_MILL_HEALTHY_249",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 249,
+      "trajectory_phase": "sharp_insert"
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Early cutting insert pass with baseline acoustic/cutting force energy",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": 0.2627998860677083,
+        "signal__rms": 0.2634951915522406,
+        "signal__variance": 0.0003659358539515,
+        "signal__std": 0.0191294499124127,
+        "signal__skewness": 22.138139938663464,
+        "signal__kurtosis": 800.0130156766273,
+        "signal__crest_factor": 4.317708060621062,
+        "signal__dominant_frequency_hz": 0.0245555555555555,
+        "signal__spectral_energy": 1.6467130833201935,
+        "signal__spectral_entropy": 10.390971528528912
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__249"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_MILL_HEALTHY_104",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 104,
+      "trajectory_phase": "sharp_insert"
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Early cutting insert pass with baseline acoustic/cutting force energy",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": 1.0584077337533632e+26,
+        "signal__rms": 1.3595483309014102e+28,
+        "signal__variance": 1.8482596413637237e+56,
+        "signal__std": 1.3595071317811185e+28,
+        "signal__skewness": 1.038332208021703,
+        "signal__kurtosis": 133.34746853506175,
+        "signal__crest_factor": 11.677545948232211,
+        "signal__dominant_frequency_hz": 0.1154444444444444,
+        "signal__spectral_energy": 8.317392432504926e+59,
+        "signal__spectral_entropy": 11.521295323007426
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__104"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_MILL_HEALTHY_281",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 281,
+      "trajectory_phase": "sharp_insert"
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Early cutting insert pass with baseline acoustic/cutting force energy",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": 0.2327362060546875,
+        "signal__rms": 0.238718111377814,
+        "signal__variance": 0.0028201950910604,
+        "signal__std": 0.0531055090462417,
+        "signal__skewness": 0.0745998258340559,
+        "signal__kurtosis": -0.5117319211331961,
+        "signal__crest_factor": 1.838330451362163,
+        "signal__dominant_frequency_hz": 0.0545555555555555,
+        "signal__spectral_energy": 12.690880758398103,
+        "signal__spectral_entropy": 5.183169489889805
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__281"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_MILL_HEALTHY_73",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 73,
+      "trajectory_phase": "sharp_insert"
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Early cutting insert pass with baseline acoustic/cutting force energy",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": 8.116930338541666,
+        "signal__rms": 8.69031901190669,
+        "signal__variance": 9.637086407968733,
+        "signal__std": 3.104365701390339,
+        "signal__skewness": -1.3440098238293017,
+        "signal__kurtosis": 0.1614572888912619,
+        "signal__crest_factor": 1.1501438754786324,
+        "signal__dominant_frequency_hz": 0.0001111111111111,
+        "signal__spectral_energy": 43366.888864093366,
+        "signal__spectral_entropy": 1.560106215444124
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__73"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_MILL_WATCH_631",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 631,
+      "trajectory_phase": "progressive_wear"
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate cutting insert flank wear progression",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": 6.61998046875,
+        "signal__rms": 7.127667134213227,
+        "signal__variance": 6.979497369511922,
+        "signal__std": 2.64187383678932,
+        "signal__skewness": -0.7198476539683669,
+        "signal__kurtosis": -0.8293284540529613,
+        "signal__crest_factor": 1.332423376915779,
+        "signal__dominant_frequency_hz": 0.0002222222222222,
+        "signal__spectral_energy": 31407.742598581302,
+        "signal__spectral_entropy": 2.356029488020094
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__631"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_MILL_WATCH_561",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 561,
+      "trajectory_phase": "progressive_wear"
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate cutting insert flank wear progression",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": 0.2715224880642361,
+        "signal__rms": 0.272397363645049,
+        "signal__variance": 0.0004758621961798,
+        "signal__std": 0.0218142658867957,
+        "signal__skewness": 32.69076576069316,
+        "signal__kurtosis": 1834.0409958208595,
+        "signal__crest_factor": 6.013948049382213,
+        "signal__dominant_frequency_hz": 0.0244444444444444,
+        "signal__spectral_energy": 2.14143705036905,
+        "signal__spectral_entropy": 10.75853836969327
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__561"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_MILL_WATCH_422",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 422,
+      "trajectory_phase": "progressive_wear"
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate cutting insert flank wear progression",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": 0.4483531358506944,
+        "signal__rms": 0.5033028781121213,
+        "signal__variance": 0.0522932526887934,
+        "signal__std": 0.2286771800788034,
+        "signal__skewness": -0.7497028217155093,
+        "signal__kurtosis": -0.895602909499122,
+        "signal__crest_factor": 1.780232406202132,
+        "signal__dominant_frequency_hz": 0.0001111111111111,
+        "signal__spectral_energy": 235.3200269222259,
+        "signal__spectral_entropy": 2.858985012441144
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__422"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_MILL_WATCH_627",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 627,
+      "trajectory_phase": "progressive_wear"
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate cutting insert flank wear progression",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": 0.2706856282552083,
+        "signal__rms": 0.2761660202799046,
+        "signal__variance": 0.0029969614133238,
+        "signal__std": 0.0547445103487452,
+        "signal__skewness": 23.677780124220693,
+        "signal__kurtosis": 663.920948259461,
+        "signal__crest_factor": 8.177330357156638,
+        "signal__dominant_frequency_hz": 0.1084444444444444,
+        "signal__spectral_energy": 13.48642345666885,
+        "signal__spectral_entropy": 10.602558825154212
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__627"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_MILL_WATCH_699",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 699,
+      "trajectory_phase": "progressive_wear"
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate cutting insert flank wear progression",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": 0.3058437771267361,
+        "signal__rms": 0.3062545513822608,
+        "signal__variance": 0.0002514342352012,
+        "signal__std": 0.0158566779371092,
+        "signal__skewness": 0.9356491787845032,
+        "signal__kurtosis": 1.3545471220869745,
+        "signal__crest_factor": 1.2754912481690095,
+        "signal__dominant_frequency_hz": 0.0247777777777777,
+        "signal__spectral_energy": 1.1314694364865618,
+        "signal__spectral_entropy": 9.10354032300269
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__699"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_MILL_WATCH_672",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 672,
+      "trajectory_phase": "progressive_wear"
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate cutting insert flank wear progression",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": -0.1623887803819444,
+        "signal__rms": 2.7633820259618953,
+        "signal__variance": 7.609910105415332,
+        "signal__std": 2.758606551397885,
+        "signal__skewness": 7.142589342808413e-05,
+        "signal__kurtosis": -0.9353174298495132,
+        "signal__crest_factor": 2.1168297832305076,
+        "signal__dominant_frequency_hz": 0.0556666666666666,
+        "signal__spectral_energy": 34244.62011356354,
+        "signal__spectral_entropy": 3.1936807979682587
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__672"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_MILL_WATCH_463",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 463,
+      "trajectory_phase": "progressive_wear"
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate cutting insert flank wear progression",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": 4.176050347222223,
+        "signal__rms": 4.309503329902548,
+        "signal__variance": 1.132422447906306,
+        "signal__std": 1.0641533949136777,
+        "signal__skewness": -1.763101470271007,
+        "signal__kurtosis": 1.7968677945864435,
+        "signal__crest_factor": 1.17835504726593,
+        "signal__dominant_frequency_hz": 0.0001111111111111,
+        "signal__spectral_energy": 5095.901113573711,
+        "signal__spectral_entropy": 2.7116421221319444
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__463"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_MILL_WATCH_491",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 491,
+      "trajectory_phase": "progressive_wear"
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate cutting insert flank wear progression",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": 0.2077336968315972,
+        "signal__rms": 0.2122694154457966,
+        "signal__variance": 0.0019050159343782,
+        "signal__std": 0.0436464882250368,
+        "signal__skewness": 0.5035570821217717,
+        "signal__kurtosis": 1.2050089239150328,
+        "signal__crest_factor": 2.0127538998151056,
+        "signal__dominant_frequency_hz": 0.0001111111111111,
+        "signal__spectral_energy": 8.572577965259551,
+        "signal__spectral_entropy": 6.5629151686736735
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__491"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_MILL_WATCH_684",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 684,
+      "trajectory_phase": "progressive_wear"
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate cutting insert flank wear progression",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": -0.1499983723958333,
+        "signal__rms": 3.471087770955105,
+        "signal__variance": 12.02595080195268,
+        "signal__std": 3.467845267879275,
+        "signal__skewness": 0.0072012524460545,
+        "signal__kurtosis": -0.9280642669709512,
+        "signal__crest_factor": 2.007374603374765,
+        "signal__dominant_frequency_hz": 0.059,
+        "signal__spectral_energy": 54116.78980207442,
+        "signal__spectral_entropy": 3.4959844018441935
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__684"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_MILL_WATCH_405",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 405,
+      "trajectory_phase": "progressive_wear"
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate cutting insert flank wear progression",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": 0.2811284722222222,
+        "signal__rms": 0.2821115648876078,
+        "signal__variance": 0.0005537171493341,
+        "signal__std": 0.0235311952381129,
+        "signal__skewness": 11.085127984940245,
+        "signal__kurtosis": 266.91737900265457,
+        "signal__crest_factor": 3.5784477136808963,
+        "signal__dominant_frequency_hz": 0.0243333333333333,
+        "signal__spectral_energy": 2.4917293985684714,
+        "signal__spectral_entropy": 9.037229984681638
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__405"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_MILL_WATCH_733",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 733,
+      "trajectory_phase": "progressive_wear"
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate cutting insert flank wear progression",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": 5.4656494140625,
+        "signal__rms": 5.686056671007239,
+        "signal__variance": 2.4579169484641814,
+        "signal__std": 1.5677745209258191,
+        "signal__skewness": -1.7749187606381074,
+        "signal__kurtosis": 1.812843439347432,
+        "signal__crest_factor": 1.163585120640029,
+        "signal__dominant_frequency_hz": 0.0001111111111111,
+        "signal__spectral_energy": 11060.626537503138,
+        "signal__spectral_entropy": 2.6703966459955475
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__733"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_MILL_WATCH_531",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 531,
+      "trajectory_phase": "progressive_wear"
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate cutting insert flank wear progression",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": 0.2703964572482639,
+        "signal__rms": 0.2738880245535454,
+        "signal__variance": 0.0019004059014313,
+        "signal__std": 0.0435936451955018,
+        "signal__skewness": 27.726618799477663,
+        "signal__kurtosis": 933.7079580403472,
+        "signal__crest_factor": 7.951185082114645,
+        "signal__dominant_frequency_hz": 0.0245555555555555,
+        "signal__spectral_energy": 8.551897388696668,
+        "signal__spectral_entropy": 10.77583488677162
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__531"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_MILL_WATCH_372",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 372,
+      "trajectory_phase": "progressive_wear"
+    },
+    "decision_severity": "WATCH",
+    "decision_relevance_rationale": "Moderate cutting insert flank wear progression",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": -0.1669059244791666,
+        "signal__rms": 1.3091469466215306,
+        "signal__variance": 1.6860081402222318,
+        "signal__std": 1.2984637616130192,
+        "signal__skewness": 0.0089305907859215,
+        "signal__kurtosis": -1.0725206927247282,
+        "signal__crest_factor": 2.293806432692338,
+        "signal__dominant_frequency_hz": 0.0492222222222222,
+        "signal__spectral_energy": 7587.593869686123,
+        "signal__spectral_entropy": 2.9339823576501907
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__372"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_MILL_CRIT_867",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 867,
+      "trajectory_phase": "severe_tool_wear"
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Critical cutting insert flank wear nearing tool retirement threshold",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": 0.2671567111545139,
+        "signal__rms": 0.2684166358075089,
+        "signal__variance": 0.0006747820633245,
+        "signal__std": 0.0259765675816592,
+        "signal__skewness": 31.762989459258833,
+        "signal__kurtosis": 1599.9328867489303,
+        "signal__crest_factor": 6.7534716511572075,
+        "signal__dominant_frequency_hz": 0.0242222222222222,
+        "signal__spectral_energy": 3.036548592646916,
+        "signal__spectral_entropy": 10.838449680526738
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__867"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_MILL_CRIT_966",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 966,
+      "trajectory_phase": "severe_tool_wear"
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Critical cutting insert flank wear nearing tool retirement threshold",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": -0.1678653971354166,
+        "signal__rms": 2.203404876240728,
+        "signal__variance": 4.826814257085986,
+        "signal__std": 2.1970011964234306,
+        "signal__skewness": -0.0098966086497677,
+        "signal__kurtosis": -0.906726794644574,
+        "signal__crest_factor": 2.269215274012917,
+        "signal__dominant_frequency_hz": 0.0531111111111111,
+        "signal__spectral_energy": 21720.666021561618,
+        "signal__spectral_entropy": 3.4323938281608704
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__966"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_MILL_CRIT_879",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 879,
+      "trajectory_phase": "severe_tool_wear"
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Critical cutting insert flank wear nearing tool retirement threshold",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": 0.3078776041666666,
+        "signal__rms": 0.3086736165284559,
+        "signal__variance": 0.0004907823933495,
+        "signal__std": 0.022153609036668,
+        "signal__skewness": 16.568473255748106,
+        "signal__kurtosis": 530.2979749990617,
+        "signal__crest_factor": 3.926989992723444,
+        "signal__dominant_frequency_hz": 0.0003333333333333,
+        "signal__spectral_energy": 2.2085285216569894,
+        "signal__spectral_entropy": 10.579228938329546
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__879"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_MILL_CRIT_953",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 953,
+      "trajectory_phase": "severe_tool_wear"
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Critical cutting insert flank wear nearing tool retirement threshold",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": 0.1975322129991319,
+        "signal__rms": 0.201802961839648,
+        "signal__variance": 0.00170546023492,
+        "signal__std": 0.0412972182467536,
+        "signal__skewness": -0.2081637720886328,
+        "signal__kurtosis": -0.0631150003582639,
+        "signal__crest_factor": 1.596932086933745,
+        "signal__dominant_frequency_hz": 0.1081111111111111,
+        "signal__spectral_energy": 7.674571705526774,
+        "signal__spectral_entropy": 6.209896315472337
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__953"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_MILL_CRIT_817",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 817,
+      "trajectory_phase": "severe_tool_wear"
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Critical cutting insert flank wear nearing tool retirement threshold",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": 5.733721788194444,
+        "signal__rms": 5.884847920261536,
+        "signal__variance": 1.755869500190829,
+        "signal__std": 1.3250922610108435,
+        "signal__skewness": -2.2784359411327157,
+        "signal__kurtosis": 4.2764101920408315,
+        "signal__crest_factor": 1.1284276314322963,
+        "signal__dominant_frequency_hz": 0.0001111111111111,
+        "signal__spectral_energy": 7901.413043451313,
+        "signal__spectral_entropy": 3.154745023768706
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__817"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_MILL_CRIT_949",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 949,
+      "trajectory_phase": "severe_tool_wear"
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Critical cutting insert flank wear nearing tool retirement threshold",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": 8.325705837673611,
+        "signal__rms": 8.717732246667875,
+        "signal__variance": 6.681477829120484,
+        "signal__std": 2.5848554754802993,
+        "signal__skewness": -1.8344038197722623,
+        "signal__kurtosis": 2.0191622444102943,
+        "signal__crest_factor": 1.1465272050905635,
+        "signal__dominant_frequency_hz": 0.0001111111111111,
+        "signal__spectral_energy": 30066.651199319633,
+        "signal__spectral_entropy": 2.661621423897326
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__949"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_MILL_CRIT_885",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 885,
+      "trajectory_phase": "severe_tool_wear"
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Critical cutting insert flank wear nearing tool retirement threshold",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": 0.3071021864149305,
+        "signal__rms": 0.3157436594211087,
+        "signal__variance": 0.0053823055638023,
+        "signal__std": 0.0733641981064492,
+        "signal__skewness": 12.143327324565767,
+        "signal__kurtosis": 204.10662932390153,
+        "signal__crest_factor": 7.693580365806068,
+        "signal__dominant_frequency_hz": 0.0001111111111111,
+        "signal__spectral_energy": 24.220421976513325,
+        "signal__spectral_entropy": 9.916053812519074
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__885"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_MILL_CRIT_933",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 933,
+      "trajectory_phase": "severe_tool_wear"
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Critical cutting insert flank wear nearing tool retirement threshold",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": 0.2733629014756944,
+        "signal__rms": 0.2747294003737383,
+        "signal__variance": 0.0007489675265035,
+        "signal__std": 0.0273672710825093,
+        "signal__skewness": 21.803486664206982,
+        "signal__kurtosis": 744.6382822909659,
+        "signal__crest_factor": 5.549672517942655,
+        "signal__dominant_frequency_hz": 0.0244444444444444,
+        "signal__spectral_energy": 3.370361927813953,
+        "signal__spectral_entropy": 10.336899235246875
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__933"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_MILL_CRIT_810",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 810,
+      "trajectory_phase": "severe_tool_wear"
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Critical cutting insert flank wear nearing tool retirement threshold",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": -0.1723396809895833,
+        "signal__rms": 1.3959760884689922,
+        "signal__variance": 1.9190482739335963,
+        "signal__std": 1.3852971789235682,
+        "signal__skewness": -0.0126380788520489,
+        "signal__kurtosis": -1.1950120805364288,
+        "signal__crest_factor": 2.1528814988844673,
+        "signal__dominant_frequency_hz": 0.0492222222222222,
+        "signal__spectral_energy": 8635.717591547966,
+        "signal__spectral_entropy": 2.506977840276823
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__810"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_MILL_CRIT_951",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 951,
+      "trajectory_phase": "severe_tool_wear"
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Critical cutting insert flank wear nearing tool retirement threshold",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": 0.2649275716145833,
+        "signal__rms": 0.2652163029192712,
+        "signal__variance": 0.0001530691325664,
+        "signal__std": 0.0123721110796198,
+        "signal__skewness": 11.525666650141476,
+        "signal__kurtosis": 348.77502679123944,
+        "signal__crest_factor": 2.821436719343649,
+        "signal__dominant_frequency_hz": 0.0243333333333333,
+        "signal__spectral_energy": 0.6888462884558569,
+        "signal__spectral_entropy": 9.510462798824584
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__951"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_MILL_CRIT_877",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 877,
+      "trajectory_phase": "severe_tool_wear"
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Critical cutting insert flank wear nearing tool retirement threshold",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": 5.390300021701389,
+        "signal__rms": 5.753642827570723,
+        "signal__variance": 4.049071463302035,
+        "signal__std": 2.0122304697280664,
+        "signal__skewness": -1.0932127534779477,
+        "signal__kurtosis": -0.5178181545428084,
+        "signal__crest_factor": 1.2161113440985476,
+        "signal__dominant_frequency_hz": 0.0001111111111111,
+        "signal__spectral_energy": 18220.821585241945,
+        "signal__spectral_entropy": 1.306381575938696
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__877"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_MILL_CRIT_997",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 997,
+      "trajectory_phase": "severe_tool_wear"
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Critical cutting insert flank wear nearing tool retirement threshold",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": 8.016929796006945,
+        "signal__rms": 8.651366091743919,
+        "signal__variance": 10.574971899272482,
+        "signal__std": 3.2519181876659324,
+        "signal__skewness": -1.2248408671220703,
+        "signal__kurtosis": -0.2814166833311344,
+        "signal__crest_factor": 1.1553224174663508,
+        "signal__dominant_frequency_hz": 0.0001111111111111,
+        "signal__spectral_energy": 47587.3735467275,
+        "signal__spectral_entropy": 1.5863410712602513
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__997"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_MILL_CRIT_830",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 830,
+      "trajectory_phase": "severe_tool_wear"
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Critical cutting insert flank wear nearing tool retirement threshold",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": 0.8648681640625,
+        "signal__rms": 0.9376714980478642,
+        "signal__variance": 0.1312308970424864,
+        "signal__std": 0.3622580531092255,
+        "signal__skewness": 0.0159201568421373,
+        "signal__kurtosis": 0.639690809590749,
+        "signal__crest_factor": 2.2756253836682996,
+        "signal__dominant_frequency_hz": 0.0544444444444444,
+        "signal__spectral_energy": 590.5390557646751,
+        "signal__spectral_entropy": 4.407617316694569
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__830"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_MILL_CRIT_944",
+    "dataset_id": "nasa_milling",
+    "asset_context": {
+      "machine_archetype": "cnc_mill",
+      "asset_id": "bridgeport_cnc_mill",
+      "operational_domain": "cnc_machining",
+      "temporal_type": "signal_snapshot"
+    },
+    "temporal_context": {
+      "sequence_step": 944,
+      "trajectory_phase": "severe_tool_wear"
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Critical cutting insert flank wear nearing tool retirement threshold",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {
+        "signal__mean": 0.8849807400173612,
+        "signal__rms": 0.970133655711169,
+        "signal__variance": 0.1579683997418409,
+        "signal__std": 0.3974523867607804,
+        "signal__skewness": 0.5932937836188108,
+        "signal__kurtosis": 3.709466093924481,
+        "signal__crest_factor": 3.374716217684466,
+        "signal__dominant_frequency_hz": 0.0002222222222222,
+        "signal__spectral_energy": 710.8607020881441,
+        "signal__spectral_entropy": 5.749381857066251
+      },
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {}
+    },
+    "trend_summary": {},
+    "ground_truth_context": {},
+    "provenance": {
+      "source_observation_ids": [
+        "nasa_milling__944"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/nasa_milling.parquet"
+    }
+  }
+]

@@ -1,0 +1,99 @@
+dataset_id: "smart_maintenance_static"
+asset_context: "Factory machine fleet discrete maintenance snapshot"
+machine_archetype: "industrial_machine"
+provenance: "Smart Manufacturing Maintenance Dataset (Static Snapshot Variant)"
+
+features:
+  Machine_ID:
+    modality: "metadata_identifier"
+    physical_quantity: "unknown"
+    role: "identifier"
+    unit: "id"
+    canonical_unit: "id"
+    confidence: "high"
+    is_target: false
+
+  Temp_C:
+    modality: "thermal"
+    physical_quantity: "temperature"
+    role: "ambient_sensor"
+    unit: "C"
+    canonical_unit: "degC"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  Vibration_mm_s:
+    modality: "mechanical"
+    physical_quantity: "vibration_velocity"
+    role: "process_sensor"
+    unit: "mm/s"
+    canonical_unit: "mm/s"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  Pressure_Bar:
+    modality: "fluid"
+    physical_quantity: "pressure"
+    role: "process_sensor"
+    unit: "bar"
+    canonical_unit: "bar"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  Acoustic_dB:
+    modality: "acoustic"
+    physical_quantity: "sound_level"
+    role: "process_sensor"
+    unit: "dB"
+    canonical_unit: "dB"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  Inspection_Duration_min:
+    modality: "process_operating"
+    physical_quantity: "unknown"
+    role: "process_parameter"
+    unit: "min"
+    canonical_unit: "min"
+    confidence: "medium"
+    is_target: false
+
+  Downtime_Cost_USD:
+    modality: "process_operating"
+    physical_quantity: "unknown"
+    role: "process_parameter"
+    unit: "USD"
+    canonical_unit: "USD"
+    confidence: "medium"
+    is_target: false
+
+  Technician_Availability_pct:
+    modality: "process_operating"
+    physical_quantity: "unknown"
+    role: "process_parameter"
+    unit: "%"
+    canonical_unit: "pct"
+    confidence: "medium"
+    is_target: false
+
+  Failure_Prob:
+    modality: "health_degradation"
+    physical_quantity: "failure_probability"
+    role: "health_metric"
+    unit: "probability"
+    canonical_unit: "unitless_probability"
+    confidence: "high"
+    is_target: false
+
+  Maintenance_Priority:
+    modality: "outcome_label"
+    physical_quantity: "unknown"
+    role: "target_label"
+    unit: "category"
+    canonical_unit: "category"
+    confidence: "high"
+    is_target: true

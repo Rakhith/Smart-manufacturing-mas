@@ -1,0 +1,12 @@
+,HEALTHY,WATCH,DEGRADING,CRITICAL,Total_Selected
+ai4i_2020,29,29,29,29,116
+cmapss,30,30,30,31,121
+iiot_6g,35,35,0,35,105
+metal_etch,45,0,0,45,90
+metropt3,30,0,0,33,63
+nasa_ims,37,32,0,21,90
+nasa_milling,6,13,0,14,33
+smart_maintenance_static,33,33,0,34,100
+smart_maintenance_timeseries,37,36,0,37,110
+tennessee_eastman,25,24,0,25,74
+uci_hydraulic,21,34,36,30,121

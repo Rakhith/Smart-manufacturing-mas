@@ -1,0 +1,188 @@
+version: "1.0.0"
+description: "Practical industrial semantic ontology for predictive and prescriptive manufacturing maintenance."
+
+modalities:
+  thermal:
+    description: "Thermal state, temperature measurements, and heat dissipation"
+    physical_quantities: [temperature]
+  mechanical:
+    description: "Mechanical state, structural forces, vibration, torque, and material wear"
+    physical_quantities: [vibration_velocity, vibration_acceleration, torque, force, tool_wear_duration]
+  kinematic:
+    description: "Motion and kinematic state, rotational speeds, and cycle rates"
+    physical_quantities: [rotational_speed, cycle_count]
+  fluid:
+    description: "Hydraulic and pneumatic state, pressures, fluid flow, and levels"
+    physical_quantities: [pressure, differential_pressure, flow_rate, fluid_level]
+  electrical:
+    description: "Electrical state, motor current, power draw, and energy consumption"
+    physical_quantities: [electric_current, electric_voltage, electric_power, energy_consumption]
+  acoustic:
+    description: "Acoustic emission and sound pressure levels"
+    physical_quantities: [acoustic_emission, sound_level]
+  process_operating:
+    description: "Operating context, operational settings, control signals, network latency, and chemical process variables"
+    physical_quantities: [network_latency, packet_loss_rate, unknown]
+  health_degradation:
+    description: "Continuous health metrics, degradation indices, and failure probabilities"
+    physical_quantities: [remaining_useful_life, failure_probability, condition_pct, tool_wear_duration]
+  outcome_label:
+    description: "Target labels, failure categories, and maintenance triggers (strictly quarantined from state)"
+    physical_quantities: [unknown]
+  metadata_identifier:
+    description: "Observation identifiers, machine keys, sequence numbers, and temporal timestamps"
+    physical_quantities: [unknown]
+  unknown:
+    description: "Explicit unverified or anonymous feature context"
+    physical_quantities: [unknown]
+
+physical_quantities:
+  temperature:
+    canonical_unit: "degC"
+    supported_conversions:
+      K: "x - 273.15"
+      C: "x"
+      degC: "x"
+  vibration_velocity:
+    canonical_unit: "mm/s"
+    supported_conversions:
+      mm/s: "x"
+  vibration_acceleration:
+    canonical_unit: "g"
+    supported_conversions:
+      g: "x"
+  rotational_speed:
+    canonical_unit: "rpm"
+    supported_conversions:
+      rpm: "x"
+  torque:
+    canonical_unit: "Nm"
+    supported_conversions:
+      Nm: "x"
+  force:
+    canonical_unit: "N"
+    supported_conversions:
+      N: "x"
+  tool_wear_duration:
+    canonical_unit: "min"
+    supported_conversions:
+      min: "x"
+  pressure:
+    canonical_unit: "bar"
+    supported_conversions:
+      bar: "x"
+      Pa: "x / 100000.0"
+      kPa: "x / 100.0"
+      MPa: "x * 10.0"
+  differential_pressure:
+    canonical_unit: "bar"
+    supported_conversions:
+      bar: "x"
+  flow_rate:
+    canonical_unit: "l/min"
+    supported_conversions:
+      l/min: "x"
+  fluid_level:
+    canonical_unit: "count"
+    supported_conversions:
+      count: "x"
+  electric_current:
+    canonical_unit: "A"
+    supported_conversions:
+      A: "x"
+  electric_voltage:
+    canonical_unit: "V"
+    supported_conversions:
+      V: "x"
+  electric_power:
+    canonical_unit: "kW"
+    supported_conversions:
+      W: "x / 1000.0"
+      kW: "x"
+  energy_consumption:
+    canonical_unit: "kWh"
+    supported_conversions:
+      kWh: "x"
+  acoustic_emission:
+    canonical_unit: "V"
+    supported_conversions:
+      V: "x"
+  sound_level:
+    canonical_unit: "dB"
+    supported_conversions:
+      dB: "x"
+  network_latency:
+    canonical_unit: "ms"
+    supported_conversions:
+      ms: "x"
+  packet_loss_rate:
+    canonical_unit: "pct"
+    supported_conversions:
+      "%": "x"
+      pct: "x"
+  cycle_count:
+    canonical_unit: "cycles"
+    supported_conversions:
+      cycles: "x"
+  remaining_useful_life:
+    canonical_unit: "cycles"
+    supported_conversions:
+      cycles: "x"
+  failure_probability:
+    canonical_unit: "unitless_probability"
+    supported_conversions:
+      probability: "x"
+  condition_pct:
+    canonical_unit: "pct"
+    supported_conversions:
+      "%": "x"
+      pct: "x"
+  unknown:
+    canonical_unit: "UNKNOWN"
+    supported_conversions: {}
+
+measurement_roles:
+  - ambient_sensor
+  - process_sensor
+  - lubricant_sensor
+  - actuator_control
+  - electrical_driver
+  - operating_setting
+  - virtual_sensor
+  - process_parameter
+  - engine_sensor
+  - accelerometer_channel
+  - waveform_statistic
+  - cycle_summary
+  - health_metric
+  - target_label
+  - identifier
+
+transformations:
+  raw: "Instantaneous point observation"
+  rolling_mean: "Causal rolling average over trailing window"
+  rolling_std: "Causal rolling standard deviation over trailing window"
+  delta_1: "One-step backward difference"
+  slope: "Causal least-squares trend slope over trailing window"
+  fft_dominant_frequency: "Frequency of maximum spectral energy via FFT"
+  fft_spectral_energy: "Total normalized spectral power"
+  fft_spectral_entropy: "Normalized spectral distribution Shannon entropy"
+  rms: "Root mean square waveform energy"
+  variance: "Statistical variance of signal window"
+  std: "Standard deviation of signal window"
+  skewness: "Third standardized moment"
+  kurtosis: "Fourth standardized moment (excess kurtosis)"
+  crest_factor: "Peak absolute amplitude divided by RMS"
+  min: "Minimum value across window or cycle"
+  max: "Maximum value across window or cycle"
+  first: "Initial sample value within cycle"
+  last: "Final sample value within cycle"
+  window_delta: "Net difference between window end and window start"
+  cycle_mean: "Mean value across operational load cycle"
+  cycle_slope: "Linear slope of signal over operational load cycle"
+
+confidence_levels:
+  high: "Directly documented in verified source metadata with verified units"
+  medium: "Derived from standard engineering context or high structural evidence"
+  low: "Conservative default for anonymous or undocumented variables"
+  unknown: "No semantic basis available"

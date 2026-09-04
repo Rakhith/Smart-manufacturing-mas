@@ -1,0 +1,174 @@
+dataset_id: "metropt3"
+asset_context: "Railway passenger train Air Production Unit (APU) compressor"
+machine_archetype: "air_compressor"
+provenance: "UCI MetroPT-3 (Metro do Porto Railway Pneumatics Dataset)"
+
+features:
+  window_start:
+    modality: "metadata_identifier"
+    physical_quantity: "unknown"
+    role: "identifier"
+    unit: "iso8601"
+    canonical_unit: "iso8601"
+    confidence: "high"
+    is_target: false
+
+  window_end:
+    modality: "metadata_identifier"
+    physical_quantity: "unknown"
+    role: "identifier"
+    unit: "iso8601"
+    canonical_unit: "iso8601"
+    confidence: "high"
+    is_target: false
+
+  window_sample_count:
+    modality: "metadata_identifier"
+    physical_quantity: "unknown"
+    role: "identifier"
+    unit: "count"
+    canonical_unit: "count"
+    confidence: "high"
+    is_target: false
+
+  TP2:
+    modality: "fluid"
+    physical_quantity: "pressure"
+    role: "process_sensor"
+    unit: "bar"
+    canonical_unit: "bar"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  TP3:
+    modality: "fluid"
+    physical_quantity: "pressure"
+    role: "process_sensor"
+    unit: "bar"
+    canonical_unit: "bar"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  H1:
+    modality: "fluid"
+    physical_quantity: "differential_pressure"
+    role: "process_sensor"
+    unit: "bar"
+    canonical_unit: "bar"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  DV_pressure:
+    modality: "fluid"
+    physical_quantity: "differential_pressure"
+    role: "process_sensor"
+    unit: "bar"
+    canonical_unit: "bar"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  Reservoirs:
+    modality: "fluid"
+    physical_quantity: "pressure"
+    role: "process_sensor"
+    unit: "bar"
+    canonical_unit: "bar"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  Oil_temperature:
+    modality: "thermal"
+    physical_quantity: "temperature"
+    role: "lubricant_sensor"
+    unit: "C"
+    canonical_unit: "degC"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  Motor_current:
+    modality: "electrical"
+    physical_quantity: "electric_current"
+    role: "electrical_driver"
+    unit: "A"
+    canonical_unit: "A"
+    conversion_rule: "x"
+    confidence: "high"
+    is_target: false
+
+  COMP:
+    modality: "process_operating"
+    physical_quantity: "unknown"
+    role: "actuator_control"
+    unit: "binary"
+    canonical_unit: "binary"
+    confidence: "high"
+    is_target: false
+
+  DV_eletric:
+    modality: "process_operating"
+    physical_quantity: "unknown"
+    role: "actuator_control"
+    unit: "binary"
+    canonical_unit: "binary"
+    confidence: "high"
+    is_target: false
+
+  Towers:
+    modality: "process_operating"
+    physical_quantity: "unknown"
+    role: "actuator_control"
+    unit: "binary"
+    canonical_unit: "binary"
+    confidence: "high"
+    is_target: false
+
+  MPG:
+    modality: "process_operating"
+    physical_quantity: "unknown"
+    role: "actuator_control"
+    unit: "binary"
+    canonical_unit: "binary"
+    confidence: "high"
+    is_target: false
+
+  LPS:
+    modality: "fluid"
+    physical_quantity: "unknown"
+    role: "process_sensor"
+    unit: "binary"
+    canonical_unit: "binary"
+    confidence: "high"
+    is_target: false
+
+  Pressure_switch:
+    modality: "fluid"
+    physical_quantity: "unknown"
+    role: "process_sensor"
+    unit: "binary"
+    canonical_unit: "binary"
+    confidence: "high"
+    is_target: false
+
+  Oil_level:
+    modality: "fluid"
+    physical_quantity: "fluid_level"
+    role: "lubricant_sensor"
+    unit: "binary"
+    canonical_unit: "binary"
+    confidence: "high"
+    is_target: false
+
+  Caudal_impulses:
+    modality: "fluid"
+    physical_quantity: "flow_rate"
+    role: "process_sensor"
+    unit: "count"
+    canonical_unit: "count"
+    confidence: "high"
+    is_target: false

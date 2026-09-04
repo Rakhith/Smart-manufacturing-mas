@@ -1,0 +1,25 @@
+2026-09-03 22:43:18,076 INFO Starting Phase 2 Semantic Normalization
+2026-09-03 22:43:18,167 INFO Generating global Semantic Feature Catalogue
+2026-09-03 22:43:18,270 INFO Normalizing observations for ai4i_2020 (ai4i_2020.parquet)
+2026-09-03 22:43:18,540 INFO Wrote canonical machine state table: ai4i_2020.parquet (10000 rows)
+2026-09-03 22:43:18,540 INFO Normalizing observations for cmapss (cmapss.parquet)
+2026-09-03 22:43:21,014 INFO Wrote canonical machine state table: cmapss.parquet (265256 rows)
+2026-09-03 22:43:21,014 INFO Normalizing observations for smart_maintenance_static (smart_maintenance_static.parquet)
+2026-09-03 22:43:21,053 INFO Wrote canonical machine state table: smart_maintenance_static.parquet (1430 rows)
+2026-09-03 22:43:21,054 INFO Normalizing observations for smart_maintenance_timeseries (smart_maintenance_timeseries.parquet)
+2026-09-03 22:43:21,477 INFO Wrote canonical machine state table: smart_maintenance_timeseries.parquet (100000 rows)
+2026-09-03 22:43:21,477 INFO Normalizing observations for iiot_6g (iiot_6g.parquet)
+2026-09-03 22:43:22,271 INFO Wrote canonical machine state table: iiot_6g.parquet (100000 rows)
+2026-09-03 22:43:22,271 INFO Normalizing observations for metal_etch (metal_etch.parquet)
+2026-09-03 22:43:22,302 INFO Wrote canonical machine state table: metal_etch.parquet (10663 rows)
+2026-09-03 22:43:22,303 INFO Normalizing observations for metropt3 (metropt3_minute_windows.parquet)
+2026-09-03 22:43:23,464 INFO Wrote canonical machine state table: metropt3.parquet (306960 rows)
+2026-09-03 22:43:23,464 INFO Normalizing observations for uci_hydraulic (uci_hydraulic.parquet)
+2026-09-03 22:43:23,704 INFO Wrote canonical machine state table: uci_hydraulic.parquet (2205 rows)
+2026-09-03 22:43:23,705 INFO Normalizing observations for tennessee_eastman (tennessee_eastman.parquet)
+2026-09-03 22:43:34,804 INFO Normalized tennessee_eastman via streaming/zero-copy preserving all 5.73M records.
+2026-09-03 22:43:34,826 INFO Normalizing observations for nasa_ims (nasa_ims.parquet)
+2026-09-03 22:43:35,068 INFO Wrote canonical machine state table: nasa_ims.parquet (3140 rows)
+2026-09-03 22:43:35,068 INFO Normalizing observations for nasa_milling (nasa_milling.parquet)
+2026-09-03 22:43:35,083 INFO Wrote canonical machine state table: nasa_milling.parquet (1002 rows)
+2026-09-03 22:43:35,083 INFO Generating visualizations and audit reports

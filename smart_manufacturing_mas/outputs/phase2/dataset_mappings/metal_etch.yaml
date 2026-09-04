@@ -1,0 +1,24 @@
+dataset_id: "metal_etch"
+asset_context: "Semiconductor plasma metal etching vacuum chamber"
+machine_archetype: "etch_tool"
+provenance: "Metal Etch Process Dataset (Anonymous Feature Matrix)"
+
+default_feature_pattern:
+  prefix: "Feature_"
+  modality: "unknown"
+  physical_quantity: "unknown"
+  role: "process_parameter"
+  unit: "UNKNOWN"
+  canonical_unit: "UNKNOWN"
+  confidence: "low"
+  is_target: false
+
+features:
+  Target:
+    modality: "outcome_label"
+    physical_quantity: "unknown"
+    role: "target_label"
+    unit: "binary"
+    canonical_unit: "binary"
+    confidence: "high"
+    is_target: true

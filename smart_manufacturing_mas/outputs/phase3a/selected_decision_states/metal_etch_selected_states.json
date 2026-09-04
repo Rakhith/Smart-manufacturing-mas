@@ -1,0 +1,5222 @@
+[
+  {
+    "decision_state_id": "DS_ETCH_CRIT_429",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 429
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 15.27,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 753.0,
+        "Feature_5": 132.0,
+        "Feature_6": 0.0,
+        "Feature_7": 593.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1182.0,
+        "Feature_10": 9404.0,
+        "Feature_11": 9116.0,
+        "Feature_12": -141.0,
+        "Feature_13": 25.0,
+        "Feature_14": 16745.0,
+        "Feature_15": 20174.0,
+        "Feature_16": -495.0,
+        "Feature_17": 16132.0,
+        "Feature_18": 357.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27266.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__429"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_1221",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1221
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 78.1099,
+        "Feature_2": 5.0,
+        "Feature_3": 752.0,
+        "Feature_4": 753.0,
+        "Feature_5": 135.0,
+        "Feature_6": 0.0,
+        "Feature_7": 716.0,
+        "Feature_8": 102.0,
+        "Feature_9": 1190.0,
+        "Feature_10": 9553.0,
+        "Feature_11": 9057.0,
+        "Feature_12": 290.0,
+        "Feature_13": 21.0,
+        "Feature_14": 17060.0,
+        "Feature_15": 20044.0,
+        "Feature_16": 454.0,
+        "Feature_17": 16134.0,
+        "Feature_18": 351.0,
+        "Feature_19": 1.0,
+        "Feature_20": 27592.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__1221"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_9682",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 9682
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 88.7812,
+        "Feature_2": 5.0,
+        "Feature_3": 752.0,
+        "Feature_4": 753.0,
+        "Feature_5": 132.0,
+        "Feature_6": 0.0,
+        "Feature_7": 555.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1227.0,
+        "Feature_10": 9413.0,
+        "Feature_11": 8920.0,
+        "Feature_12": 1145.0,
+        "Feature_13": 26.0,
+        "Feature_14": 16659.0,
+        "Feature_15": 19128.0,
+        "Feature_16": 514.0,
+        "Feature_17": 16622.0,
+        "Feature_18": 358.0,
+        "Feature_19": 1.0,
+        "Feature_20": 28274.0,
+        "Feature_21": 51.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__9682"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_10572",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 10572
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 16.8438,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 753.0,
+        "Feature_5": 136.0,
+        "Feature_6": 0.0,
+        "Feature_7": 882.0,
+        "Feature_8": 99.0,
+        "Feature_9": 1238.0,
+        "Feature_10": 9385.0,
+        "Feature_11": 9033.0,
+        "Feature_12": -1303.0,
+        "Feature_13": 30.0,
+        "Feature_14": 16601.0,
+        "Feature_15": 19340.0,
+        "Feature_16": -612.0,
+        "Feature_17": 16460.0,
+        "Feature_18": 346.0,
+        "Feature_19": 0.0,
+        "Feature_20": 28118.0,
+        "Feature_21": 48.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__10572"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_4184",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 4184
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 18.9492,
+        "Feature_2": 4.0,
+        "Feature_3": 752.0,
+        "Feature_4": 753.0,
+        "Feature_5": 135.0,
+        "Feature_6": 0.0,
+        "Feature_7": 2680.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1171.0,
+        "Feature_10": 9442.0,
+        "Feature_11": 8968.0,
+        "Feature_12": -2237.0,
+        "Feature_13": 28.0,
+        "Feature_14": 16843.0,
+        "Feature_15": 19572.0,
+        "Feature_16": 770.0,
+        "Feature_17": 16488.0,
+        "Feature_18": 353.0,
+        "Feature_19": 1.0,
+        "Feature_20": 27882.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__4184"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_5974",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 5974
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 13.7715,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 752.0,
+        "Feature_5": 132.0,
+        "Feature_6": 1.0,
+        "Feature_7": 942.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1261.0,
+        "Feature_10": 9491.0,
+        "Feature_11": 9043.0,
+        "Feature_12": 1704.0,
+        "Feature_13": 28.0,
+        "Feature_14": 16313.0,
+        "Feature_15": 20074.0,
+        "Feature_16": -442.0,
+        "Feature_17": 16776.0,
+        "Feature_18": 347.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27348.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__5974"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_7614",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 7614
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 73.0469,
+        "Feature_2": 5.0,
+        "Feature_3": 751.0,
+        "Feature_4": 754.0,
+        "Feature_5": 133.0,
+        "Feature_6": 0.0,
+        "Feature_7": 337.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1241.0,
+        "Feature_10": 9455.0,
+        "Feature_11": 9063.0,
+        "Feature_12": 602.0,
+        "Feature_13": 28.0,
+        "Feature_14": 16557.0,
+        "Feature_15": 20118.0,
+        "Feature_16": 914.0,
+        "Feature_17": 16818.0,
+        "Feature_18": 351.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27836.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__7614"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_6469",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 6469
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 14.7969,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 752.0,
+        "Feature_5": 133.0,
+        "Feature_6": 0.0,
+        "Feature_7": 2733.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1143.0,
+        "Feature_10": 9506.0,
+        "Feature_11": 8979.0,
+        "Feature_12": -2112.0,
+        "Feature_13": 27.0,
+        "Feature_14": 16871.0,
+        "Feature_15": 19250.0,
+        "Feature_16": -789.0,
+        "Feature_17": 17454.0,
+        "Feature_18": 344.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27822.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__6469"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_1114",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1114
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 73.0,
+        "Feature_2": 5.0,
+        "Feature_3": 752.0,
+        "Feature_4": 754.0,
+        "Feature_5": 131.0,
+        "Feature_6": 0.0,
+        "Feature_7": 565.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1180.0,
+        "Feature_10": 9529.0,
+        "Feature_11": 9043.0,
+        "Feature_12": -39.0,
+        "Feature_13": 24.0,
+        "Feature_14": 15924.0,
+        "Feature_15": 20330.0,
+        "Feature_16": -734.0,
+        "Feature_17": 16662.0,
+        "Feature_18": 347.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27100.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__1114"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_1502",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1502
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 51.0688,
+        "Feature_2": 4.0,
+        "Feature_3": 752.0,
+        "Feature_4": 752.0,
+        "Feature_5": 136.0,
+        "Feature_6": 0.0,
+        "Feature_7": 1783.0,
+        "Feature_8": 102.0,
+        "Feature_9": 1185.0,
+        "Feature_10": 9433.0,
+        "Feature_11": 9090.0,
+        "Feature_12": 31.0,
+        "Feature_13": 23.0,
+        "Feature_14": 16899.0,
+        "Feature_15": 19306.0,
+        "Feature_16": -385.0,
+        "Feature_17": 16132.0,
+        "Feature_18": 353.0,
+        "Feature_19": 1.0,
+        "Feature_20": 27914.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__1502"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_9039",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 9039
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 14.8125,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 754.0,
+        "Feature_5": 134.0,
+        "Feature_6": 1.0,
+        "Feature_7": 394.0,
+        "Feature_8": 102.0,
+        "Feature_9": 1200.0,
+        "Feature_10": 9472.0,
+        "Feature_11": 8993.0,
+        "Feature_12": 359.0,
+        "Feature_13": 31.0,
+        "Feature_14": 16060.0,
+        "Feature_15": 20072.0,
+        "Feature_16": 460.0,
+        "Feature_17": 15780.0,
+        "Feature_18": 353.0,
+        "Feature_19": 1.0,
+        "Feature_20": 27800.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__9039"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_6962",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 6962
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 16.8516,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 753.0,
+        "Feature_5": 132.0,
+        "Feature_6": 0.0,
+        "Feature_7": 2908.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1203.0,
+        "Feature_10": 9467.0,
+        "Feature_11": 9111.0,
+        "Feature_12": -724.0,
+        "Feature_13": 28.0,
+        "Feature_14": 17075.0,
+        "Feature_15": 19592.0,
+        "Feature_16": 442.0,
+        "Feature_17": 15846.0,
+        "Feature_18": 356.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27832.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__6962"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_8708",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 8708
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 76.0781,
+        "Feature_2": 5.0,
+        "Feature_3": 751.0,
+        "Feature_4": 753.0,
+        "Feature_5": 134.0,
+        "Feature_6": 0.0,
+        "Feature_7": 490.0,
+        "Feature_8": 102.0,
+        "Feature_9": 1235.0,
+        "Feature_10": 9520.0,
+        "Feature_11": 8990.0,
+        "Feature_12": 570.0,
+        "Feature_13": 24.0,
+        "Feature_14": 17629.0,
+        "Feature_15": 19406.0,
+        "Feature_16": 416.0,
+        "Feature_17": 16280.0,
+        "Feature_18": 351.0,
+        "Feature_19": 1.0,
+        "Feature_20": 28294.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__8708"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_5076",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 5076
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 111.771,
+        "Feature_2": 5.0,
+        "Feature_3": 751.0,
+        "Feature_4": 753.0,
+        "Feature_5": 133.0,
+        "Feature_6": 1.0,
+        "Feature_7": 1736.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1184.0,
+        "Feature_10": 9549.0,
+        "Feature_11": 8928.0,
+        "Feature_12": 904.0,
+        "Feature_13": 26.0,
+        "Feature_14": 16031.0,
+        "Feature_15": 19434.0,
+        "Feature_16": -30.0,
+        "Feature_17": 16586.0,
+        "Feature_18": 346.0,
+        "Feature_19": 0.0,
+        "Feature_20": 28014.0,
+        "Feature_21": 51.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__5076"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_4175",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 4175
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 9.76953,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 752.0,
+        "Feature_5": 132.0,
+        "Feature_6": 0.0,
+        "Feature_7": 1055.0,
+        "Feature_8": 99.0,
+        "Feature_9": 1265.0,
+        "Feature_10": 9471.0,
+        "Feature_11": 8981.0,
+        "Feature_12": -312.0,
+        "Feature_13": 30.0,
+        "Feature_14": 16608.0,
+        "Feature_15": 19996.0,
+        "Feature_16": -618.0,
+        "Feature_17": 16248.0,
+        "Feature_18": 358.0,
+        "Feature_19": 1.0,
+        "Feature_20": 27336.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__4175"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_4190",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 4190
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 25.0703,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 753.0,
+        "Feature_5": 130.0,
+        "Feature_6": 0.0,
+        "Feature_7": 2906.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1188.0,
+        "Feature_10": 9514.0,
+        "Feature_11": 8965.0,
+        "Feature_12": -2381.0,
+        "Feature_13": 27.0,
+        "Feature_14": 16636.0,
+        "Feature_15": 19358.0,
+        "Feature_16": -267.0,
+        "Feature_17": 17128.0,
+        "Feature_18": 351.0,
+        "Feature_19": 1.0,
+        "Feature_20": 27998.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__4190"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_5447",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 5447
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 81.6191,
+        "Feature_2": 5.0,
+        "Feature_3": 752.0,
+        "Feature_4": 753.0,
+        "Feature_5": 132.0,
+        "Feature_6": 0.0,
+        "Feature_7": 1678.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1185.0,
+        "Feature_10": 9483.0,
+        "Feature_11": 8920.0,
+        "Feature_12": 780.0,
+        "Feature_13": 27.0,
+        "Feature_14": 15966.0,
+        "Feature_15": 19308.0,
+        "Feature_16": -84.0,
+        "Feature_17": 16704.0,
+        "Feature_18": 355.0,
+        "Feature_19": 1.0,
+        "Feature_20": 27946.0,
+        "Feature_21": 51.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__5447"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_4861",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 4861
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 95.4512,
+        "Feature_2": 5.0,
+        "Feature_3": 751.0,
+        "Feature_4": 753.0,
+        "Feature_5": 132.0,
+        "Feature_6": 0.0,
+        "Feature_7": 1733.0,
+        "Feature_8": 102.0,
+        "Feature_9": 1185.0,
+        "Feature_10": 9499.0,
+        "Feature_11": 8946.0,
+        "Feature_12": 823.0,
+        "Feature_13": 27.0,
+        "Feature_14": 16202.0,
+        "Feature_15": 19352.0,
+        "Feature_16": 133.0,
+        "Feature_17": 16354.0,
+        "Feature_18": 355.0,
+        "Feature_19": 1.0,
+        "Feature_20": 27940.0,
+        "Feature_21": 51.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__4861"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_5976",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 5976
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 15.8105,
+        "Feature_2": 4.0,
+        "Feature_3": 752.0,
+        "Feature_4": 754.0,
+        "Feature_5": 132.0,
+        "Feature_6": 0.0,
+        "Feature_7": 1344.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1176.0,
+        "Feature_10": 9461.0,
+        "Feature_11": 8983.0,
+        "Feature_12": 802.0,
+        "Feature_13": 30.0,
+        "Feature_14": 16490.0,
+        "Feature_15": 20364.0,
+        "Feature_16": 1208.0,
+        "Feature_17": 15286.0,
+        "Feature_18": 349.0,
+        "Feature_19": 1.0,
+        "Feature_20": 27498.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__5976"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_4312",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 4312
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 46.5195,
+        "Feature_2": 4.0,
+        "Feature_3": 752.0,
+        "Feature_4": 752.0,
+        "Feature_5": 131.0,
+        "Feature_6": 0.0,
+        "Feature_7": 2903.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1183.0,
+        "Feature_10": 9423.0,
+        "Feature_11": 9031.0,
+        "Feature_12": -2856.0,
+        "Feature_13": 27.0,
+        "Feature_14": 16325.0,
+        "Feature_15": 19238.0,
+        "Feature_16": 624.0,
+        "Feature_17": 15776.0,
+        "Feature_18": 359.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27998.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__4312"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_4985",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 4985
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 18.9004,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 753.0,
+        "Feature_5": 133.0,
+        "Feature_6": 0.0,
+        "Feature_7": 2429.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1194.0,
+        "Feature_10": 9469.0,
+        "Feature_11": 8999.0,
+        "Feature_12": -474.0,
+        "Feature_13": 29.0,
+        "Feature_14": 16719.0,
+        "Feature_15": 19760.0,
+        "Feature_16": 764.0,
+        "Feature_17": 16354.0,
+        "Feature_18": 349.0,
+        "Feature_19": 1.0,
+        "Feature_20": 27850.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__4985"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_914",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 914
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 81.71,
+        "Feature_2": 5.0,
+        "Feature_3": 751.0,
+        "Feature_4": 755.0,
+        "Feature_5": 134.0,
+        "Feature_6": 0.0,
+        "Feature_7": 997.0,
+        "Feature_8": 102.0,
+        "Feature_9": 1185.0,
+        "Feature_10": 9437.0,
+        "Feature_11": 9031.0,
+        "Feature_12": 248.0,
+        "Feature_13": 21.0,
+        "Feature_14": 16658.0,
+        "Feature_15": 19460.0,
+        "Feature_16": 876.0,
+        "Feature_17": 16360.0,
+        "Feature_18": 344.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27866.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__914"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_4420",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 4420
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 55.6875,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 754.0,
+        "Feature_5": 135.0,
+        "Feature_6": 0.0,
+        "Feature_7": 1780.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1192.0,
+        "Feature_10": 9431.0,
+        "Feature_11": 9010.0,
+        "Feature_12": 251.0,
+        "Feature_13": 28.0,
+        "Feature_14": 16522.0,
+        "Feature_15": 19602.0,
+        "Feature_16": -925.0,
+        "Feature_17": 17038.0,
+        "Feature_18": 355.0,
+        "Feature_19": 1.0,
+        "Feature_20": 27554.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__4420"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_6775",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 6775
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 27.0547,
+        "Feature_2": 4.0,
+        "Feature_3": 752.0,
+        "Feature_4": 753.0,
+        "Feature_5": 124.0,
+        "Feature_6": 0.0,
+        "Feature_7": 2864.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1184.0,
+        "Feature_10": 9473.0,
+        "Feature_11": 8985.0,
+        "Feature_12": -2516.0,
+        "Feature_13": 28.0,
+        "Feature_14": 16634.0,
+        "Feature_15": 19450.0,
+        "Feature_16": -312.0,
+        "Feature_17": 16338.0,
+        "Feature_18": 353.0,
+        "Feature_19": 1.0,
+        "Feature_20": 27888.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__6775"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_117",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 117
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 17.1129,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 753.0,
+        "Feature_5": 134.0,
+        "Feature_6": 0.0,
+        "Feature_7": 1716.0,
+        "Feature_8": 99.0,
+        "Feature_9": 1169.0,
+        "Feature_10": 9420.0,
+        "Feature_11": 9090.0,
+        "Feature_12": -2060.0,
+        "Feature_13": 25.0,
+        "Feature_14": 16553.0,
+        "Feature_15": 19482.0,
+        "Feature_16": -733.0,
+        "Feature_17": 16188.0,
+        "Feature_18": 347.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27740.0,
+        "Feature_21": 48.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__117"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_3063",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 3063
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 12.2402,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 754.0,
+        "Feature_5": 136.0,
+        "Feature_6": 0.0,
+        "Feature_7": 608.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1222.0,
+        "Feature_10": 9458.0,
+        "Feature_11": 9066.0,
+        "Feature_12": -1161.0,
+        "Feature_13": 26.0,
+        "Feature_14": 16867.0,
+        "Feature_15": 20154.0,
+        "Feature_16": -258.0,
+        "Feature_17": 16452.0,
+        "Feature_18": 361.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27386.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__3063"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_1971",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1971
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 14.8096,
+        "Feature_2": 4.0,
+        "Feature_3": 752.0,
+        "Feature_4": 754.0,
+        "Feature_5": 134.0,
+        "Feature_6": 0.0,
+        "Feature_7": 633.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1184.0,
+        "Feature_10": 9496.0,
+        "Feature_11": 9069.0,
+        "Feature_12": 1400.0,
+        "Feature_13": 23.0,
+        "Feature_14": 16837.0,
+        "Feature_15": 20220.0,
+        "Feature_16": 32.0,
+        "Feature_17": 16118.0,
+        "Feature_18": 342.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27298.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__1971"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_6665",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 6665
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 14.8027,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 753.0,
+        "Feature_5": 135.0,
+        "Feature_6": 0.0,
+        "Feature_7": 2722.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1143.0,
+        "Feature_10": 9497.0,
+        "Feature_11": 8953.0,
+        "Feature_12": -556.0,
+        "Feature_13": 29.0,
+        "Feature_14": 16401.0,
+        "Feature_15": 19154.0,
+        "Feature_16": -772.0,
+        "Feature_17": 17722.0,
+        "Feature_18": 355.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27856.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__6665"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_7353",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 7353
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 10.7656,
+        "Feature_2": 4.0,
+        "Feature_3": 750.0,
+        "Feature_4": 751.0,
+        "Feature_5": 133.0,
+        "Feature_6": 0.0,
+        "Feature_7": 326.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1292.0,
+        "Feature_10": 9388.0,
+        "Feature_11": 9024.0,
+        "Feature_12": -1323.0,
+        "Feature_13": 30.0,
+        "Feature_14": 16408.0,
+        "Feature_15": 20076.0,
+        "Feature_16": 652.0,
+        "Feature_17": 15932.0,
+        "Feature_18": 343.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27634.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__7353"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_6311",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 6311
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 54.6582,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 751.0,
+        "Feature_5": 132.0,
+        "Feature_6": 0.0,
+        "Feature_7": 1695.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1185.0,
+        "Feature_10": 9495.0,
+        "Feature_11": 8988.0,
+        "Feature_12": -1014.0,
+        "Feature_13": 28.0,
+        "Feature_14": 16413.0,
+        "Feature_15": 19702.0,
+        "Feature_16": -477.0,
+        "Feature_17": 16456.0,
+        "Feature_18": 343.0,
+        "Feature_19": 1.0,
+        "Feature_20": 27570.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__6311"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_4772",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 4772
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 107.75,
+        "Feature_2": 5.0,
+        "Feature_3": 752.0,
+        "Feature_4": 752.0,
+        "Feature_5": 131.0,
+        "Feature_6": 0.0,
+        "Feature_7": 1730.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1181.0,
+        "Feature_10": 9449.0,
+        "Feature_11": 8946.0,
+        "Feature_12": -169.0,
+        "Feature_13": 26.0,
+        "Feature_14": 16472.0,
+        "Feature_15": 19012.0,
+        "Feature_16": -265.0,
+        "Feature_17": 16438.0,
+        "Feature_18": 355.0,
+        "Feature_19": 1.0,
+        "Feature_20": 27922.0,
+        "Feature_21": 51.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__4772"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_1056",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1056
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 13.771,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 754.0,
+        "Feature_5": 133.0,
+        "Feature_6": 0.0,
+        "Feature_7": 597.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1186.0,
+        "Feature_10": 9436.0,
+        "Feature_11": 9046.0,
+        "Feature_12": -812.0,
+        "Feature_13": 25.0,
+        "Feature_14": 16876.0,
+        "Feature_15": 20406.0,
+        "Feature_16": -415.0,
+        "Feature_17": 16302.0,
+        "Feature_18": 346.0,
+        "Feature_19": 1.0,
+        "Feature_20": 27326.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__1056"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_3665",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 3665
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 12.7598,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 755.0,
+        "Feature_5": 133.0,
+        "Feature_6": 0.0,
+        "Feature_7": 960.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1252.0,
+        "Feature_10": 9415.0,
+        "Feature_11": 9100.0,
+        "Feature_12": -1602.0,
+        "Feature_13": 30.0,
+        "Feature_14": 16745.0,
+        "Feature_15": 20116.0,
+        "Feature_16": 100.0,
+        "Feature_17": 16716.0,
+        "Feature_18": 357.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27472.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__3665"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_8251",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 8251
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 14.3125,
+        "Feature_2": 4.0,
+        "Feature_3": 752.0,
+        "Feature_4": 753.0,
+        "Feature_5": 135.0,
+        "Feature_6": 1.0,
+        "Feature_7": 349.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1206.0,
+        "Feature_10": 9482.0,
+        "Feature_11": 9030.0,
+        "Feature_12": 224.0,
+        "Feature_13": 28.0,
+        "Feature_14": 16896.0,
+        "Feature_15": 20106.0,
+        "Feature_16": 666.0,
+        "Feature_17": 15630.0,
+        "Feature_18": 353.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27622.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__8251"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_7101",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 7101
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 58.7187,
+        "Feature_2": 5.0,
+        "Feature_3": 752.0,
+        "Feature_4": 755.0,
+        "Feature_5": 134.0,
+        "Feature_6": 0.0,
+        "Feature_7": 362.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1261.0,
+        "Feature_10": 9388.0,
+        "Feature_11": 9023.0,
+        "Feature_12": 1393.0,
+        "Feature_13": 27.0,
+        "Feature_14": 16661.0,
+        "Feature_15": 19780.0,
+        "Feature_16": -82.0,
+        "Feature_17": 16468.0,
+        "Feature_18": 343.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27876.0,
+        "Feature_21": 51.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__7101"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_9000",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 9000
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 73.4531,
+        "Feature_2": 5.0,
+        "Feature_3": 751.0,
+        "Feature_4": 754.0,
+        "Feature_5": 135.0,
+        "Feature_6": 0.0,
+        "Feature_7": 386.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1245.0,
+        "Feature_10": 9531.0,
+        "Feature_11": 9031.0,
+        "Feature_12": 518.0,
+        "Feature_13": 26.0,
+        "Feature_14": 17341.0,
+        "Feature_15": 20012.0,
+        "Feature_16": 148.0,
+        "Feature_17": 16448.0,
+        "Feature_18": 349.0,
+        "Feature_19": 0.0,
+        "Feature_20": 28004.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__9000"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_8942",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 8942
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 14.3125,
+        "Feature_2": 4.0,
+        "Feature_3": 752.0,
+        "Feature_4": 753.0,
+        "Feature_5": 132.0,
+        "Feature_6": 0.0,
+        "Feature_7": 778.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1186.0,
+        "Feature_10": 9413.0,
+        "Feature_11": 8971.0,
+        "Feature_12": -262.0,
+        "Feature_13": 31.0,
+        "Feature_14": 15935.0,
+        "Feature_15": 19246.0,
+        "Feature_16": -303.0,
+        "Feature_17": 17082.0,
+        "Feature_18": 352.0,
+        "Feature_19": 1.0,
+        "Feature_20": 28326.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__8942"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_2782",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 2782
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 31.1201,
+        "Feature_2": 4.0,
+        "Feature_3": 752.0,
+        "Feature_4": 754.0,
+        "Feature_5": 129.0,
+        "Feature_6": 0.0,
+        "Feature_7": 1776.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1186.0,
+        "Feature_10": 9453.0,
+        "Feature_11": 9068.0,
+        "Feature_12": -1411.0,
+        "Feature_13": 24.0,
+        "Feature_14": 16325.0,
+        "Feature_15": 19436.0,
+        "Feature_16": 176.0,
+        "Feature_17": 16250.0,
+        "Feature_18": 361.0,
+        "Feature_19": 1.0,
+        "Feature_20": 27868.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__2782"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_3797",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 3797
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 38.3594,
+        "Feature_2": 4.0,
+        "Feature_3": 752.0,
+        "Feature_4": 753.0,
+        "Feature_5": 130.0,
+        "Feature_6": 0.0,
+        "Feature_7": 2858.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1184.0,
+        "Feature_10": 9439.0,
+        "Feature_11": 9075.0,
+        "Feature_12": -3130.0,
+        "Feature_13": 27.0,
+        "Feature_14": 16348.0,
+        "Feature_15": 19260.0,
+        "Feature_16": -296.0,
+        "Feature_17": 17098.0,
+        "Feature_18": 342.0,
+        "Feature_19": 1.0,
+        "Feature_20": 27824.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__3797"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_5916",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 5916
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 52.6289,
+        "Feature_2": 4.0,
+        "Feature_3": 752.0,
+        "Feature_4": 752.0,
+        "Feature_5": 131.0,
+        "Feature_6": 0.0,
+        "Feature_7": 2830.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1185.0,
+        "Feature_10": 9519.0,
+        "Feature_11": 8981.0,
+        "Feature_12": -2065.0,
+        "Feature_13": 27.0,
+        "Feature_14": 16100.0,
+        "Feature_15": 19202.0,
+        "Feature_16": 41.0,
+        "Feature_17": 16604.0,
+        "Feature_18": 351.0,
+        "Feature_19": 1.0,
+        "Feature_20": 27900.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__5916"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_6624",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 6624
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 72.9687,
+        "Feature_2": 5.0,
+        "Feature_3": 752.0,
+        "Feature_4": 754.0,
+        "Feature_5": 134.0,
+        "Feature_6": 0.0,
+        "Feature_7": 900.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1190.0,
+        "Feature_10": 9521.0,
+        "Feature_11": 9012.0,
+        "Feature_12": -226.0,
+        "Feature_13": 29.0,
+        "Feature_14": 16414.0,
+        "Feature_15": 20370.0,
+        "Feature_16": -43.0,
+        "Feature_17": 16222.0,
+        "Feature_18": 351.0,
+        "Feature_19": 1.0,
+        "Feature_20": 27052.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__6624"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_4276",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 4276
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 9.69922,
+        "Feature_2": 4.0,
+        "Feature_3": 750.0,
+        "Feature_4": 752.0,
+        "Feature_5": 135.0,
+        "Feature_6": 0.0,
+        "Feature_7": 1059.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1261.0,
+        "Feature_10": 9428.0,
+        "Feature_11": 9062.0,
+        "Feature_12": -1822.0,
+        "Feature_13": 29.0,
+        "Feature_14": 16536.0,
+        "Feature_15": 20036.0,
+        "Feature_16": -1040.0,
+        "Feature_17": 16354.0,
+        "Feature_18": 347.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27332.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__4276"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_5737",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 5737
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 69.4355,
+        "Feature_2": 5.0,
+        "Feature_3": 752.0,
+        "Feature_4": 754.0,
+        "Feature_5": 134.0,
+        "Feature_6": 0.0,
+        "Feature_7": 998.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1186.0,
+        "Feature_10": 9486.0,
+        "Feature_11": 8987.0,
+        "Feature_12": -2069.0,
+        "Feature_13": 28.0,
+        "Feature_14": 16519.0,
+        "Feature_15": 19948.0,
+        "Feature_16": 502.0,
+        "Feature_17": 16800.0,
+        "Feature_18": 355.0,
+        "Feature_19": 1.0,
+        "Feature_20": 27340.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__5737"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_6073",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 6073
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 13.7676,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 753.0,
+        "Feature_5": 134.0,
+        "Feature_6": 0.0,
+        "Feature_7": 1737.0,
+        "Feature_8": 102.0,
+        "Feature_9": 1162.0,
+        "Feature_10": 9442.0,
+        "Feature_11": 9022.0,
+        "Feature_12": -685.0,
+        "Feature_13": 29.0,
+        "Feature_14": 16769.0,
+        "Feature_15": 20030.0,
+        "Feature_16": 2610.0,
+        "Feature_17": 15090.0,
+        "Feature_18": 353.0,
+        "Feature_19": 2.0,
+        "Feature_20": 28030.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__6073"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_CRIT_8",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 8
+    },
+    "decision_severity": "CRITICAL",
+    "decision_relevance_rationale": "Documented wafer etch endpoint defect / chamber fault (Target=1)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 20.42,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 753.0,
+        "Feature_5": 135.0,
+        "Feature_6": 1.0,
+        "Feature_7": 1457.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1198.0,
+        "Feature_10": 9384.0,
+        "Feature_11": 9144.0,
+        "Feature_12": 1343.0,
+        "Feature_13": 24.0,
+        "Feature_14": 16642.0,
+        "Feature_15": 19416.0,
+        "Feature_16": -455.0,
+        "Feature_17": 16964.0,
+        "Feature_18": 356.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27906.0,
+        "Feature_21": 48.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 1
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__8"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_6206",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 6206
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 50.0234,
+        "Feature_2": 4.0,
+        "Feature_3": 752.0,
+        "Feature_4": 753.0,
+        "Feature_5": 132.0,
+        "Feature_6": 0.0,
+        "Feature_7": 2857.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1185.0,
+        "Feature_10": 9437.0,
+        "Feature_11": 9075.0,
+        "Feature_12": -1145.0,
+        "Feature_13": 26.0,
+        "Feature_14": 16596.0,
+        "Feature_15": 19204.0,
+        "Feature_16": 424.0,
+        "Feature_17": 16256.0,
+        "Feature_18": 346.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27882.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__6206"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_5511",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 5511
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 45.4102,
+        "Feature_2": 4.0,
+        "Feature_3": 752.0,
+        "Feature_4": 753.0,
+        "Feature_5": 130.0,
+        "Feature_6": 0.0,
+        "Feature_7": 2896.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1184.0,
+        "Feature_10": 9458.0,
+        "Feature_11": 9058.0,
+        "Feature_12": -1429.0,
+        "Feature_13": 27.0,
+        "Feature_14": 16276.0,
+        "Feature_15": 19314.0,
+        "Feature_16": 720.0,
+        "Feature_17": 16500.0,
+        "Feature_18": 344.0,
+        "Feature_19": 1.0,
+        "Feature_20": 27886.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__5511"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_2969",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 2969
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 19.4082,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 752.0,
+        "Feature_5": 132.0,
+        "Feature_6": 0.0,
+        "Feature_7": 1629.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1171.0,
+        "Feature_10": 9499.0,
+        "Feature_11": 9018.0,
+        "Feature_12": -1032.0,
+        "Feature_13": 26.0,
+        "Feature_14": 16429.0,
+        "Feature_15": 19372.0,
+        "Feature_16": -10.0,
+        "Feature_17": 16458.0,
+        "Feature_18": 357.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27970.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__2969"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_8752",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 8752
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 20.4063,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 752.0,
+        "Feature_5": 133.0,
+        "Feature_6": 0.0,
+        "Feature_7": 831.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1219.0,
+        "Feature_10": 9456.0,
+        "Feature_11": 8941.0,
+        "Feature_12": -1381.0,
+        "Feature_13": 29.0,
+        "Feature_14": 16836.0,
+        "Feature_15": 19332.0,
+        "Feature_16": 144.0,
+        "Feature_17": 16190.0,
+        "Feature_18": 347.0,
+        "Feature_19": 1.0,
+        "Feature_20": 28276.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__8752"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_10461",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 10461
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 98.6563,
+        "Feature_2": 5.0,
+        "Feature_3": 752.0,
+        "Feature_4": 752.0,
+        "Feature_5": 133.0,
+        "Feature_6": 0.0,
+        "Feature_7": 543.0,
+        "Feature_8": 102.0,
+        "Feature_9": 1226.0,
+        "Feature_10": 9391.0,
+        "Feature_11": 8972.0,
+        "Feature_12": 232.0,
+        "Feature_13": 26.0,
+        "Feature_14": 16492.0,
+        "Feature_15": 18992.0,
+        "Feature_16": -73.0,
+        "Feature_17": 16518.0,
+        "Feature_18": 347.0,
+        "Feature_19": 0.0,
+        "Feature_20": 28266.0,
+        "Feature_21": 51.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__10461"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_1942",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1942
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 86.3691,
+        "Feature_2": 5.0,
+        "Feature_3": 752.0,
+        "Feature_4": 753.0,
+        "Feature_5": 133.0,
+        "Feature_6": 0.0,
+        "Feature_7": 1042.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1188.0,
+        "Feature_10": 9488.0,
+        "Feature_11": 9002.0,
+        "Feature_12": 1212.0,
+        "Feature_13": 21.0,
+        "Feature_14": 16802.0,
+        "Feature_15": 19188.0,
+        "Feature_16": 133.0,
+        "Feature_17": 16430.0,
+        "Feature_18": 349.0,
+        "Feature_19": 0.0,
+        "Feature_20": 28012.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__1942"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_3043",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 3043
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 95.0283,
+        "Feature_2": 5.0,
+        "Feature_3": 752.0,
+        "Feature_4": 753.0,
+        "Feature_5": 134.0,
+        "Feature_6": 0.0,
+        "Feature_7": 1044.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1188.0,
+        "Feature_10": 9512.0,
+        "Feature_11": 8954.0,
+        "Feature_12": 132.0,
+        "Feature_13": 22.0,
+        "Feature_14": 16891.0,
+        "Feature_15": 19082.0,
+        "Feature_16": 310.0,
+        "Feature_17": 16540.0,
+        "Feature_18": 345.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27862.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__3043"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_556",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 556
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 38.5,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 753.0,
+        "Feature_5": 135.0,
+        "Feature_6": 0.0,
+        "Feature_7": 1731.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1187.0,
+        "Feature_10": 9410.0,
+        "Feature_11": 9096.0,
+        "Feature_12": -1465.0,
+        "Feature_13": 23.0,
+        "Feature_14": 16772.0,
+        "Feature_15": 19330.0,
+        "Feature_16": -34.0,
+        "Feature_17": 16336.0,
+        "Feature_18": 342.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27900.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__556"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_2382",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 2382
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 30.2305,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 753.0,
+        "Feature_5": 132.0,
+        "Feature_6": 0.0,
+        "Feature_7": 1779.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1183.0,
+        "Feature_10": 9461.0,
+        "Feature_11": 9065.0,
+        "Feature_12": -1581.0,
+        "Feature_13": 25.0,
+        "Feature_14": 16458.0,
+        "Feature_15": 19320.0,
+        "Feature_16": 136.0,
+        "Feature_17": 16504.0,
+        "Feature_18": 350.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27912.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__2382"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_5911",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 5911
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 47.5293,
+        "Feature_2": 4.0,
+        "Feature_3": 752.0,
+        "Feature_4": 754.0,
+        "Feature_5": 130.0,
+        "Feature_6": 0.0,
+        "Feature_7": 2874.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1182.0,
+        "Feature_10": 9487.0,
+        "Feature_11": 8990.0,
+        "Feature_12": -2288.0,
+        "Feature_13": 27.0,
+        "Feature_14": 16209.0,
+        "Feature_15": 19206.0,
+        "Feature_16": -592.0,
+        "Feature_17": 16802.0,
+        "Feature_18": 354.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27812.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__5911"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_818",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 818
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 89.9751,
+        "Feature_2": 5.0,
+        "Feature_3": 751.0,
+        "Feature_4": 753.0,
+        "Feature_5": 135.0,
+        "Feature_6": 0.0,
+        "Feature_7": 1038.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1183.0,
+        "Feature_10": 9405.0,
+        "Feature_11": 9046.0,
+        "Feature_12": 426.0,
+        "Feature_13": 21.0,
+        "Feature_14": 16749.0,
+        "Feature_15": 19134.0,
+        "Feature_16": 149.0,
+        "Feature_17": 16604.0,
+        "Feature_18": 349.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27868.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__818"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_1094",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1094
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 52.5898,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 753.0,
+        "Feature_5": 133.0,
+        "Feature_6": 0.0,
+        "Feature_7": 1744.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1182.0,
+        "Feature_10": 9433.0,
+        "Feature_11": 9059.0,
+        "Feature_12": -687.0,
+        "Feature_13": 24.0,
+        "Feature_14": 15936.0,
+        "Feature_15": 19288.0,
+        "Feature_16": 149.0,
+        "Feature_17": 16582.0,
+        "Feature_18": 345.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27920.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__1094"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_275",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 275
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 72.4969,
+        "Feature_2": 5.0,
+        "Feature_3": 752.0,
+        "Feature_4": 754.0,
+        "Feature_5": 134.0,
+        "Feature_6": 0.0,
+        "Feature_7": 651.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1183.0,
+        "Feature_10": 9430.0,
+        "Feature_11": 9043.0,
+        "Feature_12": -1370.0,
+        "Feature_13": 24.0,
+        "Feature_14": 16070.0,
+        "Feature_15": 20040.0,
+        "Feature_16": -75.0,
+        "Feature_17": 16548.0,
+        "Feature_18": 346.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27310.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__275"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_7053",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 7053
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 9.6875,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 753.0,
+        "Feature_5": 132.0,
+        "Feature_6": 0.0,
+        "Feature_7": 352.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1308.0,
+        "Feature_10": 9374.0,
+        "Feature_11": 9003.0,
+        "Feature_12": -141.0,
+        "Feature_13": 29.0,
+        "Feature_14": 16951.0,
+        "Feature_15": 19788.0,
+        "Feature_16": -462.0,
+        "Feature_17": 16896.0,
+        "Feature_18": 348.0,
+        "Feature_19": 0.0,
+        "Feature_20": 28070.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__7053"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_6143",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 6143
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 85.2969,
+        "Feature_2": 5.0,
+        "Feature_3": 751.0,
+        "Feature_4": 752.0,
+        "Feature_5": 132.0,
+        "Feature_6": 0.0,
+        "Feature_7": 1666.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1185.0,
+        "Feature_10": 9388.0,
+        "Feature_11": 9018.0,
+        "Feature_12": 726.0,
+        "Feature_13": 26.0,
+        "Feature_14": 16732.0,
+        "Feature_15": 19180.0,
+        "Feature_16": 44.0,
+        "Feature_17": 16394.0,
+        "Feature_18": 358.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27798.0,
+        "Feature_21": 51.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__6143"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_974",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 974
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 36.2798,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 754.0,
+        "Feature_5": 135.0,
+        "Feature_6": 0.0,
+        "Feature_7": 1760.0,
+        "Feature_8": 102.0,
+        "Feature_9": 1186.0,
+        "Feature_10": 9413.0,
+        "Feature_11": 9031.0,
+        "Feature_12": -1670.0,
+        "Feature_13": 24.0,
+        "Feature_14": 16148.0,
+        "Feature_15": 19448.0,
+        "Feature_16": 822.0,
+        "Feature_17": 16366.0,
+        "Feature_18": 352.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27880.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__974"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_6318",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 6318
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 61.7715,
+        "Feature_2": 5.0,
+        "Feature_3": 751.0,
+        "Feature_4": 754.0,
+        "Feature_5": 135.0,
+        "Feature_6": 0.0,
+        "Feature_7": 1071.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1183.0,
+        "Feature_10": 9468.0,
+        "Feature_11": 9000.0,
+        "Feature_12": -1007.0,
+        "Feature_13": 28.0,
+        "Feature_14": 16470.0,
+        "Feature_15": 19974.0,
+        "Feature_16": 138.0,
+        "Feature_17": 16564.0,
+        "Feature_18": 353.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27478.0,
+        "Feature_21": 51.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__6318"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_9888",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 9888
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 103.141,
+        "Feature_2": 5.0,
+        "Feature_3": 752.0,
+        "Feature_4": 755.0,
+        "Feature_5": 135.0,
+        "Feature_6": 0.0,
+        "Feature_7": 553.0,
+        "Feature_8": 102.0,
+        "Feature_9": 1228.0,
+        "Feature_10": 9372.0,
+        "Feature_11": 8938.0,
+        "Feature_12": 159.0,
+        "Feature_13": 26.0,
+        "Feature_14": 16651.0,
+        "Feature_15": 19158.0,
+        "Feature_16": 356.0,
+        "Feature_17": 16448.0,
+        "Feature_18": 350.0,
+        "Feature_19": 0.0,
+        "Feature_20": 28412.0,
+        "Feature_21": 51.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__9888"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_691",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 691
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 66.926,
+        "Feature_2": 5.0,
+        "Feature_3": 752.0,
+        "Feature_4": 754.0,
+        "Feature_5": 131.0,
+        "Feature_6": 0.0,
+        "Feature_7": 675.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1185.0,
+        "Feature_10": 9433.0,
+        "Feature_11": 9014.0,
+        "Feature_12": -43.0,
+        "Feature_13": 23.0,
+        "Feature_14": 16514.0,
+        "Feature_15": 20042.0,
+        "Feature_16": -33.0,
+        "Feature_17": 16774.0,
+        "Feature_18": 345.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27442.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__691"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_8366",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 8366
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 31.1406,
+        "Feature_2": 4.0,
+        "Feature_3": 752.0,
+        "Feature_4": 754.0,
+        "Feature_5": 133.0,
+        "Feature_6": 0.0,
+        "Feature_7": 893.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1226.0,
+        "Feature_10": 9442.0,
+        "Feature_11": 8985.0,
+        "Feature_12": -1800.0,
+        "Feature_13": 28.0,
+        "Feature_14": 16695.0,
+        "Feature_15": 19134.0,
+        "Feature_16": 922.0,
+        "Feature_17": 16444.0,
+        "Feature_18": 349.0,
+        "Feature_19": 0.0,
+        "Feature_20": 28344.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__8366"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_8353",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 8353
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 17.8594,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 753.0,
+        "Feature_5": 134.0,
+        "Feature_6": 0.0,
+        "Feature_7": 712.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1256.0,
+        "Feature_10": 9438.0,
+        "Feature_11": 9007.0,
+        "Feature_12": 95.0,
+        "Feature_13": 29.0,
+        "Feature_14": 16653.0,
+        "Feature_15": 19384.0,
+        "Feature_16": 816.0,
+        "Feature_17": 15888.0,
+        "Feature_18": 352.0,
+        "Feature_19": 0.0,
+        "Feature_20": 28262.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__8353"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_9803",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 9803
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 16.3125,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 753.0,
+        "Feature_5": 132.0,
+        "Feature_6": 0.0,
+        "Feature_7": 866.0,
+        "Feature_8": 102.0,
+        "Feature_9": 1190.0,
+        "Feature_10": 9390.0,
+        "Feature_11": 8962.0,
+        "Feature_12": -899.0,
+        "Feature_13": 31.0,
+        "Feature_14": 16164.0,
+        "Feature_15": 19256.0,
+        "Feature_16": -537.0,
+        "Feature_17": 16736.0,
+        "Feature_18": 349.0,
+        "Feature_19": 0.0,
+        "Feature_20": 28384.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__9803"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_1882",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1882
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 25.0205,
+        "Feature_2": 4.0,
+        "Feature_3": 752.0,
+        "Feature_4": 754.0,
+        "Feature_5": 135.0,
+        "Feature_6": 0.0,
+        "Feature_7": 1736.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1184.0,
+        "Feature_10": 9496.0,
+        "Feature_11": 9019.0,
+        "Feature_12": -1636.0,
+        "Feature_13": 25.0,
+        "Feature_14": 16499.0,
+        "Feature_15": 19232.0,
+        "Feature_16": -62.0,
+        "Feature_17": 16450.0,
+        "Feature_18": 350.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27790.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__1882"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_3549",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 3549
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 109.76,
+        "Feature_2": 5.0,
+        "Feature_3": 752.0,
+        "Feature_4": 753.0,
+        "Feature_5": 134.0,
+        "Feature_6": 0.0,
+        "Feature_7": 1707.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1185.0,
+        "Feature_10": 9440.0,
+        "Feature_11": 9019.0,
+        "Feature_12": -550.0,
+        "Feature_13": 24.0,
+        "Feature_14": 16865.0,
+        "Feature_15": 19264.0,
+        "Feature_16": 30.0,
+        "Feature_17": 16536.0,
+        "Feature_18": 354.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27914.0,
+        "Feature_21": 51.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__3549"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_2598",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 2598
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 47.4795,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 753.0,
+        "Feature_5": 134.0,
+        "Feature_6": 0.0,
+        "Feature_7": 1764.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1180.0,
+        "Feature_10": 9480.0,
+        "Feature_11": 9067.0,
+        "Feature_12": -444.0,
+        "Feature_13": 25.0,
+        "Feature_14": 16268.0,
+        "Feature_15": 19238.0,
+        "Feature_16": 122.0,
+        "Feature_17": 16188.0,
+        "Feature_18": 350.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27796.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__2598"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_2446",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 2446
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 95.6201,
+        "Feature_2": 5.0,
+        "Feature_3": 751.0,
+        "Feature_4": 752.0,
+        "Feature_5": 133.0,
+        "Feature_6": 0.0,
+        "Feature_7": 1052.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1184.0,
+        "Feature_10": 9508.0,
+        "Feature_11": 8956.0,
+        "Feature_12": 11.0,
+        "Feature_13": 21.0,
+        "Feature_14": 17043.0,
+        "Feature_15": 19072.0,
+        "Feature_16": 21.0,
+        "Feature_17": 16608.0,
+        "Feature_18": 348.0,
+        "Feature_19": 0.0,
+        "Feature_20": 28028.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__2446"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_10129",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 10129
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 54.1094,
+        "Feature_2": 4.0,
+        "Feature_3": 752.0,
+        "Feature_4": 753.0,
+        "Feature_5": 132.0,
+        "Feature_6": 0.0,
+        "Feature_7": 549.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1235.0,
+        "Feature_10": 9414.0,
+        "Feature_11": 8970.0,
+        "Feature_12": 738.0,
+        "Feature_13": 28.0,
+        "Feature_14": 16719.0,
+        "Feature_15": 19436.0,
+        "Feature_16": -606.0,
+        "Feature_17": 16574.0,
+        "Feature_18": 344.0,
+        "Feature_19": 0.0,
+        "Feature_20": 28088.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__10129"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_9965",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 9965
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 85.2344,
+        "Feature_2": 5.0,
+        "Feature_3": 752.0,
+        "Feature_4": 753.0,
+        "Feature_5": 133.0,
+        "Feature_6": 0.0,
+        "Feature_7": 552.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1229.0,
+        "Feature_10": 9402.0,
+        "Feature_11": 8964.0,
+        "Feature_12": 1019.0,
+        "Feature_13": 26.0,
+        "Feature_14": 16827.0,
+        "Feature_15": 19008.0,
+        "Feature_16": 36.0,
+        "Feature_17": 16558.0,
+        "Feature_18": 343.0,
+        "Feature_19": 0.0,
+        "Feature_20": 28438.0,
+        "Feature_21": 51.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__9965"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_3306",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 3306
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 61.751,
+        "Feature_2": 5.0,
+        "Feature_3": 751.0,
+        "Feature_4": 752.0,
+        "Feature_5": 133.0,
+        "Feature_6": 0.0,
+        "Feature_7": 665.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1185.0,
+        "Feature_10": 9494.0,
+        "Feature_11": 8984.0,
+        "Feature_12": -1342.0,
+        "Feature_13": 25.0,
+        "Feature_14": 16077.0,
+        "Feature_15": 19910.0,
+        "Feature_16": -268.0,
+        "Feature_17": 16658.0,
+        "Feature_18": 349.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27526.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__3306"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_9157",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 9157
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 34.6406,
+        "Feature_2": 4.0,
+        "Feature_3": 752.0,
+        "Feature_4": 753.0,
+        "Feature_5": 142.0,
+        "Feature_6": 0.0,
+        "Feature_7": 922.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1228.0,
+        "Feature_10": 9429.0,
+        "Feature_11": 8990.0,
+        "Feature_12": -730.0,
+        "Feature_13": 27.0,
+        "Feature_14": 16727.0,
+        "Feature_15": 19066.0,
+        "Feature_16": 286.0,
+        "Feature_17": 16196.0,
+        "Feature_18": 345.0,
+        "Feature_19": 1.0,
+        "Feature_20": 28390.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__9157"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_10382",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 10382
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 17.9062,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 753.0,
+        "Feature_5": 131.0,
+        "Feature_6": 0.0,
+        "Feature_7": 826.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1251.0,
+        "Feature_10": 9408.0,
+        "Feature_11": 9003.0,
+        "Feature_12": -832.0,
+        "Feature_13": 29.0,
+        "Feature_14": 16908.0,
+        "Feature_15": 19394.0,
+        "Feature_16": 330.0,
+        "Feature_17": 16222.0,
+        "Feature_18": 346.0,
+        "Feature_19": 0.0,
+        "Feature_20": 28140.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__10382"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_6918",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 6918
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 71.957,
+        "Feature_2": 5.0,
+        "Feature_3": 752.0,
+        "Feature_4": 754.0,
+        "Feature_5": 132.0,
+        "Feature_6": 0.0,
+        "Feature_7": 856.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1185.0,
+        "Feature_10": 9456.0,
+        "Feature_11": 9076.0,
+        "Feature_12": -457.0,
+        "Feature_13": 30.0,
+        "Feature_14": 15829.0,
+        "Feature_15": 20362.0,
+        "Feature_16": -478.0,
+        "Feature_17": 16520.0,
+        "Feature_18": 349.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27088.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__6918"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_916",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 916
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 83.751,
+        "Feature_2": 5.0,
+        "Feature_3": 752.0,
+        "Feature_4": 754.0,
+        "Feature_5": 132.0,
+        "Feature_6": 0.0,
+        "Feature_7": 1026.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1183.0,
+        "Feature_10": 9439.0,
+        "Feature_11": 9053.0,
+        "Feature_12": 683.0,
+        "Feature_13": 21.0,
+        "Feature_14": 16535.0,
+        "Feature_15": 19282.0,
+        "Feature_16": 750.0,
+        "Feature_17": 16520.0,
+        "Feature_18": 352.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27990.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__916"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_4424",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 4424
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 59.7695,
+        "Feature_2": 5.0,
+        "Feature_3": 751.0,
+        "Feature_4": 754.0,
+        "Feature_5": 135.0,
+        "Feature_6": 0.0,
+        "Feature_7": 1142.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1195.0,
+        "Feature_10": 9421.0,
+        "Feature_11": 9080.0,
+        "Feature_12": 524.0,
+        "Feature_13": 27.0,
+        "Feature_14": 16437.0,
+        "Feature_15": 19910.0,
+        "Feature_16": -759.0,
+        "Feature_17": 16804.0,
+        "Feature_18": 344.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27354.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__4424"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_1596",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 1596
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 42.8774,
+        "Feature_2": 4.0,
+        "Feature_3": 752.0,
+        "Feature_4": 753.0,
+        "Feature_5": 132.0,
+        "Feature_6": 0.0,
+        "Feature_7": 1794.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1183.0,
+        "Feature_10": 9440.0,
+        "Feature_11": 9102.0,
+        "Feature_12": -1851.0,
+        "Feature_13": 23.0,
+        "Feature_14": 16491.0,
+        "Feature_15": 19284.0,
+        "Feature_16": -284.0,
+        "Feature_17": 16098.0,
+        "Feature_18": 344.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27774.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__1596"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_3829",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 3829
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 71.0371,
+        "Feature_2": 5.0,
+        "Feature_3": 752.0,
+        "Feature_4": 753.0,
+        "Feature_5": 131.0,
+        "Feature_6": 0.0,
+        "Feature_7": 903.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1182.0,
+        "Feature_10": 9462.0,
+        "Feature_11": 9044.0,
+        "Feature_12": -1591.0,
+        "Feature_13": 29.0,
+        "Feature_14": 16369.0,
+        "Feature_15": 20350.0,
+        "Feature_16": -452.0,
+        "Feature_17": 16756.0,
+        "Feature_18": 349.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27062.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__3829"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_7851",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 7851
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 12.2656,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 752.0,
+        "Feature_5": 133.0,
+        "Feature_6": 0.0,
+        "Feature_7": 325.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1292.0,
+        "Feature_10": 9446.0,
+        "Feature_11": 8960.0,
+        "Feature_12": -1286.0,
+        "Feature_13": 31.0,
+        "Feature_14": 16574.0,
+        "Feature_15": 19954.0,
+        "Feature_16": 65.0,
+        "Feature_17": 16380.0,
+        "Feature_18": 349.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27818.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__7851"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_9060",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 9060
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 36.2812,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 753.0,
+        "Feature_5": 132.0,
+        "Feature_6": 0.0,
+        "Feature_7": 910.0,
+        "Feature_8": 102.0,
+        "Feature_9": 1227.0,
+        "Feature_10": 9453.0,
+        "Feature_11": 8960.0,
+        "Feature_12": -340.0,
+        "Feature_13": 28.0,
+        "Feature_14": 16668.0,
+        "Feature_15": 19134.0,
+        "Feature_16": 78.0,
+        "Feature_17": 16838.0,
+        "Feature_18": 339.0,
+        "Feature_19": 0.0,
+        "Feature_20": 28356.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__9060"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_7429",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 7429
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 88.3906,
+        "Feature_2": 5.0,
+        "Feature_3": 752.0,
+        "Feature_4": 753.0,
+        "Feature_5": 135.0,
+        "Feature_6": 0.0,
+        "Feature_7": 544.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1229.0,
+        "Feature_10": 9419.0,
+        "Feature_11": 8935.0,
+        "Feature_12": 329.0,
+        "Feature_13": 26.0,
+        "Feature_14": 16954.0,
+        "Feature_15": 19112.0,
+        "Feature_16": -4.0,
+        "Feature_17": 16346.0,
+        "Feature_18": 350.0,
+        "Feature_19": 0.0,
+        "Feature_20": 28382.0,
+        "Feature_21": 51.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__7429"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_5019",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 5019
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 53.584,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 752.0,
+        "Feature_5": 134.0,
+        "Feature_6": 0.0,
+        "Feature_7": 2846.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1183.0,
+        "Feature_10": 9445.0,
+        "Feature_11": 9060.0,
+        "Feature_12": -2568.0,
+        "Feature_13": 27.0,
+        "Feature_14": 16340.0,
+        "Feature_15": 19284.0,
+        "Feature_16": -297.0,
+        "Feature_17": 16564.0,
+        "Feature_18": 357.0,
+        "Feature_19": 0.0,
+        "Feature_20": 28006.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__5019"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_9694",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 9694
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 101.078,
+        "Feature_2": 5.0,
+        "Feature_3": 752.0,
+        "Feature_4": 753.0,
+        "Feature_5": 134.0,
+        "Feature_6": 0.0,
+        "Feature_7": 556.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1228.0,
+        "Feature_10": 9388.0,
+        "Feature_11": 8956.0,
+        "Feature_12": 663.0,
+        "Feature_13": 27.0,
+        "Feature_14": 16470.0,
+        "Feature_15": 19124.0,
+        "Feature_16": 514.0,
+        "Feature_17": 16672.0,
+        "Feature_18": 347.0,
+        "Feature_19": 0.0,
+        "Feature_20": 28466.0,
+        "Feature_21": 51.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__9694"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_4",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 4
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 16.139,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 754.0,
+        "Feature_5": 132.0,
+        "Feature_6": 0.0,
+        "Feature_7": 587.0,
+        "Feature_8": 102.0,
+        "Feature_9": 1182.0,
+        "Feature_10": 9456.0,
+        "Feature_11": 9043.0,
+        "Feature_12": -124.0,
+        "Feature_13": 25.0,
+        "Feature_14": 16564.0,
+        "Feature_15": 20226.0,
+        "Feature_16": -547.0,
+        "Feature_17": 16440.0,
+        "Feature_18": 346.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27262.0,
+        "Feature_21": 50.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__4"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_3551",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 3551
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 111.801,
+        "Feature_2": 5.0,
+        "Feature_3": 752.0,
+        "Feature_4": 754.0,
+        "Feature_5": 133.0,
+        "Feature_6": 0.0,
+        "Feature_7": 1705.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1183.0,
+        "Feature_10": 9507.0,
+        "Feature_11": 8958.0,
+        "Feature_12": -341.0,
+        "Feature_13": 24.0,
+        "Feature_14": 16557.0,
+        "Feature_15": 19368.0,
+        "Feature_16": -388.0,
+        "Feature_17": 16598.0,
+        "Feature_18": 350.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27894.0,
+        "Feature_21": 51.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__3551"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_2094",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 2094
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 40.3389,
+        "Feature_2": 4.0,
+        "Feature_3": 751.0,
+        "Feature_4": 753.0,
+        "Feature_5": 131.0,
+        "Feature_6": 0.0,
+        "Feature_7": 1780.0,
+        "Feature_8": 100.0,
+        "Feature_9": 1185.0,
+        "Feature_10": 9454.0,
+        "Feature_11": 9063.0,
+        "Feature_12": -1674.0,
+        "Feature_13": 23.0,
+        "Feature_14": 16313.0,
+        "Feature_15": 19210.0,
+        "Feature_16": 66.0,
+        "Feature_17": 16310.0,
+        "Feature_18": 358.0,
+        "Feature_19": 1.0,
+        "Feature_20": 27806.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__2094"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  },
+  {
+    "decision_state_id": "DS_ETCH_HEALTHY_6573",
+    "dataset_id": "metal_etch",
+    "asset_context": {
+      "machine_archetype": "etch_tool",
+      "asset_id": "metal_etch_chamber",
+      "operational_domain": "semiconductor",
+      "temporal_type": "static_tabular"
+    },
+    "temporal_context": {
+      "sequence_step": 6573
+    },
+    "decision_severity": "HEALTHY",
+    "decision_relevance_rationale": "Nominal wafer etch process parameters (Target=0)",
+    "input_machine_state": {
+      "thermal": {},
+      "mechanical": {},
+      "kinematic": {},
+      "fluid": {},
+      "electrical": {},
+      "acoustic": {},
+      "process_operating": {},
+      "health_degradation": {},
+      "unmapped": {
+        "Feature_1": 20.9492,
+        "Feature_2": 4.0,
+        "Feature_3": 752.0,
+        "Feature_4": 753.0,
+        "Feature_5": 133.0,
+        "Feature_6": 0.0,
+        "Feature_7": 2716.0,
+        "Feature_8": 101.0,
+        "Feature_9": 1193.0,
+        "Feature_10": 9492.0,
+        "Feature_11": 8963.0,
+        "Feature_12": -721.0,
+        "Feature_13": 29.0,
+        "Feature_14": 16320.0,
+        "Feature_15": 19380.0,
+        "Feature_16": 954.0,
+        "Feature_17": 16438.0,
+        "Feature_18": 358.0,
+        "Feature_19": 0.0,
+        "Feature_20": 27774.0,
+        "Feature_21": 49.0
+      }
+    },
+    "trend_summary": {},
+    "ground_truth_context": {
+      "Target": 0
+    },
+    "provenance": {
+      "source_observation_ids": [
+        "metal_etch__6573"
+      ],
+      "phase2_table": "outputs/phase2/canonical_machine_states/metal_etch.parquet"
+    }
+  }
+]

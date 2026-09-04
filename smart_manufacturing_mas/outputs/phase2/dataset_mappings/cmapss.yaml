@@ -1,0 +1,88 @@
+dataset_id: "cmapss"
+asset_context: "Commercial aircraft high-bypass turbofan jet engine"
+machine_archetype: "turbofan_engine"
+provenance: "NASA Commercial Modular Aero-Propulsion System Simulation (C-MAPSS)"
+
+features:
+  unit_id:
+    modality: "metadata_identifier"
+    physical_quantity: "unknown"
+    role: "identifier"
+    unit: "id"
+    canonical_unit: "id"
+    confidence: "high"
+    is_target: false
+
+  cycle:
+    modality: "metadata_identifier"
+    physical_quantity: "cycle_count"
+    role: "identifier"
+    unit: "cycles"
+    canonical_unit: "cycles"
+    confidence: "high"
+    is_target: false
+
+  split:
+    modality: "metadata_identifier"
+    physical_quantity: "unknown"
+    role: "identifier"
+    unit: "category"
+    canonical_unit: "category"
+    confidence: "high"
+    is_target: false
+
+  subset:
+    modality: "metadata_identifier"
+    physical_quantity: "unknown"
+    role: "identifier"
+    unit: "category"
+    canonical_unit: "category"
+    confidence: "high"
+    is_target: false
+
+  operating_setting_1:
+    modality: "process_operating"
+    physical_quantity: "unknown"
+    role: "operating_setting"
+    unit: "UNKNOWN"
+    canonical_unit: "UNKNOWN"
+    confidence: "medium"
+    is_target: false
+
+  operating_setting_2:
+    modality: "process_operating"
+    physical_quantity: "unknown"
+    role: "operating_setting"
+    unit: "UNKNOWN"
+    canonical_unit: "UNKNOWN"
+    confidence: "medium"
+    is_target: false
+
+  operating_setting_3:
+    modality: "process_operating"
+    physical_quantity: "unknown"
+    role: "operating_setting"
+    unit: "UNKNOWN"
+    canonical_unit: "UNKNOWN"
+    confidence: "medium"
+    is_target: false
+
+  rul_cycles_label:
+    modality: "outcome_label"
+    physical_quantity: "remaining_useful_life"
+    role: "target_label"
+    unit: "cycles"
+    canonical_unit: "cycles"
+    confidence: "high"
+    is_target: true
+
+# Sensor 1 through 21 conservative mapping (explicitly UNKNOWN physical quantity as documented)
+default_sensor_pattern:
+  prefix: "sensor_"
+  modality: "process_operating"
+  physical_quantity: "unknown"
+  role: "engine_sensor"
+  unit: "UNKNOWN"
+  canonical_unit: "UNKNOWN"
+  confidence: "low"
+  is_target: false
