@@ -1,0 +1,291 @@
+version: "1.0.0"
+description: "Controlled industrial maintenance action ontology for prescriptive manufacturing maintenance."
+
+actions:
+  # -------------------------------------------------------------
+  # Category 1: Monitoring & Observation
+  # -------------------------------------------------------------
+  ACT_MON_CONTINUE:
+    action_id: "ACT_MON_CONTINUE"
+    action_name: "Continue Normal Operation"
+    category: "monitoring_observation"
+    description: "Maintain current production schedule and routine supervisory monitoring without manual intervention."
+    applicable_modalities: ["all"]
+    applicable_archetypes: ["all"]
+    preconditions:
+      min_severity: "HEALTHY"
+      max_severity: "WATCH"
+    intervention_risk: "low"
+    operational_downtime_cost: "negligible"
+
+  ACT_MON_ENHANCED:
+    action_id: "ACT_MON_ENHANCED"
+    action_name: "Increase Monitoring Frequency & Alert Sensitivity"
+    category: "monitoring_observation"
+    description: "Shorten sensor sampling / logging interval, tighten statistical alarm thresholds, and track trailing trends closely."
+    applicable_modalities: ["all"]
+    applicable_archetypes: ["all"]
+    preconditions:
+      min_severity: "WATCH"
+      max_severity: "DEGRADING"
+    intervention_risk: "low"
+    operational_downtime_cost: "negligible"
+
+  ACT_MON_PARAMETER_LOG:
+    action_id: "ACT_MON_PARAMETER_LOG"
+    action_name: "Log Process Parameter & Latency Drift"
+    category: "monitoring_observation"
+    description: "Flag operational parameter drift, network packet latency, or minor thermodynamic deviations for shift review."
+    applicable_modalities: ["process_operating", "thermal", "electrical"]
+    applicable_archetypes: ["all"]
+    preconditions:
+      min_severity: "WATCH"
+      max_severity: "DEGRADING"
+    intervention_risk: "low"
+    operational_downtime_cost: "negligible"
+
+  # -------------------------------------------------------------
+  # Category 2: Inspection & Diagnosis
+  # -------------------------------------------------------------
+  ACT_INSP_VIBRATION:
+    action_id: "ACT_INSP_VIBRATION"
+    action_name: "Perform High-Resolution Vibration Diagnostics"
+    category: "inspection_diagnosis"
+    description: "Execute spectral FFT, envelope demodulation, and bearing fault frequency analysis on mechanical drive or spindle."
+    applicable_modalities: ["mechanical", "acoustic", "kinematic"]
+    applicable_archetypes: ["bearing_test_rig", "cnc_mill", "turbofan_engine", "industrial_machine", "air_compressor"]
+    preconditions:
+      min_severity: "WATCH"
+      max_severity: "CRITICAL"
+    intervention_risk: "low"
+    operational_downtime_cost: "low"
+
+  ACT_INSP_LUBRICATION:
+    action_id: "ACT_INSP_LUBRICATION"
+    action_name: "Inspect Lubrication & Fluid Condition"
+    category: "inspection_diagnosis"
+    description: "Check lubricant viscosity, contamination, oil reservoir level, dielectric breakdown, or hydraulic fluid discoloration."
+    applicable_modalities: ["fluid", "thermal", "mechanical"]
+    applicable_archetypes: ["bearing_test_rig", "hydraulic_test_rig", "air_compressor", "industrial_machine", "cnc_mill"]
+    preconditions:
+      min_severity: "WATCH"
+      max_severity: "CRITICAL"
+    intervention_risk: "low"
+    operational_downtime_cost: "low"
+
+  ACT_INSP_THERMAL_ELECTRICAL:
+    action_id: "ACT_INSP_THERMAL_ELECTRICAL"
+    action_name: "Inspect Thermal Dissipation & Electrical Motor Balance"
+    category: "inspection_diagnosis"
+    description: "Perform thermographic inspection on bearings/coils, measure 3-phase motor current balance, power factor, and inverter status."
+    applicable_modalities: ["thermal", "electrical", "kinematic"]
+    applicable_archetypes: ["cnc_mill", "turbofan_engine", "industrial_machine", "iiot_machine", "air_compressor"]
+    preconditions:
+      min_severity: "WATCH"
+      max_severity: "CRITICAL"
+    intervention_risk: "low"
+    operational_downtime_cost: "low"
+
+  ACT_INSP_TOOL_WEAR:
+    action_id: "ACT_INSP_TOOL_WEAR"
+    action_name: "Inspect Cutting Tool & Insert Flank Wear"
+    category: "inspection_diagnosis"
+    description: "Perform optical / microscopic inspection of cutting edge, measure flank wear (VB), chip loading, and tool runout."
+    applicable_modalities: ["health_degradation", "mechanical", "acoustic"]
+    applicable_archetypes: ["cnc_mill"]
+    preconditions:
+      min_severity: "WATCH"
+      max_severity: "CRITICAL"
+    intervention_risk: "low"
+    operational_downtime_cost: "low"
+
+  ACT_INSP_PRESSURE_HYDRAULIC:
+    action_id: "ACT_INSP_PRESSURE_HYDRAULIC"
+    action_name: "Inspect Hydraulic Pressure Drops & Valve Leakage"
+    category: "inspection_diagnosis"
+    description: "Check accumulator pre-charge, pressure differentials across filters, pump cavitation, and directional control valve response."
+    applicable_modalities: ["fluid", "mechanical", "thermal"]
+    applicable_archetypes: ["hydraulic_test_rig", "air_compressor", "industrial_machine"]
+    preconditions:
+      min_severity: "WATCH"
+      max_severity: "CRITICAL"
+    intervention_risk: "low"
+    operational_downtime_cost: "low"
+
+  ACT_INSP_SUBSYSTEM:
+    action_id: "ACT_INSP_SUBSYSTEM"
+    action_name: "Targeted Physical Subsystem Inspection"
+    category: "inspection_diagnosis"
+    description: "Perform localized physical inspection of suspect assembly, mounting integrity, wiring harnesses, or piping joints."
+    applicable_modalities: ["all"]
+    applicable_archetypes: ["all"]
+    preconditions:
+      min_severity: "WATCH"
+      max_severity: "CRITICAL"
+    intervention_risk: "low"
+    operational_downtime_cost: "low"
+
+  # -------------------------------------------------------------
+  # Category 3: Corrective Maintenance
+  # -------------------------------------------------------------
+  ACT_CORR_LUBRICATE:
+    action_id: "ACT_CORR_LUBRICATE"
+    action_name: "Replenish Lubricant & Clean Oil Ports"
+    category: "corrective_maintenance"
+    description: "Apply grease to bearing raceways, top up hydraulic/compressor oil, or flush clogged delivery nozzles."
+    applicable_modalities: ["mechanical", "thermal", "fluid"]
+    applicable_archetypes: ["bearing_test_rig", "hydraulic_test_rig", "air_compressor", "industrial_machine", "cnc_mill"]
+    preconditions:
+      min_severity: "WATCH"
+      max_severity: "CRITICAL"
+    intervention_risk: "medium"
+    operational_downtime_cost: "medium"
+
+  ACT_CORR_CLEAN_PURGE:
+    action_id: "ACT_CORR_CLEAN_PURGE"
+    action_name: "Clean Filters, Purge Lines & Service Cooling"
+    category: "corrective_maintenance"
+    description: "Backwash or replace fluid filters, purge sediment lines, blow out radiator heat exchangers, and clear coolant nozzles."
+    applicable_modalities: ["fluid", "thermal", "process_operating"]
+    applicable_archetypes: ["hydraulic_test_rig", "air_compressor", "chemical_plant", "etch_tool", "turbofan_engine", "industrial_machine"]
+    preconditions:
+      min_severity: "WATCH"
+      max_severity: "CRITICAL"
+    intervention_risk: "medium"
+    operational_downtime_cost: "medium"
+
+  ACT_CORR_CALIBRATE:
+    action_id: "ACT_CORR_CALIBRATE"
+    action_name: "Recalibrate Sensors & Adjust Actuator Trim"
+    category: "corrective_maintenance"
+    description: "Zero-calibrate drifted pressure/flow sensors, retune PID loop controllers, and verify signal conditioning baselines."
+    applicable_modalities: ["process_operating", "electrical", "fluid", "unmapped"]
+    applicable_archetypes: ["all"]
+    preconditions:
+      min_severity: "WATCH"
+      max_severity: "DEGRADING"
+    intervention_risk: "medium"
+    operational_downtime_cost: "low"
+
+  ACT_CORR_FASTEN_ALIGN:
+    action_id: "ACT_CORR_FASTEN_ALIGN"
+    action_name: "Tighten Mechanical Fasteners & Realign Drive"
+    category: "corrective_maintenance"
+    description: "Retorque loose foundation/flange bolts, laser-realign shaft couplings, and verify belt tension."
+    applicable_modalities: ["mechanical", "kinematic"]
+    applicable_archetypes: ["bearing_test_rig", "cnc_mill", "air_compressor", "industrial_machine"]
+    preconditions:
+      min_severity: "WATCH"
+      max_severity: "CRITICAL"
+    intervention_risk: "medium"
+    operational_downtime_cost: "medium"
+
+  # -------------------------------------------------------------
+  # Category 4: Replacement & Major Overhaul
+  # -------------------------------------------------------------
+  ACT_REPL_TOOL_INSERT:
+    action_id: "ACT_REPL_TOOL_INSERT"
+    action_name: "Replace Cutting Tool / Carbide Insert"
+    category: "replacement_overhaul"
+    description: "Index worn insert or swap out cutting tool holder, remeasure tool offset, and verify workpiece clearance."
+    applicable_modalities: ["health_degradation", "mechanical"]
+    applicable_archetypes: ["cnc_mill"]
+    preconditions:
+      min_severity: "DEGRADING"
+      max_severity: "CRITICAL"
+    intervention_risk: "medium"
+    operational_downtime_cost: "medium"
+
+  ACT_REPL_BEARING:
+    action_id: "ACT_REPL_BEARING"
+    action_name: "Replace Degraded Bearing Assembly"
+    category: "replacement_overhaul"
+    description: "Extract damaged rolling element bearing, inspect shaft journal, install certified replacement, and pack with spec grease."
+    applicable_modalities: ["mechanical", "acoustic", "kinematic", "thermal"]
+    applicable_archetypes: ["bearing_test_rig", "cnc_mill", "turbofan_engine", "air_compressor", "industrial_machine"]
+    preconditions:
+      min_severity: "DEGRADING"
+      max_severity: "CRITICAL"
+    intervention_risk: "high"
+    operational_downtime_cost: "high"
+
+  ACT_REPL_SEAL_VALVE:
+    action_id: "ACT_REPL_SEAL_VALVE"
+    action_name: "Replace Worn Seal, Gasket or Control Valve"
+    category: "replacement_overhaul"
+    description: "Depressurize circuit, replace blown hydraulic seal, piston ring, or faulty proportional relief valve, then pressure-test."
+    applicable_modalities: ["fluid", "mechanical"]
+    applicable_archetypes: ["hydraulic_test_rig", "air_compressor", "chemical_plant", "industrial_machine"]
+    preconditions:
+      min_severity: "DEGRADING"
+      max_severity: "CRITICAL"
+    intervention_risk: "high"
+    operational_downtime_cost: "high"
+
+  ACT_REPL_OVERHAUL:
+    action_id: "ACT_REPL_OVERHAUL"
+    action_name: "Schedule Planned Subsystem Overhaul"
+    category: "replacement_overhaul"
+    description: "Stage spare modules, plan maintenance window with production scheduling, and conduct full subsystem strip-down overhaul."
+    applicable_modalities: ["health_degradation", "mechanical", "thermal", "fluid", "process_operating"]
+    applicable_archetypes: ["turbofan_engine", "chemical_plant", "etch_tool", "hydraulic_test_rig", "industrial_machine"]
+    preconditions:
+      min_severity: "DEGRADING"
+      max_severity: "CRITICAL"
+    intervention_risk: "high"
+    operational_downtime_cost: "high"
+
+  # -------------------------------------------------------------
+  # Category 5: Operational Mitigation
+  # -------------------------------------------------------------
+  ACT_OP_ADJUST_PARAMS:
+    action_id: "ACT_OP_ADJUST_PARAMS"
+    action_name: "Adjust Operational Speed, Feed & Process Parameters"
+    category: "operational_mitigation"
+    description: "Dial back spindle RPM, feed rate, chamber RF power, or reactor flow rate to relieve mechanical/thermal stress."
+    applicable_modalities: ["process_operating", "kinematic", "mechanical", "thermal", "unmapped"]
+    applicable_archetypes: ["all"]
+    preconditions:
+      min_severity: "WATCH"
+      max_severity: "CRITICAL"
+    intervention_risk: "medium"
+    operational_downtime_cost: "low"
+
+  ACT_OP_DERATE_LOAD:
+    action_id: "ACT_OP_DERATE_LOAD"
+    action_name: "Derate Load & Curtail High-Stress Duty Cycles"
+    category: "operational_mitigation"
+    description: "Impose load cap (e.g. 70% nominal), restrict aggressive acceleration ramps, and avoid peak duty cycles until maintenance."
+    applicable_modalities: ["electrical", "mechanical", "thermal"]
+    applicable_archetypes: ["all"]
+    preconditions:
+      min_severity: "DEGRADING"
+      max_severity: "CRITICAL"
+    intervention_risk: "medium"
+    operational_downtime_cost: "medium"
+
+  ACT_OP_CONTROLLED_SHUTDOWN:
+    action_id: "ACT_OP_CONTROLLED_SHUTDOWN"
+    action_name: "Schedule Orderly Controlled Shutdown"
+    category: "operational_mitigation"
+    description: "Complete current production cycle/batch safely, ramp down speeds gracefully, and lock out asset for urgent maintenance."
+    applicable_modalities: ["all"]
+    applicable_archetypes: ["all"]
+    preconditions:
+      min_severity: "DEGRADING"
+      max_severity: "CRITICAL"
+    intervention_risk: "high"
+    operational_downtime_cost: "high"
+
+  ACT_OP_EMERGENCY_STOP:
+    action_id: "ACT_OP_EMERGENCY_STOP"
+    action_name: "Immediate Stop & Asset Isolation"
+    category: "operational_mitigation"
+    description: "Trigger immediate interlock trip, depressurize/de-energize system, and tag out machine to prevent catastrophic damage."
+    applicable_modalities: ["all"]
+    applicable_archetypes: ["all"]
+    preconditions:
+      min_severity: "CRITICAL"
+      max_severity: "CRITICAL"
+    intervention_risk: "critical"
+    operational_downtime_cost: "high"

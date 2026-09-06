@@ -1,0 +1,56 @@
+[2026-09-06 07:51:47] [INFO] ======================================================================
+[2026-09-06 07:51:47] [INFO] PHASE 3B: CANDIDATE MAINTENANCE ACTION GENERATION + LLM-AS-JUDGE PILOT
+[2026-09-06 07:51:47] [INFO] Configuration: Pilot Size=150, Provider=heuristic_mock, Model=gemini-2.5-flash, Seed=42
+[2026-09-06 07:51:47] [INFO] ======================================================================
+[2026-09-06 07:51:47] [INFO] Step 1: Loading Phase 3A DecisionState corpus from decision_states_corpus.json...
+[2026-09-06 07:51:47] [INFO] Loaded 1023 total DecisionStates from Phase 3A.
+[2026-09-06 07:51:47] [INFO] Step 2: Loading controlled maintenance action ontology...
+[2026-09-06 07:51:47] [INFO] Loaded 21 maintenance actions across 5 industrial categories.
+[2026-09-06 07:51:47] [INFO] Exported action ontology to C:\Users\Darsh Veer Singh\OneDrive - iiit-b\Sem 7\AIM801 - Project Elective\Smart-manufacturing-mas\smart_manufacturing_mas\outputs\phase3b\action_ontology\action_ontology.json
+[2026-09-06 07:51:47] [INFO] Step 3: Sampling balanced pilot corpus (target: 150 states, seed=42)...
+[2026-09-06 07:51:47] [INFO] Successfully sampled 150 states across 11 datasets.
+[2026-09-06 07:51:47] [INFO] Dataset Distribution: {'ai4i_2020': 20, 'cmapss': 20, 'metal_etch': 10, 'uci_hydraulic': 16, 'iiot_6g': 15, 'nasa_ims': 12, 'metropt3': 9, 'nasa_milling': 12, 'smart_maintenance_static': 12, 'smart_maintenance_timeseries': 12, 'tennessee_eastman': 12}
+[2026-09-06 07:51:47] [INFO] Severity Distribution: {'HEALTHY': 48, 'CRITICAL': 49, 'WATCH': 39, 'DEGRADING': 14}
+[2026-09-06 07:51:47] [INFO] Archetype Distribution: {'cnc_mill': 32, 'turbofan_engine': 20, 'etch_tool': 10, 'hydraulic_test_rig': 16, 'iiot_machine': 15, 'bearing_test_rig': 12, 'air_compressor': 9, 'industrial_machine': 24, 'chemical_plant': 12}
+[2026-09-06 07:51:47] [INFO] Saved pilot manifest to C:\Users\Darsh Veer Singh\OneDrive - iiit-b\Sem 7\AIM801 - Project Elective\Smart-manufacturing-mas\smart_manufacturing_mas\outputs\phase3b\pilot_manifest\pilot_manifest.json
+[2026-09-06 07:51:47] [INFO] Step 4: Deterministically generating explainable candidate action sets...
+[2026-09-06 07:51:47] [INFO] Generated candidate sets for 150 states (avg: 3.97 candidates/state).
+[2026-09-06 07:51:47] [INFO] Step 5: Running strict pre-LLM leakage validation on all pilot payloads...
+[2026-09-06 07:51:47] [INFO] Leakage Audit Complete: 150/150 PASSED (100.0%).
+[2026-09-06 07:51:47] [INFO] Step 6: Executing LLM-as-Judge evaluations using provider: 'heuristic_mock' (model: 'gemini-2.5-flash')...
+[2026-09-06 07:51:47] [INFO] Evaluating 150 states (concurrency=4)...
+[2026-09-06 07:51:47] [INFO] Progress: 10/150 states evaluated (latency: 0 ms).
+[2026-09-06 07:51:47] [INFO] Progress: 20/150 states evaluated (latency: 0 ms).
+[2026-09-06 07:51:47] [INFO] Progress: 30/150 states evaluated (latency: 0 ms).
+[2026-09-06 07:51:47] [INFO] Progress: 40/150 states evaluated (latency: 0 ms).
+[2026-09-06 07:51:47] [INFO] Progress: 50/150 states evaluated (latency: 0 ms).
+[2026-09-06 07:51:47] [INFO] Progress: 60/150 states evaluated (latency: 0 ms).
+[2026-09-06 07:51:47] [INFO] Progress: 70/150 states evaluated (latency: 0 ms).
+[2026-09-06 07:51:47] [INFO] Progress: 80/150 states evaluated (latency: 0 ms).
+[2026-09-06 07:51:47] [INFO] Progress: 90/150 states evaluated (latency: 0 ms).
+[2026-09-06 07:51:47] [INFO] Progress: 100/150 states evaluated (latency: 0 ms).
+[2026-09-06 07:51:47] [INFO] Progress: 110/150 states evaluated (latency: 0 ms).
+[2026-09-06 07:51:47] [INFO] Progress: 120/150 states evaluated (latency: 0 ms).
+[2026-09-06 07:51:47] [INFO] Progress: 130/150 states evaluated (latency: 0 ms).
+[2026-09-06 07:51:47] [INFO] Progress: 140/150 states evaluated (latency: 0 ms).
+[2026-09-06 07:51:47] [INFO] Progress: 150/150 states evaluated (latency: 0 ms).
+[2026-09-06 07:51:47] [INFO] Completed 150 evaluations in 0.4s (avg latency: 0 ms).
+[2026-09-06 07:51:48] [INFO] Step 7: Validating schema conformance and auditing engineering sanity flags...
+[2026-09-06 07:51:48] [INFO] Schema Validation Result: 150/150 states valid (100.0%).
+[2026-09-06 07:51:48] [INFO] Engineering Sanity Flags Triggered: {}
+[2026-09-06 07:51:48] [INFO] Step 8: Running consistency & ranking stability evaluation on 20 representative states...
+[2026-09-06 07:51:48] [INFO] Consistency Assessment: MODERATE STABILITY: LLM Judge displays acceptable top-action consistency with moderate variance in lower-tier candidate ordering.
+[2026-09-06 07:51:48] [INFO] Top-Action Agreement: 76.67%
+[2026-09-06 07:51:48] [INFO] Spearman Rank Correlation: 0.7500
+[2026-09-06 07:51:48] [INFO] Permutation Sensitivity: 65.00%
+[2026-09-06 07:51:48] [INFO] Step 9: Assembling and exporting scientifically documented silver-standard preference dataset...
+[2026-09-06 07:51:48] [INFO]  - Parquet: C:\Users\Darsh Veer Singh\OneDrive - iiit-b\Sem 7\AIM801 - Project Elective\Smart-manufacturing-mas\smart_manufacturing_mas\outputs\phase3b\preference_dataset\maintenance_preference_dataset.parquet (150 rows)
+[2026-09-06 07:51:48] [INFO] Exported silver-standard datasets:
+[2026-09-06 07:51:48] [INFO]  - JSON:    C:\Users\Darsh Veer Singh\OneDrive - iiit-b\Sem 7\AIM801 - Project Elective\Smart-manufacturing-mas\smart_manufacturing_mas\outputs\phase3b\preference_dataset\maintenance_preference_dataset.json
+[2026-09-06 07:51:48] [INFO]  - JSONL:   C:\Users\Darsh Veer Singh\OneDrive - iiit-b\Sem 7\AIM801 - Project Elective\Smart-manufacturing-mas\smart_manufacturing_mas\outputs\phase3b\preference_dataset\maintenance_preference_dataset.jsonl
+[2026-09-06 07:51:48] [INFO]  - CSV:     C:\Users\Darsh Veer Singh\OneDrive - iiit-b\Sem 7\AIM801 - Project Elective\Smart-manufacturing-mas\smart_manufacturing_mas\outputs\phase3b\preference_dataset\maintenance_preference_dataset.csv (150 rows)
+[2026-09-06 07:51:48] [INFO] Step 10: Generating PHASE_3B_SUMMARY.md...
+[2026-09-06 07:51:48] [INFO] Phase 3B Summary report generated at: C:\Users\Darsh Veer Singh\OneDrive - iiit-b\Sem 7\AIM801 - Project Elective\Smart-manufacturing-mas\smart_manufacturing_mas\outputs\phase3b\PHASE_3B_SUMMARY.md
+[2026-09-06 07:51:48] [INFO] ======================================================================
+[2026-09-06 07:51:48] [INFO] PHASE 3B PIPELINE EXECUTION COMPLETED SUCCESSFULLY!
+[2026-09-06 07:51:48] [INFO] ======================================================================

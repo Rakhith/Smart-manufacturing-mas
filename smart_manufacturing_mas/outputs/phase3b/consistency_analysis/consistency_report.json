@@ -1,0 +1,376 @@
+{
+  "generated_at": "2026-09-06T02:21:48.254665+00:00",
+  "phase": "3B",
+  "states_evaluated": 20,
+  "repeats_per_state": 3,
+  "mean_top_action_agreement_pct": 76.66666666666667,
+  "unanimous_top_action_rate_pct": 35.0,
+  "mean_spearman_rank_correlation": 0.7499999999999999,
+  "mean_suitability_score_mad": 0.0,
+  "mean_urgency_score_mad": 0.0,
+  "mean_confidence_mad": 6.29126380620922e-18,
+  "order_permutation_sensitivity_pct": 65.0,
+  "scientific_stability_assessment": "MODERATE STABILITY: LLM Judge displays acceptable top-action consistency with moderate variance in lower-tier candidate ordering.",
+  "state_stability_records": [
+    {
+      "decision_state_id": "DS_AI4I_1013",
+      "machine_archetype": "cnc_mill",
+      "severity": "HEALTHY",
+      "repeat_count": 3,
+      "top_actions_selected": [
+        "ACT_MON_ENHANCED",
+        "ACT_MON_PARAMETER_LOG",
+        "ACT_MON_ENHANCED"
+      ],
+      "is_top_action_unanimous": false,
+      "top_action_agreement_pct": 66.66666666666667,
+      "pairwise_spearman_rho": 0.6666666666666666,
+      "suitability_score_mad": 0.0,
+      "urgency_score_mad": 0.0,
+      "confidence_mad": 0.0,
+      "order_sensitivity_detected": true
+    },
+    {
+      "decision_state_id": "DS_AI4I_1124",
+      "machine_archetype": "cnc_mill",
+      "severity": "CRITICAL",
+      "repeat_count": 3,
+      "top_actions_selected": [
+        "ACT_INSP_TOOL_WEAR",
+        "ACT_INSP_TOOL_WEAR",
+        "ACT_INSP_TOOL_WEAR"
+      ],
+      "is_top_action_unanimous": true,
+      "top_action_agreement_pct": 100.0,
+      "pairwise_spearman_rho": 0.7333333333333333,
+      "suitability_score_mad": 0.0,
+      "urgency_score_mad": 0.0,
+      "confidence_mad": 0.0,
+      "order_sensitivity_detected": false
+    },
+    {
+      "decision_state_id": "DS_AI4I_2763",
+      "machine_archetype": "cnc_mill",
+      "severity": "DEGRADING",
+      "repeat_count": 3,
+      "top_actions_selected": [
+        "ACT_MON_ENHANCED",
+        "ACT_INSP_TOOL_WEAR",
+        "ACT_INSP_TOOL_WEAR"
+      ],
+      "is_top_action_unanimous": false,
+      "top_action_agreement_pct": 66.66666666666667,
+      "pairwise_spearman_rho": 0.8666666666666666,
+      "suitability_score_mad": 0.0,
+      "urgency_score_mad": 0.0,
+      "confidence_mad": 2.2204460492503132e-17,
+      "order_sensitivity_detected": true
+    },
+    {
+      "decision_state_id": "DS_AI4I_7729",
+      "machine_archetype": "cnc_mill",
+      "severity": "WATCH",
+      "repeat_count": 3,
+      "top_actions_selected": [
+        "ACT_MON_ENHANCED",
+        "ACT_INSP_TOOL_WEAR",
+        "ACT_INSP_TOOL_WEAR"
+      ],
+      "is_top_action_unanimous": false,
+      "top_action_agreement_pct": 66.66666666666667,
+      "pairwise_spearman_rho": 0.8666666666666666,
+      "suitability_score_mad": 0.0,
+      "urgency_score_mad": 0.0,
+      "confidence_mad": 2.2204460492503132e-17,
+      "order_sensitivity_detected": true
+    },
+    {
+      "decision_state_id": "DS_CMAPSS_FD002_U8_C67",
+      "machine_archetype": "turbofan_engine",
+      "severity": "WATCH",
+      "repeat_count": 3,
+      "top_actions_selected": [
+        "ACT_MON_ENHANCED",
+        "ACT_INSP_SUBSYSTEM",
+        "ACT_INSP_SUBSYSTEM"
+      ],
+      "is_top_action_unanimous": false,
+      "top_action_agreement_pct": 66.66666666666667,
+      "pairwise_spearman_rho": 0.8666666666666666,
+      "suitability_score_mad": 0.0,
+      "urgency_score_mad": 0.0,
+      "confidence_mad": 2.2204460492503132e-17,
+      "order_sensitivity_detected": true
+    },
+    {
+      "decision_state_id": "DS_CMAPSS_FD003_U2_C233",
+      "machine_archetype": "turbofan_engine",
+      "severity": "CRITICAL",
+      "repeat_count": 3,
+      "top_actions_selected": [
+        "ACT_INSP_THERMAL_ELECTRICAL",
+        "ACT_INSP_THERMAL_ELECTRICAL",
+        "ACT_INSP_THERMAL_ELECTRICAL"
+      ],
+      "is_top_action_unanimous": true,
+      "top_action_agreement_pct": 100.0,
+      "pairwise_spearman_rho": 0.7333333333333333,
+      "suitability_score_mad": 0.0,
+      "urgency_score_mad": 0.0,
+      "confidence_mad": 0.0,
+      "order_sensitivity_detected": false
+    },
+    {
+      "decision_state_id": "DS_CMAPSS_FD004_U10_C304",
+      "machine_archetype": "turbofan_engine",
+      "severity": "DEGRADING",
+      "repeat_count": 3,
+      "top_actions_selected": [
+        "ACT_MON_ENHANCED",
+        "ACT_INSP_THERMAL_ELECTRICAL",
+        "ACT_INSP_THERMAL_ELECTRICAL"
+      ],
+      "is_top_action_unanimous": false,
+      "top_action_agreement_pct": 66.66666666666667,
+      "pairwise_spearman_rho": 0.7333333333333333,
+      "suitability_score_mad": 0.0,
+      "urgency_score_mad": 0.0,
+      "confidence_mad": 0.0,
+      "order_sensitivity_detected": true
+    },
+    {
+      "decision_state_id": "DS_CMAPSS_FD004_U6_C12",
+      "machine_archetype": "turbofan_engine",
+      "severity": "HEALTHY",
+      "repeat_count": 3,
+      "top_actions_selected": [
+        "ACT_MON_ENHANCED",
+        "ACT_MON_PARAMETER_LOG",
+        "ACT_MON_ENHANCED"
+      ],
+      "is_top_action_unanimous": false,
+      "top_action_agreement_pct": 66.66666666666667,
+      "pairwise_spearman_rho": 0.6666666666666666,
+      "suitability_score_mad": 0.0,
+      "urgency_score_mad": 0.0,
+      "confidence_mad": 0.0,
+      "order_sensitivity_detected": true
+    },
+    {
+      "decision_state_id": "DS_ETCH_CRIT_5916",
+      "machine_archetype": "etch_tool",
+      "severity": "CRITICAL",
+      "repeat_count": 3,
+      "top_actions_selected": [
+        "ACT_INSP_SUBSYSTEM",
+        "ACT_INSP_SUBSYSTEM",
+        "ACT_INSP_SUBSYSTEM"
+      ],
+      "is_top_action_unanimous": true,
+      "top_action_agreement_pct": 100.0,
+      "pairwise_spearman_rho": 0.7333333333333333,
+      "suitability_score_mad": 0.0,
+      "urgency_score_mad": 0.0,
+      "confidence_mad": 0.0,
+      "order_sensitivity_detected": false
+    },
+    {
+      "decision_state_id": "DS_ETCH_HEALTHY_5511",
+      "machine_archetype": "etch_tool",
+      "severity": "HEALTHY",
+      "repeat_count": 3,
+      "top_actions_selected": [
+        "ACT_MON_ENHANCED",
+        "ACT_INSP_SUBSYSTEM",
+        "ACT_MON_ENHANCED"
+      ],
+      "is_top_action_unanimous": false,
+      "top_action_agreement_pct": 66.66666666666667,
+      "pairwise_spearman_rho": 0.6666666666666666,
+      "suitability_score_mad": 0.0,
+      "urgency_score_mad": 0.0,
+      "confidence_mad": 0.0,
+      "order_sensitivity_detected": true
+    },
+    {
+      "decision_state_id": "DS_IIOT_CRIT_62692",
+      "machine_archetype": "iiot_machine",
+      "severity": "CRITICAL",
+      "repeat_count": 3,
+      "top_actions_selected": [
+        "ACT_INSP_SUBSYSTEM",
+        "ACT_INSP_SUBSYSTEM",
+        "ACT_INSP_SUBSYSTEM"
+      ],
+      "is_top_action_unanimous": true,
+      "top_action_agreement_pct": 100.0,
+      "pairwise_spearman_rho": 0.8666666666666666,
+      "suitability_score_mad": 0.0,
+      "urgency_score_mad": 0.0,
+      "confidence_mad": 0.0,
+      "order_sensitivity_detected": false
+    },
+    {
+      "decision_state_id": "DS_IIOT_HEALTHY_84639",
+      "machine_archetype": "iiot_machine",
+      "severity": "HEALTHY",
+      "repeat_count": 3,
+      "top_actions_selected": [
+        "ACT_MON_ENHANCED",
+        "ACT_MON_PARAMETER_LOG",
+        "ACT_MON_ENHANCED"
+      ],
+      "is_top_action_unanimous": false,
+      "top_action_agreement_pct": 66.66666666666667,
+      "pairwise_spearman_rho": 0.6666666666666666,
+      "suitability_score_mad": 0.0,
+      "urgency_score_mad": 0.0,
+      "confidence_mad": 0.0,
+      "order_sensitivity_detected": true
+    },
+    {
+      "decision_state_id": "DS_IIOT_WATCH_8677",
+      "machine_archetype": "iiot_machine",
+      "severity": "WATCH",
+      "repeat_count": 3,
+      "top_actions_selected": [
+        "ACT_MON_ENHANCED",
+        "ACT_INSP_SUBSYSTEM",
+        "ACT_INSP_SUBSYSTEM"
+      ],
+      "is_top_action_unanimous": false,
+      "top_action_agreement_pct": 66.66666666666667,
+      "pairwise_spearman_rho": 0.8666666666666666,
+      "suitability_score_mad": 0.0,
+      "urgency_score_mad": 0.0,
+      "confidence_mad": 2.2204460492503132e-17,
+      "order_sensitivity_detected": true
+    },
+    {
+      "decision_state_id": "DS_IMS_2nd_test_CRIT_916",
+      "machine_archetype": "bearing_test_rig",
+      "severity": "CRITICAL",
+      "repeat_count": 3,
+      "top_actions_selected": [
+        "ACT_INSP_VIBRATION",
+        "ACT_INSP_VIBRATION",
+        "ACT_INSP_VIBRATION"
+      ],
+      "is_top_action_unanimous": true,
+      "top_action_agreement_pct": 100.0,
+      "pairwise_spearman_rho": 0.9333333333333331,
+      "suitability_score_mad": 0.0,
+      "urgency_score_mad": 0.0,
+      "confidence_mad": 1.850371707708594e-17,
+      "order_sensitivity_detected": false
+    },
+    {
+      "decision_state_id": "DS_IMS_2nd_test_HEALTHY_73",
+      "machine_archetype": "bearing_test_rig",
+      "severity": "HEALTHY",
+      "repeat_count": 3,
+      "top_actions_selected": [
+        "ACT_MON_ENHANCED",
+        "ACT_INSP_SUBSYSTEM",
+        "ACT_MON_ENHANCED"
+      ],
+      "is_top_action_unanimous": false,
+      "top_action_agreement_pct": 66.66666666666667,
+      "pairwise_spearman_rho": 0.6666666666666666,
+      "suitability_score_mad": 0.0,
+      "urgency_score_mad": 0.0,
+      "confidence_mad": 0.0,
+      "order_sensitivity_detected": true
+    },
+    {
+      "decision_state_id": "DS_IMS_2nd_test_WATCH_514",
+      "machine_archetype": "bearing_test_rig",
+      "severity": "WATCH",
+      "repeat_count": 3,
+      "top_actions_selected": [
+        "ACT_MON_ENHANCED",
+        "ACT_INSP_LUBRICATION",
+        "ACT_INSP_VIBRATION"
+      ],
+      "is_top_action_unanimous": false,
+      "top_action_agreement_pct": 33.333333333333336,
+      "pairwise_spearman_rho": 0.4666666666666666,
+      "suitability_score_mad": 0.0,
+      "urgency_score_mad": 0.0,
+      "confidence_mad": 0.0,
+      "order_sensitivity_detected": true
+    },
+    {
+      "decision_state_id": "DS_METRO_CRIT_237752",
+      "machine_archetype": "air_compressor",
+      "severity": "CRITICAL",
+      "repeat_count": 3,
+      "top_actions_selected": [
+        "ACT_INSP_PRESSURE_HYDRAULIC",
+        "ACT_INSP_PRESSURE_HYDRAULIC",
+        "ACT_INSP_PRESSURE_HYDRAULIC"
+      ],
+      "is_top_action_unanimous": true,
+      "top_action_agreement_pct": 100.0,
+      "pairwise_spearman_rho": 0.9333333333333331,
+      "suitability_score_mad": 0.0,
+      "urgency_score_mad": 0.0,
+      "confidence_mad": 1.850371707708594e-17,
+      "order_sensitivity_detected": false
+    },
+    {
+      "decision_state_id": "DS_METRO_HEALTHY_265516",
+      "machine_archetype": "air_compressor",
+      "severity": "HEALTHY",
+      "repeat_count": 3,
+      "top_actions_selected": [
+        "ACT_MON_ENHANCED",
+        "ACT_MON_PARAMETER_LOG",
+        "ACT_MON_ENHANCED"
+      ],
+      "is_top_action_unanimous": false,
+      "top_action_agreement_pct": 66.66666666666667,
+      "pairwise_spearman_rho": 0.6666666666666666,
+      "suitability_score_mad": 0.0,
+      "urgency_score_mad": 0.0,
+      "confidence_mad": 0.0,
+      "order_sensitivity_detected": true
+    },
+    {
+      "decision_state_id": "DS_MILL_CRIT_966",
+      "machine_archetype": "cnc_mill",
+      "severity": "CRITICAL",
+      "repeat_count": 3,
+      "top_actions_selected": [
+        "ACT_INSP_TOOL_WEAR",
+        "ACT_INSP_TOOL_WEAR",
+        "ACT_INSP_TOOL_WEAR"
+      ],
+      "is_top_action_unanimous": true,
+      "top_action_agreement_pct": 100.0,
+      "pairwise_spearman_rho": 0.7333333333333333,
+      "suitability_score_mad": 0.0,
+      "urgency_score_mad": 0.0,
+      "confidence_mad": 0.0,
+      "order_sensitivity_detected": false
+    },
+    {
+      "decision_state_id": "DS_MILL_HEALTHY_281",
+      "machine_archetype": "cnc_mill",
+      "severity": "HEALTHY",
+      "repeat_count": 3,
+      "top_actions_selected": [
+        "ACT_MON_ENHANCED",
+        "ACT_INSP_SUBSYSTEM",
+        "ACT_MON_ENHANCED"
+      ],
+      "is_top_action_unanimous": false,
+      "top_action_agreement_pct": 66.66666666666667,
+      "pairwise_spearman_rho": 0.6666666666666666,
+      "suitability_score_mad": 0.0,
+      "urgency_score_mad": 0.0,
+      "confidence_mad": 0.0,
+      "order_sensitivity_detected": true
+    }
+  ]
+}
