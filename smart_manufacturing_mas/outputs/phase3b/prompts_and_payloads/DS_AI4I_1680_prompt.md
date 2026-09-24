@@ -97,6 +97,7 @@ Comparatively rank and score all candidates against the observed machine state. 
 - `confidence` [0.0-1.0]: Certainty of rating given the sufficiency and clarity of sensor telemetry.
 - `rank`: Unique integer from 1 to K (1 = top recommended action; no tied ranks).
 - `final_verdict`: Exactly one of 'RECOMMENDED', 'ACCEPTABLE_ALTERNATIVE', 'INAPPROPRIATE_AT_CURRENT_TIME', 'UNSAFE'.
+- `reasoning_summary`: Strictly ONE brief sentence (maximum 15 words). Do not write multi-sentence paragraphs.
 
 Respond ONLY with a JSON object matching this exact structure:
 ```json
@@ -111,7 +112,7 @@ Respond ONLY with a JSON object matching this exact structure:
       "operational_risk_score": <0-100>,
       "confidence": <0.0-1.0>,
       "evidence_used": ["<sensor or trend cited>"],
-      "reasoning_summary": "<concise engineering justification>",
+      "reasoning_summary": "<strictly 1 brief sentence, max 15 words>",
       "unsupported_assumptions": ["<any unverified assumptions or empty list>"],
       "final_verdict": "RECOMMENDED"
     }

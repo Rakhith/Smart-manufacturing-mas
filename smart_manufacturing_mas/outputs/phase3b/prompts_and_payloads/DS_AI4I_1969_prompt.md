@@ -1,4 +1,4 @@
-# Maintenance Action Evaluation Request: State `DS_AI4I_2047`
+# Maintenance Action Evaluation Request: State `DS_AI4I_1969`
 
 ## 1. Machine Asset & Operational Context
 - **Asset Archetype**: `cnc_mill`
@@ -8,21 +8,21 @@
 
 ## 2. Operating Telemetry & Subsystem Conditions
 ### Subsystem: Thermal
-- `Air temperature [K]`: 299.3000
-- `Process temperature [K]`: 309.2000
-- `Air temperature [K]__canonical_degC`: 26.1500
-- `Process temperature [K]__canonical_degC`: 36.0500
+- `Air temperature [K]`: 297.8000
+- `Process temperature [K]`: 307.5000
+- `Air temperature [K]__canonical_degC`: 24.6500
+- `Process temperature [K]__canonical_degC`: 34.3500
 ### Subsystem: Mechanical
-- `Torque [Nm]`: 24.2000
+- `Torque [Nm]`: 31.3000
 ### Subsystem: Kinematic
-- `Rotational speed [rpm]`: 1775
+- `Rotational speed [rpm]`: 1631
 ### Subsystem: Process Operating
-- `Type`: L
+- `Type`: H
 ### Subsystem: Health Degradation
-- `Tool wear [min]`: 125
+- `Tool wear [min]`: 124
 
 ## 3. Temporal Dynamics & Trend Summary
-- Sequence Step: 2047
+- Sequence Step: 1969
 - (Instantaneous snapshot only — no longitudinal trend statistics)
 
 ## 4. Stated Data Limitations & Epistemic Boundaries
@@ -42,8 +42,8 @@ Evaluate each of the following candidate actions comparatively:
     "operational_downtime_cost": "negligible",
     "inclusion_rationale": "Telemetry shows early deviation or watch-tier variance requiring closer sampling frequency.",
     "trigger_evidence": [
-      "Air temperature [K] = 299.300",
-      "Process temperature [K] = 309.200"
+      "Air temperature [K] = 297.800",
+      "Process temperature [K] = 307.500"
     ]
   },
   {
@@ -55,8 +55,8 @@ Evaluate each of the following candidate actions comparatively:
     "operational_downtime_cost": "negligible",
     "inclusion_rationale": "Passive baseline comparator to test whether intervention is prematurely invasive.",
     "trigger_evidence": [
-      "Air temperature [K] = 299.300",
-      "Process temperature [K] = 309.200"
+      "Air temperature [K] = 297.800",
+      "Process temperature [K] = 307.500"
     ]
   },
   {
@@ -68,8 +68,8 @@ Evaluate each of the following candidate actions comparatively:
     "operational_downtime_cost": "low",
     "inclusion_rationale": "Tool wear indicators or spindle torque variations warrant optical/flank wear inspection.",
     "trigger_evidence": [
-      "Torque [Nm] = 24.200",
-      "Tool wear [min] = 125.000"
+      "Torque [Nm] = 31.300",
+      "Tool wear [min] = 124.000"
     ]
   },
   {
@@ -81,8 +81,8 @@ Evaluate each of the following candidate actions comparatively:
     "operational_downtime_cost": "low",
     "inclusion_rationale": "Modulate spindle speed or feed rate to relieve cutting resistance and tool stress.",
     "trigger_evidence": [
-      "Torque [Nm] = 24.200",
-      "Rotational speed [rpm] = 1775.000"
+      "Torque [Nm] = 31.300",
+      "Rotational speed [rpm] = 1631.000"
     ]
   }
 ]
@@ -97,6 +97,7 @@ Comparatively rank and score all candidates against the observed machine state. 
 - `confidence` [0.0-1.0]: Certainty of rating given the sufficiency and clarity of sensor telemetry.
 - `rank`: Unique integer from 1 to K (1 = top recommended action; no tied ranks).
 - `final_verdict`: Exactly one of 'RECOMMENDED', 'ACCEPTABLE_ALTERNATIVE', 'INAPPROPRIATE_AT_CURRENT_TIME', 'UNSAFE'.
+- `reasoning_summary`: Strictly ONE brief sentence (maximum 15 words). Do not write multi-sentence paragraphs.
 
 Respond ONLY with a JSON object matching this exact structure:
 ```json
@@ -111,7 +112,7 @@ Respond ONLY with a JSON object matching this exact structure:
       "operational_risk_score": <0-100>,
       "confidence": <0.0-1.0>,
       "evidence_used": ["<sensor or trend cited>"],
-      "reasoning_summary": "<concise engineering justification>",
+      "reasoning_summary": "<strictly 1 brief sentence, max 15 words>",
       "unsupported_assumptions": ["<any unverified assumptions or empty list>"],
       "final_verdict": "RECOMMENDED"
     }

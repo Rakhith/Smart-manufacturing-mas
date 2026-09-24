@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import random
 from collections import Counter, defaultdict
@@ -70,7 +71,8 @@ class PilotSampler:
             items = strata[key]
             # Deterministic shuffle within stratum
             shuffled_items = list(items)
-            rng = random.Random(self.seed + hash(key) % 10000)
+            stratum_seed = self.seed + int(hashlib.sha256(key.encode("utf-8")).hexdigest()[:8], 16) % 10000
+            rng = random.Random(stratum_seed)
             rng.shuffle(shuffled_items)
 
             quota = min(len(shuffled_items), base_per_stratum)
@@ -86,7 +88,8 @@ class PilotSampler:
             items = strata[key]
             current_allocated = stratum_allocation[key]
             if current_allocated < len(items):
-                rng = random.Random(self.seed + hash(key) % 10000)
+                stratum_seed = self.seed + int(hashlib.sha256(key.encode("utf-8")).hexdigest()[:8], 16) % 10000
+                rng = random.Random(stratum_seed)
                 shuffled_items = list(items)
                 rng.shuffle(shuffled_items)
                 sampled_states.append(shuffled_items[current_allocated])

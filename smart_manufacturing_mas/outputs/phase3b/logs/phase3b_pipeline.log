@@ -1,56 +1,376 @@
-[2026-09-06 07:51:47] [INFO] ======================================================================
-[2026-09-06 07:51:47] [INFO] PHASE 3B: CANDIDATE MAINTENANCE ACTION GENERATION + LLM-AS-JUDGE PILOT
-[2026-09-06 07:51:47] [INFO] Configuration: Pilot Size=150, Provider=heuristic_mock, Model=gemini-2.5-flash, Seed=42
-[2026-09-06 07:51:47] [INFO] ======================================================================
-[2026-09-06 07:51:47] [INFO] Step 1: Loading Phase 3A DecisionState corpus from decision_states_corpus.json...
-[2026-09-06 07:51:47] [INFO] Loaded 1023 total DecisionStates from Phase 3A.
-[2026-09-06 07:51:47] [INFO] Step 2: Loading controlled maintenance action ontology...
-[2026-09-06 07:51:47] [INFO] Loaded 21 maintenance actions across 5 industrial categories.
-[2026-09-06 07:51:47] [INFO] Exported action ontology to C:\Users\Darsh Veer Singh\OneDrive - iiit-b\Sem 7\AIM801 - Project Elective\Smart-manufacturing-mas\smart_manufacturing_mas\outputs\phase3b\action_ontology\action_ontology.json
-[2026-09-06 07:51:47] [INFO] Step 3: Sampling balanced pilot corpus (target: 150 states, seed=42)...
-[2026-09-06 07:51:47] [INFO] Successfully sampled 150 states across 11 datasets.
-[2026-09-06 07:51:47] [INFO] Dataset Distribution: {'ai4i_2020': 20, 'cmapss': 20, 'metal_etch': 10, 'uci_hydraulic': 16, 'iiot_6g': 15, 'nasa_ims': 12, 'metropt3': 9, 'nasa_milling': 12, 'smart_maintenance_static': 12, 'smart_maintenance_timeseries': 12, 'tennessee_eastman': 12}
-[2026-09-06 07:51:47] [INFO] Severity Distribution: {'HEALTHY': 48, 'CRITICAL': 49, 'WATCH': 39, 'DEGRADING': 14}
-[2026-09-06 07:51:47] [INFO] Archetype Distribution: {'cnc_mill': 32, 'turbofan_engine': 20, 'etch_tool': 10, 'hydraulic_test_rig': 16, 'iiot_machine': 15, 'bearing_test_rig': 12, 'air_compressor': 9, 'industrial_machine': 24, 'chemical_plant': 12}
-[2026-09-06 07:51:47] [INFO] Saved pilot manifest to C:\Users\Darsh Veer Singh\OneDrive - iiit-b\Sem 7\AIM801 - Project Elective\Smart-manufacturing-mas\smart_manufacturing_mas\outputs\phase3b\pilot_manifest\pilot_manifest.json
-[2026-09-06 07:51:47] [INFO] Step 4: Deterministically generating explainable candidate action sets...
-[2026-09-06 07:51:47] [INFO] Generated candidate sets for 150 states (avg: 3.97 candidates/state).
-[2026-09-06 07:51:47] [INFO] Step 5: Running strict pre-LLM leakage validation on all pilot payloads...
-[2026-09-06 07:51:47] [INFO] Leakage Audit Complete: 150/150 PASSED (100.0%).
-[2026-09-06 07:51:47] [INFO] Step 6: Executing LLM-as-Judge evaluations using provider: 'heuristic_mock' (model: 'gemini-2.5-flash')...
-[2026-09-06 07:51:47] [INFO] Evaluating 150 states (concurrency=4)...
-[2026-09-06 07:51:47] [INFO] Progress: 10/150 states evaluated (latency: 0 ms).
-[2026-09-06 07:51:47] [INFO] Progress: 20/150 states evaluated (latency: 0 ms).
-[2026-09-06 07:51:47] [INFO] Progress: 30/150 states evaluated (latency: 0 ms).
-[2026-09-06 07:51:47] [INFO] Progress: 40/150 states evaluated (latency: 0 ms).
-[2026-09-06 07:51:47] [INFO] Progress: 50/150 states evaluated (latency: 0 ms).
-[2026-09-06 07:51:47] [INFO] Progress: 60/150 states evaluated (latency: 0 ms).
-[2026-09-06 07:51:47] [INFO] Progress: 70/150 states evaluated (latency: 0 ms).
-[2026-09-06 07:51:47] [INFO] Progress: 80/150 states evaluated (latency: 0 ms).
-[2026-09-06 07:51:47] [INFO] Progress: 90/150 states evaluated (latency: 0 ms).
-[2026-09-06 07:51:47] [INFO] Progress: 100/150 states evaluated (latency: 0 ms).
-[2026-09-06 07:51:47] [INFO] Progress: 110/150 states evaluated (latency: 0 ms).
-[2026-09-06 07:51:47] [INFO] Progress: 120/150 states evaluated (latency: 0 ms).
-[2026-09-06 07:51:47] [INFO] Progress: 130/150 states evaluated (latency: 0 ms).
-[2026-09-06 07:51:47] [INFO] Progress: 140/150 states evaluated (latency: 0 ms).
-[2026-09-06 07:51:47] [INFO] Progress: 150/150 states evaluated (latency: 0 ms).
-[2026-09-06 07:51:47] [INFO] Completed 150 evaluations in 0.4s (avg latency: 0 ms).
-[2026-09-06 07:51:48] [INFO] Step 7: Validating schema conformance and auditing engineering sanity flags...
-[2026-09-06 07:51:48] [INFO] Schema Validation Result: 150/150 states valid (100.0%).
-[2026-09-06 07:51:48] [INFO] Engineering Sanity Flags Triggered: {}
-[2026-09-06 07:51:48] [INFO] Step 8: Running consistency & ranking stability evaluation on 20 representative states...
-[2026-09-06 07:51:48] [INFO] Consistency Assessment: MODERATE STABILITY: LLM Judge displays acceptable top-action consistency with moderate variance in lower-tier candidate ordering.
-[2026-09-06 07:51:48] [INFO] Top-Action Agreement: 76.67%
-[2026-09-06 07:51:48] [INFO] Spearman Rank Correlation: 0.7500
-[2026-09-06 07:51:48] [INFO] Permutation Sensitivity: 65.00%
-[2026-09-06 07:51:48] [INFO] Step 9: Assembling and exporting scientifically documented silver-standard preference dataset...
-[2026-09-06 07:51:48] [INFO]  - Parquet: C:\Users\Darsh Veer Singh\OneDrive - iiit-b\Sem 7\AIM801 - Project Elective\Smart-manufacturing-mas\smart_manufacturing_mas\outputs\phase3b\preference_dataset\maintenance_preference_dataset.parquet (150 rows)
-[2026-09-06 07:51:48] [INFO] Exported silver-standard datasets:
-[2026-09-06 07:51:48] [INFO]  - JSON:    C:\Users\Darsh Veer Singh\OneDrive - iiit-b\Sem 7\AIM801 - Project Elective\Smart-manufacturing-mas\smart_manufacturing_mas\outputs\phase3b\preference_dataset\maintenance_preference_dataset.json
-[2026-09-06 07:51:48] [INFO]  - JSONL:   C:\Users\Darsh Veer Singh\OneDrive - iiit-b\Sem 7\AIM801 - Project Elective\Smart-manufacturing-mas\smart_manufacturing_mas\outputs\phase3b\preference_dataset\maintenance_preference_dataset.jsonl
-[2026-09-06 07:51:48] [INFO]  - CSV:     C:\Users\Darsh Veer Singh\OneDrive - iiit-b\Sem 7\AIM801 - Project Elective\Smart-manufacturing-mas\smart_manufacturing_mas\outputs\phase3b\preference_dataset\maintenance_preference_dataset.csv (150 rows)
-[2026-09-06 07:51:48] [INFO] Step 10: Generating PHASE_3B_SUMMARY.md...
-[2026-09-06 07:51:48] [INFO] Phase 3B Summary report generated at: C:\Users\Darsh Veer Singh\OneDrive - iiit-b\Sem 7\AIM801 - Project Elective\Smart-manufacturing-mas\smart_manufacturing_mas\outputs\phase3b\PHASE_3B_SUMMARY.md
-[2026-09-06 07:51:48] [INFO] ======================================================================
-[2026-09-06 07:51:48] [INFO] PHASE 3B PIPELINE EXECUTION COMPLETED SUCCESSFULLY!
-[2026-09-06 07:51:48] [INFO] ======================================================================
+[2026-09-22 10:41:47] [INFO] ======================================================================
+[2026-09-22 10:41:47] [INFO] PHASE 3B: CANDIDATE MAINTENANCE ACTION GENERATION + LLM-AS-JUDGE PILOT
+[2026-09-22 10:41:47] [INFO] Configuration: Target=Pilot Size=150, Provider=multi, Model=gemini-3.5-flash-lite, Seed=42
+[2026-09-22 10:41:47] [INFO] ======================================================================
+[2026-09-22 10:41:47] [INFO] Step 1: Loading Phase 3A DecisionState corpus from decision_states_corpus.json...
+[2026-09-22 10:41:47] [INFO] Loaded 1023 total DecisionStates from Phase 3A.
+[2026-09-22 10:41:47] [INFO] Step 2: Loading controlled maintenance action ontology...
+[2026-09-22 10:41:47] [INFO] Loaded 21 maintenance actions across 5 industrial categories.
+[2026-09-22 10:41:47] [INFO] Exported action ontology to C:\Users\Darsh Veer Singh\OneDrive - iiit-b\Sem 7\AIM801 - Project Elective\Smart-manufacturing-mas\smart_manufacturing_mas\outputs\phase3b\action_ontology\action_ontology.json
+[2026-09-22 10:41:47] [INFO] Step 3: Sampling balanced pilot corpus (target: 150 states, seed=42)...
+[2026-09-22 10:41:47] [INFO] Selected 150 states across 11 datasets.
+[2026-09-22 10:41:47] [INFO] Dataset Distribution: {'ai4i_2020': 20, 'cmapss': 20, 'metal_etch': 10, 'uci_hydraulic': 16, 'iiot_6g': 15, 'nasa_ims': 12, 'metropt3': 9, 'nasa_milling': 12, 'smart_maintenance_static': 12, 'smart_maintenance_timeseries': 12, 'tennessee_eastman': 12}
+[2026-09-22 10:41:47] [INFO] Severity Distribution: {'HEALTHY': 48, 'CRITICAL': 49, 'DEGRADING': 14, 'WATCH': 39}
+[2026-09-22 10:41:47] [INFO] Archetype Distribution: {'cnc_mill': 32, 'turbofan_engine': 20, 'etch_tool': 10, 'hydraulic_test_rig': 16, 'iiot_machine': 15, 'bearing_test_rig': 12, 'air_compressor': 9, 'industrial_machine': 24, 'chemical_plant': 12}
+[2026-09-22 10:41:47] [INFO] Saved manifest to C:\Users\Darsh Veer Singh\OneDrive - iiit-b\Sem 7\AIM801 - Project Elective\Smart-manufacturing-mas\smart_manufacturing_mas\outputs\phase3b\pilot_manifest\pilot_manifest.json
+[2026-09-22 10:41:47] [INFO] Step 4: Deterministically generating explainable candidate action sets...
+[2026-09-22 10:41:47] [INFO] Generated candidate sets for 150 states (avg: 3.97 candidates/state).
+[2026-09-22 10:41:47] [INFO] Step 5: Running strict pre-LLM leakage validation on all pilot payloads...
+[2026-09-22 10:41:47] [INFO] Leakage Audit Complete: 150/150 PASSED (100.0%).
+[2026-09-22 10:41:47] [INFO] Step 6: Executing LLM-as-Judge evaluations using provider: 'multi' (model: 'gemini-3.5-flash-lite')...
+[2026-09-22 10:41:48] [INFO] Multi-Provider Gateway active with 5 providers: ['groq', 'openrouter', 'glm', 'client', 'qwen2.5:7b']
+[2026-09-22 10:41:48] [INFO] Total states: 150, Already evaluated: 0, Remaining to evaluate: 150.
+[2026-09-22 10:41:48] [INFO] Evaluating 150 states (concurrency=4)...
+[2026-09-22 10:41:50] [INFO] Progress: 1/150 total states complete (1/150 in batch, [groq/qwen/qwen3.8-27b], latency: 1688 ms, 340.6 t/s, elapsed: 1.7s).
+[2026-09-22 10:41:51] [INFO] Progress: 2/150 total states complete (2/150 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 2688 ms, elapsed: 2.7s).
+[2026-09-22 10:41:53] [INFO] Progress: 3/150 total states complete (3/150 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 3252 ms, failovers=1, elapsed: 4.9s).
+[2026-09-22 10:42:41] [INFO] Progress: 4/150 total states complete (4/150 in batch, [ollama/qwen2.5:7b], latency: 50572 ms, 26.2 t/s, elapsed: 52.3s).
+[2026-09-22 10:42:45] [INFO] Progress: 5/150 total states complete (5/150 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 3004 ms, failovers=1, elapsed: 56.4s).
+[2026-09-22 10:43:50] [INFO] Progress: 10/150 total states complete (10/150 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 3840 ms, failovers=1, elapsed: 121.4s).
+[2026-09-22 10:46:33] [INFO] Progress: 15/150 total states complete (15/150 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 2833 ms, failovers=1, elapsed: 284.4s).
+[2026-09-22 10:47:45] [INFO] Progress: 20/150 total states complete (20/150 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 3864 ms, failovers=1, elapsed: 356.5s).
+[2026-09-22 10:48:43] [ERROR] State DS_AI4I_1924 evaluation failed: argument of type 'NoneType' is not a container or iterable
+[2026-09-22 10:48:53] [INFO] Progress: 25/150 total states complete (25/150 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 3162 ms, elapsed: 424.3s).
+[2026-09-22 10:50:57] [INFO] Progress: 30/150 total states complete (30/150 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 2622 ms, elapsed: 548.2s).
+[2026-09-22 10:51:52] [ERROR] State DS_AI4I_1742 evaluation failed: argument of type 'NoneType' is not a container or iterable
+[2026-09-22 10:52:53] [INFO] Progress: 35/150 total states complete (35/150 in batch, [ollama/qwen2.5:7b], latency: 53252 ms, 27.4 t/s, elapsed: 664.4s).
+[2026-09-22 10:57:20] [INFO] Progress: 40/150 total states complete (40/150 in batch, [ollama/qwen2.5:7b], latency: 60581 ms, 28.0 t/s, elapsed: 931.5s).
+[2026-09-22 10:58:39] [INFO] Progress: 45/150 total states complete (45/150 in batch, [ollama/qwen2.5:7b], latency: 36550 ms, 28.4 t/s, elapsed: 1010.2s).
+[2026-09-22 10:59:47] [INFO] Progress: 50/150 total states complete (50/150 in batch, [ollama/qwen2.5:7b], latency: 54308 ms, 27.2 t/s, elapsed: 1078.6s).
+[2026-09-22 10:59:50] [ERROR] State DS_CMAPSS_FD004_U11_C289 evaluation failed: argument of type 'NoneType' is not a container or iterable
+[2026-09-22 11:01:49] [INFO] Progress: 55/150 total states complete (55/150 in batch, [openrouter/nex-agi/nex-n2.5-pro:free], latency: 122199 ms, 44.4 t/s, failovers=1, elapsed: 1200.9s).
+[2026-09-22 11:03:46] [INFO] Progress: 60/150 total states complete (60/150 in batch, [openrouter/nex-agi/nex-n2.5-pro:free], latency: 165108 ms, 43.4 t/s, failovers=1, elapsed: 1317.2s).
+[2026-09-22 11:04:54] [INFO] Progress: 65/150 total states complete (65/150 in batch, [groq/qwen/qwen3.8-27b], latency: 1878 ms, 388.2 t/s, elapsed: 1385.3s).
+[2026-09-22 11:05:47] [INFO] Progress: 70/150 total states complete (70/150 in batch, [groq/qwen/qwen3.8-27b], latency: 1594 ms, 378.3 t/s, elapsed: 1439.1s).
+[2026-09-22 11:08:09] [INFO] Progress: 75/150 total states complete (75/150 in batch, [groq/qwen/qwen3.8-27b], latency: 1926 ms, 381.1 t/s, elapsed: 1580.5s).
+[2026-09-22 11:09:20] [INFO] Progress: 80/150 total states complete (80/150 in batch, [groq/qwen/qwen3.8-27b], latency: 1936 ms, 408.6 t/s, elapsed: 1652.0s).
+[2026-09-22 11:10:49] [INFO] Progress: 85/150 total states complete (85/150 in batch, [groq/qwen/qwen3.8-27b], latency: 2180 ms, 270.2 t/s, elapsed: 1740.5s).
+[2026-09-22 11:11:41] [INFO] Progress: 90/150 total states complete (90/150 in batch, [groq/qwen/qwen3.8-27b], latency: 2312 ms, 421.7 t/s, elapsed: 1792.7s).
+[2026-09-22 11:12:37] [INFO] Progress: 95/150 total states complete (95/150 in batch, [groq/qwen/qwen3.8-27b], latency: 1547 ms, 388.5 t/s, elapsed: 1848.8s).
+[2026-09-22 11:13:51] [INFO] Progress: 100/150 total states complete (100/150 in batch, [groq/qwen/qwen3.8-27b], latency: 2159 ms, 432.6 t/s, elapsed: 1922.3s).
+[2026-09-22 11:14:29] [INFO] Progress: 105/150 total states complete (105/150 in batch, [groq/qwen/qwen3.8-27b], latency: 2038 ms, 388.1 t/s, elapsed: 1961.1s).
+[2026-09-22 11:15:19] [INFO] Progress: 110/150 total states complete (110/150 in batch, [groq/qwen/qwen3.8-27b], latency: 1341 ms, 422.1 t/s, elapsed: 2011.1s).
+[2026-09-22 11:16:57] [INFO] Progress: 115/150 total states complete (115/150 in batch, [groq/qwen/qwen3.8-27b], latency: 2449 ms, 418.9 t/s, elapsed: 2109.1s).
+[2026-09-22 11:20:52] [INFO] Progress: 120/150 total states complete (120/150 in batch, [openrouter/nvidia/nemotron-3.5-lightning:free], latency: 421708 ms, 14.7 t/s, elapsed: 2344.0s).
+[2026-09-22 11:24:33] [INFO] Progress: 125/150 total states complete (125/150 in batch, [groq/qwen/qwen3.8-27b], latency: 1510 ms, 396.0 t/s, elapsed: 2565.0s).
+[2026-09-22 11:25:21] [INFO] Progress: 130/150 total states complete (130/150 in batch, [groq/qwen/qwen3.8-27b], latency: 2068 ms, 396.5 t/s, elapsed: 2613.1s).
+[2026-09-22 11:26:46] [INFO] Progress: 135/150 total states complete (135/150 in batch, [groq/qwen/qwen3.8-27b], latency: 2348 ms, 253.0 t/s, elapsed: 2697.8s).
+[2026-09-22 11:28:32] [INFO] Progress: 140/150 total states complete (140/150 in batch, [groq/qwen/qwen3.8-27b], latency: 3408 ms, 304.6 t/s, elapsed: 2804.1s).
+[2026-09-22 11:30:14] [ERROR] State DS_SMSTATIC_M010_1426 evaluation failed: argument of type 'NoneType' is not a container or iterable
+[2026-09-22 11:30:47] [ERROR] State DS_SMTS_WATCH_53858 evaluation failed: IncompleteRead(1199 bytes read)
+[2026-09-22 11:34:05] [ERROR] State DS_TEP_F19.0_EARLY_161 evaluation failed: argument of type 'NoneType' is not a container or iterable
+[2026-09-22 11:35:47] [ERROR] State DS_TEP_F0_557802 evaluation failed: argument of type 'NoneType' is not a container or iterable
+[2026-09-22 11:35:47] [INFO] Completed 143 evaluations in 3238.7s (avg latency: 61760 ms).
+[2026-09-22 11:35:47] [INFO] Step 7: Validating schema conformance and auditing engineering sanity flags...
+[2026-09-22 11:35:47] [INFO] Schema Validation Result: 120/150 states valid (80.0%).
+[2026-09-22 11:35:47] [INFO] Engineering Sanity Flags Triggered: {'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_INSP_TOOL_WEAR': 5, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_OP_DERATE_LOAD': 11, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_REPL_TOOL_INSERT': 3, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_OP_CONTROLLED_SHUTDOWN': 17, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_MON_CONTINUE': 17, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_OP_ADJUST_PARAMS': 6, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_MON_ENHANCED': 11, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_MON_PARAMETER_LOG': 6, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_INSP_SUBSYSTEM': 18, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_CORR_CALIBRATE': 10, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_INSP_THERMAL_ELECTRICAL': 6, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_REPL_OVERHAUL': 10, 'FLAG_OVERCONFIDENT_ON_ANONYMOUS:High_confidence_on_unmapped_features': 3, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_CORR_CLEAN_PURGE': 10, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_REPL_SEAL_VALVE': 9, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_INSP_PRESSURE_HYDRAULIC': 3, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_INSP_VIBRATION': 4, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_REPL_BEARING': 5, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_CORR_LUBRICATE': 5, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_INSP_LUBRICATION': 5}
+[2026-09-22 11:35:47] [INFO] Step 8: Running consistency & ranking stability evaluation on 20 representative states...
+[2026-09-22 12:13:53] [INFO] ======================================================================
+[2026-09-22 12:13:53] [INFO] PHASE 3B: CANDIDATE MAINTENANCE ACTION GENERATION + LLM-AS-JUDGE PILOT
+[2026-09-22 12:13:53] [INFO] Configuration: Target=Pilot Size=150, Provider=gemini, Model=gemini-3.5-flash-lite, Seed=42
+[2026-09-22 12:13:53] [INFO] ======================================================================
+[2026-09-22 12:13:53] [INFO] Step 1: Loading Phase 3A DecisionState corpus from decision_states_corpus.json...
+[2026-09-22 12:13:53] [INFO] Loaded 1023 total DecisionStates from Phase 3A.
+[2026-09-22 12:13:53] [INFO] Step 2: Loading controlled maintenance action ontology...
+[2026-09-22 12:13:53] [INFO] Loaded 21 maintenance actions across 5 industrial categories.
+[2026-09-22 12:13:53] [INFO] Exported action ontology to C:\Users\Darsh Veer Singh\OneDrive - iiit-b\Sem 7\AIM801 - Project Elective\Smart-manufacturing-mas\smart_manufacturing_mas\outputs\phase3b\action_ontology\action_ontology.json
+[2026-09-22 12:13:53] [INFO] Step 3: Loading existing pilot manifest from pilot_manifest.json...
+[2026-09-22 12:13:53] [INFO] Resumed manifest: 150 states loaded.
+[2026-09-22 12:13:53] [INFO] Step 4: Deterministically generating explainable candidate action sets...
+[2026-09-22 12:13:53] [INFO] Generated candidate sets for 150 states (avg: 3.97 candidates/state).
+[2026-09-22 12:13:53] [INFO] Step 5: Running strict pre-LLM leakage validation on all pilot payloads...
+[2026-09-22 12:13:53] [INFO] Leakage Audit Complete: 150/150 PASSED (100.0%).
+[2026-09-22 12:13:53] [INFO] Step 6: Executing LLM-as-Judge evaluations using provider: 'gemini' (model: 'gemini-3.5-flash-lite')...
+[2026-09-22 12:13:53] [INFO] Resuming evaluation: loaded 139 previously evaluated states.
+[2026-09-22 12:13:53] [INFO] Total states: 150, Already evaluated: 139, Remaining to evaluate: 11.
+[2026-09-22 12:13:53] [INFO] Evaluating 11 states (concurrency=4)...
+[2026-09-22 12:13:57] [INFO] Progress: 140/150 total states complete (1/11 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 3935 ms, elapsed: 3.9s).
+[2026-09-22 12:13:58] [INFO] Progress: 141/150 total states complete (2/11 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 4798 ms, elapsed: 4.8s).
+[2026-09-22 12:14:03] [INFO] Progress: 142/150 total states complete (3/11 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 9434 ms, elapsed: 9.4s).
+[2026-09-22 12:14:05] [INFO] Progress: 143/150 total states complete (4/11 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 8041 ms, elapsed: 12.0s).
+[2026-09-22 12:14:06] [INFO] Progress: 144/150 total states complete (5/11 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 8078 ms, elapsed: 12.9s).
+[2026-09-22 12:14:14] [INFO] Progress: 149/150 total states complete (10/11 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 7785 ms, elapsed: 21.0s).
+[2026-09-22 12:14:20] [INFO] Progress: 150/150 total states complete (11/11 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 11165 ms, elapsed: 26.7s).
+[2026-09-22 12:14:20] [INFO] Completed 150 evaluations in 26.7s (avg latency: 7952 ms).
+[2026-09-22 12:14:20] [INFO] Step 7: Validating schema conformance and auditing engineering sanity flags...
+[2026-09-22 12:14:20] [INFO] Schema Validation Result: 150/150 states valid (100.0%).
+[2026-09-22 12:14:20] [INFO] Engineering Sanity Flags Triggered: {'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_INSP_TOOL_WEAR': 5, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_OP_DERATE_LOAD': 11, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_REPL_TOOL_INSERT': 3, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_OP_CONTROLLED_SHUTDOWN': 18, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_MON_CONTINUE': 17, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_OP_ADJUST_PARAMS': 6, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_MON_ENHANCED': 11, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_MON_PARAMETER_LOG': 6, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_INSP_SUBSYSTEM': 19, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_CORR_CALIBRATE': 11, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_INSP_THERMAL_ELECTRICAL': 6, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_REPL_OVERHAUL': 10, 'FLAG_OVERCONFIDENT_ON_ANONYMOUS:High_confidence_on_unmapped_features': 3, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_CORR_CLEAN_PURGE': 12, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_REPL_SEAL_VALVE': 11, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_INSP_PRESSURE_HYDRAULIC': 3, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_INSP_VIBRATION': 4, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_REPL_BEARING': 7, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_CORR_LUBRICATE': 7, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_INSP_LUBRICATION': 5}
+[2026-09-22 12:14:20] [INFO] Step 8: Running consistency & ranking stability evaluation on 10 representative states...
+[2026-09-22 12:16:46] [INFO] Consistency Assessment: MODERATE STABILITY: LLM Judge displays acceptable top-action consistency with moderate variance in lower-tier candidate ordering.
+[2026-09-22 12:16:46] [INFO] Top-Action Agreement: 90.00%
+[2026-09-22 12:16:46] [INFO] Spearman Rank Correlation: 0.7133
+[2026-09-22 12:16:46] [INFO] Permutation Sensitivity: 30.00%
+[2026-09-22 12:16:46] [INFO] Step 9: Assembling and exporting scientifically documented silver-standard preference dataset...
+[2026-09-22 12:16:47] [INFO]  - Parquet: C:\Users\Darsh Veer Singh\OneDrive - iiit-b\Sem 7\AIM801 - Project Elective\Smart-manufacturing-mas\smart_manufacturing_mas\outputs\phase3b\preference_dataset\maintenance_preference_dataset.parquet (150 rows)
+[2026-09-22 12:16:47] [INFO] Exported silver-standard datasets:
+[2026-09-22 12:16:47] [INFO]  - JSON:    C:\Users\Darsh Veer Singh\OneDrive - iiit-b\Sem 7\AIM801 - Project Elective\Smart-manufacturing-mas\smart_manufacturing_mas\outputs\phase3b\preference_dataset\maintenance_preference_dataset.json
+[2026-09-22 12:16:47] [INFO]  - JSONL:   C:\Users\Darsh Veer Singh\OneDrive - iiit-b\Sem 7\AIM801 - Project Elective\Smart-manufacturing-mas\smart_manufacturing_mas\outputs\phase3b\preference_dataset\maintenance_preference_dataset.jsonl
+[2026-09-22 12:16:47] [INFO]  - CSV:     C:\Users\Darsh Veer Singh\OneDrive - iiit-b\Sem 7\AIM801 - Project Elective\Smart-manufacturing-mas\smart_manufacturing_mas\outputs\phase3b\preference_dataset\maintenance_preference_dataset.csv (150 rows)
+[2026-09-22 12:16:47] [INFO] Step 10: Generating PHASE_3B_SUMMARY.md...
+[2026-09-22 12:16:47] [INFO] Phase 3B Summary report generated at: C:\Users\Darsh Veer Singh\OneDrive - iiit-b\Sem 7\AIM801 - Project Elective\Smart-manufacturing-mas\smart_manufacturing_mas\outputs\phase3b\PHASE_3B_SUMMARY.md
+[2026-09-22 12:16:47] [INFO] ======================================================================
+[2026-09-22 12:16:47] [INFO] PHASE 3B PIPELINE EXECUTION COMPLETED SUCCESSFULLY!
+[2026-09-22 12:16:47] [INFO] ======================================================================
+[2026-09-22 12:31:52] [INFO] ======================================================================
+[2026-09-22 12:31:52] [INFO] PHASE 3B: CANDIDATE MAINTENANCE ACTION GENERATION + LLM-AS-JUDGE PILOT
+[2026-09-22 12:31:52] [INFO] Configuration: Target=ALL 1023 states, Provider=gemini, Model=gemini-3.5-flash-lite, Seed=42
+[2026-09-22 12:31:52] [INFO] ======================================================================
+[2026-09-22 12:31:52] [INFO] Step 1: Loading Phase 3A DecisionState corpus from decision_states_corpus.json...
+[2026-09-22 12:31:52] [INFO] Loaded 1023 total DecisionStates from Phase 3A.
+[2026-09-22 12:31:52] [INFO] Step 2: Loading controlled maintenance action ontology...
+[2026-09-22 12:31:52] [INFO] Loaded 21 maintenance actions across 5 industrial categories.
+[2026-09-22 12:31:52] [INFO] Exported action ontology to C:\Users\Darsh Veer Singh\OneDrive - iiit-b\Sem 7\AIM801 - Project Elective\Smart-manufacturing-mas\smart_manufacturing_mas\outputs\phase3b\action_ontology\action_ontology.json
+[2026-09-22 12:31:52] [INFO] Step 3: Using ALL 1023 DecisionStates from Phase 3A corpus (--all-states flag set)...
+[2026-09-22 12:31:52] [INFO] Step 4: Deterministically generating explainable candidate action sets...
+[2026-09-22 12:31:53] [INFO] Generated candidate sets for 1023 states (avg: 3.97 candidates/state).
+[2026-09-22 12:31:53] [INFO] Step 5: Running strict pre-LLM leakage validation on all pilot payloads...
+[2026-09-22 12:31:53] [INFO] Leakage Audit Complete: 1023/1023 PASSED (100.0%).
+[2026-09-22 12:31:53] [INFO] Step 6: Executing LLM-as-Judge evaluations using provider: 'gemini' (model: 'gemini-3.5-flash-lite')...
+[2026-09-22 12:31:53] [INFO] Resuming evaluation: loaded 150 previously evaluated states.
+[2026-09-22 12:31:53] [INFO] Total states: 1023, Already evaluated: 150, Remaining to evaluate: 873.
+[2026-09-22 12:31:53] [INFO] Evaluating 873 states (concurrency=2)...
+[2026-09-22 12:31:56] [INFO] Progress: 151/1023 total states complete (1/873 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 3214 ms, elapsed: 3.2s).
+[2026-09-22 12:31:59] [INFO] Progress: 152/1023 total states complete (2/873 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 5779 ms, elapsed: 5.8s).
+[2026-09-22 12:32:01] [INFO] Progress: 153/1023 total states complete (3/873 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 2873 ms, elapsed: 8.7s).
+[2026-09-22 12:32:04] [INFO] Progress: 154/1023 total states complete (4/873 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 8043 ms, elapsed: 11.3s).
+[2026-09-22 12:32:06] [INFO] Progress: 155/1023 total states complete (5/873 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 4325 ms, elapsed: 13.0s).
+[2026-09-22 12:32:18] [INFO] Progress: 160/1023 total states complete (10/873 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 3759 ms, elapsed: 24.8s).
+[2026-09-22 12:32:27] [INFO] Progress: 165/1023 total states complete (15/873 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 3325 ms, elapsed: 34.2s).
+[2026-09-22 12:32:52] [INFO] Progress: 170/1023 total states complete (20/873 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 20909 ms, elapsed: 58.7s).
+[2026-09-22 12:33:12] [INFO] Progress: 175/1023 total states complete (25/873 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 3661 ms, elapsed: 79.4s).
+[2026-09-22 12:33:23] [INFO] Progress: 180/1023 total states complete (30/873 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 3521 ms, elapsed: 89.9s).
+[2026-09-22 12:33:32] [INFO] Progress: 185/1023 total states complete (35/873 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 3755 ms, elapsed: 98.8s).
+[2026-09-22 12:34:04] [INFO] Progress: 190/1023 total states complete (40/873 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 2479 ms, elapsed: 131.0s).
+[2026-09-22 12:34:18] [INFO] Progress: 195/1023 total states complete (45/873 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 2880 ms, elapsed: 145.0s).
+[2026-09-22 12:34:27] [INFO] Progress: 200/1023 total states complete (50/873 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 3585 ms, elapsed: 154.1s).
+[2026-09-22 12:34:37] [INFO] Progress: 205/1023 total states complete (55/873 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 4702 ms, elapsed: 164.0s).
+[2026-09-22 12:35:02] [INFO] Progress: 210/1023 total states complete (60/873 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 2269 ms, elapsed: 189.2s).
+[2026-09-22 12:35:13] [INFO] Progress: 215/1023 total states complete (65/873 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 4401 ms, elapsed: 200.2s).
+[2026-09-22 12:35:23] [INFO] Progress: 220/1023 total states complete (70/873 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 4064 ms, elapsed: 209.8s).
+[2026-09-22 12:35:46] [INFO] Progress: 225/1023 total states complete (75/873 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 14493 ms, elapsed: 233.1s).
+[2026-09-22 12:36:09] [INFO] Progress: 230/1023 total states complete (80/873 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 3375 ms, elapsed: 255.9s).
+[2026-09-22 12:36:19] [INFO] Progress: 235/1023 total states complete (85/873 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 5099 ms, elapsed: 266.2s).
+[2026-09-22 12:36:28] [INFO] Progress: 240/1023 total states complete (90/873 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 3464 ms, elapsed: 275.5s).
+[2026-09-22 12:37:03] [INFO] Progress: 245/1023 total states complete (95/873 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 3018 ms, elapsed: 310.6s).
+[2026-09-22 12:37:14] [INFO] Progress: 250/1023 total states complete (100/873 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 4307 ms, elapsed: 321.0s).
+[2026-09-22 12:37:24] [INFO] Progress: 255/1023 total states complete (105/873 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 5160 ms, elapsed: 331.5s).
+[2026-09-22 12:37:34] [INFO] Progress: 260/1023 total states complete (110/873 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 5009 ms, elapsed: 341.7s).
+[2026-09-22 12:40:45] [INFO] ======================================================================
+[2026-09-22 12:40:45] [INFO] PHASE 3B: CANDIDATE MAINTENANCE ACTION GENERATION + LLM-AS-JUDGE PILOT
+[2026-09-22 12:40:45] [INFO] Configuration: Target=ALL 1023 states, Provider=multi, Model=gemini-3.5-flash-lite, Seed=42
+[2026-09-22 12:40:45] [INFO] ======================================================================
+[2026-09-22 12:40:45] [INFO] Step 1: Loading Phase 3A DecisionState corpus from decision_states_corpus.json...
+[2026-09-22 12:40:45] [INFO] Loaded 1023 total DecisionStates from Phase 3A.
+[2026-09-22 12:40:45] [INFO] Step 2: Loading controlled maintenance action ontology...
+[2026-09-22 12:40:45] [INFO] Loaded 21 maintenance actions across 5 industrial categories.
+[2026-09-22 12:40:45] [INFO] Exported action ontology to C:\Users\Darsh Veer Singh\OneDrive - iiit-b\Sem 7\AIM801 - Project Elective\Smart-manufacturing-mas\smart_manufacturing_mas\outputs\phase3b\action_ontology\action_ontology.json
+[2026-09-22 12:40:45] [INFO] Step 3: Using ALL 1023 DecisionStates from Phase 3A corpus (--all-states flag set)...
+[2026-09-22 12:40:45] [INFO] Step 4: Deterministically generating explainable candidate action sets...
+[2026-09-22 12:40:45] [INFO] Generated candidate sets for 1023 states (avg: 3.97 candidates/state).
+[2026-09-22 12:40:45] [INFO] Step 5: Running strict pre-LLM leakage validation on all pilot payloads...
+[2026-09-22 12:40:45] [INFO] Leakage Audit Complete: 1023/1023 PASSED (100.0%).
+[2026-09-22 12:40:45] [INFO] Step 6: Executing LLM-as-Judge evaluations using provider: 'multi' (model: 'gemini-3.5-flash-lite')...
+[2026-09-22 12:40:46] [INFO] Multi-Provider Gateway active with 6 providers: ['client', 'groq', 'openrouter', 'glm', 'qwen2.5:7b', 'mock-industrial-expert-v1']
+[2026-09-22 12:40:46] [INFO] Resuming evaluation: loaded 260 previously evaluated states.
+[2026-09-22 12:40:46] [INFO] Total states: 1023, Already evaluated: 260, Remaining to evaluate: 763.
+[2026-09-22 12:40:46] [INFO] Evaluating 763 states (concurrency=4)...
+[2026-09-22 12:40:49] [INFO] Progress: 261/1023 total states complete (1/763 in batch, [groq/qwen/qwen3.8-27b], latency: 2140 ms, 374.8 t/s, elapsed: 2.2s).
+[2026-09-22 12:40:50] [INFO] Progress: 262/1023 total states complete (2/763 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 3123 ms, elapsed: 3.1s).
+[2026-09-22 12:40:50] [INFO] Progress: 263/1023 total states complete (3/763 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, elapsed: 3.1s).
+[2026-09-22 12:40:53] [INFO] Progress: 264/1023 total states complete (4/763 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 3770 ms, elapsed: 6.9s).
+[2026-09-22 12:41:35] [INFO] Progress: 265/1023 total states complete (5/763 in batch, [ollama/qwen2.5:7b], latency: 46312 ms, 46.1 t/s, elapsed: 48.5s).
+[2026-09-22 12:43:51] [INFO] Progress: 270/1023 total states complete (10/763 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 2496 ms, elapsed: 184.4s).
+[2026-09-22 12:45:41] [INFO] Progress: 275/1023 total states complete (15/763 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, elapsed: 294.2s).
+[2026-09-22 12:47:50] [INFO] Progress: 280/1023 total states complete (20/763 in batch, [ollama/qwen2.5:7b], latency: 168540 ms, 46.6 t/s, elapsed: 423.4s).
+[2026-09-22 12:49:16] [INFO] Progress: 285/1023 total states complete (25/763 in batch, [ollama/qwen2.5:7b], latency: 167969 ms, 46.6 t/s, failovers=1, elapsed: 509.3s).
+[2026-09-22 12:50:38] [INFO] Progress: 290/1023 total states complete (30/763 in batch, [ollama/qwen2.5:7b], latency: 161885 ms, 46.7 t/s, failovers=2, elapsed: 591.7s).
+[2026-09-22 12:52:08] [INFO] Progress: 295/1023 total states complete (35/763 in batch, [groq/qwen/qwen3.8-27b], latency: 1985 ms, 381.4 t/s, elapsed: 681.5s).
+[2026-09-22 12:54:11] [INFO] Progress: 300/1023 total states complete (40/763 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 3684 ms, elapsed: 804.3s).
+[2026-09-22 12:55:53] [INFO] Progress: 305/1023 total states complete (45/763 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, elapsed: 906.5s).
+[2026-09-22 12:57:55] [INFO] Progress: 310/1023 total states complete (50/763 in batch, [ollama/qwen2.5:7b], latency: 161302 ms, 46.7 t/s, elapsed: 1028.1s).
+[2026-09-22 12:59:08] [INFO] Progress: 315/1023 total states complete (55/763 in batch, [ollama/qwen2.5:7b], latency: 158270 ms, 46.7 t/s, failovers=1, elapsed: 1101.8s).
+[2026-09-22 13:00:19] [INFO] Progress: 320/1023 total states complete (60/763 in batch, [ollama/qwen2.5:7b], latency: 138937 ms, 46.6 t/s, failovers=2, elapsed: 1173.0s).
+[2026-09-22 13:01:32] [INFO] Progress: 325/1023 total states complete (65/763 in batch, [groq/qwen/qwen3.8-27b], latency: 2138 ms, 357.8 t/s, elapsed: 1245.8s).
+[2026-09-22 13:03:26] [INFO] Progress: 330/1023 total states complete (70/763 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 3547 ms, elapsed: 1359.3s).
+[2026-09-22 13:05:04] [INFO] Progress: 335/1023 total states complete (75/763 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, elapsed: 1457.8s).
+[2026-09-22 13:06:48] [INFO] Progress: 340/1023 total states complete (80/763 in batch, [ollama/qwen2.5:7b], latency: 141463 ms, 46.6 t/s, elapsed: 1561.8s).
+[2026-09-22 13:07:51] [INFO] Progress: 345/1023 total states complete (85/763 in batch, [ollama/qwen2.5:7b], latency: 128860 ms, 46.7 t/s, failovers=1, elapsed: 1624.5s).
+[2026-09-22 13:09:17] [INFO] Progress: 350/1023 total states complete (90/763 in batch, [ollama/qwen2.5:7b], latency: 143581 ms, 46.6 t/s, failovers=2, elapsed: 1710.5s).
+[2026-09-22 13:10:54] [INFO] Progress: 355/1023 total states complete (95/763 in batch, [groq/qwen/qwen3.8-27b], latency: 2355 ms, 410.6 t/s, elapsed: 1807.8s).
+[2026-09-22 13:12:57] [INFO] Progress: 360/1023 total states complete (100/763 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 4293 ms, elapsed: 1930.6s).
+[2026-09-22 13:14:54] [INFO] Progress: 365/1023 total states complete (105/763 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, elapsed: 2047.4s).
+[2026-09-22 13:16:50] [INFO] Progress: 370/1023 total states complete (110/763 in batch, [ollama/qwen2.5:7b], latency: 153938 ms, 52.4 t/s, elapsed: 2163.3s).
+[2026-09-22 13:18:06] [INFO] Progress: 375/1023 total states complete (115/763 in batch, [ollama/qwen2.5:7b], latency: 153582 ms, 52.3 t/s, failovers=1, elapsed: 2239.8s).
+[2026-09-22 13:19:25] [INFO] Progress: 380/1023 total states complete (120/763 in batch, [ollama/qwen2.5:7b], latency: 149453 ms, 50.7 t/s, failovers=2, elapsed: 2319.0s).
+[2026-09-22 13:20:50] [INFO] Progress: 385/1023 total states complete (125/763 in batch, [groq/qwen/qwen3.8-27b], latency: 1329 ms, 401.8 t/s, elapsed: 2403.5s).
+[2026-09-22 13:22:45] [INFO] Progress: 390/1023 total states complete (130/763 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 2633 ms, elapsed: 2518.4s).
+[2026-09-22 13:23:52] [INFO] Progress: 395/1023 total states complete (135/763 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, elapsed: 2585.7s).
+[2026-09-22 13:25:05] [INFO] Progress: 400/1023 total states complete (140/763 in batch, [ollama/qwen2.5:7b], latency: 96063 ms, 52.6 t/s, elapsed: 2658.6s).
+[2026-09-22 13:25:52] [INFO] Progress: 405/1023 total states complete (145/763 in batch, [ollama/qwen2.5:7b], latency: 93991 ms, 52.5 t/s, failovers=1, elapsed: 2705.4s).
+[2026-09-22 13:26:37] [INFO] Progress: 410/1023 total states complete (150/763 in batch, [ollama/qwen2.5:7b], latency: 86865 ms, 52.5 t/s, failovers=2, elapsed: 2750.5s).
+[2026-09-22 13:27:28] [INFO] Progress: 415/1023 total states complete (155/763 in batch, [groq/qwen/qwen3.8-27b], latency: 1440 ms, 388.9 t/s, elapsed: 2801.8s).
+[2026-09-22 13:28:39] [INFO] Progress: 420/1023 total states complete (160/763 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 2534 ms, elapsed: 2872.6s).
+[2026-09-22 13:29:47] [INFO] Progress: 425/1023 total states complete (165/763 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, elapsed: 2940.3s).
+[2026-09-22 13:30:56] [INFO] Progress: 430/1023 total states complete (170/763 in batch, [ollama/qwen2.5:7b], latency: 93051 ms, 52.4 t/s, elapsed: 3010.0s).
+[2026-09-22 13:32:58] [INFO] Progress: 435/1023 total states complete (175/763 in batch, [ollama/qwen2.5:7b], latency: 144857 ms, 51.3 t/s, elapsed: 3131.8s).
+[2026-09-22 13:34:59] [INFO] Progress: 440/1023 total states complete (180/763 in batch, [ollama/qwen2.5:7b], latency: 161773 ms, 51.1 t/s, failovers=1, elapsed: 3253.0s).
+[2026-09-22 13:37:00] [INFO] Progress: 445/1023 total states complete (185/763 in batch, [ollama/qwen2.5:7b], latency: 160186 ms, 51.3 t/s, failovers=2, elapsed: 3373.2s).
+[2026-09-22 13:39:05] [INFO] Progress: 450/1023 total states complete (190/763 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 3835 ms, elapsed: 3498.3s).
+[2026-09-22 13:41:02] [INFO] Progress: 455/1023 total states complete (195/763 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, elapsed: 3615.4s).
+[2026-09-22 13:43:11] [INFO] Progress: 460/1023 total states complete (200/763 in batch, [ollama/qwen2.5:7b], latency: 124929 ms, 51.2 t/s, failovers=3, elapsed: 3744.6s).
+[2026-09-22 13:44:49] [INFO] Progress: 465/1023 total states complete (205/763 in batch, [ollama/qwen2.5:7b], latency: 129284 ms, 51.4 t/s, elapsed: 3843.1s).
+[2026-09-22 13:46:31] [INFO] Progress: 470/1023 total states complete (210/763 in batch, [ollama/qwen2.5:7b], latency: 132335 ms, 51.2 t/s, failovers=1, elapsed: 3944.4s).
+[2026-09-22 13:48:12] [INFO] Progress: 475/1023 total states complete (215/763 in batch, [ollama/qwen2.5:7b], latency: 134979 ms, 51.4 t/s, failovers=2, elapsed: 4045.9s).
+[2026-09-22 13:49:58] [INFO] Progress: 480/1023 total states complete (220/763 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 3367 ms, elapsed: 4151.4s).
+[2026-09-22 13:56:10] [INFO] ======================================================================
+[2026-09-22 13:56:10] [INFO] PHASE 3B: CANDIDATE MAINTENANCE ACTION GENERATION + LLM-AS-JUDGE PILOT
+[2026-09-22 13:56:10] [INFO] Configuration: Target=ALL 1023 states, Provider=multi, Model=gemini-3.5-flash-lite, Seed=42
+[2026-09-22 13:56:10] [INFO] ======================================================================
+[2026-09-22 13:56:10] [INFO] Step 1: Loading Phase 3A DecisionState corpus from decision_states_corpus.json...
+[2026-09-22 13:56:10] [INFO] Loaded 1023 total DecisionStates from Phase 3A.
+[2026-09-22 13:56:10] [INFO] Step 2: Loading controlled maintenance action ontology...
+[2026-09-22 13:56:10] [INFO] Loaded 21 maintenance actions across 5 industrial categories.
+[2026-09-22 13:56:10] [INFO] Exported action ontology to C:\Users\Darsh Veer Singh\OneDrive - iiit-b\Sem 7\AIM801 - Project Elective\Smart-manufacturing-mas\smart_manufacturing_mas\outputs\phase3b\action_ontology\action_ontology.json
+[2026-09-22 13:56:10] [INFO] Step 3: Using ALL 1023 DecisionStates from Phase 3A corpus (--all-states flag set)...
+[2026-09-22 13:56:10] [INFO] Step 4: Deterministically generating explainable candidate action sets...
+[2026-09-22 13:56:10] [INFO] Generated candidate sets for 1023 states (avg: 3.97 candidates/state).
+[2026-09-22 13:56:10] [INFO] Step 5: Running strict pre-LLM leakage validation on all pilot payloads...
+[2026-09-22 13:56:10] [INFO] Leakage Audit Complete: 1023/1023 PASSED (100.0%).
+[2026-09-22 13:56:10] [INFO] Step 6: Executing LLM-as-Judge evaluations using provider: 'multi' (model: 'gemini-3.5-flash-lite')...
+[2026-09-22 13:56:10] [INFO] Multi-Provider Gateway active with 3 providers: ['gemini_rest', 'groq', 'openrouter']
+[2026-09-22 13:56:10] [INFO] Resuming evaluation: loaded 480 previously evaluated states.
+[2026-09-22 13:56:10] [INFO] Total states: 1023, Already evaluated: 480, Remaining to evaluate: 543.
+[2026-09-22 13:56:10] [INFO] Evaluating 543 states (concurrency=4)...
+[2026-09-22 13:56:14] [INFO] Progress: 481/1023 total states complete (1/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 3258 ms, elapsed: 3.3s).
+[2026-09-22 13:56:16] [INFO] Progress: 482/1023 total states complete (2/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 5331 ms, elapsed: 5.4s).
+[2026-09-22 13:56:17] [INFO] Progress: 483/1023 total states complete (3/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 6785 ms, failovers=1, elapsed: 7.0s).
+[2026-09-22 13:56:20] [INFO] Progress: 484/1023 total states complete (4/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 8967 ms, failovers=2, elapsed: 9.3s).
+[2026-09-22 13:56:21] [INFO] Progress: 485/1023 total states complete (5/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 7487 ms, failovers=2, elapsed: 11.0s).
+[2026-09-22 13:56:31] [INFO] Progress: 490/1023 total states complete (10/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 7725 ms, elapsed: 20.4s).
+[2026-09-22 13:56:41] [INFO] Progress: 495/1023 total states complete (15/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 8012 ms, failovers=1, elapsed: 30.5s).
+[2026-09-22 13:56:51] [INFO] Progress: 500/1023 total states complete (20/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 7823 ms, failovers=2, elapsed: 40.6s).
+[2026-09-22 13:57:02] [INFO] Progress: 505/1023 total states complete (25/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 8627 ms, elapsed: 51.1s).
+[2026-09-22 13:57:12] [INFO] Progress: 510/1023 total states complete (30/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 7403 ms, failovers=1, elapsed: 61.3s).
+[2026-09-22 13:57:50] [INFO] Progress: 515/1023 total states complete (35/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 5916 ms, failovers=1, elapsed: 100.1s).
+[2026-09-22 13:58:00] [INFO] Progress: 520/1023 total states complete (40/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 8266 ms, elapsed: 109.9s).
+[2026-09-22 13:58:11] [INFO] Progress: 525/1023 total states complete (45/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 8660 ms, failovers=1, elapsed: 120.8s).
+[2026-09-22 13:58:49] [INFO] Progress: 530/1023 total states complete (50/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 40618 ms, failovers=1, elapsed: 158.9s).
+[2026-09-22 13:58:59] [INFO] Progress: 535/1023 total states complete (55/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 8265 ms, elapsed: 169.0s).
+[2026-09-22 13:59:09] [INFO] Progress: 540/1023 total states complete (60/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 7818 ms, failovers=1, elapsed: 178.6s).
+[2026-09-22 13:59:47] [INFO] Progress: 545/1023 total states complete (65/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 39999 ms, failovers=1, elapsed: 216.9s).
+[2026-09-22 13:59:57] [INFO] Progress: 550/1023 total states complete (70/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 7897 ms, elapsed: 226.8s).
+[2026-09-22 14:00:07] [INFO] Progress: 555/1023 total states complete (75/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 8086 ms, failovers=1, elapsed: 237.0s).
+[2026-09-22 14:00:46] [INFO] Progress: 560/1023 total states complete (80/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 2715 ms, failovers=2, elapsed: 275.4s).
+[2026-09-22 14:00:56] [INFO] Progress: 565/1023 total states complete (85/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 8149 ms, elapsed: 286.1s).
+[2026-09-22 14:01:06] [INFO] Progress: 570/1023 total states complete (90/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 8056 ms, failovers=1, elapsed: 295.6s).
+[2026-09-22 14:01:41] [INFO] Progress: 575/1023 total states complete (95/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 29402 ms, elapsed: 330.5s).
+[2026-09-22 14:01:51] [INFO] Progress: 580/1023 total states complete (100/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 5726 ms, failovers=2, elapsed: 340.4s).
+[2026-09-22 14:02:00] [INFO] Progress: 585/1023 total states complete (105/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 7679 ms, failovers=1, elapsed: 350.0s).
+[2026-09-22 14:02:11] [INFO] Progress: 590/1023 total states complete (110/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 7480 ms, failovers=2, elapsed: 360.2s).
+[2026-09-22 14:02:52] [INFO] Progress: 595/1023 total states complete (115/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 5517 ms, failovers=2, elapsed: 402.1s).
+[2026-09-22 14:03:02] [INFO] Progress: 600/1023 total states complete (120/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 7789 ms, failovers=1, elapsed: 412.0s).
+[2026-09-22 14:03:12] [INFO] Progress: 605/1023 total states complete (125/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 7530 ms, failovers=2, elapsed: 422.1s).
+[2026-09-22 14:03:48] [INFO] Progress: 610/1023 total states complete (130/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 3640 ms, failovers=1, elapsed: 457.4s).
+[2026-09-22 14:03:58] [INFO] Progress: 615/1023 total states complete (135/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 7852 ms, failovers=1, elapsed: 467.5s).
+[2026-09-22 14:04:08] [INFO] Progress: 620/1023 total states complete (140/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 7816 ms, failovers=2, elapsed: 477.6s).
+[2026-09-22 14:04:47] [INFO] Progress: 625/1023 total states complete (145/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 40733 ms, failovers=2, elapsed: 516.5s).
+[2026-09-22 14:04:57] [INFO] Progress: 630/1023 total states complete (150/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 8370 ms, failovers=1, elapsed: 526.7s).
+[2026-09-22 14:05:06] [INFO] Progress: 635/1023 total states complete (155/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 6858 ms, failovers=2, elapsed: 535.7s).
+[2026-09-22 14:05:43] [INFO] Progress: 640/1023 total states complete (160/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 2525 ms, elapsed: 572.8s).
+[2026-09-22 14:05:53] [INFO] Progress: 645/1023 total states complete (165/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 42889 ms, failovers=2, elapsed: 582.7s).
+[2026-09-22 14:06:03] [INFO] Progress: 650/1023 total states complete (170/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 7733 ms, failovers=2, elapsed: 592.8s).
+[2026-09-22 14:06:47] [INFO] Progress: 655/1023 total states complete (175/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 38871 ms, elapsed: 636.3s).
+[2026-09-22 14:06:57] [INFO] Progress: 660/1023 total states complete (180/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 5712 ms, elapsed: 646.6s).
+[2026-09-22 14:07:51] [INFO] Progress: 665/1023 total states complete (185/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 54165 ms, elapsed: 700.7s).
+[2026-09-22 14:08:00] [INFO] Progress: 670/1023 total states complete (190/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 6846 ms, elapsed: 710.0s).
+[2026-09-22 14:08:12] [INFO] Progress: 675/1023 total states complete (195/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 6079 ms, elapsed: 722.0s).
+[2026-09-22 14:08:54] [INFO] Progress: 680/1023 total states complete (200/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 39798 ms, failovers=2, elapsed: 763.9s).
+[2026-09-22 14:09:04] [INFO] Progress: 685/1023 total states complete (205/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 5949 ms, failovers=2, elapsed: 774.0s).
+[2026-09-22 14:09:15] [INFO] Progress: 690/1023 total states complete (210/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 7724 ms, failovers=1, elapsed: 784.2s).
+[2026-09-22 14:09:49] [INFO] Progress: 695/1023 total states complete (215/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 4290 ms, elapsed: 819.0s).
+[2026-09-22 14:09:59] [INFO] Progress: 700/1023 total states complete (220/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 8040 ms, elapsed: 828.9s).
+[2026-09-22 14:10:10] [INFO] Progress: 705/1023 total states complete (225/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 7431 ms, failovers=1, elapsed: 839.3s).
+[2026-09-22 14:10:49] [INFO] Progress: 710/1023 total states complete (230/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 3529 ms, failovers=2, elapsed: 878.5s).
+[2026-09-22 14:10:59] [INFO] Progress: 715/1023 total states complete (235/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 8149 ms, elapsed: 888.8s).
+[2026-09-22 14:11:09] [INFO] Progress: 720/1023 total states complete (240/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 7697 ms, failovers=1, elapsed: 898.5s).
+[2026-09-22 14:11:42] [INFO] Progress: 725/1023 total states complete (245/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 28461 ms, failovers=1, elapsed: 931.6s).
+[2026-09-22 14:11:51] [INFO] Progress: 730/1023 total states complete (250/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 5794 ms, failovers=2, elapsed: 940.5s).
+[2026-09-22 14:12:01] [INFO] Progress: 735/1023 total states complete (255/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 7155 ms, failovers=1, elapsed: 950.8s).
+[2026-09-22 14:12:11] [INFO] Progress: 740/1023 total states complete (260/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 7994 ms, failovers=2, elapsed: 960.7s).
+[2026-09-22 14:12:52] [INFO] Progress: 745/1023 total states complete (265/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 5683 ms, failovers=2, elapsed: 1002.0s).
+[2026-09-22 14:13:02] [INFO] Progress: 750/1023 total states complete (270/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 7836 ms, failovers=1, elapsed: 1011.9s).
+[2026-09-22 14:13:10] [INFO] Progress: 755/1023 total states complete (275/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 7809 ms, elapsed: 1019.7s).
+[2026-09-22 14:13:46] [INFO] Progress: 760/1023 total states complete (280/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 3484 ms, failovers=1, elapsed: 1055.1s).
+[2026-09-22 14:13:56] [INFO] Progress: 765/1023 total states complete (285/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 45715 ms, failovers=1, elapsed: 1065.6s).
+[2026-09-22 14:14:06] [INFO] Progress: 770/1023 total states complete (290/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 8048 ms, failovers=2, elapsed: 1075.1s).
+[2026-09-22 14:14:48] [INFO] Progress: 775/1023 total states complete (295/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 40270 ms, elapsed: 1117.7s).
+[2026-09-22 14:14:56] [INFO] Progress: 780/1023 total states complete (300/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 7423 ms, failovers=1, elapsed: 1126.1s).
+[2026-09-22 14:15:07] [INFO] Progress: 785/1023 total states complete (305/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 7378 ms, failovers=2, elapsed: 1136.4s).
+[2026-09-22 14:15:42] [INFO] Progress: 790/1023 total states complete (310/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 29512 ms, failovers=1, elapsed: 1172.0s).
+[2026-09-22 14:15:53] [INFO] Progress: 795/1023 total states complete (315/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 6550 ms, elapsed: 1182.2s).
+[2026-09-22 14:16:02] [INFO] Progress: 800/1023 total states complete (320/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 8320 ms, failovers=2, elapsed: 1191.4s).
+[2026-09-22 14:16:13] [INFO] Progress: 805/1023 total states complete (325/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 9208 ms, elapsed: 1202.6s).
+[2026-09-22 14:16:52] [INFO] Progress: 810/1023 total states complete (330/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 6773 ms, elapsed: 1241.3s).
+[2026-09-22 14:17:01] [INFO] Progress: 815/1023 total states complete (335/543 in batch, [gemini_rest/gemini-3.5-flash-lite], latency: 6571 ms, failovers=2, elapsed: 1250.5s).
+[2026-09-22 14:20:18] [INFO] Progress: 820/1023 total states complete (340/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 1447.3s).
+[2026-09-22 14:22:00] [INFO] Progress: 825/1023 total states complete (345/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 1549.8s).
+[2026-09-22 14:23:42] [INFO] Progress: 830/1023 total states complete (350/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 1652.0s).
+[2026-09-22 14:25:25] [INFO] Progress: 835/1023 total states complete (355/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 1754.5s).
+[2026-09-22 14:28:36] [INFO] Progress: 840/1023 total states complete (360/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 1946.0s).
+[2026-09-22 14:30:20] [INFO] Progress: 845/1023 total states complete (365/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 2049.8s).
+[2026-09-22 14:32:06] [INFO] Progress: 850/1023 total states complete (370/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 2156.0s).
+[2026-09-22 14:33:53] [INFO] Progress: 855/1023 total states complete (375/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 2262.7s).
+[2026-09-22 14:37:15] [INFO] Progress: 860/1023 total states complete (380/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 2464.3s).
+[2026-09-22 14:39:04] [INFO] Progress: 865/1023 total states complete (385/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 2573.8s).
+[2026-09-22 14:40:52] [INFO] Progress: 870/1023 total states complete (390/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 2681.2s).
+[2026-09-22 14:42:38] [INFO] Progress: 875/1023 total states complete (395/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 2787.9s).
+[2026-09-22 14:45:45] [INFO] Progress: 880/1023 total states complete (400/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 2974.4s).
+[2026-09-22 14:47:30] [INFO] Progress: 885/1023 total states complete (405/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 3079.4s).
+[2026-09-22 14:49:14] [INFO] Progress: 890/1023 total states complete (410/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 3183.5s).
+[2026-09-22 14:51:04] [INFO] Progress: 895/1023 total states complete (415/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 3293.4s).
+[2026-09-22 14:54:07] [INFO] Progress: 900/1023 total states complete (420/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 3476.8s).
+[2026-09-22 14:55:52] [INFO] Progress: 905/1023 total states complete (425/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 3581.8s).
+[2026-09-22 14:57:36] [INFO] Progress: 910/1023 total states complete (430/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 3685.3s).
+[2026-09-22 14:59:26] [INFO] Progress: 915/1023 total states complete (435/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 3796.1s).
+[2026-09-22 15:02:29] [INFO] Progress: 920/1023 total states complete (440/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 3978.4s).
+[2026-09-22 15:04:10] [INFO] Progress: 925/1023 total states complete (445/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 4079.8s).
+[2026-09-22 15:05:55] [INFO] Progress: 930/1023 total states complete (450/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 4184.9s).
+[2026-09-22 15:07:43] [INFO] Progress: 935/1023 total states complete (455/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 4292.6s).
+[2026-09-22 15:10:46] [INFO] Progress: 940/1023 total states complete (460/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 4475.8s).
+[2026-09-22 15:12:27] [INFO] Progress: 945/1023 total states complete (465/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 4576.3s).
+[2026-09-22 15:14:12] [INFO] Progress: 950/1023 total states complete (470/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 4681.5s).
+[2026-09-22 15:15:54] [INFO] Progress: 955/1023 total states complete (475/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 4783.9s).
+[2026-09-22 15:17:41] [INFO] Progress: 960/1023 total states complete (480/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 4891.0s).
+[2026-09-22 15:20:38] [INFO] Progress: 965/1023 total states complete (485/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 5067.1s).
+[2026-09-22 15:22:34] [INFO] Progress: 970/1023 total states complete (490/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 5183.9s).
+[2026-09-22 15:24:16] [INFO] Progress: 975/1023 total states complete (495/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 5285.2s).
+[2026-09-22 15:26:00] [INFO] Progress: 980/1023 total states complete (500/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 5389.9s).
+[2026-09-22 15:28:58] [INFO] Progress: 985/1023 total states complete (505/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 5567.6s).
+[2026-09-22 15:30:53] [INFO] Progress: 990/1023 total states complete (510/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 5683.1s).
+[2026-09-22 15:32:36] [INFO] Progress: 995/1023 total states complete (515/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 5785.4s).
+[2026-09-22 15:34:20] [INFO] Progress: 1000/1023 total states complete (520/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 5889.2s).
+[2026-09-22 15:37:18] [INFO] Progress: 1005/1023 total states complete (525/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 6067.5s).
+[2026-09-22 15:39:13] [INFO] Progress: 1010/1023 total states complete (530/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 6182.7s).
+[2026-09-22 15:40:56] [INFO] Progress: 1015/1023 total states complete (535/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 6285.9s).
+[2026-09-22 15:42:40] [INFO] Progress: 1020/1023 total states complete (540/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 6390.1s).
+[2026-09-22 15:44:17] [INFO] Progress: 1023/1023 total states complete (543/543 in batch, [heuristic_mock/mock-industrial-expert-v1], latency: 0 ms, failovers=3, elapsed: 6486.3s).
+[2026-09-22 15:44:17] [INFO] Completed 1023 evaluations in 6486.4s (avg latency: 9092 ms).
+[2026-09-22 15:44:17] [INFO] Step 7: Validating schema conformance and auditing engineering sanity flags...
+[2026-09-22 15:44:17] [INFO] Schema Validation Result: 1023/1023 states valid (100.0%).
+[2026-09-22 15:44:17] [INFO] Engineering Sanity Flags Triggered: {'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_INSP_TOOL_WEAR': 6, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_OP_DERATE_LOAD': 31, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_REPL_TOOL_INSERT': 10, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_OP_CONTROLLED_SHUTDOWN': 40, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_MON_CONTINUE': 17, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_OP_ADJUST_PARAMS': 12, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_MON_ENHANCED': 13, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_MON_PARAMETER_LOG': 10, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_INSP_SUBSYSTEM': 42, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_CORR_CALIBRATE': 33, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_REPL_OVERHAUL': 33, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_INSP_THERMAL_ELECTRICAL': 16, 'FLAG_OVERCONFIDENT_ON_ANONYMOUS:High_confidence_on_unmapped_features': 17, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_REPL_SEAL_VALVE': 54, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_CORR_CLEAN_PURGE': 71, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_INSP_PRESSURE_HYDRAULIC': 9, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_INSP_VIBRATION': 5, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_REPL_BEARING': 18, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_CORR_LUBRICATE': 19, 'FLAG_UNSUPPORTED_ASSUMPTIONS_PRESENT:ACT_INSP_LUBRICATION': 31}
+[2026-09-22 15:44:17] [INFO] Step 8: Running consistency & ranking stability evaluation on 10 representative states...
+[2026-09-22 16:32:16] [INFO] Consistency Assessment: MODERATE STABILITY: LLM Judge displays acceptable top-action consistency with moderate variance in lower-tier candidate ordering.
+[2026-09-22 16:32:16] [INFO] Top-Action Agreement: 80.00%
+[2026-09-22 16:32:16] [INFO] Spearman Rank Correlation: 0.7267
+[2026-09-22 16:32:16] [INFO] Permutation Sensitivity: 60.00%
+[2026-09-22 16:32:16] [INFO] Step 9: Assembling and exporting scientifically documented silver-standard preference dataset...
+[2026-09-22 16:32:16] [INFO]  - Parquet: C:\Users\Darsh Veer Singh\OneDrive - iiit-b\Sem 7\AIM801 - Project Elective\Smart-manufacturing-mas\smart_manufacturing_mas\outputs\phase3b\preference_dataset\maintenance_preference_dataset.parquet (1023 rows)
+[2026-09-22 16:32:16] [INFO] Exported silver-standard datasets:
+[2026-09-22 16:32:16] [INFO]  - JSON:    C:\Users\Darsh Veer Singh\OneDrive - iiit-b\Sem 7\AIM801 - Project Elective\Smart-manufacturing-mas\smart_manufacturing_mas\outputs\phase3b\preference_dataset\maintenance_preference_dataset.json
+[2026-09-22 16:32:16] [INFO]  - JSONL:   C:\Users\Darsh Veer Singh\OneDrive - iiit-b\Sem 7\AIM801 - Project Elective\Smart-manufacturing-mas\smart_manufacturing_mas\outputs\phase3b\preference_dataset\maintenance_preference_dataset.jsonl
+[2026-09-22 16:32:16] [INFO]  - CSV:     C:\Users\Darsh Veer Singh\OneDrive - iiit-b\Sem 7\AIM801 - Project Elective\Smart-manufacturing-mas\smart_manufacturing_mas\outputs\phase3b\preference_dataset\maintenance_preference_dataset.csv (1023 rows)
+[2026-09-22 16:32:16] [INFO] Step 10: Generating PHASE_3B_SUMMARY.md...
+[2026-09-22 16:32:16] [INFO] Phase 3B Summary report generated at: C:\Users\Darsh Veer Singh\OneDrive - iiit-b\Sem 7\AIM801 - Project Elective\Smart-manufacturing-mas\smart_manufacturing_mas\outputs\phase3b\PHASE_3B_SUMMARY.md
+[2026-09-22 16:32:16] [INFO] ======================================================================
+[2026-09-22 16:32:16] [INFO] PHASE 3B PIPELINE EXECUTION COMPLETED SUCCESSFULLY!
+[2026-09-22 16:32:16] [INFO] ======================================================================

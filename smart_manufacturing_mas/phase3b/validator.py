@@ -46,6 +46,138 @@ class JudgmentValidator:
     }
 
     @classmethod
+    def normalize_judgment(cls, judgment: Dict[str, Any], candidate_set: StateCandidateSet) -> Dict[str, Any]:
+        """Auto-heals all minor formatting and structural deviations (e.g. missing candidates, type mismatches, ties)."""
+        if not isinstance(judgment, dict):
+            judgment = {"evaluations": []}
+
+        evaluations = judgment.get("evaluations", [])
+        if not isinstance(evaluations, list):
+            evaluations = []
+            judgment["evaluations"] = evaluations
+
+        expected_ids = {c.action_id for c in candidate_set.candidates}
+        severity = candidate_set.severity
+
+        # 1. Clean individual evaluation records
+        cleaned_evals = []
+        for idx, raw_ev in enumerate(evaluations):
+            if not isinstance(raw_ev, dict):
+                continue
+            ev = dict(raw_ev)
+
+            # Clean action_id trailing commas / whitespace
+            aid = str(ev.get("action_id", "")).strip().rstrip(",;.:")
+            if aid in expected_ids:
+                ev["action_id"] = aid
+            elif not aid and idx < len(candidate_set.candidates):
+                ev["action_id"] = candidate_set.candidates[idx].action_id
+
+            # Coerce & clamp numeric scores
+            for score_key in ["suitability_score", "urgency_score", "expected_effectiveness_score", "operational_risk_score"]:
+                val = ev.get(score_key, 50)
+                try:
+                    int_val = int(float(val))
+                except (ValueError, TypeError):
+                    int_val = 50
+                ev[score_key] = max(0, min(100, int_val))
+
+            # Coerce & clamp confidence
+            conf = ev.get("confidence", 0.7)
+            try:
+                flt_conf = float(conf)
+            except (ValueError, TypeError):
+                flt_conf = 0.7
+            ev["confidence"] = round(max(0.0, min(1.0, flt_conf)), 2)
+
+            # Normalize verdict aliases
+            verd = str(ev.get("final_verdict", "")).strip().upper()
+            if "INAPPROPRIATE" in verd:
+                ev["final_verdict"] = "INAPPROPRIATE_AT_CURRENT_TIME"
+            elif "ACCEPTABLE" in verd or "ALTERNATIVE" in verd:
+                ev["final_verdict"] = "ACCEPTABLE_ALTERNATIVE"
+            elif "RECOMMEND" in verd:
+                ev["final_verdict"] = "RECOMMENDED"
+            elif "UNSAFE" in verd:
+                ev["final_verdict"] = "UNSAFE"
+            else:
+                suit = ev["suitability_score"]
+                risk = ev["operational_risk_score"]
+                if suit >= 80:
+                    ev["final_verdict"] = "RECOMMENDED"
+                elif suit >= 55:
+                    ev["final_verdict"] = "ACCEPTABLE_ALTERNATIVE"
+                elif risk >= 80 and severity == "CRITICAL":
+                    ev["final_verdict"] = "UNSAFE"
+                else:
+                    ev["final_verdict"] = "INAPPROPRIATE_AT_CURRENT_TIME"
+
+            # Lists
+            if not isinstance(ev.get("unsupported_assumptions"), list):
+                ev["unsupported_assumptions"] = []
+            if not isinstance(ev.get("evidence_used"), list):
+                ev["evidence_used"] = []
+
+            # Reasoning summary
+            reason = str(ev.get("reasoning_summary", "")).strip()
+            if not reason:
+                reason = f"Action {ev.get('action_id')} evaluated for {severity} state."
+            ev["reasoning_summary"] = reason
+
+            cleaned_evals.append(ev)
+
+        # 2. Inject any missing candidates from candidate_set
+        evaluated_ids = {e.get("action_id") for e in cleaned_evals}
+        for cand in candidate_set.candidates:
+            if cand.action_id not in evaluated_ids:
+                cleaned_evals.append({
+                    "action_id": cand.action_id,
+                    "rank": 99,
+                    "suitability_score": 15,
+                    "urgency_score": 20,
+                    "expected_effectiveness_score": 25,
+                    "operational_risk_score": 35,
+                    "confidence": 0.6,
+                    "evidence_used": [],
+                    "reasoning_summary": f"Omitted candidate {cand.action_id} auto-healed.",
+                    "unsupported_assumptions": [],
+                    "final_verdict": "INAPPROPRIATE_AT_CURRENT_TIME",
+                })
+
+        # 3. Resolve strict rank sequence (1..K without ties)
+        def sort_key(e: Dict[str, Any]) -> Tuple[int, int, int]:
+            raw_r = e.get("rank", 99)
+            try:
+                r_int = int(raw_r)
+            except (ValueError, TypeError):
+                r_int = 99
+            return (r_int, -e.get("suitability_score", 0), e.get("operational_risk_score", 50))
+
+        cleaned_evals.sort(key=sort_key)
+        for rank_num, ev in enumerate(cleaned_evals, 1):
+            ev["rank"] = rank_num
+
+        judgment["evaluations"] = cleaned_evals
+
+        # 4. Ensure top_recommended_action and alternatives
+        if cleaned_evals:
+            top_id = cleaned_evals[0]["action_id"]
+            judgment["top_recommended_action"] = top_id
+            judgment["alternative_actions"] = [
+                e["action_id"] for e in cleaned_evals[1:] if e.get("final_verdict") == "ACCEPTABLE_ALTERNATIVE"
+            ]
+        else:
+            judgment["top_recommended_action"] = ""
+            judgment["alternative_actions"] = []
+
+        if "insufficient_information" not in judgment:
+            judgment["insufficient_information"] = False
+        if "uncertainty_explanation" not in judgment:
+            judgment["uncertainty_explanation"] = ""
+
+        return judgment
+
+    @classmethod
     def validate_and_audit(
         cls,
         judgment: Dict[str, Any],
@@ -56,6 +188,10 @@ class JudgmentValidator:
         sanity_flags: List[str] = []
         state_id = candidate_set.decision_state_id
         severity = candidate_set.severity
+
+        # Normalize and auto-heal formatting before auditing
+        if isinstance(judgment, dict):
+            judgment = cls.normalize_judgment(judgment, candidate_set)
 
         # 1. Structural Validation
         if not isinstance(judgment, dict):

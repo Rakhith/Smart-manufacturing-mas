@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import time
 from collections import Counter, defaultdict
 from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
@@ -76,7 +77,11 @@ class StabilityEvaluator:
         all_conf_mads = []
         order_sensitivities = []
 
-        for state in states_subset:
+        total_subset = len(states_subset)
+        print(f"[Stability] Starting stability analysis on {total_subset} states ({n_repeats} repeats each)...", flush=True)
+
+        for s_idx, state in enumerate(states_subset, 1):
+            t_state_start = time.time()
             sid = state.get("decision_state_id", "")
             cset = candidate_sets[sid]
             k_cands = len(cset.candidates)
@@ -103,6 +108,8 @@ class StabilityEvaluator:
             top_counts = Counter(top_actions)
             most_common_action, most_common_count = top_counts.most_common(1)[0] if top_counts else ("", 0)
             agreement_pct = 100.0 * most_common_count / max(1, len(runs))
+            state_dur = time.time() - t_state_start
+            print(f"[Stability] [{s_idx}/{total_subset}] {sid} -> top: {most_common_action} (agreement: {agreement_pct:.0f}%, time: {state_dur:.1f}s)", flush=True)
             is_unanimous = (most_common_count == len(runs))
             all_agreements.append(agreement_pct)
 

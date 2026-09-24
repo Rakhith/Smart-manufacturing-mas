@@ -39,6 +39,11 @@ scripts/.ipynb_checkpoints/
 # macOS
 .DS_Store
 
+# Scratch and developer temporary files
+scratch/
+*.log
+outputs/**/logs/
+
 # IDE
 .idea/
 .vscode/

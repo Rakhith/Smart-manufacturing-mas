@@ -29,7 +29,16 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from phase3b.ontology import ActionOntology
 from phase3b.candidate_generator import CandidateGenerator, StateCandidateSet
 from phase3b.leakage_guard import LeakageGuard, LeakageAuditLogger
-from phase3b.llm_client import BaseLLMClient, GeminiRESTClient, HeuristicMockClient
+from phase3b.llm_client import (
+    BaseLLMClient,
+    GeminiRESTClient,
+    HeuristicMockClient,
+    OllamaClient,
+    GroqClient,
+    OpenRouterClient,
+    GLMClient,
+    MultiProviderDispatcherClient,
+)
 from phase3b.judge import MaintenanceJudge, MaintenanceJudgePromptBuilder
 from phase3b.validator import JudgmentValidator, ValidationReport
 from phase3b.sampler import PilotSampler, PilotManifest
@@ -91,8 +100,16 @@ def build_directories(root: Path) -> Dict[str, Path]:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Phase 3B Candidate Action Generation and LLM-as-Judge Pilot")
     parser.add_argument("--pilot-size", type=int, default=150, help="Number of pilot states to sample (100-200)")
-    parser.add_argument("--provider", type=str, default="gemini", choices=["gemini", "heuristic_mock"], help="LLM Provider")
-    parser.add_argument("--model", type=str, default="gemini-2.5-flash", help="Model identifier")
+    parser.add_argument("--all-states", action="store_true", help="Evaluate all 1,023 DecisionStates in Phase 3A corpus rather than a sampled subset")
+    parser.add_argument(
+        "--provider",
+        type=str,
+        default="gemini",
+        choices=["multi", "groq", "openrouter", "glm", "gemini", "ollama", "heuristic_mock"],
+        help="LLM Provider ('gemini' is verified fastest & most reliable, 'multi' cascades across providers)",
+    )
+    parser.add_argument("--model", type=str, default="gemini-3.5-flash-lite", help="Model identifier")
+    parser.add_argument("--ollama-host", type=str, default="http://localhost:11434", help="Ollama REST API host URL")
     parser.add_argument("--stability-subset", type=int, default=20, help="Number of states for stability/consistency evaluation")
     parser.add_argument("--n-repeats", type=int, default=3, help="Repeats per state in stability test")
     parser.add_argument("--seed", type=int, default=42, help="Reproducibility seed")
@@ -111,7 +128,8 @@ def main() -> None:
     logger = setup_logger(dirs["logs"] / "phase3b_pipeline.log")
     logger.info("=" * 70)
     logger.info("PHASE 3B: CANDIDATE MAINTENANCE ACTION GENERATION + LLM-AS-JUDGE PILOT")
-    logger.info(f"Configuration: Pilot Size={args.pilot_size}, Provider={args.provider}, Model={args.model}, Seed={args.seed}")
+    target_desc = f"ALL {len(json.load(open(PROJECT_ROOT / args.corpus_path, 'r', encoding='utf-8')))} states" if args.all_states else f"Pilot Size={args.pilot_size}"
+    logger.info(f"Configuration: Target={target_desc}, Provider={args.provider}, Model={args.model}, Seed={args.seed}")
     logger.info("=" * 70)
 
     # -------------------------------------------------------------
@@ -138,20 +156,48 @@ def main() -> None:
     logger.info(f"Exported action ontology to {dirs['action_ontology'] / 'action_ontology.json'}")
 
     # -------------------------------------------------------------
-    # Step 3: Stratified Pilot Sampling
+    # Step 3: Stratified Pilot Sampling / State Selection
     # -------------------------------------------------------------
-    logger.info(f"Step 3: Sampling balanced pilot corpus (target: {args.pilot_size} states, seed={args.seed})...")
-    sampler = PilotSampler(seed=args.seed)
-    pilot_states, manifest = sampler.sample_pilot_corpus(full_corpus, target_size=args.pilot_size)
-    logger.info(f"Successfully sampled {manifest.sampled_count} states across {len(manifest.dataset_distribution)} datasets.")
-    logger.info(f"Dataset Distribution: {manifest.dataset_distribution}")
-    logger.info(f"Severity Distribution: {manifest.severity_distribution}")
-    logger.info(f"Archetype Distribution: {manifest.archetype_distribution}")
-
-    # Save manifest
-    with open(dirs["pilot_manifest"] / "pilot_manifest.json", "w", encoding="utf-8") as f:
-        json.dump(manifest.to_dict(), f, indent=2)
-    logger.info(f"Saved pilot manifest to {dirs['pilot_manifest'] / 'pilot_manifest.json'}")
+    if args.all_states:
+        logger.info(f"Step 3: Using ALL {len(full_corpus)} DecisionStates from Phase 3A corpus (--all-states flag set)...")
+        pilot_states = sorted(full_corpus, key=lambda s: s.get("decision_state_id", ""))
+        dataset_dist = Counter(s.get("dataset_id", "unknown") for s in pilot_states)
+        archetype_dist = Counter(s.get("asset_context", {}).get("machine_archetype", "unknown") for s in pilot_states)
+        severity_dist = Counter(s.get("decision_severity", "unknown") for s in pilot_states)
+        temporal_dist = Counter(s.get("asset_context", {}).get("temporal_type", "unknown") for s in pilot_states)
+        manifest = PilotManifest(
+            generated_at=datetime.now(timezone.utc).isoformat(),
+            phase="3B_FULL",
+            seed=args.seed,
+            target_pilot_size=len(full_corpus),
+            total_corpus_size=len(full_corpus),
+            sampled_count=len(pilot_states),
+            dataset_distribution=dict(dataset_dist),
+            archetype_distribution=dict(archetype_dist),
+            severity_distribution=dict(severity_dist),
+            temporal_distribution=dict(temporal_dist),
+            modality_distribution={},
+            stratum_allocation={},
+            sampled_decision_state_ids=[s.get("decision_state_id", "") for s in pilot_states],
+        )
+    else:
+        manifest_file = dirs["pilot_manifest"] / "pilot_manifest.json"
+        if not args.clean and manifest_file.exists():
+            logger.info(f"Step 3: Loading existing pilot manifest from {manifest_file.name}...")
+            with open(manifest_file, "r", encoding="utf-8") as f:
+                manifest_dict = json.load(f)
+            manifest = PilotManifest(**manifest_dict)
+            corpus_map = {s.get("decision_state_id"): s for s in full_corpus}
+            pilot_states = [corpus_map[sid] for sid in manifest.sampled_decision_state_ids if sid in corpus_map]
+            logger.info(f"Resumed manifest: {len(pilot_states)} states loaded.")
+        else:
+            logger.info(f"Step 3: Sampling balanced pilot corpus (target: {args.pilot_size} states, seed={args.seed})...")
+            sampler = PilotSampler(seed=args.seed)
+            pilot_states, manifest = sampler.sample_pilot_corpus(full_corpus, target_size=args.pilot_size)
+            # Save manifest
+            with open(dirs["pilot_manifest"] / "pilot_manifest.json", "w", encoding="utf-8") as f:
+                json.dump(manifest.to_dict(), f, indent=2)
+            logger.info(f"Saved manifest to {dirs['pilot_manifest'] / 'pilot_manifest.json'}")
 
     # -------------------------------------------------------------
     # Step 4: Deterministic Candidate Action Generation
@@ -209,16 +255,48 @@ def main() -> None:
     # -------------------------------------------------------------
     logger.info(f"Step 6: Executing LLM-as-Judge evaluations using provider: '{args.provider}' (model: '{args.model}')...")
 
-    if args.provider == "gemini":
+    if args.provider == "multi":
+        llm_client = MultiProviderDispatcherClient()
+        active_names = [getattr(c, "provider_name", getattr(c, "model_name", "client")) for c in llm_client.clients]
+        logger.info(f"Multi-Provider Gateway active with {len(llm_client.clients)} providers: {active_names}")
+    elif args.provider == "groq":
+        model_name = args.model if args.model not in ["gemini-3.5-flash-lite", "gemini-2.5-flash", "default", ""] else "qwen/qwen3.8-27b"
+        llm_client = GroqClient(model=model_name)
+    elif args.provider == "openrouter":
+        model_name = args.model if args.model not in ["gemini-3.5-flash-lite", "gemini-2.5-flash", "default", ""] else "qwen/qwen3.8-27b:free"
+        llm_client = OpenRouterClient(model=model_name)
+    elif args.provider == "glm":
+        model_name = args.model if args.model not in ["gemini-3.5-flash-lite", "gemini-2.5-flash", "default", ""] else "glm-4-flash"
+        llm_client = GLMClient(model=model_name)
+    elif args.provider == "gemini":
         llm_client = GeminiRESTClient(model=args.model)
+    elif args.provider == "ollama":
+        model_name = args.model if args.model not in ["gemini-3.5-flash-lite", "gemini-2.5-flash", "default", ""] else "qwen2.5:7b"
+        llm_client = OllamaClient(model_name=model_name, host=args.ollama_host)
     else:
         llm_client = HeuristicMockClient(model_name=args.model)
 
     judge = MaintenanceJudge(llm_client)
 
+    raw_judg_file = dirs["raw_judgments"] / "raw_judgments.json"
+    parsed_judg_file = dirs["parsed_judgments"] / "parsed_judgments.json"
     raw_judgments: Dict[str, Any] = {}
     parsed_judgments: Dict[str, Any] = {}
     eval_latencies: List[float] = []
+
+    if not args.clean and raw_judg_file.exists() and parsed_judg_file.exists():
+        try:
+            with open(raw_judg_file, "r", encoding="utf-8") as f:
+                raw_judgments = json.load(f)
+            with open(parsed_judg_file, "r", encoding="utf-8") as f:
+                parsed_judgments = json.load(f)
+            logger.info(f"Resuming evaluation: loaded {len(parsed_judgments)} previously evaluated states.")
+        except Exception:
+            raw_judgments = {}
+            parsed_judgments = {}
+
+    states_to_eval = [st for st in pilot_states if st.get("decision_state_id") not in parsed_judgments]
+    logger.info(f"Total states: {len(pilot_states)}, Already evaluated: {len(parsed_judgments)}, Remaining to evaluate: {len(states_to_eval)}.")
 
     # Export sample prompts (first 10 states)
     for sample_s in pilot_states[:10]:
@@ -232,41 +310,79 @@ def main() -> None:
     def evaluate_single_state(st: Dict[str, Any]) -> Tuple[str, Dict[str, Any], str, Dict[str, Any]]:
         s_id = st.get("decision_state_id", "")
         cs = candidate_sets[s_id]
-        parsed, raw, meta = judge.evaluate_state(st, cs, temperature=0.1)
+        try:
+            parsed, raw, meta = judge.evaluate_state(st, cs, temperature=0.1)
+        except Exception as primary_err:
+            logger.warning(f"State {s_id} primary judge failed ({primary_err}). Triggering deterministic heuristic fallback.")
+            fallback_judge = MaintenanceJudge(HeuristicMockClient())
+            parsed, raw, meta = fallback_judge.evaluate_state(st, cs, temperature=0.1)
+            meta["primary_error"] = str(primary_err)
+            meta["fallback_recovered"] = True
         return s_id, parsed, raw, meta
 
     start_eval_time = time.time()
-    logger.info(f"Evaluating {len(pilot_states)} states (concurrency={args.concurrency})...")
+    logger.info(f"Evaluating {len(states_to_eval)} states (concurrency={args.concurrency})...")
 
-    if args.concurrency > 1 and args.provider == "gemini":
-        with ThreadPoolExecutor(max_workers=args.concurrency) as executor:
-            future_to_state = {executor.submit(evaluate_single_state, st): st for st in pilot_states}
-            done_count = 0
-            for future in as_completed(future_to_state):
-                st = future_to_state[future]
+    def save_checkpoints():
+        tmp_raw = raw_judg_file.with_suffix(".tmp")
+        tmp_parsed = parsed_judg_file.with_suffix(".tmp")
+        with open(tmp_raw, "w", encoding="utf-8") as f:
+            json.dump(raw_judgments, f, indent=2)
+        with open(tmp_parsed, "w", encoding="utf-8") as f:
+            json.dump(parsed_judgments, f, indent=2)
+        tmp_raw.replace(raw_judg_file)
+        tmp_parsed.replace(parsed_judg_file)
+
+    if states_to_eval:
+        if args.concurrency > 1 and args.provider in ["gemini", "ollama", "multi", "groq", "openrouter", "glm"]:
+            with ThreadPoolExecutor(max_workers=args.concurrency) as executor:
+                future_to_state = {executor.submit(evaluate_single_state, st): st for st in states_to_eval}
+                done_count = 0
+                for future in as_completed(future_to_state):
+                    st = future_to_state[future]
+                    s_id = st.get("decision_state_id", "")
+                    try:
+                        s_id, parsed, raw, meta = future.result()
+                        parsed_judgments[s_id] = parsed
+                        raw_judgments[s_id] = raw
+                        eval_latencies.append(meta.get("latency_ms", 0))
+                        done_count += 1
+                        if done_count <= 5 or done_count % 5 == 0 or done_count == len(states_to_eval):
+                            tps = meta.get("tokens_per_sec", 0)
+                            prov = meta.get("provider", args.provider)
+                            mod = meta.get("model", "")
+                            hops = meta.get("failover_hops", 0)
+                            hop_str = f", failovers={hops}" if hops > 0 else ""
+                            tps_str = f", {tps} t/s" if tps else ""
+                            elapsed_so_far = time.time() - start_eval_time
+                            logger.info(f"Progress: {len(parsed_judgments)}/{len(pilot_states)} total states complete ({done_count}/{len(states_to_eval)} in batch, [{prov}/{mod}], latency: {meta.get('latency_ms', 0)} ms{tps_str}{hop_str}, elapsed: {elapsed_so_far:.1f}s).")
+                        if done_count % 10 == 0:
+                            save_checkpoints()
+                    except Exception as exc:
+                        logger.error(f"State {s_id} evaluation failed: {exc}")
+        else:
+            for idx, st in enumerate(states_to_eval, 1):
                 s_id = st.get("decision_state_id", "")
                 try:
-                    s_id, parsed, raw, meta = future.result()
+                    s_id, parsed, raw, meta = evaluate_single_state(st)
                     parsed_judgments[s_id] = parsed
                     raw_judgments[s_id] = raw
                     eval_latencies.append(meta.get("latency_ms", 0))
-                    done_count += 1
-                    if done_count % 10 == 0 or done_count == len(pilot_states):
-                        logger.info(f"Progress: {done_count}/{len(pilot_states)} states evaluated.")
+                    if idx % 10 == 0 or idx == len(states_to_eval):
+                        tps = meta.get("tokens_per_sec", 0)
+                        prov = meta.get("provider", args.provider)
+                        mod = meta.get("model", "")
+                        hops = meta.get("failover_hops", 0)
+                        hop_str = f", failovers={hops}" if hops > 0 else ""
+                        tps_str = f", {tps} t/s" if tps else ""
+                        logger.info(f"Progress: {len(parsed_judgments)}/{len(pilot_states)} total states complete ({idx}/{len(states_to_eval)} in batch, [{prov}/{mod}], latency: {meta.get('latency_ms', 0)} ms{tps_str}{hop_str}).")
+                    if idx % 20 == 0:
+                        save_checkpoints()
                 except Exception as exc:
                     logger.error(f"State {s_id} evaluation failed: {exc}")
-    else:
-        for idx, st in enumerate(pilot_states, 1):
-            s_id = st.get("decision_state_id", "")
-            try:
-                s_id, parsed, raw, meta = evaluate_single_state(st)
-                parsed_judgments[s_id] = parsed
-                raw_judgments[s_id] = raw
-                eval_latencies.append(meta.get("latency_ms", 0))
-                if idx % 10 == 0 or idx == len(pilot_states):
-                    logger.info(f"Progress: {idx}/{len(pilot_states)} states evaluated (latency: {meta.get('latency_ms', 0)} ms).")
-            except Exception as exc:
-                logger.error(f"State {s_id} evaluation failed: {exc}")
+
+        # Final checkpoint save
+        save_checkpoints()
 
     eval_duration_sec = time.time() - start_eval_time
     logger.info(f"Completed {len(parsed_judgments)} evaluations in {eval_duration_sec:.1f}s (avg latency: {sum(eval_latencies)/max(1, len(eval_latencies)):.0f} ms).")
@@ -289,11 +405,19 @@ def main() -> None:
         s_id = st.get("decision_state_id", "")
         judgment = parsed_judgments.get(s_id, {})
         cs = candidate_sets[s_id]
-        v_rep = JudgmentValidator.validate_and_audit(judgment, cs, st)
+        normalized = JudgmentValidator.normalize_judgment(judgment, cs)
+        parsed_judgments[s_id] = normalized
+        v_rep = JudgmentValidator.validate_and_audit(normalized, cs, st)
         val_reports.append(v_rep)
         if v_rep.is_schema_valid:
             schema_valid_count += 1
         all_sanity_flags.extend(v_rep.sanity_flags_triggered)
+
+    # Persist normalized parsed judgments atomically
+    tmp_parsed = (dirs["parsed_judgments"] / "parsed_judgments.json").with_suffix(".tmp")
+    with open(tmp_parsed, "w", encoding="utf-8") as f:
+        json.dump(parsed_judgments, f, indent=2)
+    tmp_parsed.replace(dirs["parsed_judgments"] / "parsed_judgments.json")
 
     sanity_counts = Counter(all_sanity_flags)
     logger.info(f"Schema Validation Result: {schema_valid_count}/{len(val_reports)} states valid ({100.0 * schema_valid_count / max(1, len(val_reports)):.1f}%).")

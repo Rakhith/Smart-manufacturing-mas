@@ -1,4 +1,4 @@
-# Maintenance Action Evaluation Request: State `DS_AI4I_1124`
+# Maintenance Action Evaluation Request: State `DS_AI4I_1437`
 
 ## 1. Machine Asset & Operational Context
 - **Asset Archetype**: `cnc_mill`
@@ -8,21 +8,21 @@
 
 ## 2. Operating Telemetry & Subsystem Conditions
 ### Subsystem: Thermal
-- `Air temperature [K]`: 296.7000
-- `Process temperature [K]`: 307.8000
-- `Air temperature [K]__canonical_degC`: 23.5500
-- `Process temperature [K]__canonical_degC`: 34.6500
+- `Air temperature [K]`: 298.8000
+- `Process temperature [K]`: 309.9000
+- `Air temperature [K]__canonical_degC`: 25.6500
+- `Process temperature [K]__canonical_degC`: 36.7500
 ### Subsystem: Mechanical
-- `Torque [Nm]`: 69.0000
+- `Torque [Nm]`: 45.2000
 ### Subsystem: Kinematic
-- `Rotational speed [rpm]`: 1258
+- `Rotational speed [rpm]`: 1439
 ### Subsystem: Process Operating
-- `Type`: M
+- `Type`: H
 ### Subsystem: Health Degradation
-- `Tool wear [min]`: 105
+- `Tool wear [min]`: 40
 
 ## 3. Temporal Dynamics & Trend Summary
-- Sequence Step: 1124
+- Sequence Step: 1437
 - (Instantaneous snapshot only — no longitudinal trend statistics)
 
 ## 4. Stated Data Limitations & Epistemic Boundaries
@@ -42,8 +42,8 @@ Evaluate each of the following candidate actions comparatively:
     "operational_downtime_cost": "medium",
     "inclusion_rationale": "Tool wear / spindle load at critical threshold; immediate insert/tool replacement required.",
     "trigger_evidence": [
-      "Air temperature [K] = 296.700",
-      "Process temperature [K] = 307.800"
+      "Air temperature [K] = 298.800",
+      "Process temperature [K] = 309.900"
     ]
   },
   {
@@ -55,8 +55,8 @@ Evaluate each of the following candidate actions comparatively:
     "operational_downtime_cost": "high",
     "inclusion_rationale": "Execute controlled cycle termination and lockout spindle to avoid machine collision.",
     "trigger_evidence": [
-      "Air temperature [K] = 296.700",
-      "Process temperature [K] = 307.800"
+      "Air temperature [K] = 298.800",
+      "Process temperature [K] = 309.900"
     ]
   },
   {
@@ -68,8 +68,8 @@ Evaluate each of the following candidate actions comparatively:
     "operational_downtime_cost": "medium",
     "inclusion_rationale": "Immediately derate spindle torque and feed rate if shutdown must wait for cycle end.",
     "trigger_evidence": [
-      "Air temperature [K] = 296.700",
-      "Process temperature [K] = 307.800"
+      "Air temperature [K] = 298.800",
+      "Process temperature [K] = 309.900"
     ]
   },
   {
@@ -81,8 +81,8 @@ Evaluate each of the following candidate actions comparatively:
     "operational_downtime_cost": "low",
     "inclusion_rationale": "Urgent post-stop visual inspection of cutting zone and spindle runout.",
     "trigger_evidence": [
-      "Air temperature [K] = 296.700",
-      "Process temperature [K] = 307.800"
+      "Air temperature [K] = 298.800",
+      "Process temperature [K] = 309.900"
     ]
   },
   {
@@ -94,8 +94,8 @@ Evaluate each of the following candidate actions comparatively:
     "operational_downtime_cost": "negligible",
     "inclusion_rationale": "Passive baseline comparator (testing LLM resistance to dangerous inaction in critical state).",
     "trigger_evidence": [
-      "Air temperature [K] = 296.700",
-      "Process temperature [K] = 307.800"
+      "Air temperature [K] = 298.800",
+      "Process temperature [K] = 309.900"
     ]
   }
 ]

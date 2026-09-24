@@ -1,51 +1,38 @@
-# Maintenance Action Evaluation Request: State `DS_AI4I_3754`
+# Maintenance Action Evaluation Request: State `DS_AI4I_1352`
 
 ## 1. Machine Asset & Operational Context
 - **Asset Archetype**: `cnc_mill`
 - **Industrial Domain**: `cnc_machining`
 - **Data Dynamics**: `static_tabular`
-- **Calibrated Severity Tier**: **WATCH**
+- **Calibrated Severity Tier**: **HEALTHY**
 
 ## 2. Operating Telemetry & Subsystem Conditions
 ### Subsystem: Thermal
-- `Air temperature [K]`: 302.3000
-- `Process temperature [K]`: 311.0000
-- `Air temperature [K]__canonical_degC`: 29.1500
-- `Process temperature [K]__canonical_degC`: 37.8500
+- `Air temperature [K]`: 298.7000
+- `Process temperature [K]`: 310.2000
+- `Air temperature [K]__canonical_degC`: 25.5500
+- `Process temperature [K]__canonical_degC`: 37.0500
 ### Subsystem: Mechanical
-- `Torque [Nm]`: 43.7000
+- `Torque [Nm]`: 33.3000
 ### Subsystem: Kinematic
-- `Rotational speed [rpm]`: 1442
+- `Rotational speed [rpm]`: 1598
 ### Subsystem: Process Operating
-- `Type`: L
+- `Type`: M
 ### Subsystem: Health Degradation
-- `Tool wear [min]`: 152
+- `Tool wear [min]`: 36
 
 ## 3. Temporal Dynamics & Trend Summary
-- Sequence Step: 3754
+- Sequence Step: 1352
 - (Instantaneous snapshot only — no longitudinal trend statistics)
 
 ## 4. Stated Data Limitations & Epistemic Boundaries
 - ⚠️ Snapshot observation only; no longitudinal causal temporal trend available.
-- ⚠️ Observed severity tier (WATCH) is distribution-calibrated relative to operational baselines.
+- ⚠️ Observed severity tier (HEALTHY) is distribution-calibrated relative to operational baselines.
 
 ## 5. Candidate Maintenance Actions to Evaluate
 Evaluate each of the following candidate actions comparatively:
 ```json
 [
-  {
-    "action_id": "ACT_MON_ENHANCED",
-    "action_name": "Increase Monitoring Frequency & Alert Sensitivity",
-    "category": "monitoring_observation",
-    "description": "Shorten sensor sampling / logging interval, tighten statistical alarm thresholds, and track trailing trends closely.",
-    "intervention_risk": "low",
-    "operational_downtime_cost": "negligible",
-    "inclusion_rationale": "Telemetry shows early deviation or watch-tier variance requiring closer sampling frequency.",
-    "trigger_evidence": [
-      "Air temperature [K] = 302.300",
-      "Process temperature [K] = 311.000"
-    ]
-  },
   {
     "action_id": "ACT_MON_CONTINUE",
     "action_name": "Continue Normal Operation",
@@ -53,36 +40,36 @@ Evaluate each of the following candidate actions comparatively:
     "description": "Maintain current production schedule and routine supervisory monitoring without manual intervention.",
     "intervention_risk": "low",
     "operational_downtime_cost": "negligible",
-    "inclusion_rationale": "Passive baseline comparator to test whether intervention is prematurely invasive.",
+    "inclusion_rationale": "Nominal operating telemetry within standard envelope; standard production can continue.",
     "trigger_evidence": [
-      "Air temperature [K] = 302.300",
-      "Process temperature [K] = 311.000"
+      "Air temperature [K] = 298.700",
+      "Process temperature [K] = 310.200"
     ]
   },
   {
-    "action_id": "ACT_INSP_TOOL_WEAR",
-    "action_name": "Inspect Cutting Tool & Insert Flank Wear",
-    "category": "inspection_diagnosis",
-    "description": "Perform optical / microscopic inspection of cutting edge, measure flank wear (VB), chip loading, and tool runout.",
+    "action_id": "ACT_MON_ENHANCED",
+    "action_name": "Increase Monitoring Frequency & Alert Sensitivity",
+    "category": "monitoring_observation",
+    "description": "Shorten sensor sampling / logging interval, tighten statistical alarm thresholds, and track trailing trends closely.",
     "intervention_risk": "low",
-    "operational_downtime_cost": "low",
-    "inclusion_rationale": "Tool wear indicators or spindle torque variations warrant optical/flank wear inspection.",
+    "operational_downtime_cost": "negligible",
+    "inclusion_rationale": "Conservative baseline option to track micro-variations and prevent undetected drift.",
     "trigger_evidence": [
-      "Torque [Nm] = 43.700",
-      "Tool wear [min] = 152.000"
+      "Air temperature [K] = 298.700",
+      "Process temperature [K] = 310.200"
     ]
   },
   {
-    "action_id": "ACT_OP_ADJUST_PARAMS",
-    "action_name": "Adjust Operational Speed, Feed & Process Parameters",
-    "category": "operational_mitigation",
-    "description": "Dial back spindle RPM, feed rate, chamber RF power, or reactor flow rate to relieve mechanical/thermal stress.",
-    "intervention_risk": "medium",
-    "operational_downtime_cost": "low",
-    "inclusion_rationale": "Modulate spindle speed or feed rate to relieve cutting resistance and tool stress.",
+    "action_id": "ACT_MON_PARAMETER_LOG",
+    "action_name": "Log Process Parameter & Latency Drift",
+    "category": "monitoring_observation",
+    "description": "Flag operational parameter drift, network packet latency, or minor thermodynamic deviations for shift review.",
+    "intervention_risk": "low",
+    "operational_downtime_cost": "negligible",
+    "inclusion_rationale": "Log process parameter baseline and electrical harmonics during normal run.",
     "trigger_evidence": [
-      "Torque [Nm] = 43.700",
-      "Rotational speed [rpm] = 1442.000"
+      "Air temperature [K] = 298.700",
+      "Process temperature [K] = 310.200"
     ]
   }
 ]
@@ -97,6 +84,7 @@ Comparatively rank and score all candidates against the observed machine state. 
 - `confidence` [0.0-1.0]: Certainty of rating given the sufficiency and clarity of sensor telemetry.
 - `rank`: Unique integer from 1 to K (1 = top recommended action; no tied ranks).
 - `final_verdict`: Exactly one of 'RECOMMENDED', 'ACCEPTABLE_ALTERNATIVE', 'INAPPROPRIATE_AT_CURRENT_TIME', 'UNSAFE'.
+- `reasoning_summary`: Strictly ONE brief sentence (maximum 15 words). Do not write multi-sentence paragraphs.
 
 Respond ONLY with a JSON object matching this exact structure:
 ```json
@@ -111,7 +99,7 @@ Respond ONLY with a JSON object matching this exact structure:
       "operational_risk_score": <0-100>,
       "confidence": <0.0-1.0>,
       "evidence_used": ["<sensor or trend cited>"],
-      "reasoning_summary": "<concise engineering justification>",
+      "reasoning_summary": "<strictly 1 brief sentence, max 15 words>",
       "unsupported_assumptions": ["<any unverified assumptions or empty list>"],
       "final_verdict": "RECOMMENDED"
     }

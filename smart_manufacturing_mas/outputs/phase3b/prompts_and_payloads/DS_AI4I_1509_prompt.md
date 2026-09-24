@@ -1,4 +1,4 @@
-# Maintenance Action Evaluation Request: State `DS_AI4I_4292`
+# Maintenance Action Evaluation Request: State `DS_AI4I_1509`
 
 ## 1. Machine Asset & Operational Context
 - **Asset Archetype**: `cnc_mill`
@@ -8,21 +8,21 @@
 
 ## 2. Operating Telemetry & Subsystem Conditions
 ### Subsystem: Thermal
-- `Air temperature [K]`: 301.8000
-- `Process temperature [K]`: 310.1000
-- `Air temperature [K]__canonical_degC`: 28.6500
-- `Process temperature [K]__canonical_degC`: 36.9500
+- `Air temperature [K]`: 298.0000
+- `Process temperature [K]`: 308.5000
+- `Air temperature [K]__canonical_degC`: 24.8500
+- `Process temperature [K]__canonical_degC`: 35.3500
 ### Subsystem: Mechanical
-- `Torque [Nm]`: 13.9000
+- `Torque [Nm]`: 37.7000
 ### Subsystem: Kinematic
-- `Rotational speed [rpm]`: 2372
+- `Rotational speed [rpm]`: 1429
 ### Subsystem: Process Operating
-- `Type`: M
+- `Type`: L
 ### Subsystem: Health Degradation
-- `Tool wear [min]`: 205
+- `Tool wear [min]`: 220
 
 ## 3. Temporal Dynamics & Trend Summary
-- Sequence Step: 4292
+- Sequence Step: 1509
 - (Instantaneous snapshot only — no longitudinal trend statistics)
 
 ## 4. Stated Data Limitations & Epistemic Boundaries
@@ -42,8 +42,8 @@ Evaluate each of the following candidate actions comparatively:
     "operational_downtime_cost": "medium",
     "inclusion_rationale": "Tool wear / spindle load at critical threshold; immediate insert/tool replacement required.",
     "trigger_evidence": [
-      "Air temperature [K] = 301.800",
-      "Process temperature [K] = 310.100"
+      "Air temperature [K] = 298.000",
+      "Process temperature [K] = 308.500"
     ]
   },
   {
@@ -55,8 +55,8 @@ Evaluate each of the following candidate actions comparatively:
     "operational_downtime_cost": "high",
     "inclusion_rationale": "Execute controlled cycle termination and lockout spindle to avoid machine collision.",
     "trigger_evidence": [
-      "Air temperature [K] = 301.800",
-      "Process temperature [K] = 310.100"
+      "Air temperature [K] = 298.000",
+      "Process temperature [K] = 308.500"
     ]
   },
   {
@@ -68,8 +68,8 @@ Evaluate each of the following candidate actions comparatively:
     "operational_downtime_cost": "medium",
     "inclusion_rationale": "Immediately derate spindle torque and feed rate if shutdown must wait for cycle end.",
     "trigger_evidence": [
-      "Air temperature [K] = 301.800",
-      "Process temperature [K] = 310.100"
+      "Air temperature [K] = 298.000",
+      "Process temperature [K] = 308.500"
     ]
   },
   {
@@ -81,8 +81,8 @@ Evaluate each of the following candidate actions comparatively:
     "operational_downtime_cost": "low",
     "inclusion_rationale": "Urgent post-stop visual inspection of cutting zone and spindle runout.",
     "trigger_evidence": [
-      "Air temperature [K] = 301.800",
-      "Process temperature [K] = 310.100"
+      "Air temperature [K] = 298.000",
+      "Process temperature [K] = 308.500"
     ]
   },
   {
@@ -94,8 +94,8 @@ Evaluate each of the following candidate actions comparatively:
     "operational_downtime_cost": "negligible",
     "inclusion_rationale": "Passive baseline comparator (testing LLM resistance to dangerous inaction in critical state).",
     "trigger_evidence": [
-      "Air temperature [K] = 301.800",
-      "Process temperature [K] = 310.100"
+      "Air temperature [K] = 298.000",
+      "Process temperature [K] = 308.500"
     ]
   }
 ]
@@ -110,6 +110,7 @@ Comparatively rank and score all candidates against the observed machine state. 
 - `confidence` [0.0-1.0]: Certainty of rating given the sufficiency and clarity of sensor telemetry.
 - `rank`: Unique integer from 1 to K (1 = top recommended action; no tied ranks).
 - `final_verdict`: Exactly one of 'RECOMMENDED', 'ACCEPTABLE_ALTERNATIVE', 'INAPPROPRIATE_AT_CURRENT_TIME', 'UNSAFE'.
+- `reasoning_summary`: Strictly ONE brief sentence (maximum 15 words). Do not write multi-sentence paragraphs.
 
 Respond ONLY with a JSON object matching this exact structure:
 ```json
@@ -124,7 +125,7 @@ Respond ONLY with a JSON object matching this exact structure:
       "operational_risk_score": <0-100>,
       "confidence": <0.0-1.0>,
       "evidence_used": ["<sensor or trend cited>"],
-      "reasoning_summary": "<concise engineering justification>",
+      "reasoning_summary": "<strictly 1 brief sentence, max 15 words>",
       "unsupported_assumptions": ["<any unverified assumptions or empty list>"],
       "final_verdict": "RECOMMENDED"
     }

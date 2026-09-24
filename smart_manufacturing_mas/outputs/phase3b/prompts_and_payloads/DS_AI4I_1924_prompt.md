@@ -1,4 +1,4 @@
-# Maintenance Action Evaluation Request: State `DS_AI4I_1013`
+# Maintenance Action Evaluation Request: State `DS_AI4I_1924`
 
 ## 1. Machine Asset & Operational Context
 - **Asset Archetype**: `cnc_mill`
@@ -8,21 +8,21 @@
 
 ## 2. Operating Telemetry & Subsystem Conditions
 ### Subsystem: Thermal
-- `Air temperature [K]`: 296.1000
-- `Process temperature [K]`: 307.2000
-- `Air temperature [K]__canonical_degC`: 22.9500
-- `Process temperature [K]__canonical_degC`: 34.0500
+- `Air temperature [K]`: 297.9000
+- `Process temperature [K]`: 307.7000
+- `Air temperature [K]__canonical_degC`: 24.7500
+- `Process temperature [K]__canonical_degC`: 34.5500
 ### Subsystem: Mechanical
-- `Torque [Nm]`: 29.7000
+- `Torque [Nm]`: 50.7000
 ### Subsystem: Kinematic
-- `Rotational speed [rpm]`: 1619
+- `Rotational speed [rpm]`: 1353
 ### Subsystem: Process Operating
-- `Type`: M
+- `Type`: L
 ### Subsystem: Health Degradation
-- `Tool wear [min]`: 17
+- `Tool wear [min]`: 13
 
 ## 3. Temporal Dynamics & Trend Summary
-- Sequence Step: 1013
+- Sequence Step: 1924
 - (Instantaneous snapshot only — no longitudinal trend statistics)
 
 ## 4. Stated Data Limitations & Epistemic Boundaries
@@ -42,8 +42,8 @@ Evaluate each of the following candidate actions comparatively:
     "operational_downtime_cost": "negligible",
     "inclusion_rationale": "Nominal operating telemetry within standard envelope; standard production can continue.",
     "trigger_evidence": [
-      "Air temperature [K] = 296.100",
-      "Process temperature [K] = 307.200"
+      "Air temperature [K] = 297.900",
+      "Process temperature [K] = 307.700"
     ]
   },
   {
@@ -55,8 +55,8 @@ Evaluate each of the following candidate actions comparatively:
     "operational_downtime_cost": "negligible",
     "inclusion_rationale": "Conservative baseline option to track micro-variations and prevent undetected drift.",
     "trigger_evidence": [
-      "Air temperature [K] = 296.100",
-      "Process temperature [K] = 307.200"
+      "Air temperature [K] = 297.900",
+      "Process temperature [K] = 307.700"
     ]
   },
   {
@@ -68,8 +68,8 @@ Evaluate each of the following candidate actions comparatively:
     "operational_downtime_cost": "negligible",
     "inclusion_rationale": "Log process parameter baseline and electrical harmonics during normal run.",
     "trigger_evidence": [
-      "Air temperature [K] = 296.100",
-      "Process temperature [K] = 307.200"
+      "Air temperature [K] = 297.900",
+      "Process temperature [K] = 307.700"
     ]
   }
 ]

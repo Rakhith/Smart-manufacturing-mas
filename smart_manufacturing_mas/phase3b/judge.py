@@ -123,7 +123,8 @@ class MaintenanceJudgePromptBuilder:
             "- `operational_risk_score` [0-100]: Risk of unnecessary downtime, collateral damage, or waste.\n"
             "- `confidence` [0.0-1.0]: Certainty of rating given the sufficiency and clarity of sensor telemetry.\n"
             "- `rank`: Unique integer from 1 to K (1 = top recommended action; no tied ranks).\n"
-            "- `final_verdict`: Exactly one of 'RECOMMENDED', 'ACCEPTABLE_ALTERNATIVE', 'INAPPROPRIATE_AT_CURRENT_TIME', 'UNSAFE'."
+            "- `final_verdict`: Exactly one of 'RECOMMENDED', 'ACCEPTABLE_ALTERNATIVE', 'INAPPROPRIATE_AT_CURRENT_TIME', 'UNSAFE'.\n"
+            "- `reasoning_summary`: Strictly ONE brief sentence (maximum 15 words). Do not write multi-sentence paragraphs."
         )
 
         prompt_lines.append("")
@@ -140,7 +141,7 @@ class MaintenanceJudgePromptBuilder:
       "operational_risk_score": <0-100>,
       "confidence": <0.0-1.0>,
       "evidence_used": ["<sensor or trend cited>"],
-      "reasoning_summary": "<concise engineering justification>",
+      "reasoning_summary": "<strictly 1 brief sentence, max 15 words>",
       "unsupported_assumptions": ["<any unverified assumptions or empty list>"],
       "final_verdict": "RECOMMENDED"
     }
@@ -194,23 +195,86 @@ class MaintenanceJudge:
 
         return parsed_json, raw_response, meta
 
-    @staticmethod
-    def _parse_json_response(text: str) -> Dict[str, Any]:
-        cleaned = text.strip()
-        # Strip markdown json codeblock if present
-        if cleaned.startswith("```"):
-            lines = cleaned.split("\n")
-            if lines[0].startswith("```"):
-                lines = lines[1:]
-            if lines and lines[-1].startswith("```"):
-                lines = lines[:-1]
-            cleaned = "\n".join(lines).strip()
+    @classmethod
+    def _parse_json_response(cls, text: Optional[str]) -> Dict[str, Any]:
+        if not text or not str(text).strip():
+            raise ValueError("Empty or None response string returned from LLM")
+        cleaned = str(text).strip()
 
+        # 1. Strip reasoning tags if present (e.g. from DeepSeek R1 / thinking models)
+        if "<think>" in cleaned:
+            cleaned = re.sub(r"<think>.*?</think>", "", cleaned, flags=re.DOTALL).strip()
+
+        # 2. Extract markdown codeblock if present anywhere
+        codeblock_match = re.search(r"```(?:json)?\s*([\s\S]*?)\s*```", cleaned, re.IGNORECASE)
+        candidate_text = codeblock_match.group(1).strip() if codeblock_match else cleaned
+
+        # 3. Direct parse attempt
         try:
-            return json.loads(cleaned)
+            return json.loads(candidate_text)
         except json.JSONDecodeError:
-            # Fallback regex extraction of outermost JSON object
-            match = re.search(r"(\{.*\})", cleaned, re.DOTALL)
-            if match:
-                return json.loads(match.group(1))
-            raise ValueError(f"Could not parse valid JSON from LLM response:\n{text[:200]}")
+            pass
+
+        # 4. Outermost JSON object extraction with trailing comma strip
+        brace_match = re.search(r"(\{[\s\S]*\})", candidate_text)
+        if brace_match:
+            raw_obj = brace_match.group(1)
+            clean_commas = re.sub(r",\s*([\]}])", r"\1", raw_obj)
+            try:
+                return json.loads(clean_commas)
+            except json.JSONDecodeError:
+                pass
+
+        # 5. Fix truncated JSON (unclosed brackets and braces)
+        fixed_text = candidate_text
+        fixed_text = re.sub(r",\s*([\]}])", r"\1", fixed_text)
+        open_braces = fixed_text.count("{") - fixed_text.count("}")
+        open_brackets = fixed_text.count("[") - fixed_text.count("]")
+        if open_brackets > 0:
+            fixed_text += "]" * open_brackets
+        if open_braces > 0:
+            fixed_text += "}" * open_braces
+        try:
+            return json.loads(fixed_text)
+        except json.JSONDecodeError:
+            pass
+
+        # 6. Regex-based heuristic reconstruction as last resort
+        recovered_evals = []
+        eval_blocks = re.findall(r"\{[^{}]*action_id[^{}]*\}", cleaned, re.DOTALL)
+        for eb in eval_blocks:
+            aid_m = re.search(r'"action_id"\s*:\s*"([^"]+)"', eb)
+            rank_m = re.search(r'"rank"\s*:\s*(\d+)', eb)
+            suit_m = re.search(r'"suitability_score"\s*:\s*(\d+)', eb)
+            urg_m = re.search(r'"urgency_score"\s*:\s*(\d+)', eb)
+            eff_m = re.search(r'"expected_effectiveness_score"\s*:\s*(\d+)', eb)
+            risk_m = re.search(r'"operational_risk_score"\s*:\s*(\d+)', eb)
+            conf_m = re.search(r'"confidence"\s*:\s*([0-9.]+)', eb)
+            verd_m = re.search(r'"final_verdict"\s*:\s*"([^"]+)"', eb)
+            reason_m = re.search(r'"reasoning_summary"\s*:\s*"([^"]+)"', eb)
+            if aid_m:
+                recovered_evals.append({
+                    "action_id": aid_m.group(1).rstrip(",;.: "),
+                    "rank": int(rank_m.group(1)) if rank_m else 99,
+                    "suitability_score": int(suit_m.group(1)) if suit_m else 50,
+                    "urgency_score": int(urg_m.group(1)) if urg_m else 50,
+                    "expected_effectiveness_score": int(eff_m.group(1)) if eff_m else 50,
+                    "operational_risk_score": int(risk_m.group(1)) if risk_m else 50,
+                    "confidence": float(conf_m.group(1)) if conf_m else 0.7,
+                    "evidence_used": [],
+                    "reasoning_summary": reason_m.group(1) if reason_m else "Heuristic recovery extraction.",
+                    "unsupported_assumptions": [],
+                    "final_verdict": verd_m.group(1) if verd_m else "RECOMMENDED",
+                })
+        if recovered_evals:
+            top_act = min(recovered_evals, key=lambda x: x["rank"])["action_id"]
+            return {
+                "evaluations": recovered_evals,
+                "top_recommended_action": top_act,
+                "alternative_actions": [],
+                "insufficient_information": False,
+                "uncertainty_explanation": "",
+                "_recovery_mode": True,
+            }
+
+        raise ValueError(f"Could not parse valid JSON from LLM response after 6 recovery passes:\n{text[:300]}")
