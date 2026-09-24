@@ -1,0 +1,66 @@
+{
+  "check_1_state_mapping": {
+    "status": "PASS",
+    "null_state_count": 0
+  },
+  "check_2_group_size_bounds": {
+    "status": "PASS",
+    "min_group_size": 3,
+    "max_group_size": 5
+  },
+  "check_3_zero_split_overlap": {
+    "status": "PASS",
+    "train_val_overlap": 0,
+    "train_test_overlap": 0,
+    "val_test_overlap": 0
+  },
+  "check_4_zero_target_leakage": {
+    "status": "PASS",
+    "leaked_features": []
+  },
+  "check_5_no_llm_reasoning_features": {
+    "status": "PASS",
+    "leaked_features": []
+  },
+  "check_6_no_provider_shortcut_features": {
+    "status": "PASS",
+    "leaked_features": []
+  },
+  "check_7_valid_relevance_labels": {
+    "status": "PASS",
+    "min_relevance": 0.0,
+    "max_relevance": 4.0
+  },
+  "check_8_matrix_hygiene": {
+    "status": "PASS",
+    "has_nan": false,
+    "has_inf": false
+  },
+  "check_9_cbr_retrieval_isolation": {
+    "status": "PASS",
+    "cbr_val_overlap": 0,
+    "cbr_test_overlap": 0
+  },
+  "check_10_test_isolation": {
+    "status": "PASS",
+    "leakage_count": 0
+  },
+  "check_11_dataset_stream_coverage": {
+    "status": "PASS",
+    "datasets_count": 11,
+    "datasets": [
+      "ai4i_2020",
+      "cmapss",
+      "iiot_6g",
+      "metal_etch",
+      "metropt3",
+      "nasa_ims",
+      "nasa_milling",
+      "smart_maintenance_static",
+      "smart_maintenance_timeseries",
+      "tennessee_eastman",
+      "uci_hydraulic"
+    ]
+  },
+  "overall_disposition": "ALL_PASS"
+}

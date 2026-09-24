@@ -340,20 +340,49 @@ smart_manufacturing_mas/
 | Finish-sentinel fix | `agents/llm_planner_agent.py` | (always active) |
 | Machine_ID pass-through fix | `agents/llm_planner_agent.py` | (always active) |
 
+## 🔬 Research & Engineering Pipeline (Phases 1–4)
+
+The project has advanced through a 5-phase research architecture:
+
+- **Phase 1**: Ingestion and standardization of 11 multi-modal industrial datasets (~6.53M records).
+- **Phase 2**: Semantic normalization into Canonical Machine State Representations (CMSR) across 10 physical modalities.
+- **Phase 3A**: Representative DecisionState harvesting and clustering (1,023 leakage-safe states).
+- **Phase 3B**: Action ontology definition (21 controlled actions) and multi-tier LLM-as-a-Judge preference generation (4,063 silver-standard action evaluations across Gemini, Ollama, Hugging Face, and Groq).
+- **Phase 4**: Learned Prescriptive Maintenance Recommender uniting LightGBM LambdaRank (`LGBMRanker`), Case-Based Reasoning (`CBR`), and a hybrid ensemble ($\alpha=0.75$).
+
+### Running Phase 3B (LLM Action Judge):
+```bash
+python scripts/run_phase3b_pilot.py --max-states 1023
+python scripts/re_evaluate_heuristic_states.py
+```
+
+### Running Phase 4 (Prescriptive Maintenance Recommender):
+```bash
+# Run unit test suite
+python -m unittest tests/test_phase4_pipeline.py
+
+# Run complete Phase 4 pipeline (dataset construction, LGBM, CBR, hybrid, ablations, cross-domain, explainability, audit)
+python scripts/run_phase4_recommender.py
+```
+
+### Key Phase 4 Results (Held-Out Test Set):
+- **Hybrid Test NDCG@3**: **0.9339** (vs 0.7462 Popularity baseline, 0.8722 Severity Heuristic)
+- **Hybrid Test Recall@1**: **0.8312**
+- **Hybrid Test MRR**: **0.9053**
+- **Action Coverage**: **42.9%** across 21 controlled ontology actions
+- **Safety & Zero-Leakage Audit**: **ALL_PASS** (12/12 automated invariants passed)
+
+---
+
 ## 📖 Learn More
 
 - [Detailed Usage Guide](documentation/usage_guide.md)
 - [Architecture and Workflow](documentation/architecture_and_workflow.md)
 - [Adaptive Intelligence System](documentation/adaptive_intelligence_system.md)
-
-## 🤝 Contributing
-
-Contributions are welcome! Please follow these guidelines:
-1. Create a feature branch
-2. Add tests for new functionality
-3. Update documentation
-4. Submit a pull request
+- [Phase 3A Summary](outputs/phase3a/PHASE_3A_SUMMARY.md)
+- [Phase 3B Summary](outputs/phase3b/PHASE_3B_SUMMARY.md)
+- [Phase 4 Research Report](outputs/phase4/reports/PHASE_4_REPORT.md)
 
 ---
 
-**Ready to get started?** Run `python main_llm.py` to begin your first analysis!
+**Ready to get started?** Run `python scripts/run_phase4_recommender.py` to evaluate the prescriptive maintenance recommender!

@@ -1,0 +1,255 @@
+{
+  "hyperparameters": {
+    "n_estimators": 50,
+    "learning_rate": 0.03,
+    "num_leaves": 15,
+    "max_depth": 4,
+    "min_child_samples": 5,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "random_state": 42,
+    "importance_type": "gain",
+    "early_stopping_rounds": 0
+  },
+  "feature_names": [
+    "state__severity_numeric",
+    "state__cycle",
+    "state__sequence_step",
+    "state__is_time_series",
+    "state__arch_cnc_mill",
+    "state__arch_turbofan_engine",
+    "state__arch_industrial_machine",
+    "state__arch_iiot_machine",
+    "state__arch_etch_tool",
+    "state__arch_air_compressor",
+    "state__arch_hydraulic_test_rig",
+    "state__arch_chemical_plant",
+    "state__arch_bearing_test_rig",
+    "state__has_thermal",
+    "state__count_thermal",
+    "state__mean_thermal",
+    "state__std_thermal",
+    "state__max_thermal",
+    "state__min_thermal",
+    "state__has_mechanical",
+    "state__count_mechanical",
+    "state__mean_mechanical",
+    "state__std_mechanical",
+    "state__max_mechanical",
+    "state__min_mechanical",
+    "state__has_kinematic",
+    "state__count_kinematic",
+    "state__mean_kinematic",
+    "state__std_kinematic",
+    "state__max_kinematic",
+    "state__min_kinematic",
+    "state__has_fluid",
+    "state__count_fluid",
+    "state__mean_fluid",
+    "state__std_fluid",
+    "state__max_fluid",
+    "state__min_fluid",
+    "state__has_electrical",
+    "state__count_electrical",
+    "state__mean_electrical",
+    "state__std_electrical",
+    "state__max_electrical",
+    "state__min_electrical",
+    "state__has_acoustic",
+    "state__count_acoustic",
+    "state__mean_acoustic",
+    "state__std_acoustic",
+    "state__max_acoustic",
+    "state__min_acoustic",
+    "state__has_process_operating",
+    "state__count_process_operating",
+    "state__mean_process_operating",
+    "state__std_process_operating",
+    "state__max_process_operating",
+    "state__min_process_operating",
+    "state__has_health_degradation",
+    "state__count_health_degradation",
+    "state__mean_health_degradation",
+    "state__std_health_degradation",
+    "state__max_health_degradation",
+    "state__min_health_degradation",
+    "state__has_unmapped",
+    "state__count_unmapped",
+    "state__mean_unmapped",
+    "state__std_unmapped",
+    "state__max_unmapped",
+    "state__min_unmapped",
+    "state__canonical_temp_degC",
+    "state__canonical_torque_Nm",
+    "state__canonical_speed_rpm",
+    "state__canonical_pressure_bar",
+    "state__canonical_tool_wear_min",
+    "state__has_trends",
+    "state__trend_count",
+    "state__trend_mean",
+    "state__trend_std",
+    "state__trend_max",
+    "state__trend_min",
+    "act__cat_monitoring_observation",
+    "act__cat_inspection_diagnosis",
+    "act__cat_corrective_maintenance",
+    "act__cat_replacement_overhaul",
+    "act__cat_operational_mitigation",
+    "act__risk_numeric",
+    "act__cost_numeric",
+    "act__precond_min_sev",
+    "act__precond_max_sev",
+    "inter__sev_x_risk",
+    "inter__sev_x_cost",
+    "inter__admissible",
+    "inter__crit_x_mitigation",
+    "inter__crit_x_replacement",
+    "inter__healthy_x_monitoring",
+    "inter__mech_x_inspection",
+    "inter__fluid_x_inspection",
+    "inter__thermal_x_inspection"
+  ],
+  "best_iteration": 0,
+  "feature_importance_top20": [
+    [
+      "inter__admissible",
+      {
+        "gain": 1708.7330017089844,
+        "split": 26
+      }
+    ],
+    [
+      "state__severity_numeric",
+      {
+        "gain": 1263.0171555820853,
+        "split": 63
+      }
+    ],
+    [
+      "act__cat_monitoring_observation",
+      {
+        "gain": 1225.2490661796182,
+        "split": 17
+      }
+    ],
+    [
+      "act__precond_min_sev",
+      {
+        "gain": 1121.0564661026,
+        "split": 25
+      }
+    ],
+    [
+      "act__cat_corrective_maintenance",
+      {
+        "gain": 1070.5423526763916,
+        "split": 31
+      }
+    ],
+    [
+      "inter__sev_x_risk",
+      {
+        "gain": 764.5520881190896,
+        "split": 40
+      }
+    ],
+    [
+      "inter__healthy_x_monitoring",
+      {
+        "gain": 609.8599557876587,
+        "split": 19
+      }
+    ],
+    [
+      "act__cat_replacement_overhaul",
+      {
+        "gain": 358.77625262737274,
+        "split": 14
+      }
+    ],
+    [
+      "inter__crit_x_replacement",
+      {
+        "gain": 311.24220085144043,
+        "split": 8
+      }
+    ],
+    [
+      "state__mean_process_operating",
+      {
+        "gain": 284.5767850256525,
+        "split": 31
+      }
+    ],
+    [
+      "state__sequence_step",
+      {
+        "gain": 283.61998805892654,
+        "split": 56
+      }
+    ],
+    [
+      "act__risk_numeric",
+      {
+        "gain": 265.1963195800781,
+        "split": 14
+      }
+    ],
+    [
+      "inter__sev_x_cost",
+      {
+        "gain": 253.12811440229416,
+        "split": 7
+      }
+    ],
+    [
+      "state__has_mechanical",
+      {
+        "gain": 239.8317985534668,
+        "split": 3
+      }
+    ],
+    [
+      "act__cat_inspection_diagnosis",
+      {
+        "gain": 239.43133068084717,
+        "split": 16
+      }
+    ],
+    [
+      "act__cat_operational_mitigation",
+      {
+        "gain": 220.83594703674316,
+        "split": 8
+      }
+    ],
+    [
+      "state__min_health_degradation",
+      {
+        "gain": 192.622984116897,
+        "split": 10
+      }
+    ],
+    [
+      "state__max_process_operating",
+      {
+        "gain": 149.45002192174434,
+        "split": 26
+      }
+    ],
+    [
+      "state__std_thermal",
+      {
+        "gain": 140.44108201097697,
+        "split": 18
+      }
+    ],
+    [
+      "state__mean_thermal",
+      {
+        "gain": 133.83292592316866,
+        "split": 6
+      }
+    ]
+  ]
+}

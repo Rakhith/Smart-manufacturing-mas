@@ -1,0 +1,452 @@
+[
+  {
+    "decision_state_id": "DS_AI4I_1969",
+    "recommended_action_id": "ACT_INSP_TOOL_WEAR",
+    "recommended_action_name": "Inspect Cutting Tool & Insert Flank Wear",
+    "recommendation_score": 1.0,
+    "state_context": {
+      "dataset_id": "ai4i_2020",
+      "machine_archetype": "cnc_mill",
+      "decision_severity": "WATCH"
+    },
+    "telemetry_evidence": [
+      "Calibrated severity tier: WATCH",
+      "Asset archetype: cnc_mill (ai4i_2020)",
+      "Cycle count: nan"
+    ],
+    "action_rationale_cues": [
+      "Action category: inspection_diagnosis",
+      "Intervention risk tier: low",
+      "Operational downtime cost: low"
+    ],
+    "candidate_ranking": [
+      {
+        "rank": 1,
+        "action_id": "ACT_INSP_TOOL_WEAR",
+        "action_name": "Inspect Cutting Tool & Insert Flank Wear",
+        "score": 1.0
+      },
+      {
+        "rank": 2,
+        "action_id": "ACT_MON_ENHANCED",
+        "action_name": "Increase Monitoring Frequency & Alert Sensitivity",
+        "score": 0.9236308336257935
+      },
+      {
+        "rank": 3,
+        "action_id": "ACT_OP_ADJUST_PARAMS",
+        "action_name": "Adjust Operational Speed, Feed & Process Parameters",
+        "score": 0.15406952798366547
+      },
+      {
+        "rank": 4,
+        "action_id": "ACT_MON_CONTINUE",
+        "action_name": "Continue Normal Operation",
+        "score": 0.0
+      }
+    ],
+    "cbr_similar_historical_cases": [
+      {
+        "neighbor_state_id": "DS_AI4I_3586",
+        "similarity_score": 0.9989715218544006,
+        "dataset_id": "ai4i_2020",
+        "machine_archetype": "cnc_mill",
+        "decision_severity": "WATCH",
+        "historical_best_action": "ACT_MON_ENHANCED"
+      },
+      {
+        "neighbor_state_id": "DS_AI4I_983",
+        "similarity_score": 0.9985905885696411,
+        "dataset_id": "ai4i_2020",
+        "machine_archetype": "cnc_mill",
+        "decision_severity": "WATCH",
+        "historical_best_action": "ACT_INSP_TOOL_WEAR"
+      },
+      {
+        "neighbor_state_id": "DS_AI4I_2902",
+        "similarity_score": 0.9982767105102539,
+        "dataset_id": "ai4i_2020",
+        "machine_archetype": "cnc_mill",
+        "decision_severity": "WATCH",
+        "historical_best_action": "ACT_INSP_TOOL_WEAR"
+      }
+    ]
+  },
+  {
+    "decision_state_id": "DS_AI4I_4730",
+    "recommended_action_id": "ACT_REPL_TOOL_INSERT",
+    "recommended_action_name": "Replace Cutting Tool / Carbide Insert",
+    "recommendation_score": 1.0,
+    "state_context": {
+      "dataset_id": "ai4i_2020",
+      "machine_archetype": "cnc_mill",
+      "decision_severity": "DEGRADING"
+    },
+    "telemetry_evidence": [
+      "Calibrated severity tier: DEGRADING",
+      "Asset archetype: cnc_mill (ai4i_2020)",
+      "Cycle count: nan"
+    ],
+    "action_rationale_cues": [
+      "Action category: replacement_overhaul",
+      "Intervention risk tier: medium",
+      "Operational downtime cost: medium"
+    ],
+    "candidate_ranking": [
+      {
+        "rank": 1,
+        "action_id": "ACT_REPL_TOOL_INSERT",
+        "action_name": "Replace Cutting Tool / Carbide Insert",
+        "score": 1.0
+      },
+      {
+        "rank": 2,
+        "action_id": "ACT_INSP_TOOL_WEAR",
+        "action_name": "Inspect Cutting Tool & Insert Flank Wear",
+        "score": 0.7991694808006287
+      },
+      {
+        "rank": 3,
+        "action_id": "ACT_MON_ENHANCED",
+        "action_name": "Increase Monitoring Frequency & Alert Sensitivity",
+        "score": 0.48361802101135254
+      },
+      {
+        "rank": 4,
+        "action_id": "ACT_OP_ADJUST_PARAMS",
+        "action_name": "Adjust Operational Speed, Feed & Process Parameters",
+        "score": 0.02779265120625496
+      }
+    ],
+    "cbr_similar_historical_cases": [
+      {
+        "neighbor_state_id": "DS_AI4I_6076",
+        "similarity_score": 0.9994989633560181,
+        "dataset_id": "ai4i_2020",
+        "machine_archetype": "cnc_mill",
+        "decision_severity": "DEGRADING",
+        "historical_best_action": "ACT_REPL_TOOL_INSERT"
+      },
+      {
+        "neighbor_state_id": "DS_AI4I_1590",
+        "similarity_score": 0.9994214773178101,
+        "dataset_id": "ai4i_2020",
+        "machine_archetype": "cnc_mill",
+        "decision_severity": "DEGRADING",
+        "historical_best_action": "ACT_INSP_TOOL_WEAR"
+      },
+      {
+        "neighbor_state_id": "DS_AI4I_8282",
+        "similarity_score": 0.9992914199829102,
+        "dataset_id": "ai4i_2020",
+        "machine_archetype": "cnc_mill",
+        "decision_severity": "DEGRADING",
+        "historical_best_action": "ACT_REPL_TOOL_INSERT"
+      }
+    ]
+  },
+  {
+    "decision_state_id": "DS_AI4I_4731",
+    "recommended_action_id": "ACT_REPL_TOOL_INSERT",
+    "recommended_action_name": "Replace Cutting Tool / Carbide Insert",
+    "recommendation_score": 1.0,
+    "state_context": {
+      "dataset_id": "ai4i_2020",
+      "machine_archetype": "cnc_mill",
+      "decision_severity": "CRITICAL"
+    },
+    "telemetry_evidence": [
+      "Calibrated severity tier: CRITICAL",
+      "Asset archetype: cnc_mill (ai4i_2020)",
+      "Cycle count: nan"
+    ],
+    "action_rationale_cues": [
+      "Action category: replacement_overhaul",
+      "Intervention risk tier: medium",
+      "Operational downtime cost: medium"
+    ],
+    "candidate_ranking": [
+      {
+        "rank": 1,
+        "action_id": "ACT_REPL_TOOL_INSERT",
+        "action_name": "Replace Cutting Tool / Carbide Insert",
+        "score": 1.0
+      },
+      {
+        "rank": 2,
+        "action_id": "ACT_INSP_TOOL_WEAR",
+        "action_name": "Inspect Cutting Tool & Insert Flank Wear",
+        "score": 0.7371060252189636
+      },
+      {
+        "rank": 3,
+        "action_id": "ACT_OP_CONTROLLED_SHUTDOWN",
+        "action_name": "Schedule Orderly Controlled Shutdown",
+        "score": 0.685789167881012
+      },
+      {
+        "rank": 4,
+        "action_id": "ACT_OP_DERATE_LOAD",
+        "action_name": "Derate Load & Curtail High-Stress Duty Cycles",
+        "score": 0.47108882665634155
+      },
+      {
+        "rank": 5,
+        "action_id": "ACT_MON_CONTINUE",
+        "action_name": "Continue Normal Operation",
+        "score": 0.0
+      }
+    ],
+    "cbr_similar_historical_cases": [
+      {
+        "neighbor_state_id": "DS_AI4I_2864",
+        "similarity_score": 0.9989486336708069,
+        "dataset_id": "ai4i_2020",
+        "machine_archetype": "cnc_mill",
+        "decision_severity": "CRITICAL",
+        "historical_best_action": "ACT_REPL_TOOL_INSERT"
+      },
+      {
+        "neighbor_state_id": "DS_AI4I_4384",
+        "similarity_score": 0.9979889392852783,
+        "dataset_id": "ai4i_2020",
+        "machine_archetype": "cnc_mill",
+        "decision_severity": "DEGRADING",
+        "historical_best_action": "ACT_REPL_TOOL_INSERT"
+      },
+      {
+        "neighbor_state_id": "DS_AI4I_7510",
+        "similarity_score": 0.9978644847869873,
+        "dataset_id": "ai4i_2020",
+        "machine_archetype": "cnc_mill",
+        "decision_severity": "CRITICAL",
+        "historical_best_action": "ACT_REPL_TOOL_INSERT"
+      }
+    ]
+  },
+  {
+    "decision_state_id": "DS_CMAPSS_FD002_U17_C217",
+    "recommended_action_id": "ACT_MON_ENHANCED",
+    "recommended_action_name": "Increase Monitoring Frequency & Alert Sensitivity",
+    "recommendation_score": 1.0,
+    "state_context": {
+      "dataset_id": "cmapss",
+      "machine_archetype": "turbofan_engine",
+      "decision_severity": "WATCH"
+    },
+    "telemetry_evidence": [
+      "Calibrated severity tier: WATCH",
+      "Asset archetype: turbofan_engine (cmapss)",
+      "Cycle count: 217.0"
+    ],
+    "action_rationale_cues": [
+      "Action category: monitoring_observation",
+      "Intervention risk tier: low",
+      "Operational downtime cost: negligible"
+    ],
+    "candidate_ranking": [
+      {
+        "rank": 1,
+        "action_id": "ACT_MON_ENHANCED",
+        "action_name": "Increase Monitoring Frequency & Alert Sensitivity",
+        "score": 1.0
+      },
+      {
+        "rank": 2,
+        "action_id": "ACT_MON_CONTINUE",
+        "action_name": "Continue Normal Operation",
+        "score": 0.6694075465202332
+      },
+      {
+        "rank": 3,
+        "action_id": "ACT_INSP_SUBSYSTEM",
+        "action_name": "Targeted Physical Subsystem Inspection",
+        "score": 0.5163900852203369
+      },
+      {
+        "rank": 4,
+        "action_id": "ACT_CORR_CALIBRATE",
+        "action_name": "Recalibrate Sensors & Adjust Actuator Trim",
+        "score": 0.0
+      }
+    ],
+    "cbr_similar_historical_cases": [
+      {
+        "neighbor_state_id": "DS_CMAPSS_FD002_U1_C161",
+        "similarity_score": 0.999560534954071,
+        "dataset_id": "cmapss",
+        "machine_archetype": "turbofan_engine",
+        "decision_severity": "WATCH",
+        "historical_best_action": "ACT_MON_ENHANCED"
+      },
+      {
+        "neighbor_state_id": "DS_CMAPSS_FD002_U16_C57",
+        "similarity_score": 0.9989751577377319,
+        "dataset_id": "cmapss",
+        "machine_archetype": "turbofan_engine",
+        "decision_severity": "WATCH",
+        "historical_best_action": "ACT_MON_ENHANCED"
+      },
+      {
+        "neighbor_state_id": "DS_CMAPSS_FD002_U8_C67",
+        "similarity_score": 0.9989670515060425,
+        "dataset_id": "cmapss",
+        "machine_archetype": "turbofan_engine",
+        "decision_severity": "WATCH",
+        "historical_best_action": "ACT_MON_ENHANCED"
+      }
+    ]
+  },
+  {
+    "decision_state_id": "DS_CMAPSS_FD002_U4_C215",
+    "recommended_action_id": "ACT_REPL_OVERHAUL",
+    "recommended_action_name": "Schedule Planned Subsystem Overhaul",
+    "recommendation_score": 0.9779742956161499,
+    "state_context": {
+      "dataset_id": "cmapss",
+      "machine_archetype": "turbofan_engine",
+      "decision_severity": "CRITICAL"
+    },
+    "telemetry_evidence": [
+      "Calibrated severity tier: CRITICAL",
+      "Asset archetype: turbofan_engine (cmapss)",
+      "Cycle count: 215.0"
+    ],
+    "action_rationale_cues": [
+      "Action category: replacement_overhaul",
+      "Intervention risk tier: high",
+      "Operational downtime cost: high"
+    ],
+    "candidate_ranking": [
+      {
+        "rank": 1,
+        "action_id": "ACT_REPL_OVERHAUL",
+        "action_name": "Schedule Planned Subsystem Overhaul",
+        "score": 0.9779742956161499
+      },
+      {
+        "rank": 2,
+        "action_id": "ACT_OP_CONTROLLED_SHUTDOWN",
+        "action_name": "Schedule Orderly Controlled Shutdown",
+        "score": 0.8066767454147339
+      },
+      {
+        "rank": 3,
+        "action_id": "ACT_OP_DERATE_LOAD",
+        "action_name": "Derate Load & Curtail High-Stress Duty Cycles",
+        "score": 0.750060498714447
+      },
+      {
+        "rank": 4,
+        "action_id": "ACT_INSP_THERMAL_ELECTRICAL",
+        "action_name": "Inspect Thermal Dissipation & Electrical Motor Balance",
+        "score": 0.45665058493614197
+      },
+      {
+        "rank": 5,
+        "action_id": "ACT_MON_CONTINUE",
+        "action_name": "Continue Normal Operation",
+        "score": 0.0
+      }
+    ],
+    "cbr_similar_historical_cases": [
+      {
+        "neighbor_state_id": "DS_CMAPSS_FD002_U14_C132",
+        "similarity_score": 0.996534526348114,
+        "dataset_id": "cmapss",
+        "machine_archetype": "turbofan_engine",
+        "decision_severity": "DEGRADING",
+        "historical_best_action": "ACT_OP_DERATE_LOAD"
+      },
+      {
+        "neighbor_state_id": "DS_CMAPSS_FD004_U11_C296",
+        "similarity_score": 0.9949146509170532,
+        "dataset_id": "cmapss",
+        "machine_archetype": "turbofan_engine",
+        "decision_severity": "CRITICAL",
+        "historical_best_action": "ACT_REPL_OVERHAUL"
+      },
+      {
+        "neighbor_state_id": "DS_CMAPSS_FD002_U15_C208",
+        "similarity_score": 0.9947289824485779,
+        "dataset_id": "cmapss",
+        "machine_archetype": "turbofan_engine",
+        "decision_severity": "CRITICAL",
+        "historical_best_action": "ACT_REPL_OVERHAUL"
+      }
+    ]
+  },
+  {
+    "decision_state_id": "DS_CMAPSS_FD002_U4_C135",
+    "recommended_action_id": "ACT_MON_ENHANCED",
+    "recommended_action_name": "Increase Monitoring Frequency & Alert Sensitivity",
+    "recommendation_score": 1.0,
+    "state_context": {
+      "dataset_id": "cmapss",
+      "machine_archetype": "turbofan_engine",
+      "decision_severity": "WATCH"
+    },
+    "telemetry_evidence": [
+      "Calibrated severity tier: WATCH",
+      "Asset archetype: turbofan_engine (cmapss)",
+      "Cycle count: 135.0"
+    ],
+    "action_rationale_cues": [
+      "Action category: monitoring_observation",
+      "Intervention risk tier: low",
+      "Operational downtime cost: negligible"
+    ],
+    "candidate_ranking": [
+      {
+        "rank": 1,
+        "action_id": "ACT_MON_ENHANCED",
+        "action_name": "Increase Monitoring Frequency & Alert Sensitivity",
+        "score": 1.0
+      },
+      {
+        "rank": 2,
+        "action_id": "ACT_MON_CONTINUE",
+        "action_name": "Continue Normal Operation",
+        "score": 0.6850325465202332
+      },
+      {
+        "rank": 3,
+        "action_id": "ACT_INSP_SUBSYSTEM",
+        "action_name": "Targeted Physical Subsystem Inspection",
+        "score": 0.5113789439201355
+      },
+      {
+        "rank": 4,
+        "action_id": "ACT_CORR_CALIBRATE",
+        "action_name": "Recalibrate Sensors & Adjust Actuator Trim",
+        "score": 0.0
+      }
+    ],
+    "cbr_similar_historical_cases": [
+      {
+        "neighbor_state_id": "DS_CMAPSS_FD004_U16_C87",
+        "similarity_score": 0.9977924227714539,
+        "dataset_id": "cmapss",
+        "machine_archetype": "turbofan_engine",
+        "decision_severity": "WATCH",
+        "historical_best_action": "ACT_MON_ENHANCED"
+      },
+      {
+        "neighbor_state_id": "DS_CMAPSS_FD002_U5_C61",
+        "similarity_score": 0.9975026845932007,
+        "dataset_id": "cmapss",
+        "machine_archetype": "turbofan_engine",
+        "decision_severity": "WATCH",
+        "historical_best_action": "ACT_MON_ENHANCED"
+      },
+      {
+        "neighbor_state_id": "DS_CMAPSS_FD004_U3_C205",
+        "similarity_score": 0.9955388903617859,
+        "dataset_id": "cmapss",
+        "machine_archetype": "turbofan_engine",
+        "decision_severity": "WATCH",
+        "historical_best_action": "ACT_MON_ENHANCED"
+      }
+    ]
+  }
+]

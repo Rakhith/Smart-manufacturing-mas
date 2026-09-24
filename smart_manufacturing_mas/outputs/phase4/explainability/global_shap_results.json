@@ -1,0 +1,31 @@
+{
+  "method": "shap_tree_explainer",
+  "status": "success",
+  "top_features_by_mean_abs_shap": {
+    "inter__admissible": 0.2967154489843756,
+    "act__cat_corrective_maintenance": 0.14813212313111437,
+    "state__severity_numeric": 0.11829731275058397,
+    "inter__sev_x_risk": 0.10044572114453554,
+    "act__precond_min_sev": 0.09844400468983401,
+    "inter__healthy_x_monitoring": 0.0781212054838067,
+    "act__cat_monitoring_observation": 0.07785540015466968,
+    "act__risk_numeric": 0.06276187818254306,
+    "act__cat_inspection_diagnosis": 0.04296572863352241,
+    "state__min_health_degradation": 0.031710721234926645,
+    "act__cat_operational_mitigation": 0.030016049057568092,
+    "state__mean_process_operating": 0.023366680379999137,
+    "act__cat_replacement_overhaul": 0.015780642431844384,
+    "state__std_thermal": 0.01545155752758557,
+    "inter__crit_x_replacement": 0.014897712194414605,
+    "inter__sev_x_cost": 0.014235721228857004,
+    "state__max_process_operating": 0.010977695536866576,
+    "state__sequence_step": 0.01071885116059436,
+    "act__precond_max_sev": 0.010686738525179514,
+    "state__mean_thermal": 0.007108606601838624,
+    "state__trend_std": 0.006611472188226042,
+    "state__min_mechanical": 0.005257573487216731,
+    "state__canonical_tool_wear_min": 0.005129043481622592,
+    "state__mean_health_degradation": 0.004921653441669629,
+    "state__max_thermal": 0.0048690345619306985
+  }
+}

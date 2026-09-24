@@ -1,0 +1,48 @@
+{
+  "alpha_sweep": {
+    "0.0": 0.9298184587043677,
+    "0.25": 0.943824230638649,
+    "0.5": 0.9433816030309293,
+    "0.75": 0.949712987435722,
+    "1.0": 0.9366719265408066
+  },
+  "lgbm_feature_subset__raw_structured": {
+    "ndcg_at_1": 0.8891774891774892,
+    "ndcg_at_3": 0.9269202189337126,
+    "ndcg_at_5": 0.9497369683924349,
+    "recall_at_1": 0.8311688311688312,
+    "recall_at_3": 0.9805194805194806,
+    "recall_at_5": 1.0,
+    "mrr": 0.9031385281385282,
+    "action_coverage_pct": 42.857142857142854,
+    "recommendation_diversity_entropy": 2.6028219569834388,
+    "normalized_diversity": 0.5925851222603093,
+    "total_eval_states": 154
+  },
+  "lgbm_feature_subset__canonical": {
+    "ndcg_at_1": 0.8883116883116884,
+    "ndcg_at_3": 0.9292188363067537,
+    "ndcg_at_5": 0.9506791553457519,
+    "recall_at_1": 0.8311688311688312,
+    "recall_at_3": 0.9805194805194806,
+    "recall_at_5": 1.0,
+    "mrr": 0.900974025974026,
+    "action_coverage_pct": 42.857142857142854,
+    "recommendation_diversity_entropy": 2.5439595476589734,
+    "normalized_diversity": 0.5791839028905065,
+    "total_eval_states": 154
+  },
+  "lgbm_feature_subset__full_semantic_trend": {
+    "ndcg_at_1": 0.883982683982684,
+    "ndcg_at_3": 0.9298839153076952,
+    "ndcg_at_5": 0.9502827715672324,
+    "recall_at_1": 0.8246753246753247,
+    "recall_at_3": 0.9805194805194806,
+    "recall_at_5": 1.0,
+    "mrr": 0.899891774891775,
+    "action_coverage_pct": 42.857142857142854,
+    "recommendation_diversity_entropy": 2.474829067409697,
+    "normalized_diversity": 0.563444949259614,
+    "total_eval_states": 154
+  }
+}

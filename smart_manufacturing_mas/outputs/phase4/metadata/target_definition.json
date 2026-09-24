@@ -1,0 +1,7 @@
+{
+  "strategy": "inverted_rank",
+  "max_relevance": 4,
+  "penalize_unsafe": true,
+  "penalize_inappropriate": true,
+  "min_relevance": 0
+}
