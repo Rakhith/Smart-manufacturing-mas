@@ -1,0 +1,821 @@
+{
+  "factory_sensors": {
+    "domain_id": "factory_sensors",
+    "total_instances": 63,
+    "split_counts": {
+      "train_pool": 25,
+      "val_pool": 18,
+      "test_pool": 20
+    },
+    "temporal_boundaries": {
+      "train_min": "2025-09-26 04:00:00",
+      "train_max": "2026-02-05 18:00:00",
+      "val_min": "2026-02-06 11:00:00",
+      "val_max": "2026-05-14 18:00:00",
+      "test_min": "2026-05-17 12:00:00",
+      "test_max": "2026-08-28 05:00:00"
+    },
+    "hashes": {
+      "train_pool_sha256": "2a9cdf37a87c28cfe27d077e461f302d042082a8bb2d669f88ed9bd66348530f",
+      "val_pool_sha256": "b6d3e070919fecbd1b00f38568a6954f0e7db421367aefb81b17f33892ea6694",
+      "test_pool_sha256": "2290f64b09023f111c6eb88640b909fe1db0a2bdd0c64ef10e02577d6b8d73fd"
+    },
+    "budgets": {
+      "0%": {
+        "fraction": 0.0,
+        "num_states": 0,
+        "num_candidates": 0,
+        "num_assets": 0,
+        "unique_actions": [],
+        "instance_ids": []
+      },
+      "1%": {
+        "fraction": 0.01,
+        "num_states": 1,
+        "num_candidates": 21,
+        "num_assets": 1,
+        "unique_actions": [
+          "ACT_REPL_SEAL_VALVE"
+        ],
+        "instance_ids": [
+          "FS_INST_001_1"
+        ]
+      },
+      "5%": {
+        "fraction": 0.05,
+        "num_states": 2,
+        "num_candidates": 42,
+        "num_assets": 2,
+        "unique_actions": [
+          "ACT_REPL_BEARING",
+          "ACT_REPL_SEAL_VALVE"
+        ],
+        "instance_ids": [
+          "FS_INST_001_1",
+          "FS_INST_002_4"
+        ]
+      },
+      "10%": {
+        "fraction": 0.1,
+        "num_states": 3,
+        "num_candidates": 63,
+        "num_assets": 2,
+        "unique_actions": [
+          "ACT_INSP_SUBSYSTEM",
+          "ACT_REPL_BEARING",
+          "ACT_REPL_SEAL_VALVE"
+        ],
+        "instance_ids": [
+          "FS_INST_001_1",
+          "FS_INST_002_4",
+          "FS_INST_003_4"
+        ]
+      },
+      "25%": {
+        "fraction": 0.25,
+        "num_states": 7,
+        "num_candidates": 147,
+        "num_assets": 5,
+        "unique_actions": [
+          "ACT_INSP_SUBSYSTEM",
+          "ACT_REPL_BEARING",
+          "ACT_REPL_SEAL_VALVE"
+        ],
+        "instance_ids": [
+          "FS_INST_001_1",
+          "FS_INST_002_4",
+          "FS_INST_003_4",
+          "FS_INST_004_1",
+          "FS_INST_005_5",
+          "FS_INST_006_3",
+          "FS_INST_007_6"
+        ]
+      },
+      "50%": {
+        "fraction": 0.5,
+        "num_states": 13,
+        "num_candidates": 273,
+        "num_assets": 6,
+        "unique_actions": [
+          "ACT_CORR_CLEAN_PURGE",
+          "ACT_INSP_SUBSYSTEM",
+          "ACT_REPL_BEARING",
+          "ACT_REPL_SEAL_VALVE"
+        ],
+        "instance_ids": [
+          "FS_INST_001_1",
+          "FS_INST_002_4",
+          "FS_INST_003_4",
+          "FS_INST_004_1",
+          "FS_INST_005_5",
+          "FS_INST_006_3",
+          "FS_INST_007_6",
+          "FS_INST_008_3",
+          "FS_INST_009_4",
+          "FS_INST_010_2",
+          "FS_INST_011_6",
+          "FS_INST_012_5",
+          "FS_INST_013_2"
+        ]
+      },
+      "100%": {
+        "fraction": 1.0,
+        "num_states": 25,
+        "num_candidates": 525,
+        "num_assets": 6,
+        "unique_actions": [
+          "ACT_CORR_CLEAN_PURGE",
+          "ACT_CORR_FASTEN_ALIGN",
+          "ACT_INSP_SUBSYSTEM",
+          "ACT_INSP_THERMAL_ELECTRICAL",
+          "ACT_REPL_BEARING",
+          "ACT_REPL_SEAL_VALVE"
+        ],
+        "instance_ids": [
+          "FS_INST_001_1",
+          "FS_INST_002_4",
+          "FS_INST_003_4",
+          "FS_INST_004_1",
+          "FS_INST_005_5",
+          "FS_INST_006_3",
+          "FS_INST_007_6",
+          "FS_INST_008_3",
+          "FS_INST_009_4",
+          "FS_INST_010_2",
+          "FS_INST_011_6",
+          "FS_INST_012_5",
+          "FS_INST_013_2",
+          "FS_INST_014_4",
+          "FS_INST_015_6",
+          "FS_INST_016_5",
+          "FS_INST_017_3",
+          "FS_INST_018_2",
+          "FS_INST_019_4",
+          "FS_INST_020_3",
+          "FS_INST_021_1",
+          "FS_INST_022_5",
+          "FS_INST_023_3",
+          "FS_INST_024_1",
+          "FS_INST_025_3"
+        ]
+      }
+    },
+    "instance_ids": {
+      "train_pool": [
+        "FS_INST_001_1",
+        "FS_INST_002_4",
+        "FS_INST_003_4",
+        "FS_INST_004_1",
+        "FS_INST_005_5",
+        "FS_INST_006_3",
+        "FS_INST_007_6",
+        "FS_INST_008_3",
+        "FS_INST_009_4",
+        "FS_INST_010_2",
+        "FS_INST_011_6",
+        "FS_INST_012_5",
+        "FS_INST_013_2",
+        "FS_INST_014_4",
+        "FS_INST_015_6",
+        "FS_INST_016_5",
+        "FS_INST_017_3",
+        "FS_INST_018_2",
+        "FS_INST_019_4",
+        "FS_INST_020_3",
+        "FS_INST_021_1",
+        "FS_INST_022_5",
+        "FS_INST_023_3",
+        "FS_INST_024_1",
+        "FS_INST_025_3"
+      ],
+      "val_pool": [
+        "FS_INST_026_4",
+        "FS_INST_027_5",
+        "FS_INST_028_6",
+        "FS_INST_029_2",
+        "FS_INST_030_2",
+        "FS_INST_031_5",
+        "FS_INST_032_6",
+        "FS_INST_033_3",
+        "FS_INST_034_2",
+        "FS_INST_035_4",
+        "FS_INST_036_1",
+        "FS_INST_037_3",
+        "FS_INST_038_5",
+        "FS_INST_039_4",
+        "FS_INST_040_1",
+        "FS_INST_041_6",
+        "FS_INST_042_2",
+        "FS_INST_043_6"
+      ],
+      "test_pool": [
+        "FS_INST_044_5",
+        "FS_INST_045_2",
+        "FS_INST_046_3",
+        "FS_INST_047_5",
+        "FS_INST_048_1",
+        "FS_INST_049_4",
+        "FS_INST_050_4",
+        "FS_INST_051_1",
+        "FS_INST_052_1",
+        "FS_INST_053_3",
+        "FS_INST_054_2",
+        "FS_INST_055_3",
+        "FS_INST_056_4",
+        "FS_INST_057_6",
+        "FS_INST_058_4",
+        "FS_INST_059_6",
+        "FS_INST_060_5",
+        "FS_INST_061_2",
+        "FS_INST_062_1",
+        "FS_INST_063_4"
+      ]
+    }
+  },
+  "oil040": {
+    "domain_id": "oil040",
+    "total_instances": 80,
+    "split_counts": {
+      "train_pool": 32,
+      "val_pool": 24,
+      "test_pool": 24
+    },
+    "temporal_boundaries": {
+      "train_min": "2025-01-01 06:00:00+00:00",
+      "train_max": "2025-01-14 12:00:00+00:00",
+      "val_min": "2025-01-14 18:00:00+00:00",
+      "val_max": "2025-01-21 06:00:00+00:00",
+      "test_min": "2025-01-21 06:00:00+00:00",
+      "test_max": "2025-01-30 00:00:00+00:00"
+    },
+    "hashes": {
+      "train_pool_sha256": "85331d57423adde7a0b5b8a74fd12ed39f8a96cdf07892c44f27e83bb19f97f9",
+      "val_pool_sha256": "96f16efe80f862abe87d11b2eaa82531ea7f91c731798352ac61b8dcba02465b",
+      "test_pool_sha256": "8bed0ce70d320b44a668ecaec9d528ec8fcb74666d1f7b49c8049baa6dad356d"
+    },
+    "budgets": {
+      "0%": {
+        "fraction": 0.0,
+        "num_states": 0,
+        "num_candidates": 0,
+        "num_assets": 0,
+        "unique_actions": [],
+        "instance_ids": []
+      },
+      "1%": {
+        "fraction": 0.01,
+        "num_states": 1,
+        "num_candidates": 21,
+        "num_assets": 1,
+        "unique_actions": [
+          "ACT_CORR_LUBRICATE"
+        ],
+        "instance_ids": [
+          "OIL_INST_001_EQ-0000008"
+        ]
+      },
+      "5%": {
+        "fraction": 0.05,
+        "num_states": 2,
+        "num_candidates": 42,
+        "num_assets": 2,
+        "unique_actions": [
+          "ACT_CORR_CALIBRATE",
+          "ACT_CORR_LUBRICATE"
+        ],
+        "instance_ids": [
+          "OIL_INST_001_EQ-0000008",
+          "OIL_INST_002_EQ-0000016"
+        ]
+      },
+      "10%": {
+        "fraction": 0.1,
+        "num_states": 4,
+        "num_candidates": 84,
+        "num_assets": 4,
+        "unique_actions": [
+          "ACT_CORR_CALIBRATE",
+          "ACT_CORR_LUBRICATE",
+          "ACT_REPL_OVERHAUL"
+        ],
+        "instance_ids": [
+          "OIL_INST_001_EQ-0000008",
+          "OIL_INST_002_EQ-0000016",
+          "OIL_INST_003_EQ-0000061",
+          "OIL_INST_004_EQ-0000013"
+        ]
+      },
+      "25%": {
+        "fraction": 0.25,
+        "num_states": 8,
+        "num_candidates": 168,
+        "num_assets": 8,
+        "unique_actions": [
+          "ACT_CORR_CALIBRATE",
+          "ACT_CORR_FASTEN_ALIGN",
+          "ACT_CORR_LUBRICATE",
+          "ACT_REPL_BEARING",
+          "ACT_REPL_OVERHAUL"
+        ],
+        "instance_ids": [
+          "OIL_INST_001_EQ-0000008",
+          "OIL_INST_002_EQ-0000016",
+          "OIL_INST_003_EQ-0000061",
+          "OIL_INST_004_EQ-0000013",
+          "OIL_INST_005_EQ-0000035",
+          "OIL_INST_006_EQ-0000001",
+          "OIL_INST_007_EQ-0000017",
+          "OIL_INST_008_EQ-0000023"
+        ]
+      },
+      "50%": {
+        "fraction": 0.5,
+        "num_states": 16,
+        "num_candidates": 336,
+        "num_assets": 15,
+        "unique_actions": [
+          "ACT_CORR_CALIBRATE",
+          "ACT_CORR_FASTEN_ALIGN",
+          "ACT_CORR_LUBRICATE",
+          "ACT_REPL_BEARING",
+          "ACT_REPL_OVERHAUL"
+        ],
+        "instance_ids": [
+          "OIL_INST_001_EQ-0000008",
+          "OIL_INST_002_EQ-0000016",
+          "OIL_INST_003_EQ-0000061",
+          "OIL_INST_004_EQ-0000013",
+          "OIL_INST_005_EQ-0000035",
+          "OIL_INST_006_EQ-0000001",
+          "OIL_INST_007_EQ-0000017",
+          "OIL_INST_008_EQ-0000023",
+          "OIL_INST_009_EQ-0000007",
+          "OIL_INST_010_EQ-0000041",
+          "OIL_INST_011_EQ-0000056",
+          "OIL_INST_012_EQ-0000031",
+          "OIL_INST_013_EQ-0000063",
+          "OIL_INST_014_EQ-0000069",
+          "OIL_INST_015_EQ-0000034",
+          "OIL_INST_016_EQ-0000034"
+        ]
+      },
+      "100%": {
+        "fraction": 1.0,
+        "num_states": 32,
+        "num_candidates": 672,
+        "num_assets": 28,
+        "unique_actions": [
+          "ACT_CORR_CALIBRATE",
+          "ACT_CORR_FASTEN_ALIGN",
+          "ACT_CORR_LUBRICATE",
+          "ACT_INSP_SUBSYSTEM",
+          "ACT_REPL_BEARING",
+          "ACT_REPL_OVERHAUL"
+        ],
+        "instance_ids": [
+          "OIL_INST_001_EQ-0000008",
+          "OIL_INST_002_EQ-0000016",
+          "OIL_INST_003_EQ-0000061",
+          "OIL_INST_004_EQ-0000013",
+          "OIL_INST_005_EQ-0000035",
+          "OIL_INST_006_EQ-0000001",
+          "OIL_INST_007_EQ-0000017",
+          "OIL_INST_008_EQ-0000023",
+          "OIL_INST_009_EQ-0000007",
+          "OIL_INST_010_EQ-0000041",
+          "OIL_INST_011_EQ-0000056",
+          "OIL_INST_012_EQ-0000031",
+          "OIL_INST_013_EQ-0000063",
+          "OIL_INST_014_EQ-0000069",
+          "OIL_INST_015_EQ-0000034",
+          "OIL_INST_016_EQ-0000034",
+          "OIL_INST_017_EQ-0000075",
+          "OIL_INST_018_EQ-0000008",
+          "OIL_INST_019_EQ-0000032",
+          "OIL_INST_020_EQ-0000076",
+          "OIL_INST_021_EQ-0000040",
+          "OIL_INST_022_EQ-0000005",
+          "OIL_INST_023_EQ-0000032",
+          "OIL_INST_024_EQ-0000060",
+          "OIL_INST_025_EQ-0000076",
+          "OIL_INST_026_EQ-0000052",
+          "OIL_INST_027_EQ-0000003",
+          "OIL_INST_028_EQ-0000054",
+          "OIL_INST_029_EQ-0000073",
+          "OIL_INST_030_EQ-0000045",
+          "OIL_INST_031_EQ-0000025",
+          "OIL_INST_032_EQ-0000033"
+        ]
+      }
+    },
+    "instance_ids": {
+      "train_pool": [
+        "OIL_INST_001_EQ-0000008",
+        "OIL_INST_002_EQ-0000016",
+        "OIL_INST_003_EQ-0000061",
+        "OIL_INST_004_EQ-0000013",
+        "OIL_INST_005_EQ-0000035",
+        "OIL_INST_006_EQ-0000001",
+        "OIL_INST_007_EQ-0000017",
+        "OIL_INST_008_EQ-0000023",
+        "OIL_INST_009_EQ-0000007",
+        "OIL_INST_010_EQ-0000041",
+        "OIL_INST_011_EQ-0000056",
+        "OIL_INST_012_EQ-0000031",
+        "OIL_INST_013_EQ-0000063",
+        "OIL_INST_014_EQ-0000069",
+        "OIL_INST_015_EQ-0000034",
+        "OIL_INST_016_EQ-0000034",
+        "OIL_INST_017_EQ-0000075",
+        "OIL_INST_018_EQ-0000008",
+        "OIL_INST_019_EQ-0000032",
+        "OIL_INST_020_EQ-0000076",
+        "OIL_INST_021_EQ-0000040",
+        "OIL_INST_022_EQ-0000005",
+        "OIL_INST_023_EQ-0000032",
+        "OIL_INST_024_EQ-0000060",
+        "OIL_INST_025_EQ-0000076",
+        "OIL_INST_026_EQ-0000052",
+        "OIL_INST_027_EQ-0000003",
+        "OIL_INST_028_EQ-0000054",
+        "OIL_INST_029_EQ-0000073",
+        "OIL_INST_030_EQ-0000045",
+        "OIL_INST_031_EQ-0000025",
+        "OIL_INST_032_EQ-0000033"
+      ],
+      "val_pool": [
+        "OIL_INST_033_EQ-0000050",
+        "OIL_INST_034_EQ-0000053",
+        "OIL_INST_035_EQ-0000011",
+        "OIL_INST_036_EQ-0000014",
+        "OIL_INST_037_EQ-0000075",
+        "OIL_INST_038_EQ-0000030",
+        "OIL_INST_039_EQ-0000038",
+        "OIL_INST_040_EQ-0000053",
+        "OIL_INST_041_EQ-0000004",
+        "OIL_INST_042_EQ-0000039",
+        "OIL_INST_043_EQ-0000041",
+        "OIL_INST_044_EQ-0000047",
+        "OIL_INST_045_EQ-0000011",
+        "OIL_INST_046_EQ-0000051",
+        "OIL_INST_047_EQ-0000008",
+        "OIL_INST_048_EQ-0000059",
+        "OIL_INST_049_EQ-0000072",
+        "OIL_INST_050_EQ-0000008",
+        "OIL_INST_051_EQ-0000045",
+        "OIL_INST_052_EQ-0000017",
+        "OIL_INST_053_EQ-0000029",
+        "OIL_INST_054_EQ-0000055",
+        "OIL_INST_055_EQ-0000012",
+        "OIL_INST_056_EQ-0000004"
+      ],
+      "test_pool": [
+        "OIL_INST_057_EQ-0000046",
+        "OIL_INST_058_EQ-0000065",
+        "OIL_INST_059_EQ-0000013",
+        "OIL_INST_060_EQ-0000069",
+        "OIL_INST_061_EQ-0000020",
+        "OIL_INST_062_EQ-0000025",
+        "OIL_INST_063_EQ-0000002",
+        "OIL_INST_064_EQ-0000041",
+        "OIL_INST_065_EQ-0000069",
+        "OIL_INST_066_EQ-0000049",
+        "OIL_INST_067_EQ-0000061",
+        "OIL_INST_068_EQ-0000027",
+        "OIL_INST_069_EQ-0000067",
+        "OIL_INST_070_EQ-0000027",
+        "OIL_INST_071_EQ-0000075",
+        "OIL_INST_072_EQ-0000034",
+        "OIL_INST_073_EQ-0000069",
+        "OIL_INST_074_EQ-0000030",
+        "OIL_INST_075_EQ-0000072",
+        "OIL_INST_076_EQ-0000002",
+        "OIL_INST_077_EQ-0000026",
+        "OIL_INST_078_EQ-0000004",
+        "OIL_INST_079_EQ-0000035",
+        "OIL_INST_080_EQ-0000002"
+      ]
+    }
+  },
+  "cmapss_lodo": {
+    "domain_id": "cmapss_lodo",
+    "total_instances": 121,
+    "split_counts": {
+      "train_pool": 48,
+      "val_pool": 36,
+      "test_pool": 37
+    },
+    "temporal_boundaries": {
+      "train_min": "cycle_0012",
+      "train_max": "cycle_0109",
+      "val_min": "cycle_0113",
+      "val_max": "cycle_0199",
+      "test_min": "cycle_0203",
+      "test_max": "cycle_0338"
+    },
+    "hashes": {
+      "train_pool_sha256": "5fa269a4f0898299df4f6f559114fd13559b2521102cef12124a02f68734bd6b",
+      "val_pool_sha256": "0a987d01bac1a45718e78be2a8a9a59dc1554078b72a2321841d2020a685a129",
+      "test_pool_sha256": "d6819112094d967a442c9918828607221d051540e7d2dd32422fdbec56fd5dc1"
+    },
+    "budgets": {
+      "0%": {
+        "fraction": 0.0,
+        "num_states": 0,
+        "num_candidates": 0,
+        "num_assets": 0,
+        "unique_actions": [],
+        "instance_ids": []
+      },
+      "1%": {
+        "fraction": 0.01,
+        "num_states": 1,
+        "num_candidates": 3,
+        "num_assets": 1,
+        "unique_actions": [
+          "ACT_MON_CONTINUE"
+        ],
+        "instance_ids": [
+          "CMAPSS_INST_001_FD002_unit_1"
+        ]
+      },
+      "5%": {
+        "fraction": 0.05,
+        "num_states": 3,
+        "num_candidates": 9,
+        "num_assets": 3,
+        "unique_actions": [
+          "ACT_MON_CONTINUE"
+        ],
+        "instance_ids": [
+          "CMAPSS_INST_001_FD002_unit_1",
+          "CMAPSS_INST_002_FD002_unit_10",
+          "CMAPSS_INST_003_FD002_unit_11"
+        ]
+      },
+      "10%": {
+        "fraction": 0.1,
+        "num_states": 5,
+        "num_candidates": 15,
+        "num_assets": 5,
+        "unique_actions": [
+          "ACT_MON_CONTINUE"
+        ],
+        "instance_ids": [
+          "CMAPSS_INST_001_FD002_unit_1",
+          "CMAPSS_INST_002_FD002_unit_10",
+          "CMAPSS_INST_003_FD002_unit_11",
+          "CMAPSS_INST_004_FD002_unit_12",
+          "CMAPSS_INST_005_FD002_unit_13"
+        ]
+      },
+      "25%": {
+        "fraction": 0.25,
+        "num_states": 12,
+        "num_candidates": 36,
+        "num_assets": 12,
+        "unique_actions": [
+          "ACT_MON_CONTINUE"
+        ],
+        "instance_ids": [
+          "CMAPSS_INST_001_FD002_unit_1",
+          "CMAPSS_INST_002_FD002_unit_10",
+          "CMAPSS_INST_003_FD002_unit_11",
+          "CMAPSS_INST_004_FD002_unit_12",
+          "CMAPSS_INST_005_FD002_unit_13",
+          "CMAPSS_INST_006_FD002_unit_14",
+          "CMAPSS_INST_007_FD002_unit_16",
+          "CMAPSS_INST_008_FD002_unit_17",
+          "CMAPSS_INST_009_FD002_unit_18",
+          "CMAPSS_INST_010_FD002_unit_19",
+          "CMAPSS_INST_011_FD002_unit_20",
+          "CMAPSS_INST_012_FD002_unit_4"
+        ]
+      },
+      "50%": {
+        "fraction": 0.5,
+        "num_states": 24,
+        "num_candidates": 72,
+        "num_assets": 24,
+        "unique_actions": [
+          "ACT_MON_CONTINUE"
+        ],
+        "instance_ids": [
+          "CMAPSS_INST_001_FD002_unit_1",
+          "CMAPSS_INST_002_FD002_unit_10",
+          "CMAPSS_INST_003_FD002_unit_11",
+          "CMAPSS_INST_004_FD002_unit_12",
+          "CMAPSS_INST_005_FD002_unit_13",
+          "CMAPSS_INST_006_FD002_unit_14",
+          "CMAPSS_INST_007_FD002_unit_16",
+          "CMAPSS_INST_008_FD002_unit_17",
+          "CMAPSS_INST_009_FD002_unit_18",
+          "CMAPSS_INST_010_FD002_unit_19",
+          "CMAPSS_INST_011_FD002_unit_20",
+          "CMAPSS_INST_012_FD002_unit_4",
+          "CMAPSS_INST_013_FD002_unit_6",
+          "CMAPSS_INST_014_FD002_unit_9",
+          "CMAPSS_INST_015_FD004_unit_1",
+          "CMAPSS_INST_016_FD004_unit_11",
+          "CMAPSS_INST_017_FD004_unit_12",
+          "CMAPSS_INST_018_FD004_unit_13",
+          "CMAPSS_INST_019_FD004_unit_14",
+          "CMAPSS_INST_020_FD004_unit_15",
+          "CMAPSS_INST_021_FD004_unit_16",
+          "CMAPSS_INST_022_FD004_unit_17",
+          "CMAPSS_INST_023_FD004_unit_19",
+          "CMAPSS_INST_024_FD004_unit_2"
+        ]
+      },
+      "100%": {
+        "fraction": 1.0,
+        "num_states": 48,
+        "num_candidates": 162,
+        "num_assets": 35,
+        "unique_actions": [
+          "ACT_MON_CONTINUE",
+          "ACT_MON_ENHANCED"
+        ],
+        "instance_ids": [
+          "CMAPSS_INST_001_FD002_unit_1",
+          "CMAPSS_INST_002_FD002_unit_10",
+          "CMAPSS_INST_003_FD002_unit_11",
+          "CMAPSS_INST_004_FD002_unit_12",
+          "CMAPSS_INST_005_FD002_unit_13",
+          "CMAPSS_INST_006_FD002_unit_14",
+          "CMAPSS_INST_007_FD002_unit_16",
+          "CMAPSS_INST_008_FD002_unit_17",
+          "CMAPSS_INST_009_FD002_unit_18",
+          "CMAPSS_INST_010_FD002_unit_19",
+          "CMAPSS_INST_011_FD002_unit_20",
+          "CMAPSS_INST_012_FD002_unit_4",
+          "CMAPSS_INST_013_FD002_unit_6",
+          "CMAPSS_INST_014_FD002_unit_9",
+          "CMAPSS_INST_015_FD004_unit_1",
+          "CMAPSS_INST_016_FD004_unit_11",
+          "CMAPSS_INST_017_FD004_unit_12",
+          "CMAPSS_INST_018_FD004_unit_13",
+          "CMAPSS_INST_019_FD004_unit_14",
+          "CMAPSS_INST_020_FD004_unit_15",
+          "CMAPSS_INST_021_FD004_unit_16",
+          "CMAPSS_INST_022_FD004_unit_17",
+          "CMAPSS_INST_023_FD004_unit_19",
+          "CMAPSS_INST_024_FD004_unit_2",
+          "CMAPSS_INST_025_FD004_unit_20",
+          "CMAPSS_INST_026_FD004_unit_3",
+          "CMAPSS_INST_027_FD004_unit_4",
+          "CMAPSS_INST_028_FD004_unit_5",
+          "CMAPSS_INST_029_FD004_unit_6",
+          "CMAPSS_INST_030_FD004_unit_9",
+          "CMAPSS_INST_031_FD004_unit_17",
+          "CMAPSS_INST_032_FD002_unit_16",
+          "CMAPSS_INST_033_FD002_unit_5",
+          "CMAPSS_INST_034_FD002_unit_8",
+          "CMAPSS_INST_035_FD002_unit_10",
+          "CMAPSS_INST_036_FD002_unit_19",
+          "CMAPSS_INST_037_FD002_unit_14",
+          "CMAPSS_INST_038_FD002_unit_7",
+          "CMAPSS_INST_039_FD004_unit_16",
+          "CMAPSS_INST_040_FD002_unit_9",
+          "CMAPSS_INST_041_FD001_unit_1",
+          "CMAPSS_INST_042_FD004_unit_5",
+          "CMAPSS_INST_043_FD002_unit_20",
+          "CMAPSS_INST_044_FD002_unit_16",
+          "CMAPSS_INST_045_FD002_unit_18",
+          "CMAPSS_INST_046_FD002_unit_15",
+          "CMAPSS_INST_047_FD002_unit_5",
+          "CMAPSS_INST_048_FD004_unit_15"
+        ]
+      }
+    },
+    "instance_ids": {
+      "train_pool": [
+        "CMAPSS_INST_001_FD002_unit_1",
+        "CMAPSS_INST_002_FD002_unit_10",
+        "CMAPSS_INST_003_FD002_unit_11",
+        "CMAPSS_INST_004_FD002_unit_12",
+        "CMAPSS_INST_005_FD002_unit_13",
+        "CMAPSS_INST_006_FD002_unit_14",
+        "CMAPSS_INST_007_FD002_unit_16",
+        "CMAPSS_INST_008_FD002_unit_17",
+        "CMAPSS_INST_009_FD002_unit_18",
+        "CMAPSS_INST_010_FD002_unit_19",
+        "CMAPSS_INST_011_FD002_unit_20",
+        "CMAPSS_INST_012_FD002_unit_4",
+        "CMAPSS_INST_013_FD002_unit_6",
+        "CMAPSS_INST_014_FD002_unit_9",
+        "CMAPSS_INST_015_FD004_unit_1",
+        "CMAPSS_INST_016_FD004_unit_11",
+        "CMAPSS_INST_017_FD004_unit_12",
+        "CMAPSS_INST_018_FD004_unit_13",
+        "CMAPSS_INST_019_FD004_unit_14",
+        "CMAPSS_INST_020_FD004_unit_15",
+        "CMAPSS_INST_021_FD004_unit_16",
+        "CMAPSS_INST_022_FD004_unit_17",
+        "CMAPSS_INST_023_FD004_unit_19",
+        "CMAPSS_INST_024_FD004_unit_2",
+        "CMAPSS_INST_025_FD004_unit_20",
+        "CMAPSS_INST_026_FD004_unit_3",
+        "CMAPSS_INST_027_FD004_unit_4",
+        "CMAPSS_INST_028_FD004_unit_5",
+        "CMAPSS_INST_029_FD004_unit_6",
+        "CMAPSS_INST_030_FD004_unit_9",
+        "CMAPSS_INST_031_FD004_unit_17",
+        "CMAPSS_INST_032_FD002_unit_16",
+        "CMAPSS_INST_033_FD002_unit_5",
+        "CMAPSS_INST_034_FD002_unit_8",
+        "CMAPSS_INST_035_FD002_unit_10",
+        "CMAPSS_INST_036_FD002_unit_19",
+        "CMAPSS_INST_037_FD002_unit_14",
+        "CMAPSS_INST_038_FD002_unit_7",
+        "CMAPSS_INST_039_FD004_unit_16",
+        "CMAPSS_INST_040_FD002_unit_9",
+        "CMAPSS_INST_041_FD001_unit_1",
+        "CMAPSS_INST_042_FD004_unit_5",
+        "CMAPSS_INST_043_FD002_unit_20",
+        "CMAPSS_INST_044_FD002_unit_16",
+        "CMAPSS_INST_045_FD002_unit_18",
+        "CMAPSS_INST_046_FD002_unit_15",
+        "CMAPSS_INST_047_FD002_unit_5",
+        "CMAPSS_INST_048_FD004_unit_15"
+      ],
+      "val_pool": [
+        "CMAPSS_INST_049_FD002_unit_13",
+        "CMAPSS_INST_050_FD002_unit_3",
+        "CMAPSS_INST_051_FD002_unit_6",
+        "CMAPSS_INST_052_FD002_unit_19",
+        "CMAPSS_INST_053_FD004_unit_20",
+        "CMAPSS_INST_054_FD002_unit_14",
+        "CMAPSS_INST_055_FD002_unit_17",
+        "CMAPSS_INST_056_FD002_unit_7",
+        "CMAPSS_INST_057_FD002_unit_10",
+        "CMAPSS_INST_058_FD002_unit_12",
+        "CMAPSS_INST_059_FD004_unit_16",
+        "CMAPSS_INST_060_FD002_unit_4",
+        "CMAPSS_INST_061_FD002_unit_9",
+        "CMAPSS_INST_062_FD002_unit_8",
+        "CMAPSS_INST_063_FD002_unit_1",
+        "CMAPSS_INST_064_FD004_unit_8",
+        "CMAPSS_INST_065_FD004_unit_14",
+        "CMAPSS_INST_066_FD002_unit_19",
+        "CMAPSS_INST_067_FD002_unit_16",
+        "CMAPSS_INST_068_FD002_unit_15",
+        "CMAPSS_INST_069_FD004_unit_15",
+        "CMAPSS_INST_070_FD002_unit_1",
+        "CMAPSS_INST_071_FD002_unit_19",
+        "CMAPSS_INST_072_FD004_unit_7",
+        "CMAPSS_INST_073_FD004_unit_5",
+        "CMAPSS_INST_074_FD004_unit_12",
+        "CMAPSS_INST_075_FD002_unit_10",
+        "CMAPSS_INST_076_FD002_unit_17",
+        "CMAPSS_INST_077_FD004_unit_4",
+        "CMAPSS_INST_078_FD004_unit_5",
+        "CMAPSS_INST_079_FD004_unit_2",
+        "CMAPSS_INST_080_FD002_unit_4",
+        "CMAPSS_INST_081_FD004_unit_19",
+        "CMAPSS_INST_082_FD002_unit_14",
+        "CMAPSS_INST_083_FD004_unit_8",
+        "CMAPSS_INST_084_FD002_unit_12"
+      ],
+      "test_pool": [
+        "CMAPSS_INST_085_FD004_unit_14",
+        "CMAPSS_INST_086_FD002_unit_15",
+        "CMAPSS_INST_087_FD004_unit_3",
+        "CMAPSS_INST_088_FD004_unit_13",
+        "CMAPSS_INST_089_FD002_unit_15",
+        "CMAPSS_INST_090_FD002_unit_4",
+        "CMAPSS_INST_091_FD004_unit_6",
+        "CMAPSS_INST_092_FD002_unit_17",
+        "CMAPSS_INST_093_FD002_unit_2",
+        "CMAPSS_INST_094_FD002_unit_4",
+        "CMAPSS_INST_095_FD004_unit_4",
+        "CMAPSS_INST_096_FD004_unit_12",
+        "CMAPSS_INST_097_FD002_unit_4",
+        "CMAPSS_INST_098_FD003_unit_2",
+        "CMAPSS_INST_099_FD004_unit_2",
+        "CMAPSS_INST_100_FD002_unit_4",
+        "CMAPSS_INST_101_FD004_unit_14",
+        "CMAPSS_INST_102_FD002_unit_12",
+        "CMAPSS_INST_103_FD004_unit_13",
+        "CMAPSS_INST_104_FD004_unit_1",
+        "CMAPSS_INST_105_FD004_unit_11",
+        "CMAPSS_INST_106_FD004_unit_14",
+        "CMAPSS_INST_107_FD002_unit_2",
+        "CMAPSS_INST_108_FD004_unit_10",
+        "CMAPSS_INST_109_FD004_unit_3",
+        "CMAPSS_INST_110_FD004_unit_12",
+        "CMAPSS_INST_111_FD004_unit_12",
+        "CMAPSS_INST_112_FD004_unit_6",
+        "CMAPSS_INST_113_FD004_unit_9",
+        "CMAPSS_INST_114_FD004_unit_11",
+        "CMAPSS_INST_115_FD004_unit_18",
+        "CMAPSS_INST_116_FD004_unit_11",
+        "CMAPSS_INST_117_FD004_unit_11",
+        "CMAPSS_INST_118_FD004_unit_3",
+        "CMAPSS_INST_119_FD004_unit_10",
+        "CMAPSS_INST_120_FD004_unit_9",
+        "CMAPSS_INST_121_FD004_unit_18"
+      ]
+    }
+  }
+}

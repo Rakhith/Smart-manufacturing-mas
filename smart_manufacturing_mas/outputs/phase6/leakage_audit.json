@@ -1,0 +1,246 @@
+{
+  "title": "Phase 6 Data Leakage and Evaluation Integrity Certification",
+  "overall_status": "PASS",
+  "total_checks": 24,
+  "passed_checks": 24,
+  "failed_checks": 0,
+  "checks": [
+    {
+      "check_id": "CHECK_1_SOURCE_MODEL_IMMUTABILITY",
+      "name": "Reference Phase 4 Model Immutability",
+      "model_path": "outputs\\phase4\\models\\lgbm_ranker.joblib",
+      "sha256": "bc4b48094f51e6e52b7f94335e72577ae1c67ab35dcf62b0e44f2499107e6d74",
+      "status": "PASS",
+      "details": "Model binary intact. SHA-256: bc4b48094f51e6e5..."
+    },
+    {
+      "check_id": "CHECK_2_SOURCE_TARGET_ISOLATION",
+      "name": "Source-Target Domain Isolation",
+      "domain_id": "factory_sensors",
+      "strictly_unseen_in_phase4": true,
+      "overlapping_state_count": 0,
+      "status": "PASS",
+      "details": "Target domain 'factory_sensors' is 100% strictly unseen in Phase 4 training data (0 overlapping datasets)."
+    },
+    {
+      "check_id": "CHECK_3_TEMPORAL_CAUSALITY",
+      "name": "Temporal Causal Non-Leakage (t_pred <= t_event)",
+      "total_checked": 63,
+      "violation_count": 0,
+      "violations": [],
+      "status": "PASS",
+      "details": "All 63 instances preserve t_pred <= t_event (0 future telemetry leakage)."
+    },
+    {
+      "check_id": "CHECK_4_SPLIT_CHRONOLOGICAL_ORDER",
+      "name": "Strict Chronological Partition Ordering",
+      "train_max_timestamp": "2026-02-05 18:00:00",
+      "val_min_timestamp": "2026-02-06 11:00:00",
+      "val_max_timestamp": "2026-05-14 18:00:00",
+      "test_min_timestamp": "2026-05-17 12:00:00",
+      "train_val_ordered": true,
+      "val_test_ordered": true,
+      "status": "PASS",
+      "details": "Adaptation pool, validation pool, and test pool are strictly chronologically non-overlapping."
+    },
+    {
+      "check_id": "CHECK_5_SPLIT_DISJOINTNESS",
+      "name": "Split Instance Disjointness",
+      "overlap_train_val": 0,
+      "overlap_train_test": 0,
+      "overlap_val_test": 0,
+      "status": "PASS",
+      "details": "Zero ID overlap across splits: Train(25), Val(18), Test(20)."
+    },
+    {
+      "check_id": "CHECK_7_TEST_SET_IMMUTABILITY",
+      "name": "Final Evaluation Test Set Immutability",
+      "test_sample_count": 20,
+      "test_instances_sha256": "2290f64b09023f111c6eb88640b909fe1db0a2bdd0c64ef10e02577d6b8d73fd",
+      "status": "PASS",
+      "details": "Test set contains 20 untouched instances with locked hash 2290f64b09023f11..."
+    },
+    {
+      "check_id": "CHECK_8_FEATURE_LABEL_ISOLATION",
+      "name": "Target Outcome Feature Isolation",
+      "instances_checked": 63,
+      "nan_or_corrupt_count": 0,
+      "status": "PASS",
+      "details": "Features derived strictly from normalized CMSR telemetry without target action label leakage."
+    },
+    {
+      "check_id": "CHECK_6_BUDGET_NESTING",
+      "name": "Monotonic Adaptation Budget Nesting",
+      "budgets_checked": [
+        0.0,
+        0.01,
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "violations_count": 0,
+      "status": "PASS",
+      "details": "Smaller adaptation budgets are strict subsets of larger budgets."
+    },
+    {
+      "check_id": "CHECK_1_SOURCE_MODEL_IMMUTABILITY",
+      "name": "Reference Phase 4 Model Immutability",
+      "model_path": "outputs\\phase4\\models\\lgbm_ranker.joblib",
+      "sha256": "bc4b48094f51e6e52b7f94335e72577ae1c67ab35dcf62b0e44f2499107e6d74",
+      "status": "PASS",
+      "details": "Model binary intact. SHA-256: bc4b48094f51e6e5..."
+    },
+    {
+      "check_id": "CHECK_2_SOURCE_TARGET_ISOLATION",
+      "name": "Source-Target Domain Isolation",
+      "domain_id": "oil040",
+      "strictly_unseen_in_phase4": true,
+      "overlapping_state_count": 0,
+      "status": "PASS",
+      "details": "Target domain 'oil040' is 100% strictly unseen in Phase 4 training data (0 overlapping datasets)."
+    },
+    {
+      "check_id": "CHECK_3_TEMPORAL_CAUSALITY",
+      "name": "Temporal Causal Non-Leakage (t_pred <= t_event)",
+      "total_checked": 80,
+      "violation_count": 0,
+      "violations": [],
+      "status": "PASS",
+      "details": "All 80 instances preserve t_pred <= t_event (0 future telemetry leakage)."
+    },
+    {
+      "check_id": "CHECK_4_SPLIT_CHRONOLOGICAL_ORDER",
+      "name": "Strict Chronological Partition Ordering",
+      "train_max_timestamp": "2025-01-14 12:00:00+00:00",
+      "val_min_timestamp": "2025-01-14 18:00:00+00:00",
+      "val_max_timestamp": "2025-01-21 06:00:00+00:00",
+      "test_min_timestamp": "2025-01-21 06:00:00+00:00",
+      "train_val_ordered": true,
+      "val_test_ordered": true,
+      "status": "PASS",
+      "details": "Adaptation pool, validation pool, and test pool are strictly chronologically non-overlapping."
+    },
+    {
+      "check_id": "CHECK_5_SPLIT_DISJOINTNESS",
+      "name": "Split Instance Disjointness",
+      "overlap_train_val": 0,
+      "overlap_train_test": 0,
+      "overlap_val_test": 0,
+      "status": "PASS",
+      "details": "Zero ID overlap across splits: Train(32), Val(24), Test(24)."
+    },
+    {
+      "check_id": "CHECK_7_TEST_SET_IMMUTABILITY",
+      "name": "Final Evaluation Test Set Immutability",
+      "test_sample_count": 24,
+      "test_instances_sha256": "8bed0ce70d320b44a668ecaec9d528ec8fcb74666d1f7b49c8049baa6dad356d",
+      "status": "PASS",
+      "details": "Test set contains 24 untouched instances with locked hash 8bed0ce70d320b44..."
+    },
+    {
+      "check_id": "CHECK_8_FEATURE_LABEL_ISOLATION",
+      "name": "Target Outcome Feature Isolation",
+      "instances_checked": 80,
+      "nan_or_corrupt_count": 0,
+      "status": "PASS",
+      "details": "Features derived strictly from normalized CMSR telemetry without target action label leakage."
+    },
+    {
+      "check_id": "CHECK_6_BUDGET_NESTING",
+      "name": "Monotonic Adaptation Budget Nesting",
+      "budgets_checked": [
+        0.0,
+        0.01,
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "violations_count": 0,
+      "status": "PASS",
+      "details": "Smaller adaptation budgets are strict subsets of larger budgets."
+    },
+    {
+      "check_id": "CHECK_1_SOURCE_MODEL_IMMUTABILITY",
+      "name": "Reference Phase 4 Model Immutability",
+      "model_path": "outputs\\phase4\\models\\lgbm_ranker.joblib",
+      "sha256": "bc4b48094f51e6e52b7f94335e72577ae1c67ab35dcf62b0e44f2499107e6d74",
+      "status": "PASS",
+      "details": "Model binary intact. SHA-256: bc4b48094f51e6e5..."
+    },
+    {
+      "check_id": "CHECK_2_SOURCE_TARGET_ISOLATION",
+      "name": "Source-Target Domain Isolation",
+      "domain_id": "cmapss_lodo",
+      "strictly_unseen_in_phase4": false,
+      "overlapping_state_count": 0,
+      "status": "PASS",
+      "details": "Domain 'cmapss_lodo' was present in Phase 4 corpus; verified strictly excluded in dedicated Leave-One-Domain-Out source model trained on 10 remaining domains."
+    },
+    {
+      "check_id": "CHECK_3_TEMPORAL_CAUSALITY",
+      "name": "Temporal Causal Non-Leakage (t_pred <= t_event)",
+      "total_checked": 121,
+      "violation_count": 0,
+      "violations": [],
+      "status": "PASS",
+      "details": "All 121 instances preserve t_pred <= t_event (0 future telemetry leakage)."
+    },
+    {
+      "check_id": "CHECK_4_SPLIT_CHRONOLOGICAL_ORDER",
+      "name": "Strict Chronological Partition Ordering",
+      "train_max_timestamp": "cycle_0109",
+      "val_min_timestamp": "cycle_0113",
+      "val_max_timestamp": "cycle_0199",
+      "test_min_timestamp": "cycle_0203",
+      "train_val_ordered": true,
+      "val_test_ordered": true,
+      "status": "PASS",
+      "details": "Adaptation pool, validation pool, and test pool are strictly chronologically non-overlapping."
+    },
+    {
+      "check_id": "CHECK_5_SPLIT_DISJOINTNESS",
+      "name": "Split Instance Disjointness",
+      "overlap_train_val": 0,
+      "overlap_train_test": 0,
+      "overlap_val_test": 0,
+      "status": "PASS",
+      "details": "Zero ID overlap across splits: Train(48), Val(36), Test(37)."
+    },
+    {
+      "check_id": "CHECK_7_TEST_SET_IMMUTABILITY",
+      "name": "Final Evaluation Test Set Immutability",
+      "test_sample_count": 37,
+      "test_instances_sha256": "d6819112094d967a442c9918828607221d051540e7d2dd32422fdbec56fd5dc1",
+      "status": "PASS",
+      "details": "Test set contains 37 untouched instances with locked hash d6819112094d967a..."
+    },
+    {
+      "check_id": "CHECK_8_FEATURE_LABEL_ISOLATION",
+      "name": "Target Outcome Feature Isolation",
+      "instances_checked": 121,
+      "nan_or_corrupt_count": 0,
+      "status": "PASS",
+      "details": "Features derived strictly from normalized CMSR telemetry without target action label leakage."
+    },
+    {
+      "check_id": "CHECK_6_BUDGET_NESTING",
+      "name": "Monotonic Adaptation Budget Nesting",
+      "budgets_checked": [
+        0.0,
+        0.01,
+        0.05,
+        0.1,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "violations_count": 0,
+      "status": "PASS",
+      "details": "Smaller adaptation budgets are strict subsets of larger budgets."
+    }
+  ]
+}

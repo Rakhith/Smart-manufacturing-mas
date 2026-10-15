@@ -1,0 +1,62 @@
+{
+  "target_domains": [
+    "factory_sensors",
+    "oil040",
+    "cmapss_lodo"
+  ],
+  "budget_fractions": [
+    0.0,
+    0.01,
+    0.05,
+    0.1,
+    0.25,
+    0.5,
+    1.0
+  ],
+  "random_seeds": [
+    42,
+    101,
+    2024
+  ],
+  "train_ratio": 0.4,
+  "val_ratio": 0.3,
+  "test_ratio": 0.3,
+  "reference_alpha": 0.75,
+  "cbr_k": 5,
+  "bootstrap_resamples": 1000,
+  "confidence_level": 0.95,
+  "model_dir": "outputs\\phase4\\models",
+  "corpus_path": "outputs\\phase3a\\selected_decision_states\\decision_states_corpus.json",
+  "ontology_path": "outputs\\phase3b\\action_ontology\\action_ontology.json",
+  "training_table_path": "outputs\\phase4\\training\\phase4_training_table.parquet",
+  "output_dir": "outputs\\phase6",
+  "domains_metadata": {
+    "factory_sensors": {
+      "domain_id": "factory_sensors",
+      "domain_name": "Factory Sensors & Failure Labels",
+      "equipment_type": "centrifugal_slurry_pump",
+      "supervision_type": "historical_work_order",
+      "is_synthetic": true,
+      "source_exclusion_type": "external_unseen",
+      "description": "6 centrifugal slurry pumps, 52,560 hourly rows, 63 ground-truth work orders with parts cost and labor."
+    },
+    "oil040": {
+      "domain_id": "oil040",
+      "domain_name": "OIL-040 Rotating Machinery Benchmark",
+      "equipment_type": "rotating_turbomachinery",
+      "supervision_type": "historical_work_order",
+      "is_synthetic": true,
+      "source_exclusion_type": "external_unseen",
+      "description": "80 industrial rotating equipment assets, 9,600 telemetry records, 80 work orders with downtime."
+    },
+    "cmapss_lodo": {
+      "domain_id": "cmapss_lodo",
+      "domain_name": "NASA C-MAPSS Turbofan (Leave-One-Domain-Out)",
+      "equipment_type": "turbofan_aircraft_engine",
+      "supervision_type": "silver_preference",
+      "is_synthetic": true,
+      "source_exclusion_type": "leave_one_domain_out",
+      "description": "NASA turbofan engine run-to-failure degradation; strict LODO exclusion from source model."
+    }
+  }
+}
