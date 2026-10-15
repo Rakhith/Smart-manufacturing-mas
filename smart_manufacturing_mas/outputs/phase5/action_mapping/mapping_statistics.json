@@ -1,0 +1,23 @@
+{
+  "total_mapped_definitions": 12,
+  "datasets_covered": [
+    "oil040",
+    "factory_sensors"
+  ],
+  "oil040_mapped_count": 6,
+  "factory_sensors_mapped_count": 6,
+  "unmapped_occurrences_logged": 0,
+  "canonical_actions_covered": [
+    "ACT_CORR_CALIBRATE",
+    "ACT_CORR_CLEAN_PURGE",
+    "ACT_CORR_FASTEN_ALIGN",
+    "ACT_CORR_LUBRICATE",
+    "ACT_INSP_SUBSYSTEM",
+    "ACT_INSP_THERMAL_ELECTRICAL",
+    "ACT_REPL_BEARING",
+    "ACT_REPL_OVERHAUL",
+    "ACT_REPL_SEAL_VALVE"
+  ],
+  "ontology_coverage_pct": 42.86,
+  "mean_mapping_confidence": 0.9625
+}

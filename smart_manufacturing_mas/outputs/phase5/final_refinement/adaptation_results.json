@@ -1,0 +1,119 @@
+{
+  "beta_sweep": {
+    "best_beta": 1.0,
+    "best_val_mrr": 0.3787,
+    "candidate_betas": [
+      0.0,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1.0
+    ],
+    "val_mrrs": [
+      0.3565,
+      0.2676,
+      0.3385,
+      0.3506,
+      0.3545,
+      0.3665,
+      0.3676,
+      0.3704,
+      0.3722,
+      0.3775,
+      0.3787
+    ]
+  },
+  "test_baselines": {
+    "Random": {
+      "top1_match_rate": 0.1,
+      "top3_recall": 0.2,
+      "mrr": 0.2149,
+      "ndcg3": 0.15
+    },
+    "Global_Majority": {
+      "top1_match_rate": 0.4,
+      "top3_recall": 0.65,
+      "mrr": 0.5883,
+      "ndcg3": 0.5446
+    },
+    "Component_Majority": {
+      "top1_match_rate": 0.15,
+      "top3_recall": 0.65,
+      "mrr": 0.4633,
+      "ndcg3": 0.4524
+    },
+    "Expert_Heuristic": {
+      "top1_match_rate": 0.15,
+      "top3_recall": 0.15,
+      "mrr": 0.2323,
+      "ndcg3": 0.15
+    },
+    "CBR_Only": {
+      "top1_match_rate": 0.0,
+      "top3_recall": 0.0,
+      "mrr": 0.0895,
+      "ndcg3": 0.0
+    },
+    "LGBM_Only": {
+      "top1_match_rate": 0.2,
+      "top3_recall": 0.35,
+      "mrr": 0.3292,
+      "ndcg3": 0.2946
+    },
+    "Frozen_Hybrid": {
+      "top1_match_rate": 0.2,
+      "top3_recall": 0.35,
+      "mrr": 0.3292,
+      "ndcg3": 0.2946
+    },
+    "Adapted_Hybrid": {
+      "top1_match_rate": 0.15,
+      "top3_recall": 0.75,
+      "mrr": 0.4717,
+      "ndcg3": 0.5024
+    }
+  },
+  "data_efficiency": {
+    "5%": {
+      "fraction": 0.05,
+      "sample_count": 2,
+      "top1_match_rate": 0.2,
+      "top3_recall": 0.35,
+      "mrr": 0.3292
+    },
+    "10%": {
+      "fraction": 0.1,
+      "sample_count": 3,
+      "top1_match_rate": 0.2,
+      "top3_recall": 0.75,
+      "mrr": 0.4279
+    },
+    "25%": {
+      "fraction": 0.25,
+      "sample_count": 7,
+      "top1_match_rate": 0.15,
+      "top3_recall": 0.75,
+      "mrr": 0.4029
+    },
+    "50%": {
+      "fraction": 0.5,
+      "sample_count": 13,
+      "top1_match_rate": 0.15,
+      "top3_recall": 0.75,
+      "mrr": 0.4542
+    },
+    "100%": {
+      "fraction": 1.0,
+      "sample_count": 25,
+      "top1_match_rate": 0.15,
+      "top3_recall": 0.75,
+      "mrr": 0.4717
+    }
+  }
+}

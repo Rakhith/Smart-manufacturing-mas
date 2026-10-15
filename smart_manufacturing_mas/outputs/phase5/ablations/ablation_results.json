@@ -1,0 +1,70 @@
+{
+  "alpha_sweep_ablation": {
+    "alpha_0.00": {
+      "alpha": 0.0,
+      "model_description": "CBR Only",
+      "top1_exact_agreement": 0.0,
+      "mean_ndcg_at_1": 0.0,
+      "mean_ndcg_at_3": 0.0783,
+      "mean_reciprocal_rank": 0.1172
+    },
+    "alpha_0.25": {
+      "alpha": 0.25,
+      "model_description": "Hybrid (alpha=0.25)",
+      "top1_exact_agreement": 0.0,
+      "mean_ndcg_at_1": 0.0,
+      "mean_ndcg_at_3": 0.0125,
+      "mean_reciprocal_rank": 0.0907
+    },
+    "alpha_0.50": {
+      "alpha": 0.5,
+      "model_description": "Hybrid (alpha=0.50)",
+      "top1_exact_agreement": 0.0,
+      "mean_ndcg_at_1": 0.0,
+      "mean_ndcg_at_3": 0.0,
+      "mean_reciprocal_rank": 0.0737
+    },
+    "alpha_0.75": {
+      "alpha": 0.75,
+      "model_description": "Hybrid (alpha=0.75)",
+      "top1_exact_agreement": 0.0,
+      "mean_ndcg_at_1": 0.0,
+      "mean_ndcg_at_3": 0.0,
+      "mean_reciprocal_rank": 0.0652
+    },
+    "alpha_1.00": {
+      "alpha": 1.0,
+      "model_description": "LGBM Only",
+      "top1_exact_agreement": 0.0,
+      "mean_ndcg_at_1": 0.0,
+      "mean_ndcg_at_3": 0.0,
+      "mean_reciprocal_rank": 0.0613
+    }
+  },
+  "feature_representation_ablation": {
+    "raw_structured": {
+      "subset_key": "raw_structured",
+      "description": "Ablation A: Raw Structured Features Only",
+      "top1_exact_agreement": 0.0,
+      "mean_ndcg_at_1": 0.0,
+      "mean_ndcg_at_3": 0.0,
+      "mean_reciprocal_rank": 0.0668
+    },
+    "canonical": {
+      "subset_key": "canonical",
+      "description": "Ablation B: Canonical Semantic Representation",
+      "top1_exact_agreement": 0.0,
+      "mean_ndcg_at_1": 0.0,
+      "mean_ndcg_at_3": 0.0,
+      "mean_reciprocal_rank": 0.0652
+    },
+    "full_semantic_trend": {
+      "subset_key": "full_semantic_trend",
+      "description": "Ablation C: Full Semantic + Temporal Trends (Proposed)",
+      "top1_exact_agreement": 0.0,
+      "mean_ndcg_at_1": 0.0,
+      "mean_ndcg_at_3": 0.0,
+      "mean_reciprocal_rank": 0.0652
+    }
+  }
+}

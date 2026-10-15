@@ -1,0 +1,20 @@
+Evaluation_Track,Model_or_Configuration,Top1_Match,Top3_Recall,MRR,NDCG3,Notes
+Baselines_Test_Set,Random,0.1,0.2,0.2149,0.15,Chronological Untouched Test Partition
+Baselines_Test_Set,Global_Majority,0.4,0.65,0.5883,0.5446,Chronological Untouched Test Partition
+Baselines_Test_Set,Component_Majority,0.15,0.65,0.4633,0.4524,Chronological Untouched Test Partition
+Baselines_Test_Set,Expert_Heuristic,0.15,0.15,0.2323,0.15,Chronological Untouched Test Partition
+Baselines_Test_Set,CBR_Only,0.0,0.0,0.0895,0.0,Chronological Untouched Test Partition
+Baselines_Test_Set,LGBM_Only,0.2,0.35,0.3292,0.2946,Chronological Untouched Test Partition
+Baselines_Test_Set,Frozen_Hybrid,0.2,0.35,0.3292,0.2946,Chronological Untouched Test Partition
+Baselines_Test_Set,Adapted_Hybrid,0.15,0.75,0.4717,0.5024,Chronological Untouched Test Partition
+Multi_Horizon,Horizon_48.0h,0.0317,0.2381,0.1991,0.1432,Snapshot lead time: 48.0 hours
+Multi_Horizon,Horizon_24.0h,0.0317,0.2381,0.1944,0.1391,Snapshot lead time: 24.0 hours
+Multi_Horizon,Horizon_12.0h,0.0317,0.2381,0.1957,0.1391,Snapshot lead time: 12.0 hours
+Multi_Horizon,Horizon_6.0h,0.0317,0.2698,0.1932,0.1529,Snapshot lead time: 6.0 hours
+Multi_Horizon,Horizon_3.0h,0.0476,0.254,0.2025,0.1529,Snapshot lead time: 3.0 hours
+Multi_Horizon,Horizon_1.0h,0.2222,0.3016,0.3329,0.2702,Snapshot lead time: 1.0 hours
+Selective_Prediction,Coverage_50pct,0.303,0.3636,0.3787,0.0,Margin-based abstention
+Selective_Prediction,Coverage_70pct,0.2609,0.3261,0.3261,0.0,Margin-based abstention
+Selective_Prediction,Coverage_80pct,0.2308,0.3269,0.2885,0.0,Margin-based abstention
+Selective_Prediction,Coverage_90pct,0.2679,0.3571,0.3349,0.0,Margin-based abstention
+Selective_Prediction,Coverage_100pct,0.254,0.3492,0.3175,0.0,Margin-based abstention

@@ -1,0 +1,145 @@
+{
+  "total_sampled": 1000,
+  "canonical_action_distribution": {
+    "ACT_INSP_SUBSYSTEM": 723,
+    "ACT_INSP_VIBRATION": 59,
+    "ACT_REPL_SEAL_VALVE": 53,
+    "ACT_CORR_LUBRICATE": 50,
+    "ACT_CORR_CLEAN_PURGE": 46,
+    "ACT_REPL_OVERHAUL": 41,
+    "ACT_CORR_FASTEN_ALIGN": 15,
+    "ACT_REPL_BEARING": 13
+  },
+  "component_distribution": {
+    "general_assembly": 296,
+    "bearing": 151,
+    "seal": 137,
+    "pump": 128,
+    "cooling_filter": 92,
+    "motor": 75,
+    "valve": 68,
+    "coupling_drive": 53
+  },
+  "sample_records": [
+    {
+      "original_text": "Diaphragm Pump DP-101 diaphragm rupture. Process fluid detected in air exhaust.",
+      "extracted_component": "pump",
+      "extracted_action_verb": "inspect",
+      "canonical_action_id": "ACT_INSP_SUBSYSTEM",
+      "confidence": 0.7,
+      "mapping_provenance": "NLP_Rule_Extractor_v1",
+      "work_order": "26553232",
+      "order_type": "CM",
+      "planned_work": "7.0",
+      "actual_work": "9.0"
+    },
+    {
+      "original_text": "Motor M-03 earth fault trip. Single phase to earth detected on stator winding.",
+      "extracted_component": "motor",
+      "extracted_action_verb": "inspect",
+      "canonical_action_id": "ACT_INSP_SUBSYSTEM",
+      "confidence": 0.7,
+      "mapping_provenance": "NLP_Rule_Extractor_v1",
+      "work_order": "23721061.0000000000",
+      "order_type": "CM",
+      "planned_work": "7.5",
+      "actual_work": "11.0"
+    },
+    {
+      "original_text": "Evaporator EV-02 vacuum loss. Level dropping in vapour body. Steam ejector or vacuum pump fault suspected.",
+      "extracted_component": "pump",
+      "extracted_action_verb": "inspect",
+      "canonical_action_id": "ACT_INSP_SUBSYSTEM",
+      "confidence": 0.7,
+      "mapping_provenance": "NLP_Rule_Extractor_v1",
+      "work_order": "21483317",
+      "order_type": "CM",
+      "planned_work": "6.1",
+      "actual_work": "9.0"
+    },
+    {
+      "original_text": "Centrifugal Pump P-202 vibration trending upward over 30 days. Broadband velocity 1.6 mm/s. Bearing defect frequency identified in spectrum.",
+      "extracted_component": "bearing",
+      "extracted_action_verb": "vibration_diagnostics",
+      "canonical_action_id": "ACT_INSP_VIBRATION",
+      "confidence": 0.9,
+      "mapping_provenance": "NLP_Rule_Extractor_v1",
+      "work_order": "26053121",
+      "order_type": "PDM",
+      "planned_work": "20.7",
+      "actual_work": "21.2"
+    },
+    {
+      "original_text": "Compressor K-201 discharge valve efficiency declining based on performance monitoring. Throughput 16 Nm3/h below rated.",
+      "extracted_component": "valve",
+      "extracted_action_verb": "inspect",
+      "canonical_action_id": "ACT_INSP_SUBSYSTEM",
+      "confidence": 0.7,
+      "mapping_provenance": "NLP_Rule_Extractor_v1",
+      "work_order": "20802725",
+      "order_type": "PPDM",
+      "planned_work": "8.5",
+      "actual_work": "11.0"
+    },
+    {
+      "original_text": "Vacuum Pump VP-101 oil temperatue high alarm. Cooling water flow restricted.",
+      "extracted_component": "pump",
+      "extracted_action_verb": "inspect",
+      "canonical_action_id": "ACT_INSP_SUBSYSTEM",
+      "confidence": 0.7,
+      "mapping_provenance": "NLP_Rule_Extractor_v1",
+      "work_order": "NULL",
+      "order_type": "CM",
+      "planned_work": "3.6",
+      "actual_work": "3.2"
+    },
+    {
+      "original_text": "Heat Exchanger HX-01 tube leak detected. Cross contamination confirmed by conductivity rise on shell side.",
+      "extracted_component": "cooling_filter",
+      "extracted_action_verb": "inspect",
+      "canonical_action_id": "ACT_INSP_SUBSYSTEM",
+      "confidence": 0.7,
+      "mapping_provenance": "NLP_Rule_Extractor_v1",
+      "work_order": "21959934",
+      "order_type": "CM",
+      "planned_work": "7.5",
+      "actual_work": "10.5"
+    },
+    {
+      "original_text": "Crystalliser CR-101 annual internal inspection and agitator overhaul.",
+      "extracted_component": "general_assembly",
+      "extracted_action_verb": "overhaul",
+      "canonical_action_id": "ACT_REPL_OVERHAUL",
+      "confidence": 0.95,
+      "mapping_provenance": "NLP_Rule_Extractor_v1",
+      "work_order": "21766871",
+      "order_type": "PM",
+      "planned_work": "9.0",
+      "actual_work": "9.3"
+    },
+    {
+      "original_text": "Motor M-03 insulation resistance failure. Megger test 78 MOhm below minimum 1 MOhm. Winding degradation.",
+      "extracted_component": "motor",
+      "extracted_action_verb": "inspect",
+      "canonical_action_id": "ACT_INSP_SUBSYSTEM",
+      "confidence": 0.7,
+      "mapping_provenance": "NLP_Rule_Extractor_v1",
+      "work_order": "26735418",
+      "order_type": "CM",
+      "planned_work": "15.8",
+      "actual_work": "21.7"
+    },
+    {
+      "original_text": "Steam Turbine TRB-01 annual steam turbine inspection and governor test.",
+      "extracted_component": "general_assembly",
+      "extracted_action_verb": "inspect",
+      "canonical_action_id": "ACT_INSP_SUBSYSTEM",
+      "confidence": 0.85,
+      "mapping_provenance": "NLP_Rule_Extractor_v1",
+      "work_order": "20326893",
+      "order_type": "PM",
+      "planned_work": "4.0",
+      "actual_work": "  4.9  "
+    }
+  ]
+}

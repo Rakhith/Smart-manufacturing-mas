@@ -1,0 +1,362 @@
+[
+  {
+    "technician_card": {
+      "card_id": "TC-EQ-0000001-DS_OIL040_EQ-0000001_EQ-0000001-00000008",
+      "decision_state_id": "DS_OIL040_EQ-0000001_EQ-0000001-00000008",
+      "asset_id": "EQ-0000001",
+      "timestamp": "2025-01-03 00:00:00+00:00",
+      "machine_archetype": "air_compressor",
+      "detected_severity": "WATCH",
+      "operational_urgency": "Elevated Supervisory Monitoring",
+      "prescribed_action": {
+        "action_id": "ACT_MON_ENHANCED",
+        "action_name": "Increase Monitoring Frequency & Alert Sensitivity",
+        "action_category": "monitoring_observation",
+        "hybrid_confidence": 1.0,
+        "lgbm_score": 0.4157,
+        "cbr_score": 2.3961
+      },
+      "alternative_actions": [
+        {
+          "rank": 2,
+          "action_id": "ACT_MON_PARAMETER_LOG",
+          "action_name": "Log Process Parameter & Latency Drift",
+          "confidence": 0.8268
+        },
+        {
+          "rank": 3,
+          "action_id": "ACT_INSP_VIBRATION",
+          "action_name": "Perform High-Resolution Vibration Diagnostics",
+          "confidence": 0.7909
+        },
+        {
+          "rank": 4,
+          "action_id": "ACT_INSP_LUBRICATION",
+          "action_name": "Inspect Lubrication & Fluid Condition",
+          "confidence": 0.6898
+        }
+      ],
+      "grounded_evidence": [
+        "Vibration RMS: 2.02 mm/s",
+        "Temperature: 79.2 \u00b0C",
+        "Pressure: 55.79 bar",
+        "Health Index: 73.9/100"
+      ],
+      "trend_dynamics": {
+        "vibration_slope": 0.08095999999999992,
+        "temp_slope": -1.7625000000000028,
+        "health_index_trend": -1.2375399999999956
+      },
+      "rationale": "Asset EQ-0000001 (air_compressor) is operating in WATCH condition at timestamp 2025-01-03 00:00:00+00:00. Observed physical telemetry indicates: Vibration RMS: 2.02 mm/s, Temperature: 79.2 \u00b0C, Pressure: 55.79 bar, Health Index: 73.9/100. Trailing trend dynamics indicate: vibration_slope: +0.081, temp_slope: -1.763, health_index_trend: -1.238. Frozen Prescriptive Engine ranked 'Increase Monitoring Frequency & Alert Sensitivity' as the optimal intervention with hybrid confidence score 1.0000 (LGBM gain: 0.416, CBR neighborhood agreement: 2.396). Alternative secondary candidate: 'Log Process Parameter & Latency Drift' (confidence: 0.8268).",
+      "uncertainty_assessment": "High confidence: strong concord between LGBM ranking and historical case retrieval.",
+      "actual_plant_outcome": {
+        "target_action": "ACT_REPL_BEARING",
+        "downtime": 13.38
+      },
+      "epistemic_provenance": {
+        "generator": "GroundedPrescriptiveSummarizer",
+        "model": "deterministic_grounded_template",
+        "recommender_source": "Phase 4 Frozen LGBMRanker + CBR Hybrid"
+      }
+    },
+    "cmms_ticket": {
+      "WorkOrder": "WO-EQ-0000001-000008",
+      "Equipment_ID": "EQ-0000001",
+      "OrderType": "PM01",
+      "Priority": "3-Normal",
+      "WorkOrderDescription": "PRESCRIBED: Increase Monitoring Frequency & Alert Sensitivity on air_compressor",
+      "OperationDescription": "Condition: WATCH. Evidence: Vibration RMS: 2.02 mm/s; Temperature: 79.2 \u00b0C; Pressure: 55.79 bar; Health Index: 73.9/100. Asset EQ-0000001 (air_compressor) is operating in WATCH condition at timestamp 2025-01-03 00:00:00+00:00. Observed physical telemetry indicates: Vibration RMS: 2.02 mm/s, Temperature: 79.2 \u00b0C, Pressure: 55.79 bar, Health Index: 73.9/100. Trailing trend dynamics indicate: vibration_slope: +0.081, temp_slope: -1.763, health_index_trend: -1.238. Frozen Prescriptive Engine ranked 'Increase Monitoring Frequency & Alert Sensitivity' as the optimal intervention with hybrid confidence score 1.0000 (LGBM gain: 0.416, CBR neighborhood agreement: 2.396). Alternative secondary candidate: 'Log Process Parameter & Latency Drift' (confidence: 0.8268).",
+      "MaintenanceWorkCenter": "ELEC_MAINT",
+      "OrderStatus": "CRTD",
+      "DispatchedBy": "Smart_Manufacturing_MAS_Phase5"
+    }
+  },
+  {
+    "technician_card": {
+      "card_id": "TC-EQ-0000002-DS_OIL040_EQ-0000002_EQ-0000002-00000089",
+      "decision_state_id": "DS_OIL040_EQ-0000002_EQ-0000002-00000089",
+      "asset_id": "EQ-0000002",
+      "timestamp": "2025-01-23 06:00:00+00:00",
+      "machine_archetype": "industrial_machine",
+      "detected_severity": "DEGRADING",
+      "operational_urgency": "High Priority (Intervene within 24-48h)",
+      "prescribed_action": {
+        "action_id": "ACT_MON_ENHANCED",
+        "action_name": "Increase Monitoring Frequency & Alert Sensitivity",
+        "action_category": "monitoring_observation",
+        "hybrid_confidence": 1.0,
+        "lgbm_score": 0.4752,
+        "cbr_score": 2.3966
+      },
+      "alternative_actions": [
+        {
+          "rank": 2,
+          "action_id": "ACT_MON_PARAMETER_LOG",
+          "action_name": "Log Process Parameter & Latency Drift",
+          "confidence": 0.8268
+        },
+        {
+          "rank": 3,
+          "action_id": "ACT_INSP_VIBRATION",
+          "action_name": "Perform High-Resolution Vibration Diagnostics",
+          "confidence": 0.7781
+        },
+        {
+          "rank": 4,
+          "action_id": "ACT_INSP_LUBRICATION",
+          "action_name": "Inspect Lubrication & Fluid Condition",
+          "confidence": 0.677
+        }
+      ],
+      "grounded_evidence": [
+        "Vibration RMS: 2.08 mm/s",
+        "Temperature: 83.7 \u00b0C",
+        "Pressure: 37.30 bar",
+        "Health Index: 59.6/100"
+      ],
+      "trend_dynamics": {
+        "vibration_slope": 0.1532500000000001,
+        "temp_slope": 1.9744000000000028,
+        "health_index_trend": -1.716239999999999
+      },
+      "rationale": "Asset EQ-0000002 (industrial_machine) is operating in DEGRADING condition at timestamp 2025-01-23 06:00:00+00:00. Observed physical telemetry indicates: Vibration RMS: 2.08 mm/s, Temperature: 83.7 \u00b0C, Pressure: 37.30 bar, Health Index: 59.6/100. Trailing trend dynamics indicate: vibration_slope: +0.153, temp_slope: +1.974, health_index_trend: -1.716. Frozen Prescriptive Engine ranked 'Increase Monitoring Frequency & Alert Sensitivity' as the optimal intervention with hybrid confidence score 1.0000 (LGBM gain: 0.475, CBR neighborhood agreement: 2.397). Alternative secondary candidate: 'Log Process Parameter & Latency Drift' (confidence: 0.8268).",
+      "uncertainty_assessment": "High confidence: strong concord between LGBM ranking and historical case retrieval.",
+      "actual_plant_outcome": {
+        "target_action": "ACT_REPL_BEARING",
+        "downtime": 4.2
+      },
+      "epistemic_provenance": {
+        "generator": "GroundedPrescriptiveSummarizer",
+        "model": "deterministic_grounded_template",
+        "recommender_source": "Phase 4 Frozen LGBMRanker + CBR Hybrid"
+      }
+    },
+    "cmms_ticket": {
+      "WorkOrder": "WO-EQ-0000002-000089",
+      "Equipment_ID": "EQ-0000002",
+      "OrderType": "PM01",
+      "Priority": "2-High",
+      "WorkOrderDescription": "PRESCRIBED: Increase Monitoring Frequency & Alert Sensitivity on industrial_machine",
+      "OperationDescription": "Condition: DEGRADING. Evidence: Vibration RMS: 2.08 mm/s; Temperature: 83.7 \u00b0C; Pressure: 37.30 bar; Health Index: 59.6/100. Asset EQ-0000002 (industrial_machine) is operating in DEGRADING condition at timestamp 2025-01-23 06:00:00+00:00. Observed physical telemetry indicates: Vibration RMS: 2.08 mm/s, Temperature: 83.7 \u00b0C, Pressure: 37.30 bar, Health Index: 59.6/100. Trailing trend dynamics indicate: vibration_slope: +0.153, temp_slope: +1.974, health_index_trend: -1.716. Frozen Prescriptive Engine ranked 'Increase Monitoring Frequency & Alert Sensitivity' as the optimal intervention with hybrid confidence score 1.0000 (LGBM gain: 0.475, CBR neighborhood agreement: 2.397). Alternative secondary candidate: 'Log Process Parameter & Latency Drift' (confidence: 0.8268).",
+      "MaintenanceWorkCenter": "ELEC_MAINT",
+      "OrderStatus": "CRTD",
+      "DispatchedBy": "Smart_Manufacturing_MAS_Phase5"
+    }
+  },
+  {
+    "technician_card": {
+      "card_id": "TC-EQ-0000002-DS_OIL040_EQ-0000002_EQ-0000002-00000111",
+      "decision_state_id": "DS_OIL040_EQ-0000002_EQ-0000002-00000111",
+      "asset_id": "EQ-0000002",
+      "timestamp": "2025-01-28 18:00:00+00:00",
+      "machine_archetype": "industrial_machine",
+      "detected_severity": "DEGRADING",
+      "operational_urgency": "High Priority (Intervene within 24-48h)",
+      "prescribed_action": {
+        "action_id": "ACT_MON_ENHANCED",
+        "action_name": "Increase Monitoring Frequency & Alert Sensitivity",
+        "action_category": "monitoring_observation",
+        "hybrid_confidence": 1.0,
+        "lgbm_score": 0.4752,
+        "cbr_score": 2.3965
+      },
+      "alternative_actions": [
+        {
+          "rank": 2,
+          "action_id": "ACT_MON_PARAMETER_LOG",
+          "action_name": "Log Process Parameter & Latency Drift",
+          "confidence": 0.8268
+        },
+        {
+          "rank": 3,
+          "action_id": "ACT_INSP_VIBRATION",
+          "action_name": "Perform High-Resolution Vibration Diagnostics",
+          "confidence": 0.7782
+        },
+        {
+          "rank": 4,
+          "action_id": "ACT_INSP_LUBRICATION",
+          "action_name": "Inspect Lubrication & Fluid Condition",
+          "confidence": 0.6771
+        }
+      ],
+      "grounded_evidence": [
+        "Vibration RMS: 1.96 mm/s",
+        "Temperature: 84.6 \u00b0C",
+        "Pressure: 37.93 bar",
+        "Health Index: 62.8/100"
+      ],
+      "trend_dynamics": {
+        "vibration_slope": 0.2814500000000002,
+        "temp_slope": 2.093500000000006,
+        "health_index_trend": -3.8207499999999968
+      },
+      "rationale": "Asset EQ-0000002 (industrial_machine) is operating in DEGRADING condition at timestamp 2025-01-28 18:00:00+00:00. Observed physical telemetry indicates: Vibration RMS: 1.96 mm/s, Temperature: 84.6 \u00b0C, Pressure: 37.93 bar, Health Index: 62.8/100. Trailing trend dynamics indicate: vibration_slope: +0.281, temp_slope: +2.094, health_index_trend: -3.821. Frozen Prescriptive Engine ranked 'Increase Monitoring Frequency & Alert Sensitivity' as the optimal intervention with hybrid confidence score 1.0000 (LGBM gain: 0.475, CBR neighborhood agreement: 2.396). Alternative secondary candidate: 'Log Process Parameter & Latency Drift' (confidence: 0.8268).",
+      "uncertainty_assessment": "High confidence: strong concord between LGBM ranking and historical case retrieval.",
+      "actual_plant_outcome": {
+        "target_action": "ACT_CORR_LUBRICATE",
+        "downtime": 3.37
+      },
+      "epistemic_provenance": {
+        "generator": "GroundedPrescriptiveSummarizer",
+        "model": "deterministic_grounded_template",
+        "recommender_source": "Phase 4 Frozen LGBMRanker + CBR Hybrid"
+      }
+    },
+    "cmms_ticket": {
+      "WorkOrder": "WO-EQ-0000002-000111",
+      "Equipment_ID": "EQ-0000002",
+      "OrderType": "PM01",
+      "Priority": "2-High",
+      "WorkOrderDescription": "PRESCRIBED: Increase Monitoring Frequency & Alert Sensitivity on industrial_machine",
+      "OperationDescription": "Condition: DEGRADING. Evidence: Vibration RMS: 1.96 mm/s; Temperature: 84.6 \u00b0C; Pressure: 37.93 bar; Health Index: 62.8/100. Asset EQ-0000002 (industrial_machine) is operating in DEGRADING condition at timestamp 2025-01-28 18:00:00+00:00. Observed physical telemetry indicates: Vibration RMS: 1.96 mm/s, Temperature: 84.6 \u00b0C, Pressure: 37.93 bar, Health Index: 62.8/100. Trailing trend dynamics indicate: vibration_slope: +0.281, temp_slope: +2.094, health_index_trend: -3.821. Frozen Prescriptive Engine ranked 'Increase Monitoring Frequency & Alert Sensitivity' as the optimal intervention with hybrid confidence score 1.0000 (LGBM gain: 0.475, CBR neighborhood agreement: 2.396). Alternative secondary candidate: 'Log Process Parameter & Latency Drift' (confidence: 0.8268).",
+      "MaintenanceWorkCenter": "ELEC_MAINT",
+      "OrderStatus": "CRTD",
+      "DispatchedBy": "Smart_Manufacturing_MAS_Phase5"
+    }
+  },
+  {
+    "technician_card": {
+      "card_id": "TC-EQ-0000002-DS_OIL040_EQ-0000002_EQ-0000002-00000116",
+      "decision_state_id": "DS_OIL040_EQ-0000002_EQ-0000002-00000116",
+      "asset_id": "EQ-0000002",
+      "timestamp": "2025-01-30 00:00:00+00:00",
+      "machine_archetype": "industrial_machine",
+      "detected_severity": "WATCH",
+      "operational_urgency": "Elevated Supervisory Monitoring",
+      "prescribed_action": {
+        "action_id": "ACT_MON_ENHANCED",
+        "action_name": "Increase Monitoring Frequency & Alert Sensitivity",
+        "action_category": "monitoring_observation",
+        "hybrid_confidence": 1.0,
+        "lgbm_score": 0.4752,
+        "cbr_score": 2.3972
+      },
+      "alternative_actions": [
+        {
+          "rank": 2,
+          "action_id": "ACT_MON_PARAMETER_LOG",
+          "action_name": "Log Process Parameter & Latency Drift",
+          "confidence": 0.8268
+        },
+        {
+          "rank": 3,
+          "action_id": "ACT_INSP_VIBRATION",
+          "action_name": "Perform High-Resolution Vibration Diagnostics",
+          "confidence": 0.7826
+        },
+        {
+          "rank": 4,
+          "action_id": "ACT_INSP_LUBRICATION",
+          "action_name": "Inspect Lubrication & Fluid Condition",
+          "confidence": 0.6816
+        }
+      ],
+      "grounded_evidence": [
+        "Vibration RMS: 1.74 mm/s",
+        "Temperature: 83.2 \u00b0C",
+        "Pressure: 38.14 bar",
+        "Health Index: 68.8/100"
+      ],
+      "trend_dynamics": {
+        "vibration_slope": -0.09190999999999994,
+        "temp_slope": -1.358000000000004,
+        "health_index_trend": 3.829729999999998
+      },
+      "rationale": "Asset EQ-0000002 (industrial_machine) is operating in WATCH condition at timestamp 2025-01-30 00:00:00+00:00. Observed physical telemetry indicates: Vibration RMS: 1.74 mm/s, Temperature: 83.2 \u00b0C, Pressure: 38.14 bar, Health Index: 68.8/100. Trailing trend dynamics indicate: vibration_slope: -0.092, temp_slope: -1.358, health_index_trend: +3.830. Frozen Prescriptive Engine ranked 'Increase Monitoring Frequency & Alert Sensitivity' as the optimal intervention with hybrid confidence score 1.0000 (LGBM gain: 0.475, CBR neighborhood agreement: 2.397). Alternative secondary candidate: 'Log Process Parameter & Latency Drift' (confidence: 0.8268).",
+      "uncertainty_assessment": "High confidence: strong concord between LGBM ranking and historical case retrieval.",
+      "actual_plant_outcome": {
+        "target_action": "ACT_CORR_CALIBRATE",
+        "downtime": 6.79
+      },
+      "epistemic_provenance": {
+        "generator": "GroundedPrescriptiveSummarizer",
+        "model": "deterministic_grounded_template",
+        "recommender_source": "Phase 4 Frozen LGBMRanker + CBR Hybrid"
+      }
+    },
+    "cmms_ticket": {
+      "WorkOrder": "WO-EQ-0000002-000116",
+      "Equipment_ID": "EQ-0000002",
+      "OrderType": "PM01",
+      "Priority": "3-Normal",
+      "WorkOrderDescription": "PRESCRIBED: Increase Monitoring Frequency & Alert Sensitivity on industrial_machine",
+      "OperationDescription": "Condition: WATCH. Evidence: Vibration RMS: 1.74 mm/s; Temperature: 83.2 \u00b0C; Pressure: 38.14 bar; Health Index: 68.8/100. Asset EQ-0000002 (industrial_machine) is operating in WATCH condition at timestamp 2025-01-30 00:00:00+00:00. Observed physical telemetry indicates: Vibration RMS: 1.74 mm/s, Temperature: 83.2 \u00b0C, Pressure: 38.14 bar, Health Index: 68.8/100. Trailing trend dynamics indicate: vibration_slope: -0.092, temp_slope: -1.358, health_index_trend: +3.830. Frozen Prescriptive Engine ranked 'Increase Monitoring Frequency & Alert Sensitivity' as the optimal intervention with hybrid confidence score 1.0000 (LGBM gain: 0.475, CBR neighborhood agreement: 2.397). Alternative secondary candidate: 'Log Process Parameter & Latency Drift' (confidence: 0.8268).",
+      "MaintenanceWorkCenter": "ELEC_MAINT",
+      "OrderStatus": "CRTD",
+      "DispatchedBy": "Smart_Manufacturing_MAS_Phase5"
+    }
+  },
+  {
+    "technician_card": {
+      "card_id": "TC-EQ-0000003-DS_OIL040_EQ-0000003_EQ-0000003-00000039",
+      "decision_state_id": "DS_OIL040_EQ-0000003_EQ-0000003-00000039",
+      "asset_id": "EQ-0000003",
+      "timestamp": "2025-01-10 18:00:00+00:00",
+      "machine_archetype": "industrial_machine",
+      "detected_severity": "DEGRADING",
+      "operational_urgency": "High Priority (Intervene within 24-48h)",
+      "prescribed_action": {
+        "action_id": "ACT_MON_ENHANCED",
+        "action_name": "Increase Monitoring Frequency & Alert Sensitivity",
+        "action_category": "monitoring_observation",
+        "hybrid_confidence": 1.0,
+        "lgbm_score": 0.4752,
+        "cbr_score": 2.3965
+      },
+      "alternative_actions": [
+        {
+          "rank": 2,
+          "action_id": "ACT_MON_PARAMETER_LOG",
+          "action_name": "Log Process Parameter & Latency Drift",
+          "confidence": 0.8268
+        },
+        {
+          "rank": 3,
+          "action_id": "ACT_INSP_VIBRATION",
+          "action_name": "Perform High-Resolution Vibration Diagnostics",
+          "confidence": 0.7781
+        },
+        {
+          "rank": 4,
+          "action_id": "ACT_INSP_LUBRICATION",
+          "action_name": "Inspect Lubrication & Fluid Condition",
+          "confidence": 0.677
+        }
+      ],
+      "grounded_evidence": [
+        "Vibration RMS: 2.84 mm/s",
+        "Temperature: 82.9 \u00b0C",
+        "Pressure: 38.77 bar",
+        "Health Index: 64.0/100"
+      ],
+      "trend_dynamics": {
+        "vibration_slope": 0.44823000000000013,
+        "temp_slope": 4.055400000000006,
+        "health_index_trend": -3.342340000000007
+      },
+      "rationale": "Asset EQ-0000003 (industrial_machine) is operating in DEGRADING condition at timestamp 2025-01-10 18:00:00+00:00. Observed physical telemetry indicates: Vibration RMS: 2.84 mm/s, Temperature: 82.9 \u00b0C, Pressure: 38.77 bar, Health Index: 64.0/100. Trailing trend dynamics indicate: vibration_slope: +0.448, temp_slope: +4.055, health_index_trend: -3.342. Frozen Prescriptive Engine ranked 'Increase Monitoring Frequency & Alert Sensitivity' as the optimal intervention with hybrid confidence score 1.0000 (LGBM gain: 0.475, CBR neighborhood agreement: 2.396). Alternative secondary candidate: 'Log Process Parameter & Latency Drift' (confidence: 0.8268).",
+      "uncertainty_assessment": "High confidence: strong concord between LGBM ranking and historical case retrieval.",
+      "actual_plant_outcome": {
+        "target_action": "ACT_REPL_OVERHAUL",
+        "downtime": 3.41
+      },
+      "epistemic_provenance": {
+        "generator": "GroundedPrescriptiveSummarizer",
+        "model": "deterministic_grounded_template",
+        "recommender_source": "Phase 4 Frozen LGBMRanker + CBR Hybrid"
+      }
+    },
+    "cmms_ticket": {
+      "WorkOrder": "WO-EQ-0000003-000039",
+      "Equipment_ID": "EQ-0000003",
+      "OrderType": "PM01",
+      "Priority": "2-High",
+      "WorkOrderDescription": "PRESCRIBED: Increase Monitoring Frequency & Alert Sensitivity on industrial_machine",
+      "OperationDescription": "Condition: DEGRADING. Evidence: Vibration RMS: 2.84 mm/s; Temperature: 82.9 \u00b0C; Pressure: 38.77 bar; Health Index: 64.0/100. Asset EQ-0000003 (industrial_machine) is operating in DEGRADING condition at timestamp 2025-01-10 18:00:00+00:00. Observed physical telemetry indicates: Vibration RMS: 2.84 mm/s, Temperature: 82.9 \u00b0C, Pressure: 38.77 bar, Health Index: 64.0/100. Trailing trend dynamics indicate: vibration_slope: +0.448, temp_slope: +4.055, health_index_trend: -3.342. Frozen Prescriptive Engine ranked 'Increase Monitoring Frequency & Alert Sensitivity' as the optimal intervention with hybrid confidence score 1.0000 (LGBM gain: 0.475, CBR neighborhood agreement: 2.396). Alternative secondary candidate: 'Log Process Parameter & Latency Drift' (confidence: 0.8268).",
+      "MaintenanceWorkCenter": "ELEC_MAINT",
+      "OrderStatus": "CRTD",
+      "DispatchedBy": "Smart_Manufacturing_MAS_Phase5"
+    }
+  }
+]

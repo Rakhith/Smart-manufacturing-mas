@@ -1,0 +1,13 @@
+{
+  "total_instances": 63,
+  "family_agreement_rate": 0.3492,
+  "category_agreement_rate": 0.3492,
+  "action_exact_agreement_rate": 0.254,
+  "action_component_agreement_rate": 0.254,
+  "mean_graded_relevance_score": 0.2921,
+  "graded_distribution": {
+    "UNRELATED": 41,
+    "EXACT_ACTION_AND_COMPONENT": 16,
+    "FAMILY_ONLY": 6
+  }
+}
